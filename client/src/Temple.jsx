@@ -950,63 +950,94 @@ const navigate=useNavigate();
                 style={{ backgroundColor: '#F4E8E8' }}
               ></div>
               
-              {timelineEvents.map((event, index) => (
-                <div key={index} className="relative mb-8 sm:mb-12 last:mb-0">
-                  {/* Mobile layout - always left aligned */}
-                  <div className="sm:hidden">
-                    <div className="flex items-start mb-4">
-                      <div className="w-8 h-8 rounded-full border-4 border-white shadow-lg mr-4"
-                           style={{ backgroundColor: event.status === 'current' ? '#C41E3A' : event.status === 'upcoming' ? '#8B1538' : '#F4E8E8' }}>
-                        {event.status === 'current' && <div className="w-full h-full rounded-full animate-pulse" style={{ backgroundColor: '#C41E3A' }}></div>}
-                      </div>
-                      <div>
-                        <div className="flex items-center mb-1">
-                          <event.icon className="w-5 h-5 mr-2" style={{ color: '#C41E3A' }} />
-                          <span className="font-bold text-base" style={{ color: event.status === 'current' ? '#C41E3A' : '#2C2C2C' }}>
-                            {event.period}
-                          </span>
-                        </div>
-                        <h4 className="font-bold text-lg mb-1" style={{ color: '#2C2C2C' }}>
-                          {event.event}
-                        </h4>
-                        <p className="text-sm" style={{ color: '#6B4B4B' }}>
-                          {event.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Desktop layout - alternating sides */}
-                  <div className="hidden sm:flex items-center">
-                    <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                      <div 
-                        className="p-4 sm:p-6 rounded-lg shadow-lg"
-                        style={{ backgroundColor: '#FFFEF7' }}
-                      >
-                        <div className="flex items-center mb-2" style={{ justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
-                          <event.icon className="w-5 h-5 sm:w-6 sm:h-6 mr-2" style={{ color: '#C41E3A' }} />
-                          <span className="font-bold text-base sm:text-lg" style={{ color: event.status === 'current' ? '#C41E3A' : '#2C2C2C' }}>
-                            {event.period}
-                          </span>
-                        </div>
-                        <h4 className="font-bold text-lg sm:text-xl mb-1 sm:mb-2" style={{ color: '#2C2C2C' }}>
-                          {event.event}
-                        </h4>
-                        <p className="text-sm sm:text-base" style={{ color: '#6B4B4B' }}>
-                          {event.description}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 sm:w-8 sm:h-8 rounded-full border-4 border-white shadow-lg"
-                         style={{ backgroundColor: event.status === 'current' ? '#C41E3A' : event.status === 'upcoming' ? '#8B1538' : '#F4E8E8' }}>
-                      {event.status === 'current' && <div className="w-full h-full rounded-full animate-pulse" style={{ backgroundColor: '#C41E3A' }}></div>}
-                    </div>
-                    
-                    <div className="w-1/2"></div>
-                  </div>
-                </div>
-              ))}
+            {timelineEvents.map((event, index) => (
+  <div key={index} className="relative mb-8 sm:mb-12 last:mb-0">
+    {/* Mobile layout - always left aligned */}
+    <div className="sm:hidden">
+      <div className="flex items-start mb-4">
+        <div className="w-8 h-8 rounded-full border-4 border-white shadow-lg mr-4"
+             style={{ backgroundColor: event.status === 'current' ? '#C41E3A' : event.status === 'upcoming' ? '#8B1538' : '#F4E8E8' }}>
+          {event.status === 'current' && <div className="w-full h-full rounded-full animate-pulse" style={{ backgroundColor: '#C41E3A' }}></div>}
+        </div>
+        <div>
+          <div className="flex items-center mb-1">
+            <event.icon className="w-5 h-5 mr-2" style={{ color: '#C41E3A' }} />
+            <span className="font-bold text-base" style={{ color: event.status === 'current' ? '#C41E3A' : '#2C2C2C' }}>
+              {event.period}
+            </span>
+          </div>
+          <h4 className="font-bold text-lg mb-1" style={{ color: '#2C2C2C' }}>
+            {event.event}
+          </h4>
+          <p className="text-sm" style={{ color: '#6B4B4B' }}>
+            {event.description}
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    {/* Desktop layout - alternating sides */}
+    <div className="hidden sm:flex items-center">
+      {/* Left side card (for even index) */}
+      {index % 2 === 0 && (
+        <div className="w-1/2 pr-8 text-right">
+          <div 
+            className="p-4 sm:p-6 rounded-lg shadow-lg"
+            style={{ backgroundColor: '#FFFEF7' }}
+          >
+            <div className="flex items-center mb-2 justify-end">
+              <event.icon className="w-5 h-5 sm:w-6 sm:h-6 mr-2" style={{ color: '#C41E3A' }} />
+              <span className="font-bold text-base sm:text-lg" style={{ color: event.status === 'current' ? '#C41E3A' : '#2C2C2C' }}>
+                {event.period}
+              </span>
+            </div>
+            <h4 className="font-bold text-lg sm:text-xl mb-1 sm:mb-2" style={{ color: '#2C2C2C' }}>
+              {event.event}
+            </h4>
+            <p className="text-sm sm:text-base" style={{ color: '#6B4B4B' }}>
+              {event.description}
+            </p>
+          </div>
+        </div>
+      )}
+      
+      {/* Empty left space (for odd index) */}
+      {index % 2 === 1 && <div className="w-1/2"></div>}
+      
+      {/* Center timeline dot */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 sm:w-8 sm:h-8 rounded-full border-4 border-white shadow-lg z-10"
+           style={{ backgroundColor: event.status === 'current' ? '#C41E3A' : event.status === 'upcoming' ? '#8B1538' : '#F4E8E8' }}>
+        {event.status === 'current' && <div className="w-full h-full rounded-full animate-pulse" style={{ backgroundColor: '#C41E3A' }}></div>}
+      </div>
+      
+      {/* Right side card (for odd index) */}
+      {index % 2 === 1 && (
+        <div className="w-1/2 pl-8 text-left">
+          <div 
+            className="p-4 sm:p-6 rounded-lg shadow-lg"
+            style={{ backgroundColor: '#FFFEF7' }}
+          >
+            <div className="flex items-center mb-2 justify-start">
+              <event.icon className="w-5 h-5 sm:w-6 sm:h-6 mr-2" style={{ color: '#C41E3A' }} />
+              <span className="font-bold text-base sm:text-lg" style={{ color: event.status === 'current' ? '#C41E3A' : '#2C2C2C' }}>
+                {event.period}
+              </span>
+            </div>
+            <h4 className="font-bold text-lg sm:text-xl mb-1 sm:mb-2" style={{ color: '#2C2C2C' }}>
+              {event.event}
+            </h4>
+            <p className="text-sm sm:text-base" style={{ color: '#6B4B4B' }}>
+              {event.description}
+            </p>
+          </div>
+        </div>
+      )}
+      
+      {/* Empty right space (for even index) */}
+      {index % 2 === 0 && <div className="w-1/2"></div>}
+    </div>
+  </div>
+))}
             </div>
           </div>
         </div>
