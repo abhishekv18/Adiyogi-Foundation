@@ -373,6 +373,7 @@ import React, { useEffect, useState } from 'react';
 import { Send, Phone, Mail, MapPin, User, MessageCircle, Heart, Flower, Star, Mountain } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 const ContactUs = () => {
 
@@ -398,7 +399,7 @@ const navigate=useNavigate();
     message: ''
   });
 
-  const [focusedField, setFocusedField] = useState('');
+  // const [focusedField, setFocusedField] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -408,11 +409,46 @@ const navigate=useNavigate();
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
-    alert('Thank you for reaching out to us. We will connect with you soon. Om Namah Shivaya!');
+  const handleSubmit = async (e) => {
+         e.preventDefault();
+  try {
+    dispatch(setLoad(true)); // Correct spelling
+    const res = await axios.post('http://localhost:5000/api/contact/add',formData, {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    });
+
+   if (res.data.success) {
+      // Add new client to state
+   
+//  toast.success('Details send successfully', {
+//   icon: '✅',
+//   style: {
+//     border: '1px solid #28a745',
+//     padding: '16px',
+//     color: '#fff',
+//     background: 'linear-gradient(135deg, #28a745, #218838)',
+//     fontWeight: '600',
+//   },
+// });
+      // Reset input fields
+      setFormData({
+      name: '',
+    phone: '',
+    email: '',
+    city: '',
+    message: ''
+       
+      });
+
+      // Go to clients tab
+   
+     
+    }
+  } catch (error) {
+    console.error(error);
+   // toast.error(error.response?.data?.message || 'Failed to send the details');
+  }
   };
 
   return (
@@ -503,11 +539,10 @@ const navigate=useNavigate();
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      onFocus={() => setFocusedField('name')}
-                      onBlur={() => setFocusedField('')}
+                      
                       className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border-2 transition-all duration-300 focus:outline-none"
                       style={{
-                        borderColor: focusedField === 'name' ? '#C41E3A' : '#F4E8E8',
+                        borderColor:  '#F4E8E8',
                         backgroundColor: '#FFFEF7'
                       }}
                       placeholder="Enter your sacred name"
@@ -528,11 +563,10 @@ const navigate=useNavigate();
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      onFocus={() => setFocusedField('phone')}
-                      onBlur={() => setFocusedField('')}
+                   
                       className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border-2 transition-all duration-300 focus:outline-none"
                       style={{
-                        borderColor: focusedField === 'phone' ? '#C41E3A' : '#F4E8E8',
+                        borderColor:  '#F4E8E8',
                         backgroundColor: '#FFFEF7'
                       }}
                       placeholder="+91 Your contact number"
@@ -553,11 +587,10 @@ const navigate=useNavigate();
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      onFocus={() => setFocusedField('email')}
-                      onBlur={() => setFocusedField('')}
+                    
                       className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border-2 transition-all duration-300 focus:outline-none"
                       style={{
-                        borderColor: focusedField === 'email' ? '#C41E3A' : '#F4E8E8',
+                        borderColor:  '#F4E8E8',
                         backgroundColor: '#FFFEF7'
                       }}
                       placeholder="your.email@domain.com"
@@ -578,11 +611,10 @@ const navigate=useNavigate();
                       name="city"
                       value={formData.city}
                       onChange={handleInputChange}
-                      onFocus={() => setFocusedField('city')}
-                      onBlur={() => setFocusedField('')}
+                    
                       className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border-2 transition-all duration-300 focus:outline-none"
                       style={{
-                        borderColor: focusedField === 'city' ? '#C41E3A' : '#F4E8E8',
+                        borderColor:  '#F4E8E8',
                         backgroundColor: '#FFFEF7'
                       }}
                       placeholder="Your city of residence"
@@ -600,12 +632,11 @@ const navigate=useNavigate();
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    onFocus={() => setFocusedField('message')}
-                    onBlur={() => setFocusedField('')}
+                   
                     rows="4"
                     className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border-2 transition-all duration-300 focus:outline-none resize-none"
                     style={{
-                      borderColor: focusedField === 'message' ? '#C41E3A' : '#F4E8E8',
+                      borderColor:  '#F4E8E8',
                       backgroundColor: '#FFFEF7'
                     }}
                     placeholder="Share your spiritual aspirations, questions, or how you'd like to connect with our foundation..."

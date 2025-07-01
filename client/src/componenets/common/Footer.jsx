@@ -256,7 +256,7 @@
 
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Mail, 
@@ -272,8 +272,63 @@ import {
   Send,
   Facebook
 } from 'lucide-react';
+import axios from 'axios';
 
 const Footer = () => {
+
+
+const[formData, setFormData] = useState({
+    email: ''
+  });
+  const handleInputChange = (e) => {
+ setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
+   const handleSubmit = async (e) => {
+         e.preventDefault();
+  try {
+    
+
+    const res = await axios.post('http://localhost:5000/api/subscribe/add',formData, {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    });
+
+   if (res.data.success) {
+      // Add new client to state
+    
+    //  toast.success("Subscribed Successfully")
+//     toast.success('Subscribed Successfully', {
+//   icon: '✅',
+//   style: {
+//     border: '1px solid #28a745',
+//     padding: '16px',
+//     color: '#fff',
+//     background: 'linear-gradient(135deg, #28a745, #218838)',
+//     fontWeight: '600',
+//   },
+// });
+
+      // Reset input fields
+      setFormData({
+     
+     
+         email:""
+      });
+
+      // Go to clients tab
+   
+     // toast.success('Client added successfully');
+    }
+  } catch (error) {
+    console.error(error);
+   // toast.error(error.response?.data?.message || 'Failed to Subscribe');
+  } 
+  };
+
+
+
+
   const quickLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
@@ -357,16 +412,19 @@ const Footer = () => {
                   Email Newsletter
                 </h5>
                 <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">Stay connected with our latest insights and events</p>
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
-                  <input 
+                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+                  <input
+                     name='email'
+                    value={formData.email}
+                    onChange={handleInputChange} 
                     type="email" 
                     placeholder="Enter your email"
                     className="flex-1 bg-rich-charcoal/50 border border-soft-rose/30 rounded-lg sm:rounded-l-lg sm:rounded-r-none px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-warm-ivory placeholder-warm-brown/70 focus:outline-none focus:border-sacred-crimson transition-colors"
                   />
-                  <button className="bg-sacred-crimson hover:bg-deep-ruby text-warm-ivory px-4 py-2 sm:py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-colors duration-300 group">
+                  <button type='submit' className="bg-sacred-crimson hover:bg-deep-ruby text-warm-ivory px-4 py-2 sm:py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-colors duration-300 group">
                     <Send size={14} className="sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
-                </div>
+                </form>
               </div>
             </div>
           </div>

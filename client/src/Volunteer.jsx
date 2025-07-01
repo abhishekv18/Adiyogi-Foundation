@@ -423,6 +423,7 @@ import { Heart, Users, Phone, Mail, User, MapPin, MessageSquare, Award, Shield, 
 import { FaOm } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 const Volunteer = () => {
   const navigate = useNavigate();
@@ -444,7 +445,7 @@ const Volunteer = () => {
     skills: ''
   });
   
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  // const [isSubmitted, setIsSubmitted] = useState(false); 
 
   const handleChange = (e) => {
     setFormData({
@@ -453,11 +454,42 @@ const Volunteer = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    // Form submission logic would go here
-    setTimeout(() => setIsSubmitted(false), 3000);
+    try {
+    
+
+
+      const res = await axios.post('http://localhost:5000/api/volunteer/add', formData, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      });
+  
+      if (res.data.success) {
+      
+        // toast.success("Details send successfully", {
+        //   icon: '✅',
+        //   style: {
+        //     border: '1px solid #28a745',
+        //     padding: '16px',
+        //     color: '#fff',
+        //     background: 'linear-gradient(135deg, #28a745, #218838)',
+        //     fontWeight: '600',
+        //   },
+        // });
+        setFormData({
+         name: '',
+    phone: '',
+    email: '',
+    city: '',
+    message: '',
+    skills: ''
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    //  toast.error(error.response?.data?.message || 'Failed to send the details');
+    } 
   };
 
   return (
@@ -773,34 +805,29 @@ const Volunteer = () => {
                 type="submit"
                 className="w-full py-3 md:py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 transform hover:scale-105 shadow-lg"
                 style={{ 
-                  backgroundColor: isSubmitted ? '#8B1538' : '#C41E3A',
+                  backgroundColor: '#C41E3A',
                   boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
                 }}
-                disabled={isSubmitted}
+               
               >
-                {isSubmitted ? (
-                  <div className="flex items-center justify-center space-x-2">
-                    <FaOm className="animate-spin" />
-                    <span className="text-sm md:text-base">Submitting Your Sacred Intent...</span>
-                  </div>
-                ) : (
+             
                   <div className="flex items-center justify-center space-x-2">
                     <Heart size={18} />
                     <span className="text-sm md:text-base">Begin Sacred Service</span>
                   </div>
-                )}
+             
               </button>
             </form>
 
             {/* Success Message */}
-            {isSubmitted && (
+            {/* {isSubmitted && (
               <div className="mt-4 md:mt-6 p-3 md:p-4 rounded-lg text-center" style={{ backgroundColor: '#F4E8E8' }}>
                 <FaOm size={20} style={{ color: '#C41E3A' }} className="mx-auto mb-1 md:mb-2" />
                 <p className="text-xs md:text-sm font-medium" style={{ color: '#2C2C2C' }}>
                   Thank you for your sacred intention to serve. We will connect with you soon.
                 </p>
               </div>
-            )}
+            )} */}
           </div>
         </div>
 

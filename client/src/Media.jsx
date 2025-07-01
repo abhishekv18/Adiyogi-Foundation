@@ -23,6 +23,56 @@ const navigate=useNavigate();
   }, [user]);
 
 
+const[formData, setFormData] = useState({
+    email: ''
+  });
+  const handleInputChange = (e) => {
+ setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
+   const handleSubmit = async (e) => {
+         e.preventDefault();
+  try {
+    
+
+    const res = await axios.post('http://localhost:5000/api/subscribe/add',formData, {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    });
+
+   if (res.data.success) {
+      // Add new client to state
+    
+    //  toast.success("Subscribed Successfully")
+//     toast.success('Subscribed Successfully', {
+//   icon: '✅',
+//   style: {
+//     border: '1px solid #28a745',
+//     padding: '16px',
+//     color: '#fff',
+//     background: 'linear-gradient(135deg, #28a745, #218838)',
+//     fontWeight: '600',
+//   },
+// });
+
+      // Reset input fields
+      setFormData({
+     
+     
+         email:""
+      });
+
+      // Go to clients tab
+   
+     // toast.success('Client added successfully');
+    }
+  } catch (error) {
+    console.error(error);
+   // toast.error(error.response?.data?.message || 'Failed to Subscribe');
+  } 
+  };
+
+
 
 
      const { allBlogs = [],loadin } = useSelector((state) => state.blog);
@@ -419,18 +469,21 @@ console.log(allBlogs)
     </p>
 
     {/* Input & Subscribe Button */}
-    <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
       <input
-        type="email"
-        placeholder="Enter your sacred email"
+       name='email'
+                    value={formData.email}
+                    onChange={handleInputChange} 
+                    type="email" 
+                    placeholder="Enter your email"
         className="flex-1 px-5 py-3 rounded-lg border-0 bg-white text-gray-800 placeholder-gray-500 focus:outline-none"
       />
-      <button
-        className="bg-white text-[#C41E3A] px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md"
+      <button 
+       type='submit' className="bg-white text-[#C41E3A] px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md"
       >
         Subscribe
       </button>
-    </div>
+    </form>
 
     {/* Trust Statement */}
     <p className="text-sm text-red-100 mt-6 opacity-80">

@@ -734,7 +734,7 @@ const navigate=useNavigate();
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
             <div className="relative order-2 lg:order-1">
               <img 
-                src="/public/istockphoto-1221349438-612x612.webp" 
+                src="/public/istockphoto-490378481-612x612.webp" 
                 alt="Ancient wisdom" 
                 className="w-full rounded-2xl sm:rounded-3xl shadow-2xl"
                 style={{boxShadow: '0 8px 32px rgba(196, 30, 58, 0.3)'}}

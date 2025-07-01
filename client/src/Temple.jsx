@@ -938,9 +938,9 @@ const navigate=useNavigate();
           <h3 className="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4" style={{ color: '#2C2C2C' }}>
             Roadmap Timeline
           </h3>
-          <p className="text-center mb-8 sm:mb-12 text-sm sm:text-base" style={{ color: '#6B4B4B' }}>
+          {/* <p className="text-center mb-8 sm:mb-12 text-sm sm:text-base" style={{ color: '#6B4B4B' }}>
             (Visual Timeline Suggested)
-          </p>
+          </p> */}
           
           <div className="max-w-5xl mx-auto">
             <div className="relative">
