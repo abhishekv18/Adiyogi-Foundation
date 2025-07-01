@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { setLoading, setUser } from '../redux/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const AdminLoginPage = () => {
    const isLoading = useSelector((state) => state.auth.loading);
@@ -30,11 +31,13 @@ const AdminLoginPage = () => {
       });
       if (res.data.success) {
         dispatch(setUser(res.data.user));
+        toast.success("Login Successfully");
         setFormData({ email: '', password: '' });
         navigate('/admin-dashboard');
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.response?.data?.message || 'Failed To Login');
     }
     dispatch(setLoading(false));
   };

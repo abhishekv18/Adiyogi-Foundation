@@ -374,6 +374,7 @@ import { Send, Phone, Mail, MapPin, User, MessageCircle, Heart, Flower, Star, Mo
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ContactUs = () => {
 
@@ -421,16 +422,16 @@ const navigate=useNavigate();
    if (res.data.success) {
       // Add new client to state
    
-//  toast.success('Details send successfully', {
-//   icon: '✅',
-//   style: {
-//     border: '1px solid #28a745',
-//     padding: '16px',
-//     color: '#fff',
-//     background: 'linear-gradient(135deg, #28a745, #218838)',
-//     fontWeight: '600',
-//   },
-// });
+ toast.success('Details Send Successfully', {
+  icon: '✅',
+  style: {
+    border: '1px solid #28a745',
+    padding: '16px',
+    color: '#fff',
+    background: 'linear-gradient(135deg, #28a745, #218838)',
+    fontWeight: '600',
+  },
+});
       // Reset input fields
       setFormData({
       name: '',
@@ -447,7 +448,7 @@ const navigate=useNavigate();
     }
   } catch (error) {
     console.error(error);
-   // toast.error(error.response?.data?.message || 'Failed to send the details');
+    toast.error(error.response?.data?.message || 'Failed To Send Details');
   }
   };
 

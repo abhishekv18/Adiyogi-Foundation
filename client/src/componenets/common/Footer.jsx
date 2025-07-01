@@ -273,6 +273,7 @@ import {
   Facebook
 } from 'lucide-react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Footer = () => {
 
@@ -298,16 +299,16 @@ const[formData, setFormData] = useState({
       // Add new client to state
     
     //  toast.success("Subscribed Successfully")
-//     toast.success('Subscribed Successfully', {
-//   icon: '✅',
-//   style: {
-//     border: '1px solid #28a745',
-//     padding: '16px',
-//     color: '#fff',
-//     background: 'linear-gradient(135deg, #28a745, #218838)',
-//     fontWeight: '600',
-//   },
-// });
+    toast.success('Subscribed Successfully', {
+  icon: '✅',
+  style: {
+    border: '1px solid #28a745',
+    padding: '16px',
+    color: '#fff',
+    background: 'linear-gradient(135deg, #28a745, #218838)',
+    fontWeight: '600',
+  },
+});
 
       // Reset input fields
       setFormData({
@@ -322,7 +323,7 @@ const[formData, setFormData] = useState({
     }
   } catch (error) {
     console.error(error);
-   // toast.error(error.response?.data?.message || 'Failed to Subscribe');
+    toast.error(error.response?.data?.message || 'Failed To Subscribe');
   } 
   };
 

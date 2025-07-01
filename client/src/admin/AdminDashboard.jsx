@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setAllBlogs, setLoadin } from '../redux/blogSlice';
 import { useNavigate } from 'react-router-dom';
 import { setAllUsers, setLoading, setUser } from '../redux/authSlice';
+import { toast } from 'react-toastify';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -150,12 +151,12 @@ const removeAdmin = async () => {
     if (res.data.success) {
       const updatedUsers = allUsers.filter(user => user._id !== adminToDelete);
       dispatch(setAllUsers(updatedUsers));
-     // toast.success('Admin deleted successfully');
+     toast.success('Admin Deleted Successfully');
       setShowAdminDeleteModal(false);
     }
   } catch (error) {
     console.error(error.message);
-   // toast.error(error.response?.data?.message || 'Failed to delete admin');
+    toast.error(error.response?.data?.message || 'Failed To Delete Admin');
   } finally {
     dispatch(setLoading(false));
     setAdminToDelete(null);
@@ -179,7 +180,7 @@ const showDeleteAdminConfirmation = (userId) => {
    if (res.data.success) {
       // Add new client to state
       dispatch(setAllUsers([...allUsers, res.data.newUser]));
-    // toast.success("New admin created successfully")
+     toast.success("New Admin Created Successfully")
       // Reset input fields
       setAllUsers({
        email:"",
@@ -192,7 +193,7 @@ const showDeleteAdminConfirmation = (userId) => {
     }
   } catch (error) {
     console.error(error);
-  //  toast.error(error.response?.data?.message || 'Failed to add the admin');
+    toast.error(error.response?.data?.message || 'Failed To Add Admin');
   } finally {
     dispatch(setLoading(false));
   }
@@ -256,6 +257,7 @@ const showDeleteAdminConfirmation = (userId) => {
             blog._id === editingBlogId ? res.data.updatedBlog : blog
           );
           dispatch(setAllBlogs(updatedBlogs));
+          toast.success("Blog Edited Successfully");
         }
       } else {
         // Create new blog
@@ -266,6 +268,7 @@ const showDeleteAdminConfirmation = (userId) => {
 
         if (res.data.success) {
           dispatch(setAllBlogs([...allBlogs, res.data.newBlog]));
+          toast.success("Blog Added Successfully");
         }
       }
 
@@ -284,6 +287,7 @@ const showDeleteAdminConfirmation = (userId) => {
       }
     } catch (error) {
       console.error(error);
+     toast.error( error.response?.data?.message || 'Failed To Add Blog');
     } finally {
       dispatch(setLoadin(false));
     }
@@ -330,10 +334,12 @@ const showDeleteAdminConfirmation = (userId) => {
       if (res.data.success) {
         const updatedBlogs = allBlogs.filter(blog => blog._id !== blogToDelete._id);
         dispatch(setAllBlogs(updatedBlogs));
+        toast.success("Blog Deleted Successfully");
         hideDeleteConfirmation();
       }
     } catch (error) {
       console.error(error.message);
+      toast.error(error.response?.data?.message || 'Failed To Delete Blog');
     } finally {
       dispatch(setLoadin(false));
     }
@@ -346,10 +352,12 @@ const showDeleteAdminConfirmation = (userId) => {
       });
       if (res.data.success) {
         dispatch(setUser(null));
+        toast.success("Logout Successfully");
         navigate("/");
       }
     } catch (error) {
       console.error(error.response?.data || error.message);
+      toast.error(error.response?.data?.message || 'Failed To Logout');
     }
   };
 
