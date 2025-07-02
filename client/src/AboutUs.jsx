@@ -451,7 +451,7 @@ const navigate=useNavigate();
     <div className="min-h-screen" style={{background: 'linear-gradient(135deg, #FDF8F8 0%, #F4E8E8 100%)'}}>
       
       {/* Hero Section with Vision */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 relative overflow-hidden">
+      {/* <section className="py-12 sm:py-16 md:py-20 px-4 relative overflow-hidden">
          <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20"></div>
         <div
   className="absolute inset-0 bg-center bg-cover opacity-25"
@@ -459,7 +459,8 @@ const navigate=useNavigate();
     backgroundImage: `url('/public/istockphoto-178757243-612x612.jpg')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll"
+    // backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll"
+     backgroundAttachment: 'fixed',
   }}
 ></div>
 
@@ -503,7 +504,56 @@ const navigate=useNavigate();
   </div>
 </div>
 
-      </section>
+      </section> */}
+<section className="py-12 sm:py-16 md:py-20 px-4 relative overflow-hidden">
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20 z-0"></div>
+
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-center bg-cover opacity-25 z-0"
+    style={{
+      backgroundImage: `url('/public/istockphoto-178757243-612x612.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+    }}
+  ></div>
+
+  {/* Content */}
+  <div className="max-w-6xl mx-auto text-center relative z-10">
+    <div className="mb-6 sm:mb-8">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2 text-rich-charcoal">
+        About Adiyogi Foundation
+      </h1>
+
+      <div
+        className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 sm:mb-8 rounded-full flex items-center justify-center shadow-lg"
+        style={{ backgroundColor: '#C41E3A' }}
+      >
+        <Flower className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+      </div>
+    </div>
+
+    <div
+      className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16 shadow-2xl mb-12 sm:mb-16 backdrop-blur-sm mx-2 sm:mx-4"
+      style={{
+        backgroundColor: 'rgba(255, 254, 247, 0.95)',
+        boxShadow: '0 8px 32px rgba(196, 30, 58, 0.2)',
+      }}
+    >
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-10 text-sacred-crimson">
+        Our Sacred Vision
+      </h2>
+      <p className="text-lg sm:text-xl md:text-2xl leading-relaxed max-w-5xl mx-auto font-light px-2 text-rich-charcoal">
+        Adiyogi Foundation is rooted in the timeless wisdom of Bharat, striving to awaken the sacred in
+        every heart and space. Through the restoration of temples, spiritual education, and acts of
+        service, we envision a world where <span className="text-sacred-crimson font-bold">
+        dharma, dignity, and inner clarity</span> are not just ideals but lived experiences.
+      </p>
+    </div>
+  </div>
+</section>
 
       {/* About Us with Founder Section */}
       <section className="py-12 sm:py-16 px-4 sm:px-5">
