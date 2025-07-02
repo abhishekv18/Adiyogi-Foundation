@@ -792,7 +792,7 @@ const handleSubmit = async (e) => {
                 Sacred Connection Points
               </h3>
               <div className="space-y-3 sm:space-y-4">
-                <div className="flex items-center space-x-3 sm:space-x-4">
+                {/* <div className="flex items-center space-x-3 sm:space-x-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#F4E8E8' }}>
                     <Phone className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#C41E3A' }} />
                   </div>
@@ -809,7 +809,36 @@ const handleSubmit = async (e) => {
                     <p className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Email Us</p>
                     <p className="text-sm sm:text-base text-gray-600 break-all">social.adiyogifoundation@gmail.com</p>
                   </div>
-                </div>
+                </div> */}
+                <div className="flex items-center space-x-3 sm:space-x-4">
+  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#F4E8E8' }}>
+    <Phone className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#C41E3A' }} />
+  </div>
+  <div>
+    <p className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Call Us</p>
+    <a 
+      href="tel:+919175033022" 
+      className="text-sm sm:text-base text-gray-600 hover:text-red-600 transition-colors duration-200"
+    >
+      +91 9175033022
+    </a>
+  </div>
+</div>
+
+<div className="flex items-center space-x-3 sm:space-x-4">
+  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#F4E8E8' }}>
+    <Mail className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#C41E3A' }} />
+  </div>
+  <div>
+    <p className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Email Us</p>
+    <a 
+      href="mailto:social.adiyogifoundation@gmail.com" 
+      className="text-sm sm:text-base text-gray-600 hover:text-red-600 transition-colors duration-200 break-all"
+    >
+      social.adiyogifoundation@gmail.com
+    </a>
+  </div>
+</div>
                 <div className="flex items-center space-x-3 sm:space-x-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#F4E8E8' }}>
                     <MapPin className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#C41E3A' }} />
