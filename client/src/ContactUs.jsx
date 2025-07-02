@@ -798,7 +798,7 @@ const handleSubmit = async (e) => {
                   </div>
                   <div>
                     <p className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Call Us</p>
-                    <p className="text-sm sm:text-base text-gray-600">+91 98765 43210</p>
+                    <p className="text-sm sm:text-base text-gray-600">+91 9175033022</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 sm:space-x-4">
@@ -807,7 +807,7 @@ const handleSubmit = async (e) => {
                   </div>
                   <div>
                     <p className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Email Us</p>
-                    <p className="text-sm sm:text-base text-gray-600 break-all">connect@adiyogi.foundation</p>
+                    <p className="text-sm sm:text-base text-gray-600 break-all">social.adiyogifoundation@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 sm:space-x-4">

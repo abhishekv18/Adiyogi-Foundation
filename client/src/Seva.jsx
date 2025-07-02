@@ -1064,21 +1064,21 @@ const navigate=useNavigate();
                     alignItems: 'center',
                     justifyContent: 'center',
                     margin: '0 auto 1rem auto',
-                    boxShadow: '0 8px 25px rgba(196, 30, 58, 0.3)'
+                    boxShadow: '0 8px 25px rgba(196, 30, 58, 0.1)'
                   }}>
                     <IconComponent size={isMobile ? 24 : 32} style={{ color: '#FFFEF7' }} />
                   </div>
                   <h3 style={{
                     fontSize: isMobile ? '1.75rem' : '2.5rem',
                     fontWeight: '800',
-                    color: '#C41E3A',
+                     color: '#E53935',
                     margin: '0 0 0.5rem 0'
                   }}>
                     {stat.number}
                   </h3>
                   <p style={{
                     fontSize: isMobile ? '0.9rem' : '1.1rem',
-                    color: '#2C2C2C',
+                    color: '#5C5C5C',
                     margin: 0,
                     fontWeight: '500'
                   }}>
