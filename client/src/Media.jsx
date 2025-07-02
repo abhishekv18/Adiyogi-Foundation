@@ -22,6 +22,7 @@ const navigate=useNavigate();
       navigate('/admin-dashboard');
     }
   }, [user]);
+const [loading, setLoading] = useState(false);
 
 
 const[formData, setFormData] = useState({
@@ -31,54 +32,90 @@ const[formData, setFormData] = useState({
  setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-   const handleSubmit = async (e) => {
-         e.preventDefault();
+//    const handleSubmit = async (e) => {
+//          e.preventDefault();
+//   try {
+    
+
+//     const res = await axios.post('http://localhost:5000/api/subscribe/add',formData, {
+//       headers: { 'Content-Type': 'application/json' },
+//       withCredentials: true,
+//     });
+
+//    if (res.data.success) {
+//       // Add new client to state
+    
+//     //  toast.success("Subscribed Successfully")
+//     toast.success('Subscribed Successfully', {
+//   icon: '✅',
+//   style: {
+//     border: '1px solid #28a745',
+//     padding: '16px',
+//     color: '#fff',
+//     background: 'linear-gradient(135deg, #28a745, #218838)',
+//     fontWeight: '600',
+//   },
+// });
+
+//       // Reset input fields
+//       setFormData({
+     
+     
+//          email:""
+//       });
+
+//       // Go to clients tab
+   
+//      // toast.success('Client added successfully');
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     toast.error(error.response?.data?.message || 'Failed To Subscribe');
+//      setFormData({
+     
+     
+//          email:""
+//       });
+
+//   } 
+//   };
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true); // Start loading
+
   try {
-    
+    const res = await axios.post(
+      'http://localhost:5000/api/subscribe/add',
+      formData,
+      {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      }
+    );
 
-    const res = await axios.post('http://localhost:5000/api/subscribe/add',formData, {
-      headers: { 'Content-Type': 'application/json' },
-      withCredentials: true,
-    });
-
-   if (res.data.success) {
-      // Add new client to state
-    
-    //  toast.success("Subscribed Successfully")
-    toast.success('Subscribed Successfully', {
-  icon: '✅',
-  style: {
-    border: '1px solid #28a745',
-    padding: '16px',
-    color: '#fff',
-    background: 'linear-gradient(135deg, #28a745, #218838)',
-    fontWeight: '600',
-  },
-});
-
-      // Reset input fields
-      setFormData({
-     
-     
-         email:""
+    if (res.data.success) {
+      toast.success('Subscribed Successfully', {
+        icon: '✅',
+        style: {
+          border: '1px solid #28a745',
+          padding: '16px',
+          color: '#fff',
+          background: 'linear-gradient(135deg, #28a745, #218838)',
+          fontWeight: '600',
+        },
       });
 
-      // Go to clients tab
-   
-     // toast.success('Client added successfully');
+      setFormData({ email: '' });
     }
   } catch (error) {
     console.error(error);
     toast.error(error.response?.data?.message || 'Failed To Subscribe');
-     setFormData({
-     
-     
-         email:""
-      });
-
-  } 
-  };
-
+    setFormData({ email: '' });
+  } finally {
+    setLoading(false); // Stop loading
+  }
+};
 
 
 
@@ -486,11 +523,45 @@ console.log(allBlogs)
                     placeholder="Enter your email"
         className="flex-1 px-5 py-3 rounded-lg border-0 bg-white text-gray-800 placeholder-gray-500 focus:outline-none"
       />
-      <button 
+      {/* <button 
        type='submit' className="bg-white text-[#C41E3A] px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md"
       >
         Subscribe
-      </button>
+      </button> */}
+      <button
+  type="submit"
+  disabled={loading}
+  className="bg-white text-[#C41E3A] px-6 cursor-pointer py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+>
+  {loading ? (
+    <>
+      <svg
+        className="animate-spin h-5 w-5 text-[#C41E3A]"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        />
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v8H4z"
+        />
+      </svg>
+      <span>Subscribing...</span>
+    </>
+  ) : (
+    'Subscribe'
+  )}
+</button>
+
     </form>
 
     {/* Trust Statement */}

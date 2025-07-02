@@ -427,6 +427,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const Volunteer = () => {
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth.user);
 
@@ -455,51 +457,103 @@ const Volunteer = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
     
 
 
-      const res = await axios.post('http://localhost:5000/api/volunteer/add', formData, {
-        headers: { 'Content-Type': 'application/json' },
-        withCredentials: true,
-      });
+  //     const res = await axios.post('http://localhost:5000/api/volunteer/add', formData, {
+  //       headers: { 'Content-Type': 'application/json' },
+  //       withCredentials: true,
+  //     });
   
-      if (res.data.success) {
+  //     if (res.data.success) {
       
-        toast.success("Details Send Successfully", {
-          icon: '✅',
-          style: {
-            border: '1px solid #28a745',
-            padding: '16px',
-            color: '#fff',
-            background: 'linear-gradient(135deg, #28a745, #218838)',
-            fontWeight: '600',
-          },
-        });
-        setFormData({
-         name: '',
-    phone: '',
-    email: '',
-    city: '',
-    message: '',
-    skills: ''
-        });
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error(error.response?.data?.message || 'Failed To Send Details');
-       setFormData({
-         name: '',
-    phone: '',
-    email: '',
-    city: '',
-    message: '',
-    skills: ''
-        });
-    } 
-  };
+  //       toast.success("Details Send Successfully", {
+  //         icon: '✅',
+  //         style: {
+  //           border: '1px solid #28a745',
+  //           padding: '16px',
+  //           color: '#fff',
+  //           background: 'linear-gradient(135deg, #28a745, #218838)',
+  //           fontWeight: '600',
+  //         },
+  //       });
+  //       setFormData({
+  //        name: '',
+  //   phone: '',
+  //   email: '',
+  //   city: '',
+  //   message: '',
+  //   skills: ''
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     toast.error(error.response?.data?.message || 'Failed To Send Details');
+  //      setFormData({
+  //        name: '',
+  //   phone: '',
+  //   email: '',
+  //   city: '',
+  //   message: '',
+  //   skills: ''
+  //       });
+  //   } 
+  // };
+
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  try {
+    const res = await axios.post('http://localhost:5000/api/volunteer/add', formData, {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    });
+
+    if (res.data.success) {
+      toast.success("Details Send Successfully", {
+        icon: '✅',
+        style: {
+          border: '1px solid #28a745',
+          padding: '16px',
+          color: '#fff',
+          background: 'linear-gradient(135deg, #28a745, #218838)',
+          fontWeight: '600',
+        },
+      });
+
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        city: '',
+        message: '',
+        skills: ''
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    toast.error(error.response?.data?.message || 'Failed To Send Details');
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      city: '',
+      message: '',
+      skills: ''
+    });
+  } finally {
+    setLoading(false);
+  }
+};
+
+
+
+
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#FDF8F8' }}>
@@ -810,7 +864,7 @@ const Volunteer = () => {
               </div>
 
               {/* Submit Button */}
-              <button
+              {/* <button
                 type="submit"
                 className="w-full py-3 md:py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 transform hover:scale-105 shadow-lg"
                 style={{ 
@@ -825,7 +879,50 @@ const Volunteer = () => {
                     <span className="text-sm md:text-base">Begin Sacred Service</span>
                   </div>
              
-              </button>
+              </button> */}
+
+<button
+  type="submit"
+  disabled={loading}
+  className="w-full py-3 md:py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+  style={{ 
+    backgroundColor: '#C41E3A',
+    boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+  }}
+>
+  {loading ? (
+    <div className="flex items-center justify-center space-x-2">
+      <svg
+        className="animate-spin h-5 w-5 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        />
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v8H4z"
+        />
+      </svg>
+      <span className="text-sm md:text-base">Sending...</span>
+    </div>
+  ) : (
+    <div className="flex items-center justify-center space-x-2">
+      <Heart size={18} />
+      <span className="text-sm md:text-base">Begin Sacred Service</span>
+    </div>
+  )}
+</button>
+
+
             </form>
 
             {/* Success Message */}

@@ -401,6 +401,7 @@ const navigate=useNavigate();
   });
 
   // const [focusedField, setFocusedField] = useState('');
+const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -410,55 +411,102 @@ const navigate=useNavigate();
     }));
   };
 
-  const handleSubmit = async (e) => {
-         e.preventDefault();
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true); // Start loading
   try {
-   
-    const res = await axios.post('http://localhost:5000/api/contact/add',formData, {
+    const res = await axios.post('http://localhost:5000/api/contact/add', formData, {
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
     });
 
-   if (res.data.success) {
-      // Add new client to state
-   
- toast.success('Details Send Successfully', {
-  icon: '✅',
-  style: {
-    border: '1px solid #28a745',
-    padding: '16px',
-    color: '#fff',
-    background: 'linear-gradient(135deg, #28a745, #218838)',
-    fontWeight: '600',
-  },
-});
-      // Reset input fields
-      setFormData({
-      name: '',
-    phone: '',
-    email: '',
-    city: '',
-    message: ''
-       
+    if (res.data.success) {
+      toast.success('Details Send Successfully', {
+        icon: '✅',
+        style: {
+          border: '1px solid #28a745',
+          padding: '16px',
+          color: '#fff',
+          background: 'linear-gradient(135deg, #28a745, #218838)',
+          fontWeight: '600',
+        },
       });
 
-      // Go to clients tab
-   
-     
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        city: '',
+        message: '',
+      });
     }
   } catch (error) {
     console.error(error);
     toast.error(error.response?.data?.message || 'Failed To Send Details');
-     setFormData({
+    setFormData({
       name: '',
-    phone: '',
-    email: '',
-    city: '',
-    message: ''
-       
-      });
+      phone: '',
+      email: '',
+      city: '',
+      message: '',
+    });
+  } finally {
+    setLoading(false); // Stop loading
   }
-  };
+};
+
+
+
+//   const handleSubmit = async (e) => {
+//          e.preventDefault();
+//   try {
+   
+//     const res = await axios.post('http://localhost:5000/api/contact/add',formData, {
+//       headers: { 'Content-Type': 'application/json' },
+//       withCredentials: true,
+//     });
+
+//    if (res.data.success) {
+//       // Add new client to state
+   
+//  toast.success('Details Send Successfully', {
+//   icon: '✅',
+//   style: {
+//     border: '1px solid #28a745',
+//     padding: '16px',
+//     color: '#fff',
+//     background: 'linear-gradient(135deg, #28a745, #218838)',
+//     fontWeight: '600',
+//   },
+// });
+//       // Reset input fields
+//       setFormData({
+//       name: '',
+//     phone: '',
+//     email: '',
+//     city: '',
+//     message: ''
+       
+//       });
+
+//       // Go to clients tab
+   
+     
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     toast.error(error.response?.data?.message || 'Failed To Send Details');
+//      setFormData({
+//       name: '',
+//     phone: '',
+//     email: '',
+//     city: '',
+//     message: ''
+       
+//       });
+//   }
+//   };
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#FDF8F8' }}>
@@ -654,7 +702,7 @@ const navigate=useNavigate();
                 </div>
 
                 {/* Submit Button */}
-                <button
+                {/* <button
                   type="submit"
                   className="w-full py-3 sm:py-4 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 text-sm sm:text-base"
                   style={{ 
@@ -670,7 +718,56 @@ const navigate=useNavigate();
                 >
                   <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Send Sacred Message</span>
-                </button>
+                </button> */}
+
+
+                <button
+  type="submit"
+  disabled={loading}
+  className="w-full py-3 sm:py-4 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 text-sm sm:text-base disabled:opacity-60 disabled:cursor-not-allowed"
+  style={{
+    backgroundColor: loading ? '#8B1538' : '#C41E3A',
+    boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)',
+  }}
+  onMouseEnter={(e) => {
+    if (!loading) e.target.style.backgroundColor = '#8B1538';
+  }}
+  onMouseLeave={(e) => {
+    if (!loading) e.target.style.backgroundColor = '#C41E3A';
+  }}
+>
+  {loading ? (
+    <>
+      <svg
+        className="animate-spin h-4 w-4 sm:h-5 sm:w-5 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        />
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v8H4z"
+        />
+      </svg>
+      <span>Sending...</span>
+    </>
+  ) : (
+    <>
+      <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+      <span>Send Sacred Message</span>
+    </>
+  )}
+</button>
+
               </form>
             </div>
           </div>

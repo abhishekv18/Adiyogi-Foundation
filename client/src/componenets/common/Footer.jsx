@@ -276,6 +276,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const Footer = () => {
+const [loading, setLoading] = useState(false);
 
 
 const[formData, setFormData] = useState({
@@ -285,51 +286,87 @@ const[formData, setFormData] = useState({
  setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-   const handleSubmit = async (e) => {
-         e.preventDefault();
+//    const handleSubmit = async (e) => {
+//          e.preventDefault();
+//   try {
+    
+
+//     const res = await axios.post('http://localhost:5000/api/subscribe/add',formData, {
+//       headers: { 'Content-Type': 'application/json' },
+//       withCredentials: true,
+//     });
+
+//    if (res.data.success) {
+//       // Add new client to state
+    
+//     //  toast.success("Subscribed Successfully")
+//     toast.success('Subscribed Successfully', {
+//   icon: '✅',
+//   style: {
+//     border: '1px solid #28a745',
+//     padding: '16px',
+//     color: '#fff',
+//     background: 'linear-gradient(135deg, #28a745, #218838)',
+//     fontWeight: '600',
+//   },
+// });
+
+//       // Reset input fields
+//       setFormData({
+     
+     
+//          email:""
+//       });
+
+//       // Go to clients tab
+   
+//      // toast.success('Client added successfully');
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     toast.error(error.response?.data?.message || 'Failed To Subscribe');
+//       setFormData({
+//          email:""
+//       });
+//   } 
+//   };
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true); // Start loading
+
   try {
-    
+    const res = await axios.post(
+      'http://localhost:5000/api/subscribe/add',
+      formData,
+      {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      }
+    );
 
-    const res = await axios.post('http://localhost:5000/api/subscribe/add',formData, {
-      headers: { 'Content-Type': 'application/json' },
-      withCredentials: true,
-    });
-
-   if (res.data.success) {
-      // Add new client to state
-    
-    //  toast.success("Subscribed Successfully")
-    toast.success('Subscribed Successfully', {
-  icon: '✅',
-  style: {
-    border: '1px solid #28a745',
-    padding: '16px',
-    color: '#fff',
-    background: 'linear-gradient(135deg, #28a745, #218838)',
-    fontWeight: '600',
-  },
-});
-
-      // Reset input fields
-      setFormData({
-     
-     
-         email:""
+    if (res.data.success) {
+      toast.success('Subscribed Successfully', {
+        icon: '✅',
+        style: {
+          border: '1px solid #28a745',
+          padding: '16px',
+          color: '#fff',
+          background: 'linear-gradient(135deg, #28a745, #218838)',
+          fontWeight: '600',
+        },
       });
 
-      // Go to clients tab
-   
-     // toast.success('Client added successfully');
+      setFormData({ email: '' });
     }
   } catch (error) {
     console.error(error);
     toast.error(error.response?.data?.message || 'Failed To Subscribe');
-      setFormData({
-         email:""
-      });
-  } 
-  };
-
+    setFormData({ email: '' });
+  } finally {
+    setLoading(false); // Stop loading
+  }
+};
 
 
 
@@ -425,10 +462,47 @@ const[formData, setFormData] = useState({
                     placeholder="Enter your email"
                     className="flex-1 bg-rich-charcoal/50 border border-soft-rose/30 rounded-lg sm:rounded-l-lg sm:rounded-r-none px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-warm-ivory placeholder-warm-brown/70 focus:outline-none focus:border-sacred-crimson transition-colors"
                   />
-                  <button type='submit' className="bg-sacred-crimson hover:bg-deep-ruby flex justify-center items-center gap-2 text-warm-ivory px-4 py-2 sm:py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-colors duration-300 group">
+                  {/* <button type='submit' className="bg-sacred-crimson hover:bg-deep-ruby flex justify-center items-center gap-2 text-warm-ivory px-4 py-2 sm:py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-colors duration-300 group">
                     <Send size={14} className="sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                     <p className=''>Subscribe</p>
-                  </button>
+                  </button> */}
+                  <button
+  type="submit"
+  disabled={loading}
+  className="bg-sacred-crimson hover:bg-deep-ruby flex cursor-pointer justify-center items-center gap-2 text-warm-ivory px-4 py-2 sm:py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-colors duration-300 group disabled:opacity-60 disabled:cursor-not-allowed hover:scale-x-105"
+>
+  {loading ? (
+    <>
+      <svg
+        className="animate-spin h-4 w-4 text-warm-ivory"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        />
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v8H4z"
+        />
+      </svg>
+      <span className="text-sm">Subscribing...</span>
+    </>
+  ) : (
+    <>
+      <Send size={14} className="sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+      <p className="text-sm">Subscribe</p>
+    </>
+  )}
+</button>
+
                 </form>
               </div>
             </div>
