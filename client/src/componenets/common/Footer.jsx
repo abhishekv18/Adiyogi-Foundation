@@ -362,7 +362,7 @@ const handleSubmit = async (e) => {
   } catch (error) {
     console.error(error);
     toast.error(error.response?.data?.message || 'Failed To Subscribe');
-    setFormData({ email: '' });
+   
   } finally {
     setLoading(false); // Stop loading
   }

@@ -538,14 +538,7 @@ const handleSubmit = async (e) => {
   } catch (error) {
     console.error(error);
     toast.error(error.response?.data?.message || 'Failed To Send Details');
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      city: '',
-      message: '',
-      skills: ''
-    });
+    
   } finally {
     setLoading(false);
   }
