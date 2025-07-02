@@ -460,7 +460,7 @@ const handleSubmit = async (e) => {
                     onChange={handleInputChange} 
                     type="email" 
                     placeholder="Enter your email"
-                    className="flex-1 bg-rich-charcoal/50 border border-soft-rose/30 rounded-lg sm:rounded-l-lg sm:rounded-r-none px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-warm-ivory placeholder-warm-brown/70 focus:outline-none focus:border-sacred-crimson transition-colors"
+                    className="flex-1 bg-rich-charcoal/50 border border-soft-rose/30 rounded-lg sm:rounded-l-lg sm:rounded-r-none px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-200 placeholder-warm-brown/70 focus:outline-none focus:border-sacred-crimson transition-colors"
                   />
                   {/* <button type='submit' className="bg-sacred-crimson hover:bg-deep-ruby flex justify-center items-center gap-2 text-warm-ivory px-4 py-2 sm:py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-colors duration-300 group">
                     <Send size={14} className="sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />

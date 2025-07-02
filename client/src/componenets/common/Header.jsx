@@ -474,14 +474,35 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-4 xl:space-x-8">
-              <div className="flex items-center space-x-2">
+              {/* <div className="flex items-center space-x-2">
                 <Mail size={16} className="text-sacred-crimson flex-shrink-0" />
                 <span className="truncate">social.adiyogifoundation@gmail.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone size={16} className="text-sacred-crimson flex-shrink-0" />
                 <span>+91 9175033022</span>
-              </div>
+              </div> */}
+<div className="flex items-center space-x-2">
+  <Mail size={16} className="text-sacred-crimson flex-shrink-0" />
+  <a 
+    href="mailto:social.adiyogifoundation@gmail.com"
+    className="truncate hover:text-sacred-crimson transition-colors duration-300"
+  >
+    social.adiyogifoundation@gmail.com
+  </a>
+</div>
+
+<div className="flex items-center space-x-2">
+  <Phone size={16} className="text-sacred-crimson flex-shrink-0" />
+  <a 
+    href="tel:+919175033022"
+    className="hover:text-sacred-crimson transition-colors duration-300"
+  >
+    +91 9175033022
+  </a>
+</div>
+
+
             </div>
             <div className="flex items-center">
               <span className="text-sacred-crimson font-medium whitespace-nowrap">🕉️ ॐ नमः शिवाय</span>
