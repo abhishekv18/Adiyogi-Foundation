@@ -1212,7 +1212,7 @@ const navigate=useNavigate();
               <MessageCircle size={16} />
               <span>Join Our Community</span>
             </Link>
-            <Link to="/volunteers" className="border-2 border-[#C41E3A] text-[#C41E3A] px-6 py-3 md:px-8 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-[#C41E3A] hover:text-[#FFFEF7] transition-all duration-300 flex items-center justify-center space-x-2">
+            <Link to="/volunteers" className="border-2 border-[#C41E3A] text-[#C41E3A] px-6 py-3 md:px-8 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-gradient-to-r from-[#C41E3A] to-[#8B1538] hover:text-[#FFFEF7] transition-all duration-300 flex items-center justify-center space-x-2">
               <Users size={16} />
               <span>Volunteer with Us</span>
             </Link>
