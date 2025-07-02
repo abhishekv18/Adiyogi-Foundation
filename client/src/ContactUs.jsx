@@ -372,7 +372,7 @@
 import React, { useEffect, useState } from 'react';
 import { Send, Phone, Mail, MapPin, User, MessageCircle, Heart, Flower, Star, Mountain } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -413,7 +413,7 @@ const navigate=useNavigate();
   const handleSubmit = async (e) => {
          e.preventDefault();
   try {
-    dispatch(setLoad(true)); // Correct spelling
+   
     const res = await axios.post('http://localhost:5000/api/contact/add',formData, {
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
@@ -449,6 +449,14 @@ const navigate=useNavigate();
   } catch (error) {
     console.error(error);
     toast.error(error.response?.data?.message || 'Failed To Send Details');
+     setFormData({
+      name: '',
+    phone: '',
+    email: '',
+    city: '',
+    message: ''
+       
+      });
   }
   };
 
@@ -570,7 +578,7 @@ const navigate=useNavigate();
                         borderColor:  '#F4E8E8',
                         backgroundColor: '#FFFEF7'
                       }}
-                      placeholder="+91 Your contact number"
+                      placeholder="Your contact number"
                       required
                     />
                   </div>

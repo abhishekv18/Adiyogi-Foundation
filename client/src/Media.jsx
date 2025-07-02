@@ -70,6 +70,12 @@ const[formData, setFormData] = useState({
   } catch (error) {
     console.error(error);
     toast.error(error.response?.data?.message || 'Failed To Subscribe');
+     setFormData({
+     
+     
+         email:""
+      });
+
   } 
   };
 

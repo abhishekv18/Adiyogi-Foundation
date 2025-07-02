@@ -35,8 +35,25 @@
   color: #888;
 } */
 
+/* In your global CSS file */
+.Toastify__toast--success {
+  background-color: #0f5132;
+  color: white;
+  border-left: 6px solid #198754;
+  font-weight: bold;
+}
 
-
+.Toastify__toast--error {
+  background-color: #842029;
+  color: white;
+  border-left: 6px solid #dc3545;
+}
+.Toastify__toast {
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 14px;
+  width: 320px;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
