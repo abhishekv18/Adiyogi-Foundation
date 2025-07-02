@@ -693,8 +693,8 @@ const navigate=useNavigate();
              <button
               className="px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-white text-base sm:text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
               style={{ 
-                backgroundColor: '#8B1538',
-                boxShadow: '0 4px 20px rgba(139, 21, 56, 0.3)'
+                backgroundColor: '#C41E3A',
+                boxShadow: '0 4px 20px rgba(139, 21, 56, 0.2)'
               }}
             >
               Join Our Sacred Mission
