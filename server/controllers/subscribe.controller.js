@@ -109,18 +109,56 @@ export const addSubscribed = async (req, res) => {
     });
 
     // Thank-you email to subscriber
-    const userMail = {
-      from: "join.adiyogifoundation@gmail.com",
-      to: email,
-      subject: "Thank You for Subscribing!",
-      html: `
-        <h2>Hello!</h2>
-        <p>You've successfully subscribed to our newsletter using: <strong>${email}</strong></p>
-        <p>We're grateful for your support. You'll now receive regular updates from us.</p>
-        <br/>
-        <p>Warm regards,<br/>Adiyogi Foundation</p>
-      `
-    };
+    // const userMail = {
+    //   from: "join.adiyogifoundation@gmail.com",
+    //   to: email,
+    //   subject: "Thank You for Subscribing!",
+    //   html: `
+    //     <h2>Hello!</h2>
+    //     <p>You've successfully subscribed to our newsletter using: <strong>${email}</strong></p>
+    //     <p>We're grateful for your support. You'll now receive regular updates from us.</p>
+    //     <br/>
+    //     <p>Warm regards,<br/>Adiyogi Foundation</p>
+    //   `
+    // };
+const userMail = {
+  from: "join.adiyogifoundation@gmail.com",
+  to: email,
+  subject: "Thank You for Subscribing!",
+  html: `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: auto;">
+      <h2 style="color: #C41E3A;">Thank you for subscribing us!</h2>
+      <p>Don’t worry we respect your time and your inbox. You won’t receive any marketing or unnecessary emails from us.</p>
+      <p>We’ll only send you important updates, event announcements, or information you shouldn’t miss.</p>
+      <p>If there's ever a chance you miss an update on other platforms, this helps ensure you stay informed.</p>
+      <p>We're also here to help feel free to write to us with your questions. Just include a clear subject so we can get back to you quickly.</p>
+      <p style="font-weight: bold;">Welcome to the journey.</p>
+
+      <hr style="margin: 30px 0; border: none; border-top: 1px solid #ccc;" />
+
+      <p style="font-size: 15px; color: #555;">Follow us on social media:</p>
+     <div>
+  <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank" style="text-decoration: none; margin-right: 12px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="28" alt="Instagram" />
+  </a>
+  <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank" style="text-decoration: none; margin-right: 12px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="28" alt="Facebook" />
+  </a>
+  <a href="https://youtube.com/@adiyogifoundation.b?si=hHJk8UzEA1spKAx3" target="_blank" style="text-decoration: none; margin-right: 12px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="28" alt="YouTube" />
+  </a>
+    <a href="https://www.linkedin.com/company/adiyogi-foundation" target="_blank" style="text-decoration: none;">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28" alt="LinkedIn" />
+  </a>
+</div>
+
+
+      <br/>
+      <p style="color: #888; font-size: 13px;">Adiyogi Foundation<br/>
+      <a href="mailto:social.adiyogifoundation@gmail.com" style="color: #C41E3A;">social.adiyogifoundation@gmail.com</a></p>
+    </div>
+  `
+};
 
     await transporter.sendMail(userMail);
 

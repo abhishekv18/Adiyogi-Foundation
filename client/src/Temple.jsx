@@ -630,7 +630,7 @@ const navigate=useNavigate();
       title: "Community",
       description: "Working hand-in-hand with local communities and spiritual leaders",
       icon: Users,
-      color: "#8B1538"
+        color: "#C41E3A"
     },
     {
       title: "Heritage",
@@ -642,7 +642,7 @@ const navigate=useNavigate();
       title: "Devotion",
       description: "Honoring the divine through dedicated service and reverence",
       icon: Heart,
-      color: "#8B1538"
+        color: "#C41E3A"
     }
   ];
 

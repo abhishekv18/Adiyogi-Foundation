@@ -447,7 +447,7 @@ const HeroWithCarousel = () => {
             className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl order-2 md:order-1"
           >
             <img
-              src="/public/WhatsApp Image 2025-06-26 at 1.44.13 PM.jpeg"
+              src="/public/WhatsApp Image 2025-07-03 at 3.21.32 PM.jpeg"
               alt="Aditya Parshuram Nikam"
               className="w-full h-auto object-cover"
             />
