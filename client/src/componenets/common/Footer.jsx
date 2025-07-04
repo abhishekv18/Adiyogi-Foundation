@@ -585,39 +585,8 @@ const handleSubmit = async (e) => {
         </div>
       </div>
 
-      {/* Core Values & Quote Section - Enhanced */}
-      <div className="border-t border-soft-rose/20 bg-gradient-to-b from-rich-charcoal to-rich-charcoal/80">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12">
-          {/* Inspirational Quote */}
-          <div className="text-center mb-8 sm:mb-12">
-            <div className="max-w-4xl mx-auto">
-              <div className="relative px-4 sm:px-0">
-                <div className="absolute -top-2 sm:-top-4 -left-2 sm:-left-4 text-3xl sm:text-6xl text-sacred-crimson/20 font-serif">"</div>
-                <blockquote className="text-sacred-crimson text-base sm:text-xl md:text-2xl font-medium italic leading-relaxed px-4 sm:px-0">
-                  Our programs are bridges… reconnecting modern needs with eternal wisdom.
-                </blockquote>
-                <div className="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 text-3xl sm:text-6xl text-sacred-crimson/20 font-serif rotate-180">"</div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Core Values */}
-          <div className="text-center">
-            <p className="text-sacred-crimson font-semibold text-sm sm:text-lg mb-6 sm:mb-8 uppercase tracking-wider">Our Core Values</p>
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
-              {coreValues.map((value, index) => (
-                <span 
-                  key={value}
-                  className="group relative px-3 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-soft-rose/10 to-sacred-crimson/5 rounded-full font-medium text-warm-ivory border border-soft-rose/30 hover:border-sacred-crimson hover:bg-sacred-crimson/20 transition-all duration-300 cursor-default text-xs sm:text-sm"
-                >
-                  <span className="relative z-10">{value}</span>
-                  <span className="absolute top-0 right-0 w-2 h-2 bg-sacred-crimson rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+     
+   
 
       {/* Bottom Footer - Enhanced */}
       <div className="border-t border-soft-rose/20 bg-rich-charcoal/90">

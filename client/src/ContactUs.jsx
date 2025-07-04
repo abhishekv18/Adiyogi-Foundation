@@ -839,7 +839,7 @@ const handleSubmit = async (e) => {
     </a>
   </div>
 </div>
-                <div className="flex items-center space-x-3 sm:space-x-4">
+                {/* <div className="flex items-center space-x-3 sm:space-x-4">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#F4E8E8' }}>
                     <MapPin className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#C41E3A' }} />
                   </div>
@@ -847,7 +847,7 @@ const handleSubmit = async (e) => {
                     <p className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Visit Us</p>
                     <p className="text-sm sm:text-base text-gray-600">Sacred Ashram, Spiritual Valley, India</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 

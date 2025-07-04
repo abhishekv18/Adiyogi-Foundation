@@ -725,7 +725,9 @@ import {
   Landmark,
   Droplet,
   BookOpenCheck,
-  Soup
+  Soup,
+  EyeOff,
+  EyeIcon
 } from 'lucide-react';
 import Hero from './componenets/ui/Hero';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -855,25 +857,25 @@ const navigate=useNavigate();
 
   const impactStats = [
     { 
-      number: '10,000+', 
+      number: '10,00+', 
       label: 'Trees Planted',
       icon: <TreePine className="w-8 h-8 text-[#C41E3A]" />,
       description: 'Native species across 15 states'
     },
     { 
-      number: '500+', 
+      number: '50+', 
       label: 'Children Educated',
       icon: <GraduationCap className="w-8 h-8 text-[#8B1538]" />,
       description: 'Free quality education provided'
     },
     { 
-      number: '25+', 
+      number: '2+', 
       label: 'Sacred Sites Restored',
       icon: <BookTemplate className="w-8 h-8 text-[#C41E3A]" />,
       description: 'Temples and heritage sites revived'
     },
     { 
-      number: '200+', 
+      number: '20+', 
       label: 'Active Volunteers',
       icon: <Users className="w-8 h-8 text-[#8B1538]" />,
       description: 'Dedicated seva warriors'
@@ -987,7 +989,7 @@ const navigate=useNavigate();
                 <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-[#C41E3A]/10 to-transparent rounded-bl-full"></div>
                 <div className="relative z-10">
                   <div className="flex items-center mb-4 md:mb-6">
-                    <Mountain className="w-6 h-6 md:w-8 md:h-8 text-[#C41E3A] mr-2 md:mr-3" />
+                    <EyeIcon className="w-6 h-6 md:w-8 md:h-8 text-[#C41E3A] mr-2 md:mr-3" />
                     <h3 className="text-xl md:text-2xl font-bold text-[#C41E3A]">We Believe</h3>
                   </div>
                   <div className="space-y-3 md:space-y-4">
@@ -1180,7 +1182,7 @@ const navigate=useNavigate();
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C2C2C] mb-4 md:mb-6">
               Our <span className="text-[#C41E3A]">Impact</span>
             </h2>
-            <p className="text-lg md:text-xl font-semibold text-[#2C2C2C]">Making a difference, one step at a time</p>
+            <p className="text-lg md:text-xl font-semibold text-[#2C2C2C]">Making a difference, one step at a time.</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">

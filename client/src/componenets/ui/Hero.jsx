@@ -502,7 +502,7 @@ const HeroWithCarousel = () => {
           <p className="text-base sm:text-lg md:text-xl italic text-[#8B1538] mb-2">
             "You don't have to be a saint or a seeker to belong here. Just human."
           </p>
-          <p className="text-xs sm:text-sm text-[#C41E3A]/70">— Aditya Parshuram Nikam</p>
+          <p className="text-xs sm:text-sm text-[#C41E3A]/70">— Aditya P Nikam</p>
           <p className="mt-3 sm:mt-4 text-xs sm:text-sm italic text-[#2C2C2C]/60">
             <span className="text-[#C41E3A] font-semibold">ध्यानम् आत्मा । सेवा धर्मः ।</span>  
             <br />"Meditation is the soul, Seva is our dharma."
