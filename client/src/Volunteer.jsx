@@ -226,9 +226,47 @@ const handleSubmit = async (e) => {
           </div>
         </div>
       </div>
+   <div className="max-w-6xl mx-auto mt-2 px-4 py-8 md:py-12">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-4xl font-bold mb-5" style={{ color: '#2C2C2C' }}>
+            Our Dedicated <span style={{ color: '#C41E3A' }}>Volunteers</span>
+          </h2>
+          <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: '#6B4B4B' }}>
+         Meet the passionate individuals who dedicate their time and expertise to our spiritual mission.
+          </p>
+        </div>
 
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          {volunteers.map((volunteer) => (
+            <div 
+              key={volunteer.id}
+              onClick={() => handleVolunteerClick(volunteer)}
+              className="cursor-pointer group transition-all duration-300 hover:scale-105"
+            >
+              <div className="relative overflow-hidden rounded-xl shadow-md h-full" style={{ backgroundColor: '#FFFEF7' }}>
+               <div className="relative pt-[100%] overflow-hidden">
+  <img
+    src={volunteer.image}
+    alt={volunteer.name}
+    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+  />
+</div>
+                <div className="p-4">
+                  <h3 className="font-bold text-lg" style={{ color: '#2C2C2C' }}>{volunteer.name}</h3>
+                  <p className="text-sm mb-1" style={{ color: '#C41E3A' }}>{volunteer.title}</p>
+                  <p className="text-xs" style={{ color: '#6B4B4B' }}>{volunteer.role}</p>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <span className="text-white text-sm font-medium">View Profile →</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 py-8 md:py-16">
+     
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start">
           
           {/* Left Side - Information */}
@@ -505,7 +543,7 @@ const handleSubmit = async (e) => {
           
           </div>
         </div>
-  <div className="max-w-6xl mx-auto px-4 py-8 md:py-12">
+  {/* <div className="max-w-6xl mx-auto px-4 py-8 md:py-12">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-4xl font-bold mb-5" style={{ color: '#2C2C2C' }}>
             Our Dedicated <span style={{ color: '#C41E3A' }}>Volunteers</span>
@@ -542,7 +580,7 @@ const handleSubmit = async (e) => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Volunteer Modal */}
 {showModal && selectedVolunteer && (

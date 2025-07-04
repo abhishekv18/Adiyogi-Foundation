@@ -771,395 +771,392 @@ const timelineEvents = [
           </div>
         </div>
 
-   <div className="min-h-screen" style={{ backgroundColor: '#FFFEF7' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-         <div className="mb-16 sm:mb-20">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8" style={{ color: '#2C2C2C' }}>
-            Current Temple Restoration Project
-          </h3>
-          
-          <div className="space-y-8 sm:space-y-12">
-            {temples.map((temple, index) => (
-              <div 
-                key={index}
-                className="rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 hover:shadow-3xl"
-                style={{ 
-                  backgroundColor: '#FFFEF7',
-                  boxShadow: '0 20px 60px rgba(196, 30, 58, 0.15)'
-                }}
-              >
-                <div className="flex flex-col lg:flex-row">
-                  <div className="lg:w-1/2 relative">
-                    <img 
-                      src={temple.image} 
-                      alt={temple.name}
-                      className="w-full h-64 lg:h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <div className="flex items-center text-white mb-2">
-                        <MapPin className="w-5 h-5 mr-2" />
-                        <span className="text-sm font-medium">{temple.location}</span>
-                      </div>
-                      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3">
-                        <p className="text-white text-sm leading-relaxed">
-                          "A deep sense of calm, like Bappa was silently waiting to be remembered."
-                        </p>
-                      </div>
-                    </div>
+  <div className="min-h-screen" style={{ backgroundColor: '#FFFEF7' }}>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
+    <div className="mb-12 sm:mb-16 lg:mb-20">
+      <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 px-2" style={{ color: '#2C2C2C' }}>
+        Current Temple Restoration Project
+      </h3>
+      
+      <div className="space-y-6 sm:space-y-8 lg:space-y-12">
+        {temples.map((temple, index) => (
+          <div 
+            key={index}
+            className="rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg sm:shadow-xl lg:shadow-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl lg:hover:shadow-3xl mx-2 sm:mx-0"
+            style={{ 
+              backgroundColor: '#FFFEF7',
+              boxShadow: '0 10px 40px rgba(196, 30, 58, 0.12), 0 4px 16px rgba(196, 30, 58, 0.08)'
+            }}
+          >
+            <div className="flex flex-col lg:flex-row">
+              <div className="w-full lg:w-1/2 relative">
+                <img 
+                  src={temple.image} 
+                  alt={temple.name}
+                  className="w-full h-48 sm:h-56 md:h-64 lg:h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-3 sm:bottom-4 lg:bottom-6 left-3 sm:left-4 lg:left-6 right-3 sm:right-4 lg:right-6">
+                  <div className="flex items-center text-white mb-2">
+                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" />
+                    <span className="text-xs sm:text-sm font-medium truncate">{temple.location}</span>
                   </div>
-                  
-                  <div className="lg:w-1/2 p-8 lg:p-12">
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-6">
-                      <h4 className="text-2xl lg:text-3xl font-bold pr-4 mb-3 sm:mb-0" style={{ color: '#2C2C2C' }}>
-                        {temple.name}
-                      </h4>
-                      <span 
-                        className="px-4 py-2 rounded-full text-sm font-bold text-white whitespace-nowrap"
-                        style={{ backgroundColor: '#C41E3A' }}
-                      >
-                        {temple.status}
-                      </span>
-                    </div>
-                    
-                    <p className="mb-6 text-lg leading-relaxed" style={{ color: '#2C2C2C' }}>
-                      {temple.description}
+                  <div className="bg-white/20 backdrop-blur-sm rounded-md sm:rounded-lg p-2 sm:p-3">
+                    <p className="text-white text-xs sm:text-sm leading-relaxed">
+                      "A deep sense of calm, like Bappa was silently waiting to be remembered."
                     </p>
-
-                    <div className="mb-8">
-                      <div className="flex justify-between items-center mb-3">
-                        <span className="font-semibold text-base" style={{ color: '#C41E3A' }}>
-                          Restoration Progress
-                        </span>
-                        <div className="flex items-center">
-                          <span className="text-lg font-bold mr-2" style={{ color: '#C41E3A' }}>
-                            {temple.progress}%
-                          </span>
-                          <CheckCircle className="w-5 h-5" style={{ color: '#C41E3A' }} />
-                        </div>
-                      </div>
-                      <div className="w-full rounded-full h-3 shadow-inner" style={{ backgroundColor: '#F4E8E8' }}>
-                        <div 
-                          className="h-3 rounded-full transition-all duration-500"
-                          style={{ 
-                            backgroundColor: '#C41E3A',
-                            width: `${temple.progress}%`,
-                            background: `linear-gradient(90deg, #C41E3A 0%, #8B1538 100%)`
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={() => toggleTemple(index)}
-                      className="flex items-center justify-between w-full p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-md"
-                      style={{ 
-                        borderColor: expandedTemple === index ? '#C41E3A' : '#F4E8E8',
-                        backgroundColor: expandedTemple === index ? '#F4E8E8' : 'transparent'
-                      }}
-                    >
-                      <span className="font-semibold text-lg" style={{ color: '#2C2C2C' }}>
-                        Explore Sacred Journey
-                      </span>
-                      {expandedTemple === index ? 
-                        <ChevronUp className="w-6 h-6" style={{ color: '#C41E3A' }} /> : 
-                        <ChevronDown className="w-6 h-6" style={{ color: '#C41E3A' }} />
-                      }
-                    </button>
-
-                    {expandedTemple === index && (
-                      <div className="mt-6 space-y-6">
-                        <div className="p-6 rounded-lg" style={{ backgroundColor: '#F4E8E8' }}>
-                          <h5 className="font-bold text-xl mb-4" style={{ color: '#2C2C2C' }}>
-                            The Sacred Discovery
-                          </h5>
-                          <p className="mb-6 leading-relaxed text-base" style={{ color: '#2C2C2C' }}>
-                            {temple.detailedDescription}
-                          </p>
-                          
-                          <div className="p-4 rounded-lg mb-6" style={{ backgroundColor: '#FFFEF7' }}>
-                            <p className="text-base leading-relaxed italic" style={{ color: '#8B1538' }}>
-                              {temple.story}
-                            </p>
-                          </div>
-                          
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                            <div>
-                              <h6 className="font-semibold text-base mb-2" style={{ color: '#8B1538' }}>
-                                Funding Needed
-                              </h6>
-                              <p className="text-xl font-bold" style={{ color: '#C41E3A' }}>
-                                {temple.fundingNeeded}
-                              </p>
-                            </div>
-                            <div>
-                              <h6 className="font-semibold text-base mb-2" style={{ color: '#8B1538' }}>
-                                Expected Completion
-                              </h6>
-                              <p className="font-medium text-base" style={{ color: '#2C2C2C' }}>
-                                {temple.expectedCompletion}
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="mb-6">
-                            <h6 className="font-semibold text-base mb-2" style={{ color: '#8B1538' }}>
-                              Community Impact
-                            </h6>
-                            <p className="text-base" style={{ color: '#2C2C2C' }}>
-                              {temple.communityImpact}
-                            </p>
-                          </div>
-
-                          <div className="mb-6">
-                            <h6 className="font-semibold text-base mb-2" style={{ color: '#8B1538' }}>
-                              Restoration Plan
-                            </h6>
-                            <p className="text-base" style={{ color: '#2C2C2C' }}>
-                              {temple.restorationPlan}
-                            </p>
-                          </div>
-                          
-                          <div className="flex flex-col sm:flex-row gap-4">
-                            <Link to='/donate'>
-                             <button
-                              className="flex-1 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"
-                              style={{ 
-                                backgroundColor: '#C41E3A',
-                                boxShadow: '0 4px 16px rgba(139, 21, 56, 0.2)'
-                              }}
-                            >
-                              <Heart className="w-5 h-5 inline mr-2" />
-                              Support Bappa's Home
-                            </button>
-                            </Link>
-                           <Link to='/volunteers'>
-                            <button
-                              className="flex-1 px-6 py-3 rounded-lg font-semibold border-2 transition-all duration-300 hover:shadow-md"
-                              style={{ 
-                                borderColor: '#C41E3A',
-                                color: '#C41E3A',
-                                backgroundColor: 'transparent'
-                              }}
-                            >
-                              <Users className="w-5 h-5 inline mr-2" />
-                              Join Sacred Mission
-                            </button>
-                           </Link>
-                           
-                          </div>
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>
-            ))}
+              
+              <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 xl:p-12">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6">
+                  <h4 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold pr-0 sm:pr-4 mb-2 sm:mb-0" style={{ color: '#2C2C2C' }}>
+                    {temple.name}
+                  </h4>
+                  <span 
+                    className="px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-white whitespace-nowrap self-start"
+                    style={{ backgroundColor: '#C41E3A' }}
+                  >
+                    {temple.status}
+                  </span>
+                </div>
+                
+                <p className="mb-4 sm:mb-6 text-sm sm:text-base lg:text-lg leading-relaxed" style={{ color: '#2C2C2C' }}>
+                  {temple.description}
+                </p>
+
+                <div className="mb-6 sm:mb-8">
+                  <div className="flex justify-between items-center mb-2 sm:mb-3">
+                    <span className="font-semibold text-sm sm:text-base" style={{ color: '#C41E3A' }}>
+                      Restoration Progress
+                    </span>
+                    <div className="flex items-center">
+                      <span className="text-base sm:text-lg font-bold mr-2" style={{ color: '#C41E3A' }}>
+                        {temple.progress}%
+                      </span>
+                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#C41E3A' }} />
+                    </div>
+                  </div>
+                  <div className="w-full rounded-full h-2 sm:h-3 shadow-inner" style={{ backgroundColor: '#F4E8E8' }}>
+                    <div 
+                      className="h-2 sm:h-3 rounded-full transition-all duration-500"
+                      style={{ 
+                        backgroundColor: '#C41E3A',
+                        width: `${temple.progress}%`,
+                        background: `linear-gradient(90deg, #C41E3A 0%, #8B1538 100%)`
+                      }}
+                    ></div>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => toggleTemple(index)}
+                  className="flex items-center justify-between w-full p-3 sm:p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-md"
+                  style={{ 
+                    borderColor: expandedTemple === index ? '#C41E3A' : '#F4E8E8',
+                    backgroundColor: expandedTemple === index ? '#F4E8E8' : 'transparent'
+                  }}
+                >
+                  <span className="font-semibold text-sm sm:text-base lg:text-lg" style={{ color: '#2C2C2C' }}>
+                    Explore Sacred Journey
+                  </span>
+                  {expandedTemple === index ? 
+                    <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" style={{ color: '#C41E3A' }} /> : 
+                    <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" style={{ color: '#C41E3A' }} />
+                  }
+                </button>
+
+                {expandedTemple === index && (
+                  <div className="mt-4 sm:mt-6 space-y-4 sm:space-y-6">
+                    <div className="p-4 sm:p-6 rounded-lg" style={{ backgroundColor: '#F4E8E8' }}>
+                      <h5 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4" style={{ color: '#2C2C2C' }}>
+                        The Sacred Discovery
+                      </h5>
+                      <p className="mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base" style={{ color: '#2C2C2C' }}>
+                        {temple.detailedDescription}
+                      </p>
+                      
+                      <div className="p-3 sm:p-4 rounded-lg mb-4 sm:mb-6" style={{ backgroundColor: '#FFFEF7' }}>
+                        <p className="text-sm sm:text-base leading-relaxed italic" style={{ color: '#8B1538' }}>
+                          {temple.story}
+                        </p>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+                        <div>
+                          <h6 className="font-semibold text-sm sm:text-base mb-2" style={{ color: '#8B1538' }}>
+                            Funding Needed
+                          </h6>
+                          <p className="text-lg sm:text-xl font-bold" style={{ color: '#C41E3A' }}>
+                            {temple.fundingNeeded}
+                          </p>
+                        </div>
+                        <div>
+                          <h6 className="font-semibold text-sm sm:text-base mb-2" style={{ color: '#8B1538' }}>
+                            Expected Completion
+                          </h6>
+                          <p className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>
+                            {temple.expectedCompletion}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="mb-4 sm:mb-6">
+                        <h6 className="font-semibold text-sm sm:text-base mb-2" style={{ color: '#8B1538' }}>
+                          Community Impact
+                        </h6>
+                        <p className="text-sm sm:text-base" style={{ color: '#2C2C2C' }}>
+                          {temple.communityImpact}
+                        </p>
+                      </div>
+
+                      <div className="mb-4 sm:mb-6">
+                        <h6 className="font-semibold text-sm sm:text-base mb-2" style={{ color: '#8B1538' }}>
+                          Restoration Plan
+                        </h6>
+                        <p className="text-sm sm:text-base" style={{ color: '#2C2C2C' }}>
+                          {temple.restorationPlan}
+                        </p>
+                      </div>
+                      
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <Link to='/donate' className="flex-1">
+                          <button
+                            className="w-full px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-white text-sm sm:text-base transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"
+                            style={{ 
+                              backgroundColor: '#C41E3A',
+                              boxShadow: '0 4px 16px rgba(139, 21, 56, 0.2)'
+                            }}
+                          >
+                            <Heart className="w-4 h-4 sm:w-5 sm:h-5 inline mr-2" />
+                            Support Bappa's Home
+                          </button>
+                        </Link>
+                        <Link to='/volunteers' className="flex-1">
+                          <button
+                            className="w-full px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base border-2 transition-all duration-300 hover:shadow-md"
+                            style={{ 
+                              borderColor: '#C41E3A',
+                              color: '#C41E3A',
+                              backgroundColor: 'transparent'
+                            }}
+                          >
+                            <Users className="w-4 h-4 sm:w-5 sm:h-5 inline mr-2" />
+                            Join Sacred Mission
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
-        {/* Success Story Section */}
-        <div className="mb-16 sm:mb-20">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" style={{ color: '#2C2C2C' }}>
-              Divine Transformation
-            </h2>
-            <p className="text-lg sm:text-xl text-center max-w-4xl mx-auto leading-relaxed" style={{ color: '#2C2C2C' }}>
-              Witness the miraculous journey from destruction to devotion
+        ))}
+      </div>
+    </div>
+
+    {/* Success Story Section */}
+    <div className="mb-12 sm:mb-16 lg:mb-20">
+      <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-2" style={{ color: '#2C2C2C' }}>
+          Divine Transformation
+        </h2>
+        <p className="text-base sm:text-lg lg:text-xl text-center max-w-4xl mx-auto leading-relaxed px-4" style={{ color: '#2C2C2C' }}>
+          Witness the miraculous journey from destruction to devotion
+        </p>
+      </div>
+
+      <div className="rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg sm:shadow-xl lg:shadow-2xl overflow-hidden mb-6 sm:mb-8 mx-2 sm:mx-0" style={{ backgroundColor: '#FFFEF7', boxShadow: '0 10px 40px rgba(196, 30, 58, 0.12), 0 4px 16px rgba(196, 30, 58, 0.08)' }}>
+        <div className="p-4 sm:p-6 lg:p-8 xl:p-10" style={{ backgroundColor: '#F4E8E8' }}>
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center mb-4 sm:mb-6 px-2" style={{ color: '#8B1538' }}>
+            {successStory.name}
+          </h3>
+          
+          <div className="text-center mb-6 sm:mb-8">
+            <h4 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 px-2" style={{ color: '#C41E3A' }}>
+              <Satellite className="w-5 h-5 sm:w-6 sm:h-6 inline mr-2" />
+              Satellite View: Divine Transformation
+            </h4>
+            <p className="text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 px-2" style={{ color: '#2C2C2C' }}>
+              Witness the miraculous change from above - the same location, transformed by divine grace
             </p>
           </div>
 
-          <div className="rounded-2xl shadow-2xl overflow-hidden mb-8" style={{ backgroundColor: '#FFFEF7', boxShadow: '0 20px 60px rgba(196, 30, 58, 0.15)' }}>
-            <div className="p-6 sm:p-8 lg:p-10" style={{ backgroundColor: '#F4E8E8' }}>
-              <h3 className="text-2xl sm:text-3xl font-bold text-center mb-6" style={{ color: '#8B1538' }}>
-                {successStory.name}
-              </h3>
-              
-              <div className="text-center mb-8">
-                <h4 className="text-xl font-bold mb-6" style={{ color: '#C41E3A' }}>
-                  <Satellite className="w-6 h-6 inline mr-2" />
-                  Satellite View: Divine Transformation
-                </h4>
-                <p className="text-lg mb-6" style={{ color: '#2C2C2C' }}>
-                  Witness the miraculous change from above - the same location, transformed by divine grace
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+            <div className="text-center">
+              <h5 className="font-bold mb-2 sm:mb-3 text-base sm:text-lg px-2" style={{ color: '#8B1538' }}>
+                Before - Broken & Forgotten
+              </h5>
+              <div className="rounded-md sm:rounded-lg overflow-hidden shadow-md sm:shadow-lg border-2 mx-2 sm:mx-0" style={{ borderColor: '#F4E8E8' }}>
+                <img 
+                  src={successStory.satelliteBefore} 
+                  alt="Satellite view before restoration"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover"
+                />
+              </div>
+              <p className="mt-2 sm:mt-3 text-xs sm:text-sm font-medium px-2" style={{ color: '#2C2C2C' }}>
+                Broken roof, weathered walls, covered with blue plastic for protection
+              </p>
+            </div>
+            <div className="text-center">
+              <h5 className="font-bold mb-2 sm:mb-3 text-base sm:text-lg px-2" style={{ color: '#8B1538' }}>
+                After - Divine Restoration
+              </h5>
+              <div className="rounded-md sm:rounded-lg overflow-hidden shadow-md sm:shadow-lg border-2 mx-2 sm:mx-0" style={{ borderColor: '#C41E3A' }}>
+                <img 
+                  src={successStory.satelliteAfter} 
+                  alt="Satellite view after restoration"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover"
+                />
+              </div>
+              <p className="mt-2 sm:mt-3 text-xs sm:text-sm font-medium px-2" style={{ color: '#2C2C2C' }}>
+                Completely restored, sacred, radiant - a new spiritual haven
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-4 sm:space-y-6">
+            <div className="p-4 sm:p-6 rounded-lg" style={{ backgroundColor: '#FFFEF7' }}>
+              <p className="text-sm sm:text-base lg:text-lg leading-relaxed mb-3 sm:mb-4" style={{ color: '#2C2C2C' }}>
+                {successStory.story.hindi}
+              </p>
+              <p className="text-sm sm:text-base lg:text-lg leading-relaxed mb-3 sm:mb-4" style={{ color: '#2C2C2C' }}>
+                {successStory.story.transformation}
+              </p>
+              <div className="p-3 sm:p-4 rounded-lg border-l-4" style={{ backgroundColor: '#F4E8E8', borderColor: '#C41E3A' }}>
+                <p className="text-sm sm:text-base lg:text-lg leading-relaxed font-medium italic" style={{ color: '#8B1538' }}>
+                  {successStory.story.philosophy}
                 </p>
               </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                <div className="text-center">
-                  <h5 className="font-bold mb-3 text-lg" style={{ color: '#8B1538' }}>
-                    Before - Broken & Forgotten
-                  </h5>
-                  <div className="rounded-lg overflow-hidden shadow-lg border-2" style={{ borderColor: '#F4E8E8' }}>
-                    <img 
-                      src={successStory.satelliteBefore} 
-                      alt="Satellite view before restoration"
-                      className="w-full h-64 object-cover"
-                    />
-                  </div>
-                  <p className="mt-3 text-sm font-medium" style={{ color: '#2C2C2C' }}>
-                    Broken roof, weathered walls, covered with blue plastic for protection
-                  </p>
-                </div>
-                <div className="text-center">
-                  <h5 className="font-bold mb-3 text-lg" style={{ color: '#8B1538' }}>
-                    After - Divine Restoration
-                  </h5>
-                  <div className="rounded-lg overflow-hidden shadow-lg border-2" style={{ borderColor: '#C41E3A' }}>
-                    <img 
-                      src={successStory.satelliteAfter} 
-                      alt="Satellite view after restoration"
-                      className="w-full h-64 object-cover"
-                    />
-                  </div>
-                  <p className="mt-3 text-sm font-medium" style={{ color: '#2C2C2C' }}>
-                    Completely restored, sacred, radiant - a new spiritual haven
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <div className="p-6 rounded-lg" style={{ backgroundColor: '#FFFEF7' }}>
-                  <p className="text-lg leading-relaxed mb-4" style={{ color: '#2C2C2C' }}>
-                    {successStory.story.hindi}
-                  </p>
-                  <p className="text-lg leading-relaxed mb-4" style={{ color: '#2C2C2C' }}>
-                    {successStory.story.transformation}
-                  </p>
-                  <div className="p-4 rounded-lg border-l-4" style={{ backgroundColor: '#F4E8E8', borderColor: '#C41E3A' }}>
-                    <p className="text-lg leading-relaxed font-medium italic" style={{ color: '#8B1538' }}>
-                      {successStory.story.philosophy}
-                    </p>
-                  </div>
-                  <p className="text-center text-xl font-bold mt-6" style={{ color: '#C41E3A' }}>
-                    Yaad rahe... jo bhi karta hai, wahi karta hai — Ishwar. 🙏
-                  </p>
-                </div>
-              </div>
+              <p className="text-center text-base sm:text-lg lg:text-xl font-bold mt-4 sm:mt-6" style={{ color: '#C41E3A' }}>
+                Yaad rahe... jo bhi karta hai, wahi karta hai — Ishwar. 🙏
+              </p>
             </div>
           </div>
         </div>
-
-        {/* Roadmap Timeline Section */}
-        <div className="mb-16 sm:mb-20">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8" style={{ color: '#2C2C2C' }}>
-            Sacred Journey Timeline
-          </h3>
-          <p className="text-center mb-8 sm:mb-12 text-lg max-w-3xl mx-auto" style={{ color: '#6B4B4B' }}>
-            Following the divine guidance that led to the Mahadev temple's transformation, here's our roadmap for restoring Shri Dev Ganpati Mandir
-          </p>
-          
-          <div className="max-w-5xl mx-auto">
-            <div className="relative">
-              {/* Timeline line - hide on small screens */}
-              <div 
-                className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full"
-                style={{ backgroundColor: '#F4E8E8' }}
-              ></div>
-              
-              {timelineEvents.map((event, index) => (
-                <div key={index} className="relative mb-8 sm:mb-12 last:mb-0">
-                  {/* Mobile layout - always left aligned */}
-                  <div className="sm:hidden">
-                    <div className="flex items-start mb-4">
-                      <div className="w-8 h-8 rounded-full border-4 border-white shadow-lg mr-4 flex items-center justify-center"
-                           style={{ backgroundColor: event.status === 'current' ? '#C41E3A' : event.status === 'upcoming' ? '#8B1538' : '#F4E8E8' }}>
-                        {event.status === 'current' && <div className="w-3 h-3 rounded-full animate-pulse bg-white"></div>}
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center mb-2">
-                          <event.icon className="w-5 h-5 mr-2" style={{ color: '#C41E3A' }} />
-                          <span className="font-bold text-base" style={{ color: event.status === 'current' ? '#C41E3A' : '#2C2C2C' }}>
-                            {event.period}
-                          </span>
-                        </div>
-                        <h4 className="font-bold text-lg mb-2" style={{ color: '#2C2C2C' }}>
-                          {event.event}
-                        </h4>
-                        <p className="text-sm leading-relaxed" style={{ color: '#6B4B4B' }}>
-                          {event.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Desktop layout - alternating sides */}
-                  <div className="hidden sm:flex items-center">
-                    {/* Left side card (for even index) */}
-                    {index % 2 === 0 && (
-                      <div className="w-1/2 pr-8 text-right">
-                        <div 
-                          className="p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
-                          style={{ 
-                            backgroundColor: '#FFFEF7',
-                            boxShadow: '0 8px 32px rgba(196, 30, 58, 0.1)'
-                          }}
-                        >
-                          <div className="flex items-center mb-3 justify-end">
-                            <event.icon className="w-6 h-6 mr-2" style={{ color: '#C41E3A' }} />
-                            <span className="font-bold text-lg" style={{ color: event.status === 'current' ? '#C41E3A' : '#2C2C2C' }}>
-                              {event.period}
-                            </span>
-                          </div>
-                          <h4 className="font-bold text-xl mb-3" style={{ color: '#2C2C2C' }}>
-                            {event.event}
-                          </h4>
-                          <p className="text-base leading-relaxed" style={{ color: '#6B4B4B' }}>
-                            {event.description}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {/* Empty left space (for odd index) */}
-                    {index % 2 === 1 && <div className="w-1/2"></div>}
-                    
-                    {/* Center timeline dot */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full border-4 border-white shadow-lg z-10 flex items-center justify-center"
-                         style={{ backgroundColor: event.status === 'current' ? '#C41E3A' : event.status === 'upcoming' ? '#8B1538' : '#F4E8E8' }}>
-                      {event.status === 'current' && <div className="w-3 h-3 rounded-full animate-pulse bg-white"></div>}
-                    </div>
-                    
-                    {/* Right side card (for odd index) */}
-                    {index % 2 === 1 && (
-                      <div className="w-1/2 pl-8 text-left">
-                        <div 
-                          className="p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
-                          style={{ 
-                            backgroundColor: '#FFFEF7',
-                            boxShadow: '0 8px 32px rgba(196, 30, 58, 0.1)'
-                          }}
-                        >
-                          <div className="flex items-center mb-3 justify-start">
-                            <event.icon className="w-6 h-6 mr-2" style={{ color: '#C41E3A' }} />
-                            <span className="font-bold text-lg" style={{ color: event.status === 'current' ? '#C41E3A' : '#2C2C2C' }}>
-                              {event.period}
-                            </span>
-                          </div>
-                          <h4 className="font-bold text-xl mb-3" style={{ color: '#2C2C2C' }}>
-                            {event.event}
-                          </h4>
-                          <p className="text-base leading-relaxed" style={{ color: '#6B4B4B' }}>
-                            {event.description}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {/* Empty right space (for even index) */}
-                    {index % 2 === 0 && <div className="w-1/2"></div>}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Current Temple Project Section */}
-       
-
-    
       </div>
     </div>
+
+    {/* Roadmap Timeline Section */}
+    <div className="mb-12 sm:mb-16 lg:mb-20">
+      <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 px-2" style={{ color: '#2C2C2C' }}>
+        Sacred Journey Timeline
+      </h3>
+      <p className="text-center mb-6 sm:mb-8 lg:mb-12 text-sm sm:text-base lg:text-lg max-w-3xl mx-auto px-4" style={{ color: '#6B4B4B' }}>
+        Following the divine guidance that led to the Mahadev temple's transformation, here's our roadmap for restoring Shri Dev Ganpati Mandir
+      </p>
+      
+      <div className="max-w-5xl mx-auto px-2 sm:px-0">
+        <div className="relative">
+          {/* Timeline line - hide on small screens */}
+          <div 
+            className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full"
+            style={{ backgroundColor: '#F4E8E8' }}
+          ></div>
+          
+          {timelineEvents.map((event, index) => (
+            <div key={index} className="relative mb-6 sm:mb-8 lg:mb-12 last:mb-0">
+              {/* Mobile layout - always left aligned */}
+              <div className="sm:hidden">
+                <div className="flex items-start mb-4">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 sm:border-4 border-white shadow-lg mr-3 sm:mr-4 flex items-center justify-center flex-shrink-0"
+                       style={{ backgroundColor: event.status === 'current' ? '#C41E3A' : event.status === 'upcoming' ? '#8B1538' : '#F4E8E8' }}>
+                    {event.status === 'current' && <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full animate-pulse bg-white"></div>}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center mb-2 flex-wrap">
+                      <event.icon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" style={{ color: '#C41E3A' }} />
+                      <span className="font-bold text-sm sm:text-base" style={{ color: event.status === 'current' ? '#C41E3A' : '#2C2C2C' }}>
+                        {event.period}
+                      </span>
+                    </div>
+                    <h4 className="font-bold text-base sm:text-lg mb-2" style={{ color: '#2C2C2C' }}>
+                      {event.event}
+                    </h4>
+                    <p className="text-xs sm:text-sm leading-relaxed" style={{ color: '#6B4B4B' }}>
+                      {event.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Desktop layout - alternating sides */}
+              <div className="hidden sm:flex items-center">
+                {/* Left side card (for even index) */}
+                {index % 2 === 0 && (
+                  <div className="w-1/2 pr-6 lg:pr-8 text-right">
+                    <div 
+                      className="p-4 lg:p-6 rounded-lg lg:rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
+                      style={{ 
+                        backgroundColor: '#FFFEF7',
+                        boxShadow: '0 8px 32px rgba(196, 30, 58, 0.1)'
+                      }}
+                    >
+                      <div className="flex items-center mb-3 justify-end">
+                        <event.icon className="w-5 h-5 lg:w-6 lg:h-6 mr-2" style={{ color: '#C41E3A' }} />
+                        <span className="font-bold text-base lg:text-lg" style={{ color: event.status === 'current' ? '#C41E3A' : '#2C2C2C' }}>
+                          {event.period}
+                        </span>
+                      </div>
+                      <h4 className="font-bold text-lg lg:text-xl mb-3" style={{ color: '#2C2C2C' }}>
+                        {event.event}
+                      </h4>
+                      <p className="text-sm lg:text-base leading-relaxed" style={{ color: '#6B4B4B' }}>
+                        {event.description}
+                      </p>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Empty left space (for odd index) */}
+                {index % 2 === 1 && <div className="w-1/2"></div>}
+                
+                {/* Center timeline dot */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 lg:w-8 lg:h-8 rounded-full border-2 lg:border-4 border-white shadow-lg z-10 flex items-center justify-center"
+                     style={{ backgroundColor: event.status === 'current' ? '#C41E3A' : event.status === 'upcoming' ? '#8B1538' : '#F4E8E8' }}>
+                  {event.status === 'current' && <div className="w-2 h-2 lg:w-3 lg:h-3 rounded-full animate-pulse bg-white"></div>}
+                </div>
+                
+                {/* Right side card (for odd index) */}
+                {index % 2 === 1 && (
+                  <div className="w-1/2 pl-6 lg:pl-8 text-left">
+                    <div 
+                      className="p-4 lg:p-6 rounded-lg lg:rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
+                      style={{ 
+                        backgroundColor: '#FFFEF7',
+                        boxShadow: '0 8px 32px rgba(196, 30, 58, 0.1)'
+                      }}
+                    >
+                      <div className="flex items-center mb-3 justify-start">
+                        <event.icon className="w-5 h-5 lg:w-6 lg:h-6 mr-2" style={{ color: '#C41E3A' }} />
+                        <span className="font-bold text-base lg:text-lg" style={{ color: event.status === 'current' ? '#C41E3A' : '#2C2C2C' }}>
+                          {event.period}
+                        </span>
+                      </div>
+                      <h4 className="font-bold text-lg lg:text-xl mb-3" style={{ color: '#2C2C2C' }}>
+                        {event.event}
+                      </h4>
+                      <p className="text-sm lg:text-base leading-relaxed" style={{ color: '#6B4B4B' }}>
+                        {event.description}
+                      </p>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Empty right space (for even index) */}
+                {index % 2 === 0 && <div className="w-1/2"></div>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Current Temple Project Section */}
+  </div>
+</div>
 
         {/* Call to Action */}
         <div className="text-center p-8 sm:p-10 md:p-12 rounded-xl" style={{   
