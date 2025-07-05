@@ -28,6 +28,7 @@ app.use("/api/blog",blogRoutes);
 app.use("/api/volunteer",volunteerRoute);
 app.use("/api/contact",contactRoute);
 app.use("/api/subscribe",subscribeRoute);
+import "./controllers/monthly.controller.js";
 const PORT=process.env.PORT || 3000;
 
 app.listen(PORT,()=>{

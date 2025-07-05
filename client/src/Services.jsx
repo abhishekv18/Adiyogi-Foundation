@@ -1535,11 +1535,11 @@ const navigate=useNavigate();
                 <div className="flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center mb-6 sm:mb-8">
                   <div className="flex items-center space-x-2 sm:space-x-3">
                     <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="text-base sm:text-lg">+91 99999 99999</span>
+                    <span className="text-base sm:text-lg">+91 9175033022</span>
                   </div>
                   <div className="flex items-center space-x-2 sm:space-x-3">
                     <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="text-base sm:text-lg">info@adiyogi.org</span>
+                    <span className="text-base sm:text-lg">social.adiyogifoundation@gmail.com</span>
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
@@ -1569,7 +1569,7 @@ const navigate=useNavigate();
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
             <div className="space-y-1 sm:space-y-2">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">1000+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">100+</div>
               <div className="text-red-100 text-sm sm:text-base md:text-lg">Happy Clients</div>
             </div>
             <div className="space-y-1 sm:space-y-2">
@@ -1577,7 +1577,7 @@ const navigate=useNavigate();
               <div className="text-red-100 text-sm sm:text-base md:text-lg">Years Experience</div>
             </div>
             <div className="space-y-1 sm:space-y-2">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">5000+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">500+</div>
               <div className="text-red-100 text-sm sm:text-base md:text-lg">Consultations</div>
             </div>
             <div className="space-y-1 sm:space-y-2">

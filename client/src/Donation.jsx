@@ -526,10 +526,10 @@ const navigate=useNavigate();
   ];
 
   const impactStats = [
-    { number: "₹2.5 Crore", label: "Total Donations Received", icon: Target },
-    { number: "15", label: "Temples Restored", icon: Building },
-    { number: "50,000+", label: "Lives Transformed", icon: Users },
-    { number: "100+", label: "Active Programs", icon: CheckCircle }
+    { number: "₹2,25,500+", label: "Total Donations Received", icon: Target },
+    { number: "2+", label: "Temples Restored", icon: Building },
+    { number: "500+", label: "Lives Transformed", icon: Users },
+    { number: "2+", label: "Active Programs", icon: CheckCircle }
   ];
 
   return (
@@ -668,7 +668,7 @@ const navigate=useNavigate();
               }}
               onMouseEnter={(e) => {
                 if (activeTab !== method.id) {
-                  e.target.style.backgroundColor = '#8B1538';
+                  e.target.style.backgroundColor = '#C41E3A';
                   e.target.style.color = 'white';
                 }
               }}
@@ -692,7 +692,11 @@ const navigate=useNavigate();
               <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6" style={{ color: '#2C2C2C' }}>Scan QR Code to Donate</h3>
               <div className="inline-block p-4 sm:p-6 rounded-xl mb-4 sm:mb-6" style={{ backgroundColor: '#FDF8F8', border: '2px solid #C41E3A' }}>
                 <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto bg-white rounded-lg flex items-center justify-center">
-                  <QrCode className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32" style={{ color: '#C41E3A' }} />
+                  <img
+                  src='/public/volunteers/WhatsApp Image 2025-07-05 at 8.36.53 PM (1).jpeg'
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32" style={{ color: '#C41E3A' }} 
+                  />
+                 
                 </div>
               </div>
               <p className="text-base sm:text-lg mb-3 sm:mb-4" style={{ color: '#6B4B4B' }}>
@@ -700,7 +704,7 @@ const navigate=useNavigate();
               </p>
               <div className="flex justify-center space-x-4">
                 <div className="px-3 sm:px-4 py-2 rounded-lg" style={{ backgroundColor: '#F4E8E8' }}>
-                  <span className="font-medium text-sm sm:text-base" style={{ color: '#C41E3A' }}>UPI ID: adiyogi@paytm</span>
+                  <span className="font-medium text-sm sm:text-base" style={{ color: '#C41E3A' }}>UPI ID: aaditya.niikam-2@okaxis</span>
                 </div>
               </div>
             </div>
@@ -713,9 +717,9 @@ const navigate=useNavigate();
                 <div className="p-4 rounded-lg" style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
                   <label className="block text-sm font-medium mb-2" style={{ color: '#6B4B4B' }}>UPI ID</label>
                   <div className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: '#FFFEF7', border: '1px solid #F4E8E8' }}>
-                    <span className="font-mono font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>adiyogi@paytm</span>
+                    <span className="font-mono font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>aaditya.niikam-2@okaxis</span>
                     <button
-                      onClick={() => copyToClipboard('adiyogi@paytm', 'upi')}
+                      onClick={() => copyToClipboard('aaditya.niikam-2@okaxis', 'upi')}
                       className="p-2 rounded-lg transition-colors duration-200"
                       style={{ backgroundColor: copiedText === 'upi' ? '#8B1538' : '#C41E3A', color: 'white' }}
                     >
@@ -922,13 +926,13 @@ const navigate=useNavigate();
             <div className="p-4 sm:p-6 rounded-xl" style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
               <Phone className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-3 sm:mb-4" style={{ color: '#C41E3A' }} />
               <h3 className="font-bold mb-2 text-base sm:text-lg" style={{ color: '#2C2C2C' }}>Call Us</h3>
-              <p className="text-sm sm:text-base" style={{ color: '#6B4B4B' }}>+91 98765 43210</p>
+              <p className="text-sm sm:text-base" style={{ color: '#6B4B4B' }}>+91 9175033022</p>
               <p className="text-xs sm:text-sm mt-1" style={{ color: '#6B4B4B' }}>Mon-Sat: 9 AM - 6 PM</p>
             </div>
             <div className="p-6 rounded-xl" style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
               <MessageCircle className="w-8 h-8 mx-auto mb-4" style={{ color: '#C41E3A' }} />
               <h3 className="font-bold mb-2" style={{ color: '#2C2C2C' }}>WhatsApp</h3>
-              <p style={{ color: '#6B4B4B' }}>+91 98765 43210</p>
+              <p style={{ color: '#6B4B4B' }}>+91 9175033022</p>
               <p className="text-sm mt-1" style={{ color: '#6B4B4B' }}>Quick response guaranteed</p>
             </div>
           </div>

@@ -325,12 +325,17 @@ console.log(allBlogs)
                 {index+1}
               </div>
               
-              <div className="relative overflow-hidden">
-                <img
-                  src={blog.imageUrl}
-                  alt={blog.title}
-                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+              <div className="relative overflow-hidden group">
+   {/* <img
+    src={blog.imageUrl}
+    alt={blog.title}
+    className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-102"
+  /> */}
+  <img
+    src={blog.imageUrl}
+    alt={blog.title}
+    className="w-full h-56 sm:h-64 md:h-72 object-cover transition-transform duration-500 group-hover:scale-105"
+  />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 {/* Floating Icon */}
@@ -448,11 +453,12 @@ console.log(allBlogs)
           </div>
           
           {/* Image */}
-          <div className="mb-6 sm:mb-8 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl">
+          <div className="mb-6 sm:mb-8 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl w-full">
             <img
               src={selectedBlog.imageUrl}
               alt={selectedBlog.title}
-              className="w-full h-48 sm:h-72 md:h-96 object-cover"
+              // className="w-full h-48 sm:h-72 md:h-96 object-contain rounded-lg shadow"
+                 className="w-full object-contain rounded-lg shadow max-h-[600px]"
             />
           </div>
           

@@ -655,9 +655,9 @@ const timelineEvents = [
   ];
 
   const restorationStats = [
-    { number: "500+", label: "Years of Combined Temple History", icon: Clock },
-    { number: "15,000+", label: "Community Members Served", icon: Users },
-    { number: "2", label: "Sacred Sites Under Restoration", icon: Building },
+    { number: "15+", label: "Years of Combined Temple History", icon: Clock },
+    { number: "50+", label: "Community Members Served", icon: Users },
+    { number: "2+", label: "Sacred Sites Under Restoration", icon: Building },
     { number: "100%", label: "Community-Led Approach", icon: Heart }
   ];
 

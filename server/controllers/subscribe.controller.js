@@ -78,6 +78,7 @@
 
 
 import nodemailer from "nodemailer";
+import { Subscribe } from "../models/subscribe.model.js";
 
 export const addSubscribed = async (req, res) => {
   try {
@@ -98,7 +99,16 @@ export const addSubscribed = async (req, res) => {
         success: false
       });
     }
+  const subscribedExists = await Subscribe.findOne({ email });
+      if(subscribedExists){
+        return res.status(400).json({
+            message: "Subscriber with this email already registered",
+            success: false
+        });
+      }
 
+   const newSubscribe = new Subscribe({email});
+        await newSubscribe.save();
     // Create transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -176,10 +186,13 @@ const userMail = {
 
     await transporter.sendMail(adminMail);
 
-    return res.status(201).json({
-      message: "Subscribed successfully",
-      success: true
-    });
+
+        return res.status(201).json({
+            message:"Subscribe Successfully",
+            success:true,
+            newSubscribe
+        });
+
 
   } catch (error) {
     console.error("Error sending email:", error);

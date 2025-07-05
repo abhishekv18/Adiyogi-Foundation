@@ -929,9 +929,9 @@ const navigate=useNavigate();
 
   const stats = [
     { number: "50+", label: "Active Volunteers", icon: Users },
-    { number: "4", label: "Project Sites", icon: MapPin },
-    { number: "2k+", label: "Lives Impacted", icon: Heart },
-    { number: "3", label: "Core Initiatives", icon: Target }
+    { number: "2+", label: "Project Sites", icon: MapPin },
+    { number: "1k+", label: "Lives Impacted", icon: Heart },
+    { number: "2+", label: "Core Initiatives", icon: Target }
   ];
 
   return (
@@ -1241,7 +1241,6 @@ const navigate=useNavigate();
                     }}>
                       {project.category}
                     </div>
-
                     {/* Status Badge */}
                     <div style={{
                       position: 'absolute',
@@ -1364,7 +1363,8 @@ const navigate=useNavigate();
                       display: 'flex',
                       gap: isMobile ? '0.5rem' : '0.75rem'
                     }}>
-                      <button style={{
+                    
+                        <button style={{
                         flex: 1,
                         padding: isMobile ? '0.75rem 1rem' : '0.875rem 1.5rem',
                         backgroundColor: isHovered ? '#8B1538' : '#C41E3A',
@@ -1383,8 +1383,9 @@ const navigate=useNavigate();
                         <Heart size={isMobile ? 14 : 16} />
                         Join Seva
                       </button>
-                      
-                      <button style={{
+                   
+                    <Link to='/volunteers'>
+                     <button style={{
                         padding: isMobile ? '0.75rem' : '0.875rem',
                         backgroundColor: 'transparent',
                         color: '#C41E3A',
@@ -1395,6 +1396,9 @@ const navigate=useNavigate();
                       }}>
                         <ArrowRight size={isMobile ? 14 : 16} />
                       </button>
+                    </Link>
+                      
+                     
                     </div>
                   </div>
                 </div>
