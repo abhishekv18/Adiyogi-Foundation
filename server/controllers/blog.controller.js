@@ -108,13 +108,13 @@ const blogMail = {
 
         <p style="font-size: 13px; color: #555;">Stay connected with us:</p>
         <div style="margin-bottom: 20px;">
-          <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank" style="margin-right: 15px;">
+          <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank" style="margin-right: 12px;">
             <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="26" alt="Instagram" />
           </a>
-          <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank" style="margin-right: 15px;">
+          <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank" style="margin-right: 12px;">
             <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="26" alt="Facebook" />
           </a>
-          <a href="https://youtube.com/@adiyogifoundation.b?si=hHJk8UzEA1spKAx3" target="_blank" style="margin-right: 15px;">
+          <a href="https://youtube.com/@adiyogifoundation.b?si=hHJk8UzEA1spKAx3" target="_blank" style="margin-right: 12px;">
             <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="26" alt="YouTube" />
           </a>
           <a href="https://www.linkedin.com/company/adiyogi-foundation" target="_blank">

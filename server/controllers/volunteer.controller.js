@@ -160,13 +160,13 @@ const userMail = {
 
       <p style="font-size: 15px; color: #555;">Follow us on social media:</p>
       <div style="margin-bottom: 16px;">
-        <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank"  style="margin-right: 15px;">
+        <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank"  style="margin-right: 12px;">
           <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="28" alt="Instagram" />
         </a>
-        <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank"  style="margin-right: 15px;">
+        <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank"  style="margin-right: 12px;">
           <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="28" alt="Facebook" />
         </a>
-        <a href="https://youtube.com/@adiyogifoundation.b?si=hHJk8UzEA1spKAx3" target="_blank" style="margin-right: 15px;">
+        <a href="https://youtube.com/@adiyogifoundation.b?si=hHJk8UzEA1spKAx3" target="_blank" style="margin-right: 12px;">
           <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="28" alt="YouTube" />
         </a>
                 <a href="https://www.linkedin.com/company/adiyogi-foundation" target="_blank" >
