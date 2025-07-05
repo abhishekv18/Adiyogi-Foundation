@@ -452,7 +452,7 @@ const handleSubmit = async (e) => {
                   <Mail size={14} className="sm:w-4 sm:h-4 mr-2" />
                   Email Newsletter
                 </h5>
-                <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">Stay connected with our latest insights and events</p>
+                <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">Stay connected with our latest insights and events.</p>
                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 sm:gap-0">
                   <input
                      name='email'
@@ -572,7 +572,7 @@ const handleSubmit = async (e) => {
             {/* Enhanced CTA */}
             <div className="bg-gradient-to-r from-sacred-crimson/10 to-soft-rose/5 rounded-2xl p-4 sm:p-6 border border-sacred-crimson/20">
               <p className="text-sacred-crimson font-medium mb-1 sm:mb-2 text-xs sm:text-sm">Choose Your Contribution</p>
-              <p className="text-gray-400 text-xs mb-3 sm:mb-4">Join our community of change-makers</p>
+              <p className="text-gray-400 text-xs mb-3 sm:mb-4">Join our community of change-makers.</p>
               <Link
                 to="/donate"
                 className="inline-flex items-center bg-gradient-to-r from-sacred-crimson to-deep-ruby text-warm-ivory px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 group w-full justify-center text-xs sm:text-sm"
@@ -593,7 +593,7 @@ const handleSubmit = async (e) => {
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 sm:space-y-6 md:space-y-0">
             <div className="flex items-center space-x-2 text-gray-400 text-xs sm:text-sm text-center md:text-left">
-              <span>© 2025 Adiyogi Foundation. Made by Abhishek </span>
+              <span>© 2025 Adiyogi Foundation. Made by Abhishek. </span>
               <Heart size={12} className="sm:w-3.5 sm:h-3.5 text-sacred-crimson animate-pulse" />
               {/* <span>for humanity.</span> */}
             </div>

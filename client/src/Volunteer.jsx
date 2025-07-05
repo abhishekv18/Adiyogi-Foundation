@@ -347,7 +347,7 @@ const handleSubmit = async (e) => {
                 Begin Your Sacred Service
               </h2>
               <p className="text-xs md:text-sm" style={{ color: '#6B4B4B' }}>
-                Fill out this form to join our volunteer community and start your journey of seva
+                Fill out this form to join our volunteer community and start your journey of seva.
               </p>
             </div>
 

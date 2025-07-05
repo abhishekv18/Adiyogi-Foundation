@@ -573,7 +573,7 @@ const handleSubmit = async (e) => {
                   Begin Your Spiritual Journey
                 </h2>
                 <p className="text-sm sm:text-base text-gray-600">
-                  Share your details and let us connect you with the divine wisdom
+                  Share your details and let us connect you with the divine wisdom.
                 </p>
               </div>
 
@@ -873,19 +873,19 @@ const handleSubmit = async (e) => {
               <div className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-600">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#C41E3A' }}></div>
-                  <p>Preserving ancient temple architecture and spiritual heritage</p>
+                  <p>Preserving ancient temple architecture and spiritual heritage.</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#C41E3A' }}></div>
-                  <p>Guiding seekers on their path to spiritual enlightenment</p>
+                  <p>Guiding seekers on their path to spiritual enlightenment.</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#C41E3A' }}></div>
-                  <p>Spreading the timeless wisdom of yoga and meditation</p>
+                  <p>Spreading the timeless wisdom of yoga and meditation.</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#C41E3A' }}></div>
-                  <p>Building bridges between ancient wisdom and modern life</p>
+                  <p>Building bridges between ancient wisdom and modern life.</p>
                 </div>
               </div>
             </div>
@@ -901,7 +901,7 @@ const handleSubmit = async (e) => {
               🕉️ Om Namah Shivaya 🕉️
             </p>
             <p className="text-sm sm:text-base text-gray-600">
-              May your journey with us be filled with divine blessings and inner peace
+              May your journey with us be filled with divine blessings and inner peace.
             </p>
           </div>
         </div>

@@ -601,28 +601,28 @@ const timelineEvents = [
     period: "2025 Q1", 
     event: "Survey & Community Consultation", 
     status: "current",
-    description: "Comprehensive site assessment, community meetings, and spiritual leader consultations for Shri Dev Ganpati Mandir",
+    description: "Comprehensive site assessment, community meetings, and spiritual leader consultations for Shri Dev Ganpati Mandir.",
     icon: Eye
   },
   { 
     period: "2025 Q2", 
     event: "Ganpati Mandir Restoration Begins", 
     status: "upcoming",
-    description: "Foundation work, structural repairs, and artisan team mobilization for coastal temple restoration",
+    description: "Foundation work, structural repairs, and artisan team mobilization for coastal temple restoration.",
     icon: Building
   },
   { 
     period: "2025 Q4", 
     event: "Ganpati Mandir Consecration", 
     status: "upcoming",
-    description: "Sacred consecration ceremony, community celebration, and official reopening of Bappa's divine home",
+    description: "Sacred consecration ceremony, community celebration, and official reopening of Bappa's divine home.",
     icon: Star
   },
   { 
     period: "2026 Q1", 
     event: "Next Sacred Site Selection", 
     status: "future",
-    description: "Begin identification and planning for next temple restoration project with enhanced community involvement",
+    description: "Begin identification and planning for next temple restoration project with enhanced community involvement.",
     icon: Compass
   }
 ]
@@ -630,25 +630,25 @@ const timelineEvents = [
   const spiritualValues = [
     {
       title: "Consecration",
-      description: "Not just conservation, but spiritual awakening of sacred spaces",
+      description: "Not just conservation, but spiritual awakening of sacred spaces.",
       icon: Zap,
       color: "#C41E3A"
     },
     {
       title: "Community",
-      description: "Working hand-in-hand with local communities and spiritual leaders",
+      description: "Working hand-in-hand with local communities and spiritual leaders.",
       icon: Users,
         color: "#C41E3A"
     },
     {
       title: "Heritage",
-      description: "Preserving architectural and cultural legacy for future generations",
+      description: "Preserving architectural and cultural legacy for future generations.",
       icon: Building,
       color: "#C41E3A"
     },
     {
       title: "Devotion",
-      description: "Honoring the divine through dedicated service and reverence",
+      description: "Honoring the divine through dedicated service and reverence.",
       icon: Heart,
         color: "#C41E3A"
     }
@@ -964,7 +964,7 @@ const timelineEvents = [
           Divine Transformation
         </h2>
         <p className="text-base sm:text-lg lg:text-xl text-center max-w-4xl mx-auto leading-relaxed px-4" style={{ color: '#2C2C2C' }}>
-          Witness the miraculous journey from destruction to devotion
+          Witness the miraculous journey from destruction to devotion.
         </p>
       </div>
 
@@ -980,7 +980,7 @@ const timelineEvents = [
               Satellite View: Divine Transformation
             </h4>
             <p className="text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 px-2" style={{ color: '#2C2C2C' }}>
-              Witness the miraculous change from above - the same location, transformed by divine grace
+              Witness the miraculous change from above - the same location, transformed by divine grace.
             </p>
           </div>
 
@@ -997,7 +997,7 @@ const timelineEvents = [
                 />
               </div>
               <p className="mt-2 sm:mt-3 text-xs sm:text-sm font-medium px-2" style={{ color: '#2C2C2C' }}>
-                Broken roof, weathered walls, covered with blue plastic for protection
+                Broken roof, weathered walls, covered with blue plastic for protection.
               </p>
             </div>
             <div className="text-center">
@@ -1012,7 +1012,7 @@ const timelineEvents = [
                 />
               </div>
               <p className="mt-2 sm:mt-3 text-xs sm:text-sm font-medium px-2" style={{ color: '#2C2C2C' }}>
-                Completely restored, sacred, radiant - a new spiritual haven
+                Completely restored, sacred, radiant - a new spiritual haven.
               </p>
             </div>
           </div>
@@ -1045,7 +1045,7 @@ const timelineEvents = [
         Sacred Journey Timeline
       </h3>
       <p className="text-center mb-6 sm:mb-8 lg:mb-12 text-sm sm:text-base lg:text-lg max-w-3xl mx-auto px-4" style={{ color: '#6B4B4B' }}>
-        Following the divine guidance that led to the Mahadev temple's transformation, here's our roadmap for restoring Shri Dev Ganpati Mandir
+        Following the divine guidance that led to the Mahadev temple's transformation, here's our roadmap for restoring Shri Dev Ganpati Mandir.
       </p>
       
       <div className="max-w-5xl mx-auto px-2 sm:px-0">

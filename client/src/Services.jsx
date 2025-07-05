@@ -828,7 +828,7 @@ const navigate=useNavigate();
       id: 'astrology',
       title: 'Astrology Consultation',
       icon: Star,
-      shortDesc: 'Real guidance through astrology for self-understanding and life clarity',
+      shortDesc: 'Real guidance through astrology for self-understanding and life clarity.',
       gradient: 'from-red-500 to-rose-600',
       lightGradient: 'from-red-50 to-rose-50',
       content: {
@@ -863,10 +863,10 @@ const navigate=useNavigate();
           }
         ],
         whyChoose: [
-          'Human-centered approach - No predictions, just insight and support',
-          'Privacy respected - All information stays 100% confidential',
-          'Reports made with care - Thoughtfully written, not machine-generated',
-          'Clarity-focused - Designed to help you feel more sure, not confused'
+          'Human-centered approach - No predictions, just insight and support.',
+          'Privacy respected - All information stays 100% confidential.',
+          'Reports made with care - Thoughtfully written, not machine-generated.',
+          'Clarity-focused - Designed to help you feel more sure, not confused.'
         ]
       }
     },
@@ -874,7 +874,7 @@ const navigate=useNavigate();
       id: 'vastu-home',
       title: 'Vastu for Home',
       icon: Home,
-      shortDesc: 'Transform your home into a thriving hub of positive energy and prosperity',
+      shortDesc: 'Transform your home into a thriving hub of positive energy and prosperity.',
       gradient: 'from-rose-600 to-red-600',
       lightGradient: 'from-rose-50 to-red-50',
       content: {
@@ -910,7 +910,7 @@ const navigate=useNavigate();
       id: 'vastu-office',
       title: 'Vastu for Office',
       icon: Building2,
-      shortDesc: 'Enhance your office success, sales, cash flow, and customer relationships',
+      shortDesc: 'Enhance your office success, sales, cash flow, and customer relationships.',
       gradient: 'from-red-600 to-rose-700',
       lightGradient: 'from-red-50 to-rose-50',
       content: {
@@ -956,7 +956,7 @@ const navigate=useNavigate();
       id: 'vastu-factory',
       title: 'Vastu for Factory',
       icon: Factory,
-      shortDesc: 'Enhance production quality, sales, orders, and address departmental issues',
+      shortDesc: 'Enhance production quality, sales, orders, and address departmental issues.',
       gradient: 'from-rose-700 to-red-700',
       lightGradient: 'from-rose-50 to-red-50',
       content: {
@@ -1003,7 +1003,7 @@ const navigate=useNavigate();
       id: 'vastu-commercial',
       title: 'Vastu for Commercial/Industry',
       icon: Store,
-      shortDesc: 'Assess divine energies and optimize commercial properties for success',
+      shortDesc: 'Assess divine energies and optimize commercial properties for success.',
       gradient: 'from-red-700 to-rose-800',
       lightGradient: 'from-red-50 to-rose-50',
       content: {
@@ -1332,7 +1332,7 @@ const navigate=useNavigate();
               Our Services
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 md:mb-12 max-w-3xl md:max-w-4xl mx-auto leading-relaxed" style={{ color: '#2C2C2C' }}>
-              Transform your life through the ancient wisdom of Astrology and Vastu Shastra with our expert guidance and personalized consultations
+              Transform your life through the ancient wisdom of Astrology and Vastu Shastra with our expert guidance and personalized consultations.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8" style={{ color: '#2C2C2C' }}>
               <div className="flex items-center space-x-2 sm:space-x-3">
@@ -1530,7 +1530,7 @@ const navigate=useNavigate();
               <div className="text-center">
                 <h4 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Ready to Get Started?</h4>
                 <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-red-100">
-                  Take the first step towards transformation with our expert consultation
+                  Take the first step towards transformation with our expert consultation.
                 </p>
                 <div className="flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center mb-6 sm:mb-8">
                   {/* <div className="flex items-center space-x-2 sm:space-x-3">
@@ -1541,19 +1541,28 @@ const navigate=useNavigate();
                     <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span className="text-base sm:text-lg">social.adiyogifoundation@gmail.com</span>
                   </div> */}
-                  <div className="flex items-center space-x-2 sm:space-x-3">
-  <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-  <a href="tel:+919175033022" className="text-base sm:text-lg hover:underline">
+                 <div className="flex items-center space-x-2 sm:space-x-3">
+  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+  <a
+    href="tel:+919175033022"
+    className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+    aria-label="Call us at +91 9175033022"
+  >
     +91 9175033022
   </a>
 </div>
 
 <div className="flex items-center space-x-2 sm:space-x-3">
-  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-  <a href="mailto:social.adiyogifoundation@gmail.com" className="text-base sm:text-lg hover:underline">
+  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+  <a
+    href="mailto:social.adiyogifoundation@gmail.com"
+    className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+    aria-label="Email us at social.adiyogifoundation@gmail.com"
+  >
     social.adiyogifoundation@gmail.com
   </a>
 </div>
+
 
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
@@ -1579,7 +1588,7 @@ const navigate=useNavigate();
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Trusted by Thousands</h3>
-            <p className="text-lg sm:text-xl text-red-100">Our track record speaks for itself</p>
+            <p className="text-lg sm:text-xl text-red-100">Our track record speaks for itself.</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
             <div className="space-y-1 sm:space-y-2">

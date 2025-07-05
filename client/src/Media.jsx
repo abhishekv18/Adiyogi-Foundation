@@ -274,7 +274,7 @@ console.log(allBlogs)
         <div className="bg-white rounded-3xl shadow-2xl p-8 mb-12 border border-rose-100" style={{boxShadow: '0 20px 40px rgba(196, 30, 58, 0.15)'}}>
           <div className="text-center mb-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-2">Search Sacred Wisdom</h2>
-            <p className="text-gray-600">Find the teachings that resonate with your spiritual journey</p>
+            <p className="text-gray-600">Find the teachings that resonate with your spiritual journey.</p>
           </div>
           <div className="flex justify-center">
             <div className="relative max-w-xl w-full">
@@ -572,7 +572,7 @@ console.log(allBlogs)
 
     {/* Trust Statement */}
     <p className="text-sm text-red-100 mt-6 opacity-80">
-      Join thousands of seekers on their spiritual journey
+      Join thousands of seekers on their spiritual journey.
     </p>
   </div>
 </div>

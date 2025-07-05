@@ -1132,7 +1132,7 @@ const Dashboard = useMemo(() => (
         <div className="p-4 md:p-6 border-b border-slate-200">
           <h3 className="text-lg font-semibold text-slate-800">Recent Blog Posts</h3>
         </div>
-        <div className="divide-y divide-slate-200 max-h-64 overflow-y-auto">
+        <div className="divide-y divide-slate-200 max-h-64 overflow-y-auto bg-gray-100">
           {allBlogs.slice(0, 5).map((blog) => (
             <div key={blog.id || blog._id} className="p-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
               <div className="flex-1 min-w-0">

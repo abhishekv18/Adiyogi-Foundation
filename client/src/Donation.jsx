@@ -646,7 +646,7 @@ const navigate=useNavigate();
       <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: '#2C2C2C' }}>Choose Your Donation Method</h2>
-          <p className="text-base sm:text-lg" style={{ color: '#6B4B4B' }}>Select the most convenient way to contribute to our sacred mission</p>
+          <p className="text-base sm:text-lg" style={{ color: '#6B4B4B' }}>Select the most convenient way to contribute to our sacred mission.</p>
         </div>
 
         {/* Tab Navigation */}
@@ -882,7 +882,7 @@ const navigate=useNavigate();
       <div className="max-w-6xl mx-auto px-4 py-12 sm:py-16">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: '#2C2C2C' }}>What Our Donors Say</h2>
-          <p className="text-base sm:text-lg" style={{ color: '#6B4B4B' }}>Hear from those who have joined our sacred mission</p>
+          <p className="text-base sm:text-lg" style={{ color: '#6B4B4B' }}>Hear from those who have joined our sacred mission.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -919,7 +919,7 @@ const navigate=useNavigate();
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6" style={{ color: '#2C2C2C' }}>Need Help?</h2>
           <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#6B4B4B' }}>
-            Our dedicated support team is here to assist you with your donation
+            Our dedicated support team is here to assist you with your donation.
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
