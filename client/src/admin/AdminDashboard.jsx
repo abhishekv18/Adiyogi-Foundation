@@ -16,8 +16,8 @@ const AdminDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [showAdminDeleteModal, setShowAdminDeleteModal] = useState(false);
 const [adminToDelete, setAdminToDelete] = useState(null);
-  const { allBlogs = [] } = useSelector((state) => state.blog);
-const [load, setLoad] = useState(false);
+  const { allBlogs = [],loadin } = useSelector((state) => state.blog);
+
   const isLoading = useSelector((state) => state.auth.loading);
   const [blogForm, setBlogForm] = useState({
     title: '',
@@ -239,7 +239,7 @@ const showDeleteAdminConfirmation = (userId) => {
     e.preventDefault();
     try {
       dispatch(setLoadin(true));
-      setLoad(true)
+     
       const blogData = {
         ...blogForm,
         imageUrl: uploadImageUrl || blogForm.imageUrl
@@ -292,7 +292,7 @@ const showDeleteAdminConfirmation = (userId) => {
      toast.error( error.response?.data?.message || 'Failed To Add Blog');
     } finally {
       dispatch(setLoadin(false));
-      setLoad(false);
+     
     }
   }, [blogForm, uploadImageUrl, dispatch, allBlogs, isEditMode, editingBlogId]);
 
@@ -1256,18 +1256,12 @@ const BlogEditor = useMemo(() => (
         >
           Cancel
         </button>
-        {/* <button
-          type='submit'
-          className="bg-emerald-500 text-white px-6 py-2 rounded-lg hover:bg-emerald-600 transition-colors shadow-lg w-full sm:w-auto"
-        >
-          {isEditMode ? 'Update Blog' : 'Save Blog'}
-        </button> */}
          <button
   type="submit"
-  disabled={load}
+  disabled={loadin}
   className="bg-emerald-500 text-white px-6 py-2 rounded-lg hover:bg-emerald-600 transition-colors shadow-lg w-full sm:w-auto flex items-center justify-center gap-2"
 >
-  {load ? (
+  {loadin ? (
     <>
       {/* Manual Spinner */}
       <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>

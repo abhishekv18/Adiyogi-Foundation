@@ -1533,14 +1533,28 @@ const navigate=useNavigate();
                   Take the first step towards transformation with our expert consultation
                 </p>
                 <div className="flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center mb-6 sm:mb-8">
-                  <div className="flex items-center space-x-2 sm:space-x-3">
+                  {/* <div className="flex items-center space-x-2 sm:space-x-3">
                     <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span className="text-base sm:text-lg">+91 9175033022</span>
                   </div>
                   <div className="flex items-center space-x-2 sm:space-x-3">
                     <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span className="text-base sm:text-lg">social.adiyogifoundation@gmail.com</span>
-                  </div>
+                  </div> */}
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+  <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+  <a href="tel:+919175033022" className="text-base sm:text-lg hover:underline">
+    +91 9175033022
+  </a>
+</div>
+
+<div className="flex items-center space-x-2 sm:space-x-3">
+  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+  <a href="mailto:social.adiyogifoundation@gmail.com" className="text-base sm:text-lg hover:underline">
+    social.adiyogifoundation@gmail.com
+  </a>
+</div>
+
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                   <Link to='/contact'>
