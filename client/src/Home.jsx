@@ -950,7 +950,7 @@ const navigate=useNavigate();
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
             {transformationPath.map((path, index) => (
               <div key={index} className="relative group">
                 <div className="bg-[#FFFEF7] p-6 md:p-8 rounded-2xl shadow-xl border border-[#F4E8E8] hover:border-[#C41E3A] transition-all duration-500 hover:shadow-2xl transform hover:-translate-y-2">
@@ -981,8 +981,45 @@ const navigate=useNavigate();
                 </div>
               </div>
             ))}
+          </div> */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-11 md:mb-16">
+  {transformationPath.map((path, index) => (
+    <div key={index} className="relative group h-full">
+      <div className="flex flex-col justify-between h-full bg-[#FFFEF7] p-6 md:p-7 rounded-2xl shadow-xl border border-[#F4E8E8] hover:border-[#C41E3A] transition-all duration-500 hover:shadow-2xl transform hover:-translate-y-2">
+        
+        {/* Top Circle */}
+        <div className="text-center mb-4 md:mb-6">
+          <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#FDF8F8] to-[#F4E8E8] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+            <span className="text-[#C41E3A] text-sm md:text-base font-bold">{path.from}</span>
           </div>
-          
+        </div>
+        
+        {/* Middle Line */}
+        <div className="flex flex-col items-center mb-4 md:mb-6">
+          <div className="flex items-center space-x-2 md:space-x-3 mb-2 md:mb-4">
+            <div className="text-[#C41E3A]">{path.icon}</div>
+            <span className="text-[#C41E3A] font-semibold text-base md:text-lg">{path.via}</span>
+          </div>
+          <div className="w-1 h-6 md:h-8 bg-gradient-to-b from-[#C41E3A] to-transparent mb-2 md:mb-4"></div>
+          <ArrowRight className="text-[#C41E3A] transform rotate-90" size={20} />
+        </div>
+        
+        {/* Bottom Circle */}
+        <div className="text-center mb-4 md:mb-6">
+          <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#C41E3A] to-[#8B1538] rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+            <span className="text-[#FFFEF7] text-sm md:text-base font-bold">{path.to}</span>
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="text-[#2C2C2C]/70 text-center leading-relaxed text-sm md:text-base">
+          {path.description}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
+
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div className="bg-[#FFFEF7] p-6 md:p-10 rounded-2xl shadow-xl border border-[#F4E8E8] relative overflow-hidden">
@@ -1052,7 +1089,7 @@ const navigate=useNavigate();
           }}></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-5 relative z-10">
           <div className="text-center mb-12 md:mb-20">
             <div className="flex justify-center mb-6 md:mb-8">
               <div className="relative">
