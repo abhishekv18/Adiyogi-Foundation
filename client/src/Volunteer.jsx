@@ -226,7 +226,7 @@ const handleSubmit = async (e) => {
           </div>
         </div>
       </div>
-   <div className="max-w-6xl mx-auto mt-2 px-4 py-8 md:py-12">
+   <div className="max-w-6xl mx-auto mt-2 px-4 py-7 md:py-12">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-4xl font-bold mb-5" style={{ color: '#2C2C2C' }}>
             Our Dedicated <span style={{ color: '#C41E3A' }}>Volunteers</span>
@@ -584,7 +584,7 @@ const handleSubmit = async (e) => {
 
       {/* Volunteer Modal */}
 {showModal && selectedVolunteer && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm">
+  <div className="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black bg-opacity-50 backdrop-blur-sm">
     <div
       className="
         relative w-full 

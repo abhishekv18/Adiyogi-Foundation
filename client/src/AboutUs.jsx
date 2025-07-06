@@ -726,7 +726,7 @@ const navigate=useNavigate();
       </section>
 
       {/* Ancient Knowledge Section */}
-      <section className="py-16 sm:py-20 px-4">
+      {/* <section className="py-16 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
             <div className="relative order-2 lg:order-1">
@@ -764,7 +764,53 @@ const navigate=useNavigate();
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+<section className="py-16 sm:py-20 px-4">
+  <div className="max-w-6xl mx-auto">
+    <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
+      <div className="relative order-2 lg:order-1">
+        <img 
+          src="/public/istockphoto-490378481-612x612.webp" 
+          alt="Ancient wisdom" 
+          className="w-full rounded-2xl sm:rounded-3xl shadow-2xl"
+          style={{ boxShadow: '0 8px 32px rgba(196, 30, 58, 0.3)' }}
+        />
+        <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: '#C41E3A' }}>
+          <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+        </div>
+      </div>
+
+      <div className="order-1 lg:order-2">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8" style={{ color: '#2C2C2C' }}>
+          Ancient Knowledge, Modern Solutions
+        </h2>
+        <div className="space-y-4 sm:space-y-6">
+          <p className="text-lg sm:text-xl leading-relaxed">
+            We believe that <span style={{ color: '#C41E3A', fontWeight: 'bold' }}>ancient knowledge holds keys to modern suffering</span>. 
+            The wisdom traditions of the world contain profound insights that remain as relevant today as they were millennia ago.
+          </p>
+          <p className="text-lg sm:text-xl leading-relaxed">
+            Our approach bridges the gap between timeless spiritual principles and contemporary challenges, 
+            offering practical solutions rooted in eternal truths.
+          </p>
+          <div className="flex items-start space-x-3 sm:space-x-4 pt-4 sm:pt-6">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#F4E8E8' }}>
+              <Star className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: '#C41E3A' }} />
+            </div>
+            <div>
+              <h4 className="text-base sm:text-lg font-bold mb-1 sm:mb-2" style={{ color: '#2C2C2C' }}>
+                Timeless Wisdom
+              </h4>
+              <p className="text-sm sm:text-base text-gray-600">
+                Applying ancient insights to solve modern challenges with compassion and clarity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     </div>
   );

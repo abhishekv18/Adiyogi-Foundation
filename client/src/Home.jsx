@@ -1169,7 +1169,7 @@ const navigate=useNavigate();
       </section>
      
       {/* Impact Section */}
-      <section className="py-12 md:py-20 relative overflow-hidden bg-gradient-to-br from-[#FDF8F8] to-[#FFFEF7]">
+      {/* <section className="py-12 md:py-20 relative overflow-hidden bg-gradient-to-br from-[#FDF8F8] to-[#FFFEF7]">
         <div className="absolute  inset-0 bg-[url('/public/istockphoto-1195731546-612x612.jpg')] bg-cover bg-center opacity-40 mix-blend-multiply"></div>
 
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23C41E3A\\' fill-opacity=\\'0.05\\'%3E%3Ccircle cx=\\'30\\' cy=\\'30\\' r=\\'4\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
@@ -1196,7 +1196,35 @@ const navigate=useNavigate();
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+<section className="py-12 md:py-20 relative overflow-hidden bg-gradient-to-br from-[#FDF8F8] to-[#FFFEF7]">
+  <div className="absolute inset-0 bg-[url('/public/istockphoto-1195731546-612x612.jpg')] bg-cover bg-center opacity-40 mix-blend-multiply"></div>
+
+  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23C41E3A\\' fill-opacity=\\'0.05\\'%3E%3Ccircle cx=\\'30\\' cy=\\'30\\' r=\\'4\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    <div className="text-center mb-8 md:mb-16">
+      <div className="flex justify-center mb-4 md:mb-6">
+        <Award className="w-10 h-10 md:w-12 md:h-12 text-[#C41E3A]" />
+      </div>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C2C2C] mb-4 md:mb-6">
+        Our <span className="text-[#C41E3A]">Impact</span>
+      </h2>
+      <p className="text-lg md:text-xl font-semibold text-[#2C2C2C]">Making a difference, one step at a time.</p>
+    </div>
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+      {impactStats.map((stat, index) => (
+        <div key={index} className="flex flex-col h-full">
+          <div className="flex flex-col justify-center items-center flex-grow bg-[#FFFEF7] p-4 md:p-8 rounded-lg md:rounded-xl shadow-lg border border-[#F4E8E8] hover:border-[#C41E3A] transition-all duration-300 hover:shadow-2xl h-full text-center">
+            <div className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#C41E3A] mb-1 md:mb-2">{stat.number}</div>
+            <div className="text-sm md:text-base text-[#2C2C2C] font-semibold">{stat.label}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Call to Action */}
       <section className="py-12 md:py-20 bg-[#FFFEF7]">
