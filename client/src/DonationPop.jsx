@@ -72,12 +72,12 @@ const DonationPopup = () => {
           <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-5">
             <div className="text-center p-2 bg-[#FDF8F8] rounded-lg border border-[#F4E8E8]">
               <Landmark className="w-4 h-4 text-[#C41E3A] mx-auto mb-1" />
-              <div className="text-base font-bold text-[#2C2C2C]">25+</div>
+              <div className="text-base font-bold text-[#2C2C2C]">2+</div>
               <div className="text-xs text-[#2C2C2C]">Temples Restored</div>
             </div>
             <div className="text-center p-2 bg-[#FDF8F8] rounded-lg border border-[#F4E8E8]">
               <Users className="w-4 h-4 text-[#C41E3A] mx-auto mb-1" />
-              <div className="text-base font-bold text-[#2C2C2C]">1,000+</div>
+              <div className="text-base font-bold text-[#2C2C2C]">500+</div>
               <div className="text-xs text-[#2C2C2C]">Devotees Reached</div>
             </div>
           </div>
@@ -88,7 +88,7 @@ const DonationPopup = () => {
             </p>
             <div className="flex justify-center">
               <img
-                src="/images/qr-code.png"
+                src="/public/volunteers/WhatsApp Image 2025-07-05 at 8.36.53 PM (1).jpeg"
                 alt="Donate QR"
                 className="w-32 h-32 border border-[#F4E8E8] rounded-md shadow-sm"
               />
