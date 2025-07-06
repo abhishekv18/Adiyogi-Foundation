@@ -1160,54 +1160,148 @@ const Dashboard = useMemo(() => (
   </div>
 ), [allBlogs, allUsers.length, navigateToEditor, navigateToEditBlog, showDeleteConfirmation]);
 
+// const BlogList = useMemo(() => (
+//   <div className="space-y-6">
+//     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+//       <h2 className="text-2xl font-bold text-slate-800">Manage Blogs ({allBlogs.length})</h2>
+//       <button
+//         onClick={navigateToEditor}
+//         className="bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors flex items-center gap-2 shadow-lg w-full sm:w-auto"
+//       >
+//         <Plus className="w-4 h-4" />
+//         New Blog Post
+//       </button>
+//     </div>
+
+//     <div className="bg-white rounded-xl shadow-lg border border-slate-200">
+//       <div className="p-4 md:p-6 border-b border-slate-200">
+//         <div className="flex items-center gap-4">
+//           <div className="flex-1 relative">
+//             <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
+//             <input
+//               type="text"
+//               placeholder="Search blogs..."
+//               value={searchTerm}
+//               onChange={handleSearchChange}
+//               className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
+//             />
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="divide-y divide-slate-200">
+//         {filteredBlogs.map((blog) => (
+//           <div key={blog.id || blog._id} className="p-4 md:p-6 hover:bg-slate-50 transition-colors">
+//             <div className="flex flex-col sm:flex-row items-start gap-4">
+//               <div className="relative w-full sm:w-24 flex-shrink-0">
+//                 <img
+//                   src={blog.imageUrl}
+//                   alt={blog.title}
+//                   className="w-full sm:w-24 h-24 object-cover rounded-xl shadow-md border border-slate-200"
+//                 />
+//                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
+//                   <span className="text-white text-xs font-bold">✓</span>
+//                 </div>
+//               </div>
+//               <div className="flex-1 min-w-0">
+//                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+//                   <div className="flex-1 min-w-0">
+//                     <h3 className="font-semibold text-slate-800 text-lg mb-2 truncate">{blog.title}</h3>
+//                     <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 mb-3">
+//                       {blog.content.substring(0, 120)}...
+//                     </p>
+//                     <div className="flex items-center gap-4 text-sm text-slate-500">
+//                       <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+//                         Published
+//                       </span>
+//                     </div>
+//                   </div>
+//                   <div className="flex items-center gap-2 flex-shrink-0">
+//                     <button
+//                       onClick={() => navigateToEditBlog(blog)}
+//                       className="p-2 sm:p-3 text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors border border-transparent hover:border-emerald-200"
+//                       title="Edit Blog"
+//                     >
+//                       <Edit className="w-5 h-5" />
+//                     </button>
+//                     <button
+//                       onClick={() => showDeleteConfirmation(blog)}
+//                       className="p-2 sm:p-3 text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors border border-transparent hover:border-red-200"
+//                       title="Delete Blog"
+//                     >
+//                       <Trash2 className="w-5 h-5" />
+//                     </button>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   </div>
+// ), [filteredBlogs, navigateToEditor, handleSearchChange, searchTerm, navigateToEditBlog, showDeleteConfirmation]);
+
+
+
 const BlogList = useMemo(() => (
-  <div className="space-y-6">
+  <div className="space-y-6 px-2 sm:px-4">
+    {/* Header Section */}
     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <h2 className="text-2xl font-bold text-slate-800">Manage Blogs ({allBlogs.length})</h2>
+      <h2 className="text-xl sm:text-2xl font-bold text-slate-800">
+        Manage Blogs ({allBlogs.length})
+      </h2>
       <button
         onClick={navigateToEditor}
-        className="bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors flex items-center gap-2 shadow-lg w-full sm:w-auto"
+        className="bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors flex items-center gap-2 shadow-lg w-full sm:w-auto min-h-[44px]"
       >
         <Plus className="w-4 h-4" />
         New Blog Post
       </button>
     </div>
 
+    {/* Search Bar */}
     <div className="bg-white rounded-xl shadow-lg border border-slate-200">
       <div className="p-4 md:p-6 border-b border-slate-200">
         <div className="flex items-center gap-4">
-          <div className="flex-1 relative">
+          <div className="flex-1 relative w-full">
             <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
             <input
               type="text"
               placeholder="Search blogs..."
               value={searchTerm}
               onChange={handleSearchChange}
-              className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
+              className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all text-sm sm:text-base"
             />
           </div>
         </div>
       </div>
 
+      {/* Blog List */}
       <div className="divide-y divide-slate-200">
         {filteredBlogs.map((blog) => (
           <div key={blog.id || blog._id} className="p-4 md:p-6 hover:bg-slate-50 transition-colors">
-            <div className="flex flex-col sm:flex-row items-start gap-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+              {/* Blog Image */}
               <div className="relative w-full sm:w-24 flex-shrink-0">
                 <img
                   src={blog.imageUrl}
                   alt={blog.title}
-                  className="w-full sm:w-24 h-24 object-cover rounded-xl shadow-md border border-slate-200"
+                  className="w-full sm:w-24 h-40 sm:h-24 object-cover rounded-xl shadow-md border border-slate-200"
                 />
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs font-bold">✓</span>
                 </div>
               </div>
-              <div className="flex-1 min-w-0">
+
+              {/* Blog Content */}
+              <div className="flex-1 min-w-0 w-full">
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-slate-800 text-lg mb-2 truncate">{blog.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 mb-3">
+                    <h3 className="font-semibold text-slate-800 text-base sm:text-lg mb-1 sm:mb-2 truncate">
+                      {blog.title}
+                    </h3>
+                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 mb-2 break-words">
                       {blog.content.substring(0, 120)}...
                     </p>
                     <div className="flex items-center gap-4 text-sm text-slate-500">
@@ -1216,6 +1310,8 @@ const BlogList = useMemo(() => (
                       </span>
                     </div>
                   </div>
+
+                  {/* Action Buttons */}
                   <div className="flex items-center gap-2 flex-shrink-0">
                     <button
                       onClick={() => navigateToEditBlog(blog)}
@@ -1241,6 +1337,9 @@ const BlogList = useMemo(() => (
     </div>
   </div>
 ), [filteredBlogs, navigateToEditor, handleSearchChange, searchTerm, navigateToEditBlog, showDeleteConfirmation]);
+
+
+
 
 const BlogEditor = useMemo(() => (
   <form className="space-y-6" onSubmit={handleSubmitBlog}>
@@ -1382,7 +1481,7 @@ const AdminManagement = useMemo(() => (
         </div>
       </div>
 
-      <div className="divide-y divide-slate-200 overflow-x-auto">
+      <div className="divide-y divide-slate-200 overflow-x-auto scrollbar-gray">
         <div className="grid grid-cols-12 bg-slate-50 p-4 font-semibold text-slate-700 min-w-[800px]">
           <div className="col-span-4">Email</div>
           <div className="col-span-3">Role</div>
