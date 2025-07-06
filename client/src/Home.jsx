@@ -727,7 +727,8 @@ import {
   BookOpenCheck,
   Soup,
   EyeOff,
-  EyeIcon
+  EyeIcon,
+  Sparkles
 } from 'lucide-react';
 import Hero from './componenets/ui/Hero';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -1075,7 +1076,7 @@ const navigate=useNavigate();
       </section>
 
       {/* Programs Section */}
-      <section className="py-12 md:py-24 bg-gradient-to-br from-[#FDF8F8] via-[#FFFEF7] to-[#FDF8F8] relative overflow-hidden">
+      {/* <section className="py-12 md:py-24 bg-gradient-to-br from-[#FDF8F8] via-[#FFFEF7] to-[#FDF8F8] relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-10 md:top-20 left-4 md:left-10 w-16 md:w-32 h-16 md:h-32 bg-[#C41E3A]/5 rounded-full blur-xl md:blur-3xl"></div>
           <div className="absolute bottom-10 md:bottom-20 right-4 md:right-10 w-20 md:w-40 h-20 md:h-40 bg-[#8B1538]/5 rounded-full blur-xl md:blur-3xl"></div>
@@ -1203,8 +1204,177 @@ const navigate=useNavigate();
             )}
           </AnimatePresence>
         </div>
-      </section>
-     
+      </section> */}
+      <section className="py-8 md:py-12 bg-gradient-to-br from-[#FDF8F8] via-[#FFFEF7] to-[#FDF8F8] relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 md:top-20 left-4 md:left-10 w-16 md:w-32 h-16 md:h-32 bg-[#C41E3A]/5 rounded-full blur-xl md:blur-3xl"></div>
+        <div className="absolute bottom-10 md:bottom-20 right-4 md:right-10 w-20 md:w-40 h-20 md:h-40 bg-[#8B1538]/5 rounded-full blur-xl md:blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/3 w-12 md:w-24 h-12 md:h-24 bg-[#C41E3A]/3 rounded-full blur-xl md:blur-2xl"></div>
+      </div>
+      
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(196, 30, 58, 0.1) 1px, transparent 0)`,
+          backgroundSize: '20px 20px'
+        }}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-5 relative z-10">
+        {/* Enhanced Header Section */}
+        <div className="relative mb-8 md:mb-12">
+          {/* Top Banner */}
+          <div className="text-center mb-6 md:mb-8">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C41E3A]/10 to-[#8B1538]/10 backdrop-blur-sm px-4 py-2 rounded-full border border-[#C41E3A]/20 mb-4">
+              <Sparkles className="w-4 h-4 text-[#C41E3A]" />
+              <span className="text-sm font-semibold text-[#C41E3A]">Sacred Service Programs</span>
+              <Star className="w-4 h-4 text-[#C41E3A]" />
+            </div>
+          </div>
+
+          {/* Main Header */}
+          <div className="text-center mb-8 md:mb-12">
+            <div className="flex justify-center mb-6 md:mb-8">
+              <div className="relative">
+                <div className="absolute inset-0 bg-[#C41E3A]/20 rounded-full blur-lg md:blur-xl scale-125 md:scale-150"></div>
+                <div className="relative bg-gradient-to-br from-[#C41E3A] to-[#8B1538] p-3 md:p-4 rounded-full shadow-xl md:shadow-2xl">
+                  <Flower className="w-8 h-8 md:w-12 md:h-12 text-white" />
+                </div>
+              </div>
+            </div>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#2C2C2C] mb-6 md:mb-8 tracking-tight">
+              Our <span className="bg-gradient-to-r from-[#C41E3A] to-[#8B1538] bg-clip-text text-transparent">Programs</span>
+            </h2>
+            <div className="w-16 md:w-24 h-0.5 md:h-1 bg-gradient-to-r from-[#C41E3A] to-[#8B1538] mx-auto mb-6 md:mb-8 rounded-full"></div>
+            <p className="text-lg md:text-xl font-semibold text-[#2C2C2C] max-w-4xl mx-auto leading-relaxed opacity-90">
+              Our Seva is sacred it manifests through transformative programs that merge ancient dharma with practical service to uplift life and spirit.
+            </p>
+          </div>
+
+          {/* Stats/Features Row */}
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+            <div className="bg-white/60 backdrop-blur-sm border border-[#F4E8E8]/60 rounded-xl p-4 md:p-6 text-center group hover:bg-white/80 transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#C41E3A] to-[#8B1538] rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                <Heart className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-[#2C2C2C] mb-1">1000+</h3>
+              <p className="text-sm text-[#C41E3A] font-semibold">Lives Transformed</p>
+            </div>
+            
+            <div className="bg-white/60 backdrop-blur-sm border border-[#F4E8E8]/60 rounded-xl p-4 md:p-6 text-center group hover:bg-white/80 transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#C41E3A] to-[#8B1538] rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-[#2C2C2C] mb-1">50+</h3>
+              <p className="text-sm text-[#C41E3A] font-semibold">Community Centers</p>
+            </div>
+            
+            <div className="bg-white/60 backdrop-blur-sm border border-[#F4E8E8]/60 rounded-xl p-4 md:p-6 text-center group hover:bg-white/80 transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#C41E3A] to-[#8B1538] rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                <BookOpen className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-[#2C2C2C] mb-1">25+</h3>
+              <p className="text-sm text-[#C41E3A] font-semibold">Years of Service</p>
+            </div>
+          </div> */}
+        </div>
+
+
+
+        {/* Programs Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {programs.map((prog, i) => (
+            <div
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              className="cursor-pointer group relative overflow-hidden"
+            >
+              <div className="relative p-6 md:p-8 bg-white/80 backdrop-blur-sm border border-[#F4E8E8]/60 hover:border-[#C41E3A]/40 rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-white/90">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FFFEF7]/50 to-transparent rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative mb-4 md:mb-6">
+                  <div className={`w-12 h-12 md:w-16 md:h-16 ${prog.iconBg} rounded-xl md:rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+                    <div className="relative z-10">
+                      {prog.icon}
+                    </div>
+                  </div>
+                  
+                  <div className="absolute -top-1 -right-1 w-4 h-4 md:w-6 md:h-6 bg-[#C41E3A]/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125"></div>
+                </div>
+                
+                <div className="relative z-10">
+                  <h3 className="text-lg md:text-xl font-bold text-[#2C2C2C] group-hover:text-[#C41E3A] mb-2 transition-colors duration-300">
+                    {prog.title}
+                  </h3>
+                  <p className="text-[#C41E3A] font-semibold mb-3 md:mb-4 opacity-90 text-sm md:text-base">{prog.subtitle}</p>
+                  
+                  <ul className="text-xs md:text-sm text-[#2C2C2C]/80 space-y-1 md:space-y-2 mb-4 md:mb-6">
+                    {prog.highlights.map((point, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-[#C41E3A] rounded-full mt-1.5 md:mt-2 flex-shrink-0"></div>
+                        <span className="leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className="flex items-center gap-1 md:gap-2 text-[#C41E3A] text-xs md:text-sm font-semibold group-hover:gap-2 md:group-hover:gap-3 transition-all duration-300">
+                    <span>Learn more</span>
+                    <ArrowRight className="w-4 h-4 text-[#C41E3A] group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
+                </div>
+                
+                <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#C41E3A]/20 via-transparent to-[#8B1538]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-lg md:blur-xl transform scale-105"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Modal */}
+        <AnimatePresence>
+          {activeIndex !== null && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/50 backdrop-blur-md flex items-center justify-center px-4 sm:px-6"
+              onClick={() => setActiveIndex(null)}
+            >
+              <motion.div
+                initial={{ y: 60, scale: 0.9, opacity: 0 }}
+                animate={{ y: 0, scale: 1, opacity: 1 }}
+                exit={{ y: 60, scale: 0.9, opacity: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="bg-gradient-to-br from-[#FFFEF7] to-[#FDF8F8] max-w-lg w-full rounded-2xl md:rounded-3xl p-6 md:p-8 relative shadow-2xl border border-[#F4E8E8]/50"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => setActiveIndex(null)}
+                  className="absolute top-4 md:top-6 right-4 md:right-6 w-8 h-8 md:w-10 md:h-10 bg-[#8B1538]/10 hover:bg-[#C41E3A]/20 rounded-full flex items-center justify-center text-[#8B1538] hover:text-[#C41E3A] transition-all duration-300 hover:scale-110"
+                >
+                  <X size={16} />
+                </button>
+                
+                <div className="pr-4 md:pr-6">
+                  <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#C41E3A] to-[#8B1538] bg-clip-text text-transparent mb-2 md:mb-3">
+                    {programs[activeIndex].title}
+                  </h3>
+                  <p className="text-[#2C2C2C] mb-4 md:mb-6 font-semibold text-base md:text-lg opacity-90">
+                    {programs[activeIndex].subtitle}
+                  </p>
+                  <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-[#C41E3A] to-[#8B1538] mb-4 md:mb-6 rounded-full"></div>
+                  <p className="text-[#2C2C2C] leading-relaxed whitespace-pre-line opacity-90 text-sm md:text-base">
+                    {programs[activeIndex].fullDescription}
+                  </p>
+                </div>
+                
+                <div className="absolute bottom-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-tl from-[#C41E3A]/5 to-transparent rounded-full -z-10"></div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
       {/* Impact Section */}
       {/* <section className="py-12 md:py-20 relative overflow-hidden bg-gradient-to-br from-[#FDF8F8] to-[#FFFEF7]">
         <div className="absolute  inset-0 bg-[url('/public/istockphoto-1195731546-612x612.jpg')] bg-cover bg-center opacity-40 mix-blend-multiply"></div>

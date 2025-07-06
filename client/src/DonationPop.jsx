@@ -47,7 +47,7 @@ const DonationPopup = () => {
           <X size={18} />
         </button>
 
-        <div className="relative bg-gradient-to-br from-[#C41E3A] to-[#8B1538] text-white p-5 rounded-t-2xl overflow-hidden">
+        <div className="relative bg-gradient-to-br from-[#C41E3A] to-[#8B1538] text-white p-4 rounded-t-2xl overflow-hidden">
           <img
             src="/public/istockphoto-992280502-612x612.jpg"
             alt="Temple"
@@ -68,7 +68,7 @@ const DonationPopup = () => {
           </div>
         </div>
 
-        <div className="p-5 sm:p-6">
+        <div className="p-4 sm:p-5">
           <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-5">
             <div className="text-center p-2 bg-[#FDF8F8] rounded-lg border border-[#F4E8E8]">
               <Landmark className="w-4 h-4 text-[#C41E3A] mx-auto mb-1" />
