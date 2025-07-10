@@ -935,7 +935,7 @@ const timelineEvents = [
                         </Link>
                         <Link to='/volunteers' className="flex-1">
                           <button
-                            className="w-full px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base border-2 transition-all duration-300 hover:shadow-md"
+                            className="w-full px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base border-2 transition-all duration-300 hover:shadow-md hover:scale-x-105"
                             style={{ 
                               borderColor: '#C41E3A',
                               color: '#C41E3A',

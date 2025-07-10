@@ -365,7 +365,7 @@
 
 
 import React, { useEffect } from 'react';
-import { Heart, Users, Eye, Target, Flower, Mountain, Sun, Globe, BookOpen, HandHeart, Star, Compass } from 'lucide-react';
+import { Heart, Users, Eye, Target, Flower, Mountain, Sun, Globe, BookOpen, HandHeart, Star, Compass, Leaf } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -506,7 +506,7 @@ const navigate=useNavigate();
       <section className="py-12 sm:py-16 px-4 sm:px-5">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 items-center mb-16 sm:mb-24">
-            <div className="order-2 lg:order-1">
+            {/* <div className="order-2 lg:order-1">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-10" style={{color: '#2C2C2C'}}>About Us</h2>
               <div className="space-y-6 sm:space-y-8">
                 <p className="text-lg sm:text-xl leading-relaxed">
@@ -526,27 +526,54 @@ const navigate=useNavigate();
                     <h4 className="text-base sm:text-lg font-bold" style={{color: '#2C2C2C'}}>Compassionate Action</h4>
                     <p className="text-sm sm:text-base text-gray-600">Every initiative rooted in love and service</p>
                   </div>
-                </div>
-              </div>
-            </div>
-{/*             
-            <div className="order-1 lg:order-2 relative">
-              <div className="relative">
-                <img 
-                  src="/public/WhatsApp Image 2025-06-26 at 11.46.34 AM.jpeg" 
-                  alt="Founder portrait" 
-                  className="w-full rounded-2xl sm:rounded-3xl shadow-2xl"
-                  style={{boxShadow: '0 8px 32px rgba(196, 30, 58, 0.3)'}}
-                />
-                <div className="absolute -bottom-4 -right-4 sm:-bottom-8 sm:-right-8 bg-white rounded-xl sm:rounded-2xl p-4 sm:p-8 shadow-xl max-w-xs sm:max-w-sm" style={{backgroundColor: '#FFFEF7'}}>
-                  <h4 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3" style={{color: '#2C2C2C'}}>Founder's Vision</h4>
-                  <p className="text-sm sm:text-base text-gray-600 italic">
-                    "Through ancient insights and modern tools, we empower clarity that lasts."
-                  </p>
-                  <div className="w-8 sm:w-12 h-1 mt-3 sm:mt-4" style={{backgroundColor: '#C41E3A'}}></div>
+
                 </div>
               </div>
             </div> */}
+  <div className="order-2 lg:order-1">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-10" style={{color: '#2C2C2C'}}>About Us</h2>
+      <div className="space-y-6 sm:space-y-8">
+        <p className="text-lg sm:text-xl leading-relaxed">
+          Born from a blend of <span style={{color: '#C41E3A', fontWeight: 'bold'}}>contemplation and commitment</span>, Adiyogi Foundation brings together seekers, 
+          volunteers, educators, and visionaries. We operate at the intersection of spirituality and social reform 
+          where rebuilding temples also means rebuilding lives.
+        </p>
+        <p className="text-lg sm:text-xl leading-relaxed">
+          Our work spans across spiritual well-being, environmental stewardship, educational equity, and 
+          humanitarian service each rooted in the <span style={{color: '#C41E3A', fontWeight: 'bold'}}>yogic principle of inner clarity</span> as the first act of service.
+        </p>
+        
+        <div className="flex items-center space-x-4 sm:space-x-6 pt-4 sm:pt-6">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#C41E3A'}}>
+            <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+          </div>
+          <div>
+            <h4 className="text-base sm:text-lg font-bold" style={{color: '#2C2C2C'}}>Compassionate Action</h4>
+            <p className="text-sm sm:text-base text-gray-600">Every initiative rooted in love and service</p>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-4 sm:space-x-6 pt-4 sm:pt-6">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#C41E3A'}}>
+            <Users className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+          </div>
+          <div>
+            <h4 className="text-base sm:text-lg font-bold" style={{color: '#2C2C2C'}}>Unity in Diversity</h4>
+            <p className="text-sm sm:text-base text-gray-600">Bringing together seekers from all walks of life</p>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-4 sm:space-x-6 pt-4 sm:pt-6">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#C41E3A'}}>
+            <Leaf className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+          </div>
+          <div>
+            <h4 className="text-base sm:text-lg font-bold" style={{color: '#2C2C2C'}}>Sacred Ecology</h4>
+            <p className="text-sm sm:text-base text-gray-600">Honoring the earth as our temple</p>
+          </div>
+        </div>
+      </div>
+    </div>
               <div className="order-1 lg:order-2 relative">
         <div className="relative">
           <img 
