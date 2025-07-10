@@ -1225,7 +1225,7 @@ const navigate=useNavigate();
         <div className="relative mb-8 md:mb-12">
           {/* Top Banner */}
           <div className="text-center mb-6 md:mb-8">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C41E3A]/10 to-[#8B1538]/10 backdrop-blur-sm px-4 py-2 rounded-full border border-[#C41E3A]/20 mb-4">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C41E3A]/10 to-[#8B1538]/10 backdrop-blur-sm px-4 py-2 md:py-3 md:px-5 rounded-full border border-[#C41E3A]/20 mb-4">
               <Sparkles className="w-4 h-4 text-[#C41E3A]" />
               <span className="text-sm font-semibold text-[#C41E3A]">Sacred Service Programs</span>
               <Star className="w-4 h-4 text-[#C41E3A]" />

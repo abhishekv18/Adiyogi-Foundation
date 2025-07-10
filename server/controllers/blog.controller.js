@@ -75,62 +75,6 @@ export const addBlog = async (req, res) => {
       },
     });
 
-    // Email content
-// const blogMail = {
-//   from: "join.adiyogifoundation@gmail.com",
-//   to: emailList, // or bcc: emailList
-//   subject: `📝 New Blog Posted: ${title}`,
-//   html: `
-//     <div style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 30px; color: #333;">
-//       <div style="max-width: 600px; margin: auto; background: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-
-//         <h2 style="color: #C41E3A; text-align: center;">✨ New Blog Just Published!</h2>
-
-//         <h3 style="text-align: center; margin-top: 10px;">"${title}"</h3>
-
-//         <img src="${imageUrl}" alt="Blog Image" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 6px; margin: 20px 0;" />
-
-//         <p style="font-size: 16px;">${content.slice(0, 180)}...</p>
-
-//         <div style="text-align: center; margin: 30px 0;">
-//           <a href="https://adiyogifoundation.org.in/" 
-//              style="background-color: #C41E3A; color: #fff; padding: 12px 24px; border-radius: 5px; text-decoration: none; font-weight: bold;">
-//             👉 Read Full Blog
-//           </a>
-//         </div>
-
-//         <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;" />
-
-//         <p style="font-size: 14px; color: #777;">
-//           You’re receiving this email because you subscribed to updates from the Adiyogi Foundation.
-//           We send these so you never miss important insights and articles.
-//         </p>
-
-//         <p style="font-size: 13px; color: #555;">Stay connected with us:</p>
-//         <div style="margin-bottom: 20px;">
-//           <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank" style="margin-right: 12px;">
-//             <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="26" alt="Instagram" />
-//           </a>
-//           <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank" style="margin-right: 12px;">
-//             <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="26" alt="Facebook" />
-//           </a>
-//           <a href="https://youtube.com/@adiyogifoundation.b?si=hHJk8UzEA1spKAx3" target="_blank" style="margin-right: 12px;">
-//             <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="26" alt="YouTube" />
-//           </a>
-//           <a href="https://www.linkedin.com/company/adiyogi-foundation" target="_blank">
-//             <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="26" alt="LinkedIn" />
-//           </a>
-//         </div>
-
-//         <p style="font-size: 12px; color: #aaa;">
-//           Adiyogi Foundation | <a href="mailto:social.adiyogifoundation@gmail.com" style="color: #C41E3A;">Contact Us</a>
-//         </p>
-//       </div>
-//     </div>
-//   `
-// };
-
-
 const blogMail = {
   from: "join.adiyogifoundation@gmail.com",
   to: emailList, // or bcc: emailList
