@@ -134,7 +134,7 @@ const blogMail = {
  const adminMail = {
       from: "join.adiyogifoundation@gmail.com",
       to: "join.adiyogifoundation@gmail.com", // admin email
-      subject: `🔔 New Blog Posted by System`,
+      subject: `🔔 New Blog Posted by Admin`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
           <h3>New blog has been posted on the website:</h3>
