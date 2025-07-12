@@ -30,7 +30,11 @@ const Volunteer = () => {
     message: '',
     skills: ''
   });
-  
+
+    const [errors, setErrors] = useState({
+    phone: '',
+    email: ''
+  });
   const volunteers = [
      {
       id: 1,
@@ -95,54 +99,151 @@ const Volunteer = () => {
     setSelectedVolunteer(null);
   };
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  // const handleChange = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
+
+    const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
   };
 
-  
+  const validatePhone = (phone) => {
+    const re = /^[6-9]\d{9}$/;
+    return re.test(phone);
+  };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  try {
-    const res = await axios.post('http://localhost:5000/api/volunteer/add', formData, {
-      headers: { 'Content-Type': 'application/json' },
-      withCredentials: true,
-    });
-
-    if (res.data.success) {
-      toast.success("Details Send Successfully", {
-        icon: '✅',
-        style: {
-          border: '1px solid #28a745',
-          padding: '16px',
-          color: '#fff',
-          background: 'linear-gradient(135deg, #28a745, #218838)',
-          fontWeight: '600',
-        },
-      });
-
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        city: '',
-        message: '',
-        skills: ''
-      });
+    // Real-time validation
+    if (name === 'email') {
+      setErrors(prev => ({
+        ...prev,
+        email: value && !validateEmail(value)
+          ? 'Please enter a valid email address.'
+          : ''
+      }));
     }
-  } catch (error) {
-    console.error(error);
-    toast.error(error.response?.data?.message || 'Failed To Send Details');
+
+    if (name === 'phone') {
+      const cleanedValue = value.replace(/[^0-9]/g, '');
+      setErrors(prev => ({
+        ...prev,
+        phone: value && !validatePhone(cleanedValue)
+          ? 'Please enter a valid 10-digit Indian mobile number.'
+          : ''
+      }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {
+      email: !formData.email.trim()
+        ? 'Email is required.'
+        : !validateEmail(formData.email)
+          ? 'Please enter a valid email address.'
+          : '',
+      phone: !formData.phone.trim()
+        ? 'Phone number is required'
+        : !validatePhone(formData.phone.replace(/[^0-9]/g, ''))
+          ? 'Please enter a valid 10-digit Indian mobile number.'
+          : ''
+    };
+
+    setErrors(prev => ({ ...prev, ...newErrors }));
+    return Object.values(newErrors).every(error => !error);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     
-  } finally {
-    setLoading(false);
-  }
-};
+    if (!validateForm()) {
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await axios.post('http://localhost:5000/api/volunteer/add', formData, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      });
+
+      if (res.data.success) {
+        toast.success("Details Send Successfully", {
+          icon: '✅',
+          style: {
+            border: '1px solid #28a745',
+            padding: '16px',
+            color: '#fff',
+            background: 'linear-gradient(135deg, #28a745, #218838)',
+            fontWeight: '600',
+          },
+        });
+
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          city: '',
+          message: '',
+          skills: ''
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error(error.response?.data?.message || 'Failed To Send Details');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+//   setLoading(true);
+//   try {
+//     const res = await axios.post('http://localhost:5000/api/volunteer/add', formData, {
+//       headers: { 'Content-Type': 'application/json' },
+//       withCredentials: true,
+//     });
+
+//     if (res.data.success) {
+//       toast.success("Details Send Successfully", {
+//         icon: '✅',
+//         style: {
+//           border: '1px solid #28a745',
+//           padding: '16px',
+//           color: '#fff',
+//           background: 'linear-gradient(135deg, #28a745, #218838)',
+//           fontWeight: '600',
+//         },
+//       });
+
+//       setFormData({
+//         name: '',
+//         phone: '',
+//         email: '',
+//         city: '',
+//         message: '',
+//         skills: ''
+//       });
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     toast.error(error.response?.data?.message || 'Failed To Send Details');
+    
+//   } finally {
+//     setLoading(false);
+//   }
+// };
 
 
 
@@ -377,7 +478,7 @@ const handleSubmit = async (e) => {
               </div>
 
               {/* Phone Field */}
-              <div>
+              {/* <div>
                 <label className="block text-xs md:text-sm font-medium mb-1 md:mb-2" style={{ color: '#2C2C2C' }}>
                   Phone Number *
                 </label>
@@ -400,7 +501,7 @@ const handleSubmit = async (e) => {
                 </div>
               </div>
 
-              {/* Email Field */}
+            
               <div>
                 <label className="block text-xs md:text-sm font-medium mb-1 md:mb-2" style={{ color: '#2C2C2C' }}>
                   Email Address *
@@ -422,7 +523,58 @@ const handleSubmit = async (e) => {
                     placeholder="Enter your email address"
                   />
                 </div>
-              </div>
+              </div> */}
+ <div>
+    <label className="block text-xs md:text-sm font-medium mb-1 md:mb-2" style={{ color: '#2C2C2C' }}>
+      Phone Number *
+    </label>
+    <div className="relative">
+      <Phone size={16} style={{ color: '#C41E3A' }} className="absolute left-3 top-1/2 transform -translate-y-1/2" />
+      <input
+        type="tel"
+        name="phone"
+        value={formData.phone}
+        onChange={handleChange}
+        maxLength="10"
+        className={`w-full pl-10 md:pl-12 pr-4 py-2 md:py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-all duration-200 ${
+          errors.phone ? 'border-red-500' : 'border-[#F4E8E8]'
+        }`}
+        style={{ 
+          backgroundColor: '#FFFEF7'
+        }}
+        placeholder="9876543210"
+      />
+    </div>
+    {errors.phone && (
+      <p className="mt-1 text-xs text-red-500">{errors.phone}</p>
+    )}
+  </div>
+
+  {/* Email Field */}
+  <div>
+    <label className="block text-xs md:text-sm font-medium mb-1 md:mb-2" style={{ color: '#2C2C2C' }}>
+      Email Address *
+    </label>
+    <div className="relative">
+      <Mail size={16} style={{ color: '#C41E3A' }} className="absolute left-3 top-1/2 transform -translate-y-1/2" />
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        className={`w-full pl-10 md:pl-12 pr-4 py-2 md:py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-all duration-200 ${
+          errors.email ? 'border-red-500' : 'border-[#F4E8E8]'
+        }`}
+        style={{ 
+          backgroundColor: '#FFFEF7'
+        }}
+        placeholder="your.email@example.com"
+      />
+    </div>
+    {errors.email && (
+      <p className="mt-1 text-xs text-red-500">{errors.email}</p>
+    )}
+  </div>
 
               {/* City Field */}
               <div>

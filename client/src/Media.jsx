@@ -28,62 +28,90 @@ const [loading, setLoading] = useState(false);
 const[formData, setFormData] = useState({
     email: ''
   });
-  const handleInputChange = (e) => {
- setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+//   const handleInputChange = (e) => {
+//  setFormData({ ...formData, [e.target.name]: e.target.value });
+//   }
 
-//    const handleSubmit = async (e) => {
-//          e.preventDefault();
+
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+//   setLoading(true); // Start loading
+
 //   try {
-    
+//     const res = await axios.post(
+//       'http://localhost:5000/api/subscribe/add',
+//       formData,
+//       {
+//         headers: { 'Content-Type': 'application/json' },
+//         withCredentials: true,
+//       }
+//     );
 
-//     const res = await axios.post('http://localhost:5000/api/subscribe/add',formData, {
-//       headers: { 'Content-Type': 'application/json' },
-//       withCredentials: true,
-//     });
-
-//    if (res.data.success) {
-//       // Add new client to state
-    
-//     //  toast.success("Subscribed Successfully")
-//     toast.success('Subscribed Successfully', {
-//   icon: '✅',
-//   style: {
-//     border: '1px solid #28a745',
-//     padding: '16px',
-//     color: '#fff',
-//     background: 'linear-gradient(135deg, #28a745, #218838)',
-//     fontWeight: '600',
-//   },
-// });
-
-//       // Reset input fields
-//       setFormData({
-     
-     
-//          email:""
+//     if (res.data.success) {
+//       toast.success('Subscribed Successfully', {
+//         icon: '✅',
+//         style: {
+//           border: '1px solid #28a745',
+//           padding: '16px',
+//           color: '#fff',
+//           background: 'linear-gradient(135deg, #28a745, #218838)',
+//           fontWeight: '600',
+//         },
 //       });
 
-//       // Go to clients tab
-   
-//      // toast.success('Client added successfully');
+//       setFormData({ email: '' });
 //     }
 //   } catch (error) {
 //     console.error(error);
 //     toast.error(error.response?.data?.message || 'Failed To Subscribe');
-//      setFormData({
-     
-     
-//          email:""
-//       });
+   
+//   } finally {
+//     setLoading(false); // Stop loading
+//   }
+// };
 
-//   } 
-//   };
+
+
+
+const [emailError, setEmailError] = useState('');
+
+const validateEmail = (email) => {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+};
+
+const handleInputChange = (e) => {
+  const { name, value } = e.target;
+  setFormData({ ...formData, [name]: value });
+  
+  // Real-time email validation
+  // if (name === 'email') {
+  //  if (!validateEmail(value)) {
+  //     setEmailError('Please enter a valid email address');
+  //   } else {
+  //     setEmailError('');
+  //   }
+  // }
+   if (name === 'email') {
+  setEmailError(value && !validateEmail(value) ? 'Please enter a valid email address.' : '');
+}
+
+};
 
 const handleSubmit = async (e) => {
   e.preventDefault();
-  setLoading(true); // Start loading
+  
+  // Final validation before submit
+  if (!formData.email) {
+    setEmailError('Email is required.');
+    return;
+  }
+  if (!validateEmail(formData.email)) {
+    setEmailError('Please enter a valid email address.');
+    return;
+  }
 
+  setLoading(true);
   try {
     const res = await axios.post(
       'http://localhost:5000/api/subscribe/add',
@@ -105,17 +133,18 @@ const handleSubmit = async (e) => {
           fontWeight: '600',
         },
       });
-
       setFormData({ email: '' });
+      setEmailError('');
     }
   } catch (error) {
     console.error(error);
     toast.error(error.response?.data?.message || 'Failed To Subscribe');
-   
   } finally {
-    setLoading(false); // Stop loading
+    setLoading(false);
   }
 };
+
+
 
 
 
@@ -520,7 +549,7 @@ console.log(allBlogs)
     </p>
 
     {/* Input & Subscribe Button */}
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
+    {/* <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
       <input
        name='email'
                     value={formData.email}
@@ -529,11 +558,7 @@ console.log(allBlogs)
                     placeholder="Enter your email"
         className="flex-1 px-5 py-3 rounded-lg border-0 bg-white text-gray-800 placeholder-gray-500 focus:outline-none"
       />
-      {/* <button 
-       type='submit' className="bg-white text-[#C41E3A] px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md"
-      >
-        Subscribe
-      </button> */}
+     
       <button
   type="submit"
   disabled={loading}
@@ -568,8 +593,41 @@ console.log(allBlogs)
   )}
 </button>
 
-    </form>
-
+    </form> */}
+<form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
+  <div className="flex-1 relative">
+    <input
+      name="email"
+      value={formData.email}
+      onChange={handleInputChange}
+      type="email" 
+      placeholder="Enter your email"
+      className={`w-full px-5 py-3 rounded-lg border-0 bg-white text-gray-800 placeholder-gray-500 focus:outline-none ${
+        emailError ? 'border-2 border-red-300' : ''
+      }`}
+    />
+    {emailError && (
+      <p className="absolute -bottom-6  left-0 text-red-100 text-sm mt-1">
+        {emailError}
+      </p>
+    )}
+  </div>
+  <button
+    type="submit"
+    disabled={loading}
+    className="bg-white text-[#C41E3A] px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    {loading ? (
+      <>
+        <svg className="animate-spin h-5 w-5 text-[#C41E3A]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+        </svg>
+        <span>Subscribing...</span>
+      </>
+    ) : 'Subscribe'}
+  </button>
+</form>
     {/* Trust Statement */}
     <p className="text-sm text-red-100 mt-6 opacity-80">
       Join thousands of seekers on their spiritual journey.

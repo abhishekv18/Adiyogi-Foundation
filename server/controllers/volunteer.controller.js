@@ -109,7 +109,7 @@ export const addVolunteer = async (req, res) => {
       });
     }
 
-    const phoneRegex = /^\d{10}$/;
+    const phoneRegex = /^[6-9]\d{9}$/;
     if (!phoneRegex.test(phone)) {
       return res.status(400).json({
         message: "Invalid phone number format",
@@ -154,8 +154,8 @@ const userMail = {
       <p style="font-weight: bold;">Welcome to the journey!</p>
 
       <br/>
-      <p>Warmly,<br/>Team,<br/>Adiyogi Foundation</p>
-
+      <p>Warm regards,<br/>Team Adiyogi Foundation</p>
+      
       <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;" />
 
       <p style="font-size: 15px; color: #555;">Follow us on social media:</p>

@@ -107,7 +107,7 @@ export const addContact = async (req, res) => {
       });
     }
 
-    const phoneRegex = /^\d{10}$/;
+    const phoneRegex = /^[6-9]\d{9}$/;
     if (!phoneRegex.test(phone)) {
       return res.status(400).json({
         message: "Invalid phone number format",

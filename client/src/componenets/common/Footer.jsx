@@ -282,92 +282,125 @@ const [loading, setLoading] = useState(false);
 const[formData, setFormData] = useState({
     email: ''
   });
-  const handleInputChange = (e) => {
- setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+//   const handleInputChange = (e) => {
+//  setFormData({ ...formData, [e.target.name]: e.target.value });
+//   }
 
-//    const handleSubmit = async (e) => {
-//          e.preventDefault();
+
+
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+//   setLoading(true); // Start loading
+
 //   try {
-    
+//     const res = await axios.post(
+//       'http://localhost:5000/api/subscribe/add',
+//       formData,
+//       {
+//         headers: { 'Content-Type': 'application/json' },
+//         withCredentials: true,
+//       }
+//     );
 
-//     const res = await axios.post('http://localhost:5000/api/subscribe/add',formData, {
-//       headers: { 'Content-Type': 'application/json' },
-//       withCredentials: true,
-//     });
-
-//    if (res.data.success) {
-//       // Add new client to state
-    
-//     //  toast.success("Subscribed Successfully")
-//     toast.success('Subscribed Successfully', {
-//   icon: '✅',
-//   style: {
-//     border: '1px solid #28a745',
-//     padding: '16px',
-//     color: '#fff',
-//     background: 'linear-gradient(135deg, #28a745, #218838)',
-//     fontWeight: '600',
-//   },
-// });
-
-//       // Reset input fields
-//       setFormData({
-     
-     
-//          email:""
+//     if (res.data.success) {
+//       toast.success('Subscribed Successfully', {
+//         icon: '✅',
+//         style: {
+//           border: '1px solid #28a745',
+//           padding: '16px',
+//           color: '#fff',
+//           background: 'linear-gradient(135deg, #28a745, #218838)',
+//           fontWeight: '600',
+//         },
 //       });
 
-//       // Go to clients tab
-   
-//      // toast.success('Client added successfully');
+//       setFormData({ email: '' });
 //     }
 //   } catch (error) {
 //     console.error(error);
 //     toast.error(error.response?.data?.message || 'Failed To Subscribe');
-//       setFormData({
-//          email:""
-//       });
-//   } 
-//   };
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true); // Start loading
-
-  try {
-    const res = await axios.post(
-      'http://localhost:5000/api/subscribe/add',
-      formData,
-      {
-        headers: { 'Content-Type': 'application/json' },
-        withCredentials: true,
-      }
-    );
-
-    if (res.data.success) {
-      toast.success('Subscribed Successfully', {
-        icon: '✅',
-        style: {
-          border: '1px solid #28a745',
-          padding: '16px',
-          color: '#fff',
-          background: 'linear-gradient(135deg, #28a745, #218838)',
-          fontWeight: '600',
-        },
-      });
-
-      setFormData({ email: '' });
-    }
-  } catch (error) {
-    console.error(error);
-    toast.error(error.response?.data?.message || 'Failed To Subscribe');
    
-  } finally {
-    setLoading(false); // Stop loading
-  }
-};
+//   } finally {
+//     setLoading(false); // Stop loading
+//   }
+// };
 
+
+const [emailError, setEmailError] = useState('');
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    
+    // Real-time email validation
+    // if (name === 'email') {
+    //   if (!value) {
+    //     setEmailError('Email is required');
+    //   } else if (!validateEmail(value)) {
+    //     setEmailError('Please enter a valid email address');
+    //   } else {
+    //     setEmailError('');
+    //   }
+    // }
+     if (name === 'email') {
+  setEmailError(value && !validateEmail(value) ? 'Please enter a valid email address.' : '');
+}
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Final validation before submit
+    if (!formData.email) {
+      setEmailError('Email is required.');
+      return;
+    }
+    if (!validateEmail(formData.email)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await axios.post(
+        'http://localhost:5000/api/subscribe/add',
+        formData,
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        }
+      );
+
+      if (res.data.success) {
+        toast.success('Subscribed Successfully', {
+          icon: '✅',
+          style: {
+            border: '1px solid #28a745',
+            padding: '16px',
+            color: '#fff',
+            background: 'linear-gradient(135deg, #28a745, #218838)',
+            fontWeight: '600',
+          },
+        });
+        setFormData({ email: '' });
+        setEmailError('');
+      }
+    } catch (error) {
+      console.error(error);
+      const errorMsg = (error.response?.data?.message || 'Failed To Subscribe');
+      toast.error(errorMsg);
+      
+      // Specific error handling for duplicate email
+     
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
   const quickLinks = [
@@ -454,14 +487,29 @@ const handleSubmit = async (e) => {
                 </h5>
                 <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">Stay connected with our latest insights and events.</p>
                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 sm:gap-0">
-                  <input
+                  {/* <input
                      name='email'
                     value={formData.email}
                     onChange={handleInputChange} 
                     type="email" 
                     placeholder="Enter your email"
                     className="flex-1 bg-rich-charcoal/50 border border-soft-rose/30 rounded-lg sm:rounded-l-lg sm:rounded-r-none px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-200 placeholder-warm-brown/70 focus:outline-none focus:border-sacred-crimson transition-colors"
+                  /> */}
+                    <div className="relative">
+                   <input
+                    name='email'
+                    value={formData.email}
+                    onChange={handleInputChange} 
+                    type="email" 
+                    placeholder="Enter your email"
+                    className={`w-full bg-rich-charcoal/50 border ${
+                      emailError ? 'border-red-300' : 'border-soft-rose/30'
+                    } rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-200 placeholder-warm-brown/70 focus:outline-none focus:border-sacred-crimson transition-colors`}
                   />
+                  {emailError && (
+                    <p className="mt-1 text-xs text-red-300">{emailError}</p>
+                  )}
+                </div>
                   {/* <button type='submit' className="bg-sacred-crimson hover:bg-deep-ruby flex justify-center items-center gap-2 text-warm-ivory px-4 py-2 sm:py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-colors duration-300 group">
                     <Send size={14} className="sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                     <p className=''>Subscribe</p>
