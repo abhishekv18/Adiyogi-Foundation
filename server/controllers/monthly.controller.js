@@ -101,7 +101,7 @@ const mail = {
         </p>
 
         <div style="margin: 24px 0; text-align: center;">
-          <a href="https://adiyogifoundation.org.in"
+          <a href="https://adiyogifoundation.org.in/"
              style="background-color: #C41E3A; color: #ffffff; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 15px;">
             Visit Our Website
           </a>
