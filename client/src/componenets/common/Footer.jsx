@@ -426,7 +426,7 @@ const [emailError, setEmailError] = useState('');
               <div className="relative">
                 <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
     <img 
-      src="/public/favicon.png" 
+      src="/favicon.png" 
       alt="Adiyogi Foundation Logo" 
       className="w-full h-full object-contain rounded-full bg-white p-1" 
     />

@@ -353,7 +353,7 @@ const HeroWithCarousel = () => {
         {/* Background Image - Professional spiritual/temple image */}
         <div className="absolute inset-0">
           <img
-            src="/public/istockphoto-542316008-612x612.jpg"
+            src="/istockphoto-542316008-612x612.jpg"
             alt="Sacred Temple Background"
             className="w-full h-full object-cover"
           />
@@ -378,7 +378,7 @@ const HeroWithCarousel = () => {
   className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto rounded-full shadow-2xl overflow-hidden"
 >
   <img 
-    src="/public/favicon.png" 
+    src="/favicon.png" 
     alt="Adiyogi Foundation Logo" 
     className="w-full h-full object-contain rounded-full bg-white p-1 sm:p-1.5 md:p-2"
   />
@@ -457,7 +457,7 @@ const HeroWithCarousel = () => {
             className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl order-2 md:order-1"
           >
             <img
-              src="/public/WhatsApp Image 2025-07-03 at 3.21.32 PM.jpeg"
+              src="/WhatsApp Image 2025-07-03 at 3.21.32 PM.jpeg"
               alt="Aditya Parshuram Nikam"
               className="w-full h-auto object-cover"
             />
