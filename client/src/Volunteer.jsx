@@ -41,7 +41,7 @@ const Volunteer = () => {
       name: "Mr. Jitendra Jadhav",
       title: "Engineering Specialist",
       role: "Head of Mumbai & Navi Mumbai District",
-      image: "/public/volunteers/WhatsApp Image 2025-07-04 at 6.06.33 PM.jpeg",
+      image: "/volunteers/WhatsApp Image 2025-07-04 at 6.06.33 PM.jpeg",
       bio: "Jitendra combines technical expertise with spiritual dedication to oversee our temple restoration projects in Mumbai region with precision and devotion.",
       skills: ["Project Management", "Structural Engineering", "Team Leadership"],
       contact: "jitendra.j@adiyogi.org"
@@ -51,7 +51,7 @@ const Volunteer = () => {
       name: "Mansi Nerkar",
       title: "Strategic Advisor",
       role: "Star Volunteer",
-      image: "/public/volunteers/WhatsApp Image 2025-07-04 at 6.06.04 PM.jpeg",
+      image: "/volunteers/WhatsApp Image 2025-07-04 at 6.06.04 PM.jpeg",
       bio: "Mansi's strategic vision helps guide our foundation's long-term goals. Her ability to connect spiritual principles with practical implementation is invaluable.",
       skills: ["Strategic Planning", "Community Building", "Event Management"],
       contact: "mansi.nerkar@adiyogi.org"
@@ -62,7 +62,7 @@ const Volunteer = () => {
       name: "Mr. Pankaj Ambatkar",
       title: "Celebrity Numerologist",
       role: "District Head, Dadra and Nagar Haveli district",
-      image: "/public/volunteers/WhatsApp Image 2025-07-04 at 6.07.02 PM.jpeg",
+      image: "/volunteers/WhatsApp Image 2025-07-04 at 6.07.02 PM.jpeg",
       bio: "With over 15 years of experience in numerology and spiritual guidance, Pankaj brings profound wisdom to our foundation. His expertise helps align our initiatives with cosmic energies for maximum impact.",
       skills: ["Numerology", "Spiritual Counseling", "Leadership"],
       contact: "contact@pankajambatkar.com"
@@ -72,7 +72,7 @@ const Volunteer = () => {
       name: "Atul Thombare",
       title: "Architectural Expert",
       role: "Head of Surveying & Architectural Planning",
-      image: "/public/volunteers/WhatsApp Image 2025-07-04 at 6.06.05 PM.jpeg",
+      image: "/volunteers/WhatsApp Image 2025-07-04 at 6.06.05 PM.jpeg",
       bio: "Atul ensures our temple restoration projects maintain architectural authenticity while meeting modern standards. His eye for detail preserves the sacred geometry of ancient designs.",
       skills: ["Architectural Design", "Surveying", "Heritage Conservation"],
       contact: "atul.t@adiyogi.org"
@@ -82,7 +82,7 @@ const Volunteer = () => {
       name: "Mr. Chaitanya Wagh",
       title: "MBA International Marketing",
       role: "Volunteer | Marketing",
-      image: "/public/volunteers/WhatsApp Image 2025-07-04 at 7.39.43 PM.jpeg",
+      image: "/volunteers/WhatsApp Image 2025-07-04 at 7.39.43 PM.jpeg",
       bio: "Chaitanya's international marketing expertise helps us spread our message globally. He develops strategies that connect ancient wisdom with modern audiences.",
       skills: ["Digital Marketing", "Brand Strategy", "International Relations"],
       contact: "chaitanya.wagh@adiyogi.org"
@@ -285,7 +285,7 @@ const Volunteer = () => {
         <div
           className="absolute inset-0 bg-center bg-cover bg-fixed z-0"
           style={{
-            backgroundImage: "url('/public/about us/istockphoto-825022486-612x612.webp')",
+            backgroundImage: "url('/about us/istockphoto-825022486-612x612.webp')",
             opacity: 0.25,
           }}
         ></div>

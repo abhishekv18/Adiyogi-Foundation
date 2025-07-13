@@ -547,7 +547,7 @@ const navigate=useNavigate();
   <div
     className="absolute inset-0 bg-center bg-cover bg-fixed opacity-25"
     style={{
-      backgroundImage: `url('/public/Stone-mason-working-on-restoring-the-Vatsala-Durga-temple-in-Bhaktapur-Nepal-.jpg')`,
+      backgroundImage: `url('/Stone-mason-working-on-restoring-the-Vatsala-Durga-temple-in-Bhaktapur-Nepal-.jpg')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',
@@ -693,7 +693,7 @@ const navigate=useNavigate();
               <div className="inline-block p-4 sm:p-6 rounded-xl mb-4 sm:mb-6" style={{ backgroundColor: '#FDF8F8', border: '2px solid #C41E3A' }}>
                 <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto bg-white rounded-lg flex items-center justify-center">
                   <img
-                  src='/public/volunteers/WhatsApp Image 2025-07-05 at 8.36.53 PM (1).jpeg'
+                  src='/volunteers/WhatsApp Image 2025-07-05 at 8.36.53 PM (1).jpeg'
                   className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32" style={{ color: '#C41E3A' }} 
                   />
                  

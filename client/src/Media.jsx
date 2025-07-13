@@ -240,7 +240,7 @@ console.log(allBlogs)
   <div
     className="absolute inset-0 bg-center bg-cover bg-fixed opacity-20"
     style={{
-      backgroundImage: `url('/public/istockphoto-1221349438-612x612.jpg')`, // Replace with your actual image path
+      backgroundImage: `url('/istockphoto-1221349438-612x612.jpg')`, // Replace with your actual image path
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',

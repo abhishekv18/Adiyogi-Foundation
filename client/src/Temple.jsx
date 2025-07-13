@@ -562,7 +562,7 @@ const temples = [
     status: "Launching Soon",
     description: "A forgotten temple in Koikin, discovered during a peaceful agyatvas in October 2022. Though neglected, the spiritual energy remains alive.",
     detailedDescription: "In October 2022, during a peaceful agyatvas, I visited Koikin a beautiful coastal town known for its clean beaches and lush surroundings. While spending quiet time there, I came across an old temple that caught my heart. It was the Shri Dev Ganpati Mandir. The temple was in a neglected state, walls aged, nature slowly taking over but the spiritual energy around it was still alive. There was a deep sense of calm, like Bappa was silently waiting to be remembered. That moment stayed with me.",
-    image: "/public/WhatsApp Image 2025-06-27 at 2.16.47 AM.jpeg",
+    image: "/WhatsApp Image 2025-06-27 at 2.16.47 AM.jpeg",
     progress: 10,
     location: "Koikin, Coastal Maharashtra",
     significance: "A forgotten coastal temple with untouched spiritual energy, waiting to be restored to its former glory.",
@@ -578,8 +578,8 @@ const temples = [
 const successStory = {
   name: "Mahadev Temple - A Divine Transformation",
   description: "From broken roof to divine restoration - witness the miraculous transformation through satellite imagery",
-  satelliteBefore: "/public/WhatsApp Image 2025-07-04 at 9.00.39 PM.jpeg",
-  satelliteAfter: "/public/WhatsApp Image 2025-07-04 at 9.00.39 PM (1).jpeg",
+  satelliteBefore: "/WhatsApp Image 2025-07-04 at 9.00.39 PM.jpeg",
+  satelliteAfter: "/WhatsApp Image 2025-07-04 at 9.00.39 PM (1).jpeg",
   story: {
     hindi: "Kabhi kabhi zindagi mein kuch aise pal hote hain jo humesha ke liye yaad reh jaate hain. Aaj hum aapko dikhane ja rahe hain do tasveerein dono ek hi mandir ki. Pehli tasveer mein... mandir ki chhat tooti hui thi. Deewarein bhi kamzor pad chuki thi. Aur sabse pehle jo cheez nazar aayi... wo thi neeli plastic jo chhat tootne ke baad bachav ke liye daali gayi thi.",
     transformation: "Ek samay tha jab mandir bikhar gaya tha... Aur aaj doosri tasveer mein wohi mandir ek naye roop mein saamne khada hai. Naya, pavitra, roshan... ekdum punar nirmita.",

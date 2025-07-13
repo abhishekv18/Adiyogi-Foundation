@@ -49,7 +49,7 @@ const DonationPopup = () => {
 
         <div className="relative bg-gradient-to-br from-[#C41E3A] to-[#8B1538] text-white p-4 rounded-t-2xl overflow-hidden">
           <img
-            src="/public/istockphoto-992280502-612x612.jpg"
+            src="/istockphoto-992280502-612x612.jpg"
             alt="Temple"
             className="absolute inset-0 w-full h-full object-cover opacity-20"
           />

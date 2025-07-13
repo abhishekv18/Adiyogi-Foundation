@@ -197,7 +197,7 @@ const [errors, setErrors] = useState({
   <div
     className="absolute inset-0 bg-center bg-cover bg-fixed"
     style={{
-      backgroundImage: `url('/public/istockphoto-2154401942-612x612.jpg')`,
+      backgroundImage: `url('/istockphoto-2154401942-612x612.jpg')`,
       opacity: 0.3, // adjust this value (0.1 to 0.3 recommended)
     }}
   ></div>

@@ -815,7 +815,7 @@ const navigate=useNavigate();
       status: "Active",
       founded: "2019",
       impact: "Ancient traditions preserved",
-      imageUrl: "/public/istockphoto-542316008-612x612 (1).jpg",
+      imageUrl: "/istockphoto-542316008-612x612 (1).jpg",
     },
     {
       id: 2,
@@ -831,7 +831,7 @@ const navigate=useNavigate();
       status: "Expanding",
       founded: "2020",
       impact: "Clean water for all",
-      imageUrl: "/public/istockphoto-671568704-612x612.jpg",
+      imageUrl: "/istockphoto-671568704-612x612.jpg",
     },
     {
       id: 3,
@@ -847,7 +847,7 @@ const navigate=useNavigate();
       status: "Growing",
       founded: "2018",
       impact: "Future leaders shaped",
-      imageUrl: "/public/istockphoto-1395727822-612x612.jpg",
+      imageUrl: "/istockphoto-1395727822-612x612.jpg",
     },
     {
       id: 4,
@@ -863,7 +863,7 @@ const navigate=useNavigate();
       status: "Thriving",
       founded: "2019",
       impact: "Cleaner air, greener earth",
-      imageUrl: "/public/istockphoto-1254698338-612x612.jpg",
+      imageUrl: "/istockphoto-1254698338-612x612.jpg",
     },
     {
       id: 5,
@@ -895,7 +895,7 @@ const navigate=useNavigate();
       status: "Cultivating",
       founded: "2020",
       impact: "Sustainable farming future",
-      imageUrl: "/public/istockphoto-953464358-612x612.jpg",
+      imageUrl: "/istockphoto-953464358-612x612.jpg",
     },
     {
       id: 7,
@@ -911,7 +911,7 @@ const navigate=useNavigate();
       status: "Sharing",
       founded: "2021",
       impact: "Dignity through giving",
-      imageUrl: "/public/download (5).jpeg",
+      imageUrl: "/download (5).jpeg",
     }
   ];
 
@@ -948,7 +948,7 @@ const navigate=useNavigate();
         <div
           className="absolute inset-0 bg-center bg-cover bg-fixed z-0 opacity-15"
           style={{
-            backgroundImage: "url('/public/premium_photo-1697729603226-8c8627dfc12b.avif')",
+            backgroundImage: "url('/premium_photo-1697729603226-8c8627dfc12b.avif')",
           }}
         ></div>
 

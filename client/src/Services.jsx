@@ -1315,7 +1315,7 @@ const navigate=useNavigate();
         <div
           className="absolute inset-0 opacity-20 z-0"
           style={{
-            backgroundImage: "url('/public/istockphoto-137340137-612x612.jpg')",
+            backgroundImage: "url('/istockphoto-137340137-612x612.jpg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed'
@@ -1519,7 +1519,7 @@ const navigate=useNavigate();
               style={{
                 backgroundImage: `
                   linear-gradient(135deg, rgba(196, 30, 58, 0.6) 0%, rgba(139, 21, 56, 0.7) 100%),
-                  url('/public/istockphoto-1455552376-612x612.webp')
+                  url('/istockphoto-1455552376-612x612.webp')
                 `,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
