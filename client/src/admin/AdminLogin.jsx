@@ -25,7 +25,7 @@ const AdminLoginPage = () => {
     e.preventDefault();
     try {
       dispatch(setLoading(true));
-      const res = await axios.post('http://localhost:5000/api/user/login', formData, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/login`, formData, {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true,
       });

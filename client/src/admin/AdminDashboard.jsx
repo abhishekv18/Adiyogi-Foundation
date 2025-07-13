@@ -90,7 +90,7 @@ console.log(allBlogs);
     const data = new FormData();
     data.append('my_file', selectedImage);
     const response = await axios.post(
-      "http://localhost:5000/api/blog/upload-image",
+      `${import.meta.env.VITE_API_URL}/api/blog/upload-image`,
       data, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -121,7 +121,7 @@ console.log(allBlogs);
 
         const fetchAllAdmins = async () => {
   try {
-    const res = await axios.get('http://localhost:5000/api/user/getAllUsers', {
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/getAllUsers`, {
       withCredentials: true,
     });
     if (res.data.success) {
@@ -145,7 +145,7 @@ const removeAdmin = async () => {
   
   dispatch(setLoading(true));
   try {
-    const res = await axios.delete(`http://localhost:5000/api/user/deleteUser/${adminToDelete}`, {
+    const res = await axios.delete(`${import.meta.env.VITE_API_URL}/api/user/deleteUser/${adminToDelete}`, {
       withCredentials: true,
     });
     
@@ -173,7 +173,7 @@ const showDeleteAdminConfirmation = (userId) => {
   try {
     dispatch(setLoading(true)); // Correct spelling
 
-    const res = await axios.post('http://localhost:5000/api/user/admin-register', formData, {
+    const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/admin-register`, formData, {
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
     });
@@ -248,7 +248,7 @@ const showDeleteAdminConfirmation = (userId) => {
       let res;
       if (isEditMode) {
         // Edit existing blog
-        res = await axios.put(`http://localhost:5000/api/blog/update/${editingBlogId}`, blogData, {
+        res = await axios.put(`${import.meta.env.VITE_API_URL}/api/blog/update/${editingBlogId}`, blogData, {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });
@@ -263,7 +263,7 @@ const showDeleteAdminConfirmation = (userId) => {
         }
       } else {
         // Create new blog
-        res = await axios.post('http://localhost:5000/api/blog/add', blogData, {
+        res = await axios.post(`${import.meta.env.VITE_API_URL}/api/blog/add`, blogData, {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });
@@ -298,7 +298,7 @@ const showDeleteAdminConfirmation = (userId) => {
 
   const fetchAllBlogs = useCallback(async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/blog/get', {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/blog/get`, {
         withCredentials: true,
       });
       if (res.data.success) {
@@ -331,7 +331,7 @@ const showDeleteAdminConfirmation = (userId) => {
     
     dispatch(setLoadin(true));
     try {
-      const res = await axios.delete(`http://localhost:5000/api/blog/delete/${blogToDelete._id}`, {
+      const res = await axios.delete(`${import.meta.env.VITE_API_URL}/api/blog/delete/${blogToDelete._id}`, {
         withCredentials: true,
       });
       if (res.data.success) {
@@ -350,7 +350,7 @@ const showDeleteAdminConfirmation = (userId) => {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/user/logout", {}, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/logout`, {}, {
         withCredentials: true,
       });
       if (res.data.success) {

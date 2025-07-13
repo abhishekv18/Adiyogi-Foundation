@@ -28,48 +28,6 @@ const [loading, setLoading] = useState(false);
 const[formData, setFormData] = useState({
     email: ''
   });
-//   const handleInputChange = (e) => {
-//  setFormData({ ...formData, [e.target.name]: e.target.value });
-//   }
-
-
-// const handleSubmit = async (e) => {
-//   e.preventDefault();
-//   setLoading(true); // Start loading
-
-//   try {
-//     const res = await axios.post(
-//       'http://localhost:5000/api/subscribe/add',
-//       formData,
-//       {
-//         headers: { 'Content-Type': 'application/json' },
-//         withCredentials: true,
-//       }
-//     );
-
-//     if (res.data.success) {
-//       toast.success('Subscribed Successfully', {
-//         icon: '✅',
-//         style: {
-//           border: '1px solid #28a745',
-//           padding: '16px',
-//           color: '#fff',
-//           background: 'linear-gradient(135deg, #28a745, #218838)',
-//           fontWeight: '600',
-//         },
-//       });
-
-//       setFormData({ email: '' });
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     toast.error(error.response?.data?.message || 'Failed To Subscribe');
-   
-//   } finally {
-//     setLoading(false); // Stop loading
-//   }
-// };
-
 
 
 
@@ -162,7 +120,7 @@ const handleSubmit = async (e) => {
 
   const fetchAllBlogs = useCallback(async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/blog/get', {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/blog/get`, {
         withCredentials: true,
       });
       if (res.data.success) {
@@ -199,11 +157,7 @@ console.log(allBlogs)
     return content.length > maxLength ? content.substring(0, maxLength) + '...' : content;
   };
 
-//   const openModal = (blog) => {
-//     setSelectedBlog(blog);
-//     setSelectedIndex(index);
-//     setIsModalOpen(true);
-//   };
+
 
   const closeModal = () => {
     setSelectedBlog(null);
@@ -548,52 +502,7 @@ console.log(allBlogs)
       Subscribe to receive the latest spiritual insights and transformative teachings directly to your journey.
     </p>
 
-    {/* Input & Subscribe Button */}
-    {/* <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
-      <input
-       name='email'
-                    value={formData.email}
-                    onChange={handleInputChange} 
-                    type="email" 
-                    placeholder="Enter your email"
-        className="flex-1 px-5 py-3 rounded-lg border-0 bg-white text-gray-800 placeholder-gray-500 focus:outline-none"
-      />
-     
-      <button
-  type="submit"
-  disabled={loading}
-  className="bg-white text-[#C41E3A] px-6 cursor-pointer py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
->
-  {loading ? (
-    <>
-      <svg
-        className="animate-spin h-5 w-5 text-[#C41E3A]"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <circle
-          className="opacity-25"
-          cx="12"
-          cy="12"
-          r="10"
-          stroke="currentColor"
-          strokeWidth="4"
-        />
-        <path
-          className="opacity-75"
-          fill="currentColor"
-          d="M4 12a8 8 0 018-8v8H4z"
-        />
-      </svg>
-      <span>Subscribing...</span>
-    </>
-  ) : (
-    'Subscribe'
-  )}
-</button>
 
-    </form> */}
 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
   <div className="flex-1 relative">
     <input
