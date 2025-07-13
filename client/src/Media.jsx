@@ -114,7 +114,7 @@ const handleSubmit = async (e) => {
   setLoading(true);
   try {
     const res = await axios.post(
-      `${process.env.BACKEND_URL}/api/subscribe/add`,
+      `${process.env.VITE_API_URL}/api/subscribe/add`,
       formData,
       {
         headers: { 'Content-Type': 'application/json' },

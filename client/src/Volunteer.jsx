@@ -171,7 +171,7 @@ const Volunteer = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post(`${process.env.BACKEND_URL}/api/volunteer/add`, formData, {
+      const res = await axios.post(`${process.env.VITE_API_URL}/api/volunteer/add`, formData, {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true,
       });
