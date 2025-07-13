@@ -607,7 +607,7 @@ console.log(allBlogs)
       }`}
     />
     {emailError && (
-      <p className="absolute -bottom-6  left-0 text-red-100 text-sm mt-1">
+      <p className="absolute -bottom-6  left-0 text-black text-sm mt-1">
         {emailError}
       </p>
     )}
