@@ -831,7 +831,7 @@ const timelineEvents = [
                     <span className="font-semibold text-sm sm:text-base" style={{ color: '#C41E3A' }}>
                       Restoration Progress
                     </span>
-                    <div className="flex items-center">
+                    <div className="flex  items-center">
                       <span className="text-base sm:text-lg font-bold mr-2" style={{ color: '#C41E3A' }}>
                         {temple.progress}%
                       </span>
