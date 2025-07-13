@@ -428,22 +428,22 @@ const navigate=useNavigate();
     {
       title: "Spiritual Well-being",
       description: "Nurturing inner peace and spiritual growth through ancient practices and modern understanding.",
-      image: "/public/istockphoto-1494999342-612x612.jpg"
+      image: "/istockphoto-1494999342-612x612.jpg"
     },
     {
       title: "Environmental Stewardship", 
       description: "Caring for our sacred Earth through conscious action and sustainable practices.",
-      image: "/public/istockphoto-1496447289-612x612.jpg"
+      image: "/istockphoto-1496447289-612x612.jpg"
     },
     {
       title: "Educational Equity",
       description: "Ensuring access to transformative education that honors both knowledge and wisdom.",
-      image: "/public/istockphoto-1392742688-612x612.jpg"
+      image: "/istockphoto-1392742688-612x612.jpg"
     },
     {
       title: "Humanitarian Service",
       description: "Serving humanity with compassion, dignity, and unwavering commitment to justice.",
-      image: "/public/about us/istockphoto-537311780-612x612 (1).webp"
+      image: "/about us/istockphoto-537311780-612x612 (1).webp"
     }
   ];
 
@@ -460,7 +460,7 @@ const navigate=useNavigate();
   <div
     className="absolute inset-0 bg-center bg-cover opacity-25 z-0"
     style={{
-      backgroundImage: `url('/public/istockphoto-178757243-612x612.jpg')`,
+      backgroundImage: `url('/istockphoto-178757243-612x612.jpg')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',
@@ -577,7 +577,7 @@ const navigate=useNavigate();
               <div className="order-1 lg:order-2 relative">
         <div className="relative">
           <img 
-            src="/public/WhatsApp Image 2025-06-26 at 11.46.34 AM.jpeg" 
+            src="/WhatsApp Image 2025-06-26 at 11.46.34 AM.jpeg" 
             alt="Founder portrait" 
             className="w-full rounded-2xl sm:rounded-3xl shadow-2xl"
             style={{boxShadow: '0 8px 32px rgba(196, 30, 58, 0.3)'}}
@@ -640,7 +640,7 @@ const navigate=useNavigate();
       <section className="py-16 sm:py-20 px-4 relative">
         <div className="absolute inset-0 opacity-10">
           <img 
-            src="/public/about us/istockphoto-503981202-612x612.webp" 
+            src="/about us/istockphoto-503981202-612x612.webp" 
             alt="Temple background" 
             className="w-full h-full object-cover"
           />
@@ -797,7 +797,7 @@ const navigate=useNavigate();
     <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
       <div className="relative order-2 lg:order-1">
         <img 
-          src="/public/istockphoto-490378481-612x612.webp" 
+          src="/istockphoto-490378481-612x612.webp" 
           alt="Ancient wisdom" 
           className="w-full rounded-2xl sm:rounded-3xl shadow-2xl"
           style={{ boxShadow: '0 8px 32px rgba(196, 30, 58, 0.3)' }}
