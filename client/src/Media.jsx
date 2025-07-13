@@ -503,6 +503,40 @@ console.log(allBlogs)
     </p>
 
 
+{/* <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
+  <div className="flex-1 relative">
+    <input
+      name="email"
+      value={formData.email}
+      onChange={handleInputChange}
+      type="email" 
+      placeholder="Enter your email"
+      className={`w-full px-5 py-3 rounded-lg border-0 bg-white text-gray-800 placeholder-gray-500 focus:outline-none ${
+        emailError ? 'border-2 border-red-300' : ''
+      }`}
+    />
+    {emailError && (
+      <p className="absolute -bottom-6  left-0 text-white text-sm mt-1">
+        {emailError}
+      </p>
+    )}
+  </div>
+  <button
+    type="submit"
+    disabled={loading}
+    className="bg-white text-[#C41E3A] px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    {loading ? (
+      <>
+        <svg className="animate-spin h-5 w-5 text-[#C41E3A]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+        </svg>
+        <span>Subscribing...</span>
+      </>
+    ) : 'Subscribe'}
+  </button>
+</form> */}
 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
   <div className="flex-1 relative">
     <input
@@ -516,7 +550,7 @@ console.log(allBlogs)
       }`}
     />
     {emailError && (
-      <p className="absolute -bottom-6  left-0 text-black text-sm mt-1">
+      <p className="absolute top-full left-0 right-0 text-white text-sm mt-1 px-1 z-10">
         {emailError}
       </p>
     )}
