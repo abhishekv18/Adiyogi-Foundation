@@ -1014,7 +1014,7 @@ const AdminManagement = useMemo(() => (
   <input
     type={showPassword ? "text" : "password"}
     required
-    minLength="6"
+    // minLength="6"
     value={formData.password}
     onChange={(e) => setFormData({...formData, password: e.target.value})}
     className="w-full px-4 py-3 pr-12 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
