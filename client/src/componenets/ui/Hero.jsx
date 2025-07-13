@@ -367,13 +367,23 @@ const HeroWithCarousel = () => {
         <div className="relative z-10 text-center max-w-6xl mx-auto">
           {/* ॐ Symbol */}
           <div className="mb-6 sm:mb-8">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto rounded-full flex items-center justify-center text-3xl sm:text-4xl md:text-6xl font-bold shadow-2xl border-2 sm:border-4" style={{ 
+            {/* <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto rounded-full flex items-center justify-center text-3xl sm:text-4xl md:text-6xl font-bold shadow-2xl" style={{ 
               background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
               color: '#FFFEF7',
               borderColor: 'rgba(255, 254, 247, 0.4)'
             }}>
-              ॐ
-            </div>
+             <img src="/public/WhatsApp Image 2025-07-13 at 12.20.36 PM.jpeg" alt="Adiyogi Foundation Logo" className="w-full h-full object-cover rounded-full" />
+            </div> */}
+<div 
+  className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto rounded-full shadow-2xl overflow-hidden"
+>
+  <img 
+    src="/public/WhatsApp Image 2025-07-13 at 12.20.36 PM.jpeg" 
+    alt="Adiyogi Foundation Logo" 
+    className="w-full h-full object-contain rounded-full bg-white p-1 sm:p-1.5 md:p-2"
+  />
+</div>
+
           </div>
 
           {/* Main Heading */}

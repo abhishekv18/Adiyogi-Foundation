@@ -424,9 +424,13 @@ const [emailError, setEmailError] = useState('');
           <div className="sm:col-span-2 lg:col-span-5">
             <div className="flex items-center space-x-3 mb-6 sm:mb-8">
               <div className="relative">
-               <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-sacred-crimson to-deep-ruby rounded-full flex items-center justify-center text-warm-ivory font-bold text-sm sm:text-lg group-hover:scale-105 transition-transform duration-300">
-                  ॐ
-                </div>
+                <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+    <img 
+      src="/public/WhatsApp Image 2025-07-13 at 12.20.36 PM.jpeg" 
+      alt="Adiyogi Foundation Logo" 
+      className="w-full h-full object-contain rounded-full bg-white p-1" 
+    />
+  </div>
               </div>
               <div>
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold">

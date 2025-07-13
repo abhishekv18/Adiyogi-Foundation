@@ -1275,16 +1275,16 @@ const navigate=useNavigate();
         <div class="contact-details">
             <div class="contact-item">
                 <span>📞</span>
-                <span>+91 99999 99999</span>
+                <span>+91 9175033022</span>
             </div>
             <div class="contact-item">
                 <span>✉️</span>
-                <span>info@adiyogi.org</span>
+                <span>social.adiyogifoundation@gmail.com</span>
             </div>
         </div>
         <div class="stats">
             <div class="stat">
-                <span class="stat-number">1000+</span>
+                <span class="stat-number">100+</span>
                 <span>Happy Clients</span>
             </div>
             <div class="stat">
@@ -1292,7 +1292,7 @@ const navigate=useNavigate();
                 <span>Years Experience</span>
             </div>
             <div class="stat">
-                <span class="stat-number">5000+</span>
+                <span class="stat-number">500+</span>
                 <span>Consultations</span>
             </div>
             <div class="stat">

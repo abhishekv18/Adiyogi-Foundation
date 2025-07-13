@@ -642,27 +642,16 @@ const Header = () => {
             
             {/* Logo - Optimized for mobile */}
             <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0 min-w-0 max-w-[65%] sm:max-w-none">
-              <div className="relative flex-shrink-0">
-                <div 
-                  className="w-7 sm:w-8 h-7 sm:h-8 rounded-full flex items-center justify-center text-white font-bold text-base sm:text-lg group-hover:scale-105 transition-transform duration-300"
-                  style={{ background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)' }}
-                >
-                  ॐ
-                </div>
-              </div>
-              {/* <div className="min-w-0 flex-1">
-                <div className="flex flex-col">
-                  <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-rich-charcoal group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
-                    Adiyogi
-                  </h1>
-                  <h2 className="text-xs sm:text-base lg:text-xl font-bold text-sacred-crimson group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight -mt-0.5 sm:-mt-1">
-                    Foundation
-                  </h2>
-                </div>
-                <p className="hidden sm:block text-xs font-medium -mt-1 group-hover:text-sacred-crimson transition-colors duration-300 truncate leading-tight" style={{ color: '#6B4B4B' }}>
-                  Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
-                </p>
-              </div> */}
+<div className="relative flex-shrink-0">
+  <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+    <img 
+      src="/public/WhatsApp Image 2025-07-13 at 12.20.36 PM.jpeg" 
+      alt="Adiyogi Foundation Logo" 
+      className="w-full h-full object-contain rounded-full bg-white p-1" 
+    />
+  </div>
+</div>
+             
 
               <div className="min-w-0 flex-1">
   <div className="flex flex-col lg:flex-row lg:items-baseline lg:space-x-1">
