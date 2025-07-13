@@ -1565,7 +1565,7 @@ const navigate=useNavigate();
 
 
                 </div>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                {/* <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                   <Link to='/contact'>
                     <button className="bg-white text-red-600 px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-red-50 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 hover:scale-x-105">
                     <span className="text-sm sm:text-base">Book Free Consultation</span>
@@ -1576,7 +1576,23 @@ const navigate=useNavigate();
                   <button onClick={downloadBrochure} className="border-2 border-white text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-white hover:text-red-600 transition-all duration-300 text-sm sm:text-base">
                     Download Brochure
                   </button>
-                </div>
+                </div> */}
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto">
+  <Link to="/contact" className="w-full sm:w-auto">
+    <button className="w-full sm:w-auto bg-white text-red-600 px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-red-50 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 hover:scale-105">
+      <span className="text-sm sm:text-base">Book Free Consultation</span>
+      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+    </button>
+  </Link>
+
+  <button
+    onClick={downloadBrochure}
+    className="w-full sm:w-auto border-2 border-white text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-white hover:text-red-600 transition-all duration-300 text-sm sm:text-base"
+  >
+    Download Brochure
+  </button>
+</div>
+
               </div>
             </div>
           </div>
