@@ -368,7 +368,7 @@ const [emailError, setEmailError] = useState('');
     setLoading(true);
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/subscribe/add',
+        `${process.env.BACKEND_URL}/api/subscribe/add`,
         formData,
         {
           headers: { 'Content-Type': 'application/json' },
