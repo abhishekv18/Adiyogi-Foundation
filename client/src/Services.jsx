@@ -1541,8 +1541,8 @@ const navigate=useNavigate();
                     <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span className="text-base sm:text-lg">social.adiyogifoundation@gmail.com</span>
                   </div> */}
-                 <div className="flex items-center space-x-2 sm:space-x-3">
-  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+                <div className="flex items-center gap-2 sm:gap-3">
+  <Phone className="w-5 h-5 text-gray-600 dark:text-gray-300" />
   <a
     href="tel:+919175033022"
     className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
@@ -1552,8 +1552,8 @@ const navigate=useNavigate();
   </a>
 </div>
 
-<div className="flex items-center space-x-2 sm:space-x-3">
-  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300" />
+<div className="flex items-center gap-2 sm:gap-3">
+  <Mail className="w-5 h-5 text-gray-600 dark:text-gray-300" />
   <a
     href="mailto:social.adiyogifoundation@gmail.com"
     className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
@@ -1562,6 +1562,7 @@ const navigate=useNavigate();
     social.adiyogifoundation@gmail.com
   </a>
 </div>
+
 
 
                 </div>

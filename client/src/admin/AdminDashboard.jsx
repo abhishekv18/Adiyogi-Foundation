@@ -1,7 +1,7 @@
 
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { Plus, Edit, Trash2, Eye, Calendar, User, LogOut, Search, Filter, X, Hamburger, Menu } from 'lucide-react';
+import { Plus, Edit, Trash2, Eye, Calendar, User, LogOut, Search, Filter, X, Hamburger, Menu, EyeOff } from 'lucide-react';
   import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +11,7 @@ import { setAllUsers, setLoading, setUser } from '../redux/authSlice';
 import { toast } from 'react-toastify';
 import { FaSpinner } from "react-icons/fa";
 const AdminDashboard = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -451,7 +452,10 @@ const Sidebar = useMemo(() => (
     <nav className="mt-6">
       <div className="px-4 space-y-2">
         <button
-          onClick={() => setCurrentView('dashboard')}
+          onClick={() => {
+    setCurrentView('dashboard');
+    if (window.innerWidth < 1024) setIsSidebarOpen(false);
+  }}
           className={`w-full flex items-center px-4 py-3 text-left rounded-lg transition-colors ${
             currentView === 'dashboard' ? 'bg-emerald-500 text-white shadow-lg' : 'text-slate-300 hover:bg-slate-700 hover:text-emerald-400'
           }`}
@@ -461,7 +465,10 @@ const Sidebar = useMemo(() => (
         </button>
         
         <button
-          onClick={() => setCurrentView('blogs')}
+        onClick={() => {
+    setCurrentView('blogs');
+    if (window.innerWidth < 1024) setIsSidebarOpen(false);
+  }}
           className={`w-full flex items-center px-4 py-3 text-left rounded-lg transition-colors ${
             currentView === 'blogs' ? 'bg-emerald-500 text-white shadow-lg' : 'text-slate-300 hover:bg-slate-700 hover:text-emerald-400'
           }`}
@@ -471,7 +478,10 @@ const Sidebar = useMemo(() => (
         </button>
 
         <button
-          onClick={() => setCurrentView('admins')}
+          onClick={() => {
+    setCurrentView('admins');
+    if (window.innerWidth < 1024) setIsSidebarOpen(false);
+  }}
           className={`w-full flex items-center px-4 py-3 text-left rounded-lg transition-colors ${
             currentView === 'admins' || currentView === 'adminEditor' ? 'bg-emerald-500 text-white shadow-lg' : 'text-slate-300 hover:bg-slate-700 hover:text-emerald-400'
           }`}
@@ -983,7 +993,7 @@ const AdminManagement = useMemo(() => (
               />
             </div>
 
-            <div>
+            {/* <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2">
                 Password *
               </label>
@@ -996,7 +1006,29 @@ const AdminManagement = useMemo(() => (
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
                 placeholder="••••••••"
               />
-            </div>
+            </div> */}
+<div className="relative">
+  <label className="block text-sm font-semibold text-slate-700 mb-2">
+    Password *
+  </label>
+  <input
+    type={showPassword ? "text" : "password"}
+    required
+    minLength="6"
+    value={formData.password}
+    onChange={(e) => setFormData({...formData, password: e.target.value})}
+    className="w-full px-4 py-3 pr-12 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
+    placeholder="••••••••"
+  />
+  <button
+    type="button"
+    onClick={() => setShowPassword(!showPassword)}
+    className="absolute top-1/2 right-3 transform -translate-y-1/2 text-slate-500 hover:text-slate-700 focus:outline-none"
+    tabIndex={-1}
+  >
+    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+  </button>
+</div>
 
             <div className="flex justify-end space-x-3 pt-4">
               <button
