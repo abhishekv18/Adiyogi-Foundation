@@ -503,24 +503,26 @@ console.log(allBlogs)
     </p>
 
 
-{/* <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
-  <div className="flex-1 relative">
+<form
+  onSubmit={handleSubmit}
+  className="flex flex-col sm:flex-row sm:items-start gap-4 justify-center max-w-xl mx-auto"
+>
+  <div className="flex-1">
     <input
       name="email"
       value={formData.email}
       onChange={handleInputChange}
-      type="email" 
+      type="email"
       placeholder="Enter your email"
-      className={`w-full px-5 py-3 rounded-lg border-0 bg-white text-gray-800 placeholder-gray-500 focus:outline-none ${
-        emailError ? 'border-2 border-red-300' : ''
+      className={`w-full px-5 py-3 rounded-lg border-2 bg-white text-gray-800 placeholder-gray-500 focus:outline-none ${
+        emailError ? 'border-red-400' : 'border-transparent'
       }`}
     />
     {emailError && (
-      <p className="absolute -bottom-6  left-0 text-white text-sm mt-1">
-        {emailError}
-      </p>
+      <p className="text-red-500 text-sm mt-1 ml-1">{emailError}</p>
     )}
   </div>
+
   <button
     type="submit"
     disabled={loading}
@@ -528,16 +530,35 @@ console.log(allBlogs)
   >
     {loading ? (
       <>
-        <svg className="animate-spin h-5 w-5 text-[#C41E3A]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+        <svg
+          className="animate-spin h-5 w-5 text-[#C41E3A]"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          ></circle>
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v8H4z"
+          ></path>
         </svg>
         <span>Subscribing...</span>
       </>
-    ) : 'Subscribe'}
+    ) : (
+      'Subscribe'
+    )}
   </button>
-</form> */}
-<form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
+</form>
+
+{/* <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
   <div className="flex-1 relative flex flex-col">
     <input
       name="email"
@@ -569,7 +590,7 @@ console.log(allBlogs)
       </>
     ) : 'Subscribe'}
   </button>
-</form>
+</form> */}
 
     {/* Trust Statement */}
     <p className="text-sm text-red-100 mt-6 opacity-80">
