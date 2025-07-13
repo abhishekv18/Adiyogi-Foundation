@@ -49,7 +49,13 @@ export const adminRegister = async(req,res)=>{
                 success: false
             });
         };
-
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({
+                message: "Invalid email format",
+                success: false
+            });
+        }
         const user = await User.findOne({email});
         if(user){
             return res.status(400).json({
