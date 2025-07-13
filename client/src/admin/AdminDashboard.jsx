@@ -1007,7 +1007,7 @@ const AdminManagement = useMemo(() => (
                 placeholder="••••••••"
               />
             </div> */}
-<div className="relative">
+{/* <div className="relative">
   <label className="block text-sm font-semibold text-slate-700 mb-2">
     Password *
   </label>
@@ -1028,6 +1028,33 @@ const AdminManagement = useMemo(() => (
   >
     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
   </button>
+</div> */}
+<div className="relative">
+  <label className="block text-sm font-semibold text-slate-700 mb-2">
+    Password *
+  </label>
+  <div className="relative">
+    <input
+      type={showPassword ? "text" : "password"}
+      required
+      value={formData.password}
+      onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+      className="w-full px-4 py-3 pr-12 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
+      placeholder="••••••••"
+    />
+    <button
+      type="button"
+      onClick={() => setShowPassword(!showPassword)}
+      className="absolute inset-y-0 right-3 flex items-center text-slate-500 hover:text-slate-700"
+      tabIndex={-1}
+    >
+      {showPassword ? (
+        <EyeOff className="w-5 h-5" />
+      ) : (
+        <Eye className="w-5 h-5" />
+      )}
+    </button>
+  </div>
 </div>
 
             <div className="flex justify-end space-x-3 pt-4">
