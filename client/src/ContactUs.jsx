@@ -154,7 +154,7 @@ const [errors, setErrors] = useState({
 
     setLoading(true);
     try {
-      const res = await axios.post(`${process.env.VITE_API_URL}/api/contact/add`, formData, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/contact/add`, formData, {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true,
       });
