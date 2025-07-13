@@ -538,7 +538,7 @@ console.log(allBlogs)
   </button>
 </form> */}
 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
-  <div className="flex-1 relative">
+  <div className="flex-1 relative flex flex-col">
     <input
       name="email"
       value={formData.email}
@@ -550,11 +550,10 @@ console.log(allBlogs)
       }`}
     />
     {emailError && (
-      <p className="absolute top-full left-0 right-0 text-white text-sm mt-1 px-1 z-10">
-        {emailError}
-      </p>
+      <p className="text-red-500 text-sm mt-1 ml-1">{emailError}</p>
     )}
   </div>
+
   <button
     type="submit"
     disabled={loading}
@@ -571,6 +570,7 @@ console.log(allBlogs)
     ) : 'Subscribe'}
   </button>
 </form>
+
     {/* Trust Statement */}
     <p className="text-sm text-red-100 mt-6 opacity-80">
       Join thousands of seekers on their spiritual journey.
