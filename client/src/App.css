@@ -73,7 +73,7 @@
 /* Base Toast Styles */
 .Toastify__toast {
   border-radius: 12px;
-  padding: 18px 20px;
+  padding: 18px 48px 18px 20px; /* Added right padding for close button */
   font-size: 15px;
   width: 380px;
   max-width: 92%;
@@ -83,6 +83,10 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   line-height: 1.5;
   letter-spacing: 0.01em;
+  position: relative;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 /* Toast Container Top Spacing */
@@ -96,7 +100,7 @@
     width: 88%;
     max-width: 280px;
     font-size: 13px;
-    padding: 14px 16px;
+    padding: 14px 40px 14px 16px; /* Adjusted padding for close button */
     margin-top: 16px;
     border-radius: 10px;
   }
@@ -112,7 +116,7 @@
     width: 90%;
     max-width: 320px;
     font-size: 14px;
-    padding: 16px 18px;
+    padding: 16px 44px 16px 18px; /* Adjusted padding for close button */
     margin-top: 20px;
     border-radius: 11px;
   }
@@ -128,7 +132,7 @@
     width: 350px;
     max-width: 85%;
     font-size: 14px;
-    padding: 17px 19px;
+    padding: 17px 46px 17px 19px; /* Adjusted padding for close button */
     margin-top: 22px;
     border-radius: 11px;
   }
@@ -144,7 +148,7 @@
     width: 380px;
     max-width: 80%;
     font-size: 15px;
-    padding: 18px 20px;
+    padding: 18px 48px 18px 20px; /* Adjusted padding for close button */
     margin-top: 24px;
     border-radius: 12px;
   }
@@ -160,7 +164,7 @@
     width: 420px;
     max-width: 75%;
     font-size: 16px;
-    padding: 20px 22px;
+    padding: 20px 50px 20px 22px; /* Adjusted padding for close button */
     margin-top: 28px;
     border-radius: 14px;
   }
@@ -176,7 +180,7 @@
     width: 460px;
     max-width: 70%;
     font-size: 17px;
-    padding: 22px 24px;
+    padding: 22px 52px 22px 24px; /* Adjusted padding for close button */
     margin-top: 32px;
     border-radius: 16px;
   }
@@ -228,10 +232,56 @@
 .Toastify__close-button {
   opacity: 0.7;
   transition: opacity 0.2s ease;
+  position: absolute;
+  right: 12px;
+  top: 12px; /* Fixed top position instead of center */
+  background: transparent;
+  border: none;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+  flex-shrink: 0; /* Prevent button from shrinking */
 }
 
 .Toastify__close-button:hover {
   opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Toast content area to prevent overlap */
+.Toastify__toast-body {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  display: block;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+
+/* Responsive close button adjustments */
+@media (max-width: 480px) {
+  .Toastify__close-button {
+    right: 10px;
+    top: 10px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (min-width: 1441px) {
+  .Toastify__close-button {
+    right: 16px;
+    top: 16px;
+    width: 22px;
+    height: 22px;
+  }
 }
 .logo {
   height: 6em;
