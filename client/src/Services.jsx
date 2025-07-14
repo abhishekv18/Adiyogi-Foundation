@@ -1284,7 +1284,7 @@ const navigate=useNavigate();
         </div>
         <div class="stats">
             <div class="stat">
-                <span class="stat-number">100+</span>
+                <span class="stat-number">15000+</span>
                 <span>Happy Clients</span>
             </div>
             <div class="stat">
@@ -1292,7 +1292,7 @@ const navigate=useNavigate();
                 <span>Years Experience</span>
             </div>
             <div class="stat">
-                <span class="stat-number">500+</span>
+                <span class="stat-number">23000+</span>
                 <span>Consultations</span>
             </div>
             <div class="stat">
@@ -1614,7 +1614,7 @@ const navigate=useNavigate();
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
             <div className="space-y-1 sm:space-y-2">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">100+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">15000+</div>
               <div className="text-red-100 text-sm sm:text-base md:text-lg">Happy Clients</div>
             </div>
             <div className="space-y-1 sm:space-y-2">
@@ -1622,7 +1622,7 @@ const navigate=useNavigate();
               <div className="text-red-100 text-sm sm:text-base md:text-lg">Years Experience</div>
             </div>
             <div className="space-y-1 sm:space-y-2">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">500+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">23000+</div>
               <div className="text-red-100 text-sm sm:text-base md:text-lg">Consultations</div>
             </div>
             <div className="space-y-1 sm:space-y-2">
