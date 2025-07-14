@@ -948,7 +948,7 @@ const AdminManagement = useMemo(() => (
             <div className="col-span-3 text-sm text-slate-600">
               {new Date(user.createdAt).toLocaleDateString()}
             </div>
-            <div className="col-span-2">
+            {/* <div className="col-span-2">
               {user.role !== 'super-admin' && (
                 <button
                   onClick={() => showDeleteAdminConfirmation(user._id)}
@@ -958,7 +958,29 @@ const AdminManagement = useMemo(() => (
                   <Trash2 className="w-4 h-4" />
                 </button>
               )}
-            </div>
+            </div> */}
+            <div className="col-span-2">
+  {user.role !== 'super-admin' ? (
+    <button
+      onClick={() => showDeleteAdminConfirmation(user._id)}
+      className="p-2 text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors border border-transparent hover:border-red-200"
+      title="Delete Admin"
+    >
+      <Trash2 className="w-4 h-4" />
+    </button>
+  ) : (
+    <div
+      className="p-2 text-gray-400 cursor-not-allowed rounded-lg border border-gray-200 relative group"
+      title="Super Admin cannot be deleted"
+    >
+      <Trash2 className="w-4 h-4 opacity-50" />
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span className="text-red-400 text-xl font-bold">×</span>
+      </div>
+    </div>
+  )}
+</div>
+
           </div>
         ))}
       </div>
