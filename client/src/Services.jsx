@@ -1563,7 +1563,7 @@ const navigate=useNavigate();
     <Phone className="w-5 h-5 text-gray-600 dark:text-gray-300 flex-shrink-0" />
     <a
       href="tel:+919175033022"
-      className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight"
+      className="text-base sm:text-lg font-medium text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight"
       aria-label="Call us at +91 9175033022"
     >
       +91 9175033022
@@ -1572,7 +1572,7 @@ const navigate=useNavigate();
 
   {/* Email Section */}
   <div className="flex items-center gap-2 sm:gap-3">
-    <Mail className="w-5 h-5 text-gray-600 dark:text-gray-300 flex-shrink-0" />
+    <Mail className="w-5 h-5 text-gray-300 flex-shrink-0" />
     <a
       href="mailto:social.adiyogifoundation@gmail.com"
       className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight break-all sm:break-normal"
