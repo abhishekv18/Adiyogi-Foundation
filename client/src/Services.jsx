@@ -1062,248 +1062,505 @@ const navigate=useNavigate();
     URL.revokeObjectURL(url);
   };
 
-  const generateBrochureContent = () => {
-    return `<!DOCTYPE html>
+//   const generateBrochureContent = () => {
+//     return `<!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Adiyogi Foundation - ${activeService.title} Brochure</title>
+//     <style>
+//         body {
+//             font-family: 'Arial', sans-serif;
+//             line-height: 1.6;
+//             color: #333;
+//             max-width: 800px;
+//             margin: 0 auto;
+//             padding: 20px;
+//             background: linear-gradient(135deg, #fee2e2 0%, #fef2f2 100%);
+//         }
+//         .header {
+//             text-align: center;
+//             background: linear-gradient(135deg, #dc2626 0%, #e11d48 100%);
+//             color: white;
+//             padding: 30px;
+//             border-radius: 15px;
+//             margin-bottom: 30px;
+//         }
+//         .header h1 {
+//             margin: 0;
+//             font-size: 2.5em;
+//             font-weight: bold;
+//         }
+//         .header p {
+//             margin: 10px 0 0 0;
+//             font-size: 1.2em;
+//             opacity: 0.9;
+//         }
+//         .section {
+//             background: white;
+//             padding: 25px;
+//             margin-bottom: 20px;
+//             border-radius: 15px;
+//             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//             border: 1px solid #fee2e2;
+//         }
+//         .section h2 {
+//             color: #dc2626;
+//             border-bottom: 2px solid #dc2626;
+//             padding-bottom: 10px;
+//             margin-bottom: 20px;
+//         }
+//         .section h3 {
+//             color: #991b1b;
+//             margin-top: 25px;
+//         }
+//         .list-item {
+//             background: #fef2f2;
+//             padding: 15px;
+//             margin: 10px 0;
+//             border-left: 4px solid #dc2626;
+//             border-radius: 8px;
+//         }
+//         .list-item h4 {
+//             margin: 0 0 10px 0;
+//             color: #991b1b;
+//         }
+//         .features {
+//             display: grid;
+//             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+//             gap: 15px;
+//             margin-top: 15px;
+//         }
+//         .feature {
+//             background: #fee2e2;
+//             padding: 10px;
+//             border-radius: 8px;
+//             text-align: center;
+//             font-weight: bold;
+//             color: #991b1b;
+//         }
+//         .contact-info {
+//             background: linear-gradient(135deg, #dc2626 0%, #e11d48 100%);
+//             color: white;
+//             padding: 25px;
+//             border-radius: 15px;
+//             text-align: center;
+//         }
+//         .contact-info h2 {
+//             margin-top: 0;
+//             border: none;
+//             color: white;
+//         }
+//         .contact-details {
+//             display: flex;
+//             justify-content: center;
+//             gap: 40px;
+//             flex-wrap: wrap;
+//             margin: 20px 0;
+//         }
+//         .contact-item {
+//             display: flex;
+//             align-items: center;
+//             gap: 10px;
+//         }
+//         .stats {
+//             display: grid;
+//             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+//             gap: 20px;
+//             margin: 20px 0;
+//         }
+//         .stat {
+//             text-align: center;
+//             background: rgba(255, 255, 255, 0.1);
+//             padding: 15px;
+//             border-radius: 10px;
+//         }
+//         .stat-number {
+//             font-size: 2em;
+//             font-weight: bold;
+//             display: block;
+//         }
+//         @media print {
+//             body {
+//                 background: white;
+//             }
+//             .section {
+//                 box-shadow: none;
+//                 border: 1px solid #ccc;
+//             }
+//         }
+//     </style>
+// </head>
+// <body>
+//     <div class="header">
+//         <h1>Adiyogi Foundation</h1>
+//         <p>${activeService.title}</p>
+//     </div>
+
+//     <div class="section">
+//         <h2>${activeService.content.title}</h2>
+//         <p><strong>${activeService.content.subtitle}</strong></p>
+//         <p>${activeService.content.description}</p>
+//     </div>
+
+//     ${activeService.id === 'astrology' ? `
+//     <div class="section">
+//         <h2>Our Services</h2>
+//         ${activeService.content.services.map(service => `
+//             <div class="list-item">
+//                 <h4>${service.name}</h4>
+//                 <p>${service.desc}</p>
+//                 <div class="features">
+//                     ${service.features.map(feature => `<div class="feature">${feature}</div>`).join('')}
+//                 </div>
+//             </div>
+//         `).join('')}
+//     </div>
+
+//     <div class="section">
+//         <h2>Why Choose Us</h2>
+//         ${activeService.content.whyChoose.map(reason => `
+//             <div class="list-item">
+//                 <p>${reason}</p>
+//             </div>
+//         `).join('')}
+//     </div>
+//     ` : `
+//     ${activeService.content.impactAreas ? `
+//     <div class="section">
+//         <h2>Areas of Impact</h2>
+//         <div class="features">
+//             ${activeService.content.impactAreas.map(area => `<div class="feature">${area}</div>`).join('')}
+//         </div>
+//     </div>
+//     ` : ''}
+
+//     ${activeService.content.auditAreas ? `
+//     <div class="section">
+//         <h2>Comprehensive Audit Areas</h2>
+//         ${activeService.content.auditAreas.map(area => `
+//             <div class="list-item">
+//                 <p>${area}</p>
+//             </div>
+//         `).join('')}
+//     </div>
+//     ` : ''}
+
+//     ${activeService.content.activityAreas ? `
+//     <div class="section">
+//         <h2>Activity Areas Covered</h2>
+//         <div class="features">
+//             ${activeService.content.activityAreas.map(area => `<div class="feature">${area}</div>`).join('')}
+//         </div>
+//     </div>
+//     ` : ''}
+
+//     ${activeService.content.implementation ? `
+//     <div class="section">
+//         <h2>Our Implementation Process</h2>
+//         ${activeService.content.implementation.map((step, index) => `
+//             <div class="list-item">
+//                 <h4>Step ${index + 1}</h4>
+//                 <p>${step}</p>
+//             </div>
+//         `).join('')}
+//     </div>
+//     ` : ''}
+//     `}
+
+//     <div class="contact-info">
+//         <h2>Contact Us</h2>
+//         <p>Ready to transform your life? Get in touch with our experts today!</p>
+//         <div class="contact-details">
+//             <div class="contact-item">
+//                 <span>📞</span>
+//                 <span>+91 9175033022</span>
+//             </div>
+//             <div class="contact-item">
+//                 <span>✉️</span>
+//                 <span>social.adiyogifoundation@gmail.com</span>
+//             </div>
+//         </div>
+//         <div class="stats">
+//             <div class="stat">
+//                 <span class="stat-number">15000+</span>
+//                 <span>Happy Clients</span>
+//             </div>
+//             <div class="stat">
+//                 <span class="stat-number">15+</span>
+//                 <span>Years Experience</span>
+//             </div>
+//             <div class="stat">
+//                 <span class="stat-number">23000+</span>
+//                 <span>Consultations</span>
+//             </div>
+//             <div class="stat">
+//                 <span class="stat-number">99%</span>
+//                 <span>Satisfaction Rate</span>
+//             </div>
+//         </div>
+//     </div>
+// </body>
+// </html>`;
+//   };
+const generateBrochureContent = () => {
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adiyogi Foundation - ${activeService.title} Brochure</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: linear-gradient(135deg, #fee2e2 0%, #fef2f2 100%);
-        }
-        .header {
-            text-align: center;
-            background: linear-gradient(135deg, #dc2626 0%, #e11d48 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: bold;
-        }
-        .header p {
-            margin: 10px 0 0 0;
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        .section {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 1px solid #fee2e2;
-        }
-        .section h2 {
-            color: #dc2626;
-            border-bottom: 2px solid #dc2626;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .section h3 {
-            color: #991b1b;
-            margin-top: 25px;
-        }
-        .list-item {
-            background: #fef2f2;
-            padding: 15px;
-            margin: 10px 0;
-            border-left: 4px solid #dc2626;
-            border-radius: 8px;
-        }
-        .list-item h4 {
-            margin: 0 0 10px 0;
-            color: #991b1b;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-        .feature {
-            background: #fee2e2;
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            color: #991b1b;
-        }
-        .contact-info {
-            background: linear-gradient(135deg, #dc2626 0%, #e11d48 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-        }
-        .contact-info h2 {
-            margin-top: 0;
-            border: none;
-            color: white;
-        }
-        .contact-details {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .stat {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-        }
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            display: block;
-        }
-        @media print {
-            body {
-                background: white;
-            }
-            .section {
-                box-shadow: none;
-                border: 1px solid #ccc;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adiyogi Foundation - ${activeService.title} Brochure</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #fee2e2 0%, #fef2f2 100%);
+    }
+    .header {
+      text-align: center;
+      background: linear-gradient(135deg, #dc2626 0%, #e11d48 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+    .header img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 50%;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+    .header p {
+      margin: 10px 0 0 0;
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+    .section {
+      background: white;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #fee2e2;
+    }
+    .section h2 {
+      color: #dc2626;
+      border-bottom: 2px solid #dc2626;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .section h3 {
+      color: #991b1b;
+      margin-top: 25px;
+    }
+    .list-item {
+      background: #fef2f2;
+      padding: 15px;
+      margin: 10px 0;
+      border-left: 4px solid #dc2626;
+      border-radius: 8px;
+    }
+    .list-item h4 {
+      margin: 0 0 10px 0;
+      color: #991b1b;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .feature {
+      background: #fee2e2;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      color: #991b1b;
+    }
+    .contact-info {
+      background: linear-gradient(135deg, #dc2626 0%, #e11d48 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+    }
+    .contact-info h2 {
+      margin-top: 0;
+      border: none;
+      color: white;
+    }
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-item a {
+      color: white;
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .stat {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .stat-number {
+      font-size: 2em;
+      font-weight: bold;
+      display: block;
+    }
+    @media print {
+      body {
+        background: white;
+      }
+      .section {
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Adiyogi Foundation</h1>
-        <p>${activeService.title}</p>
-    </div>
+  <div class="header">
+    <img src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg" alt="Adiyogi Logo" />
+    <h1>Adiyogi Foundation</h1>
+    <p>${activeService.title}</p>
+  </div>
 
-    <div class="section">
-        <h2>${activeService.content.title}</h2>
-        <p><strong>${activeService.content.subtitle}</strong></p>
-        <p>${activeService.content.description}</p>
-    </div>
+  <div class="section">
+    <h2>${activeService.content.title}</h2>
+    <p><strong>${activeService.content.subtitle}</strong></p>
+    <p>${activeService.content.description}</p>
+  </div>
 
-    ${activeService.id === 'astrology' ? `
-    <div class="section">
-        <h2>Our Services</h2>
-        ${activeService.content.services.map(service => `
-            <div class="list-item">
-                <h4>${service.name}</h4>
-                <p>${service.desc}</p>
-                <div class="features">
-                    ${service.features.map(feature => `<div class="feature">${feature}</div>`).join('')}
-                </div>
-            </div>
-        `).join('')}
-    </div>
-
-    <div class="section">
-        <h2>Why Choose Us</h2>
-        ${activeService.content.whyChoose.map(reason => `
-            <div class="list-item">
-                <p>${reason}</p>
-            </div>
-        `).join('')}
-    </div>
-    ` : `
-    ${activeService.content.impactAreas ? `
-    <div class="section">
-        <h2>Areas of Impact</h2>
+  ${activeService.id === 'astrology' ? `
+  <div class="section">
+    <h2>Our Services</h2>
+    ${activeService.content.services.map(service => `
+      <div class="list-item">
+        <h4>${service.name}</h4>
+        <p>${service.desc}</p>
         <div class="features">
-            ${activeService.content.impactAreas.map(area => `<div class="feature">${area}</div>`).join('')}
+          ${service.features.map(feature => `<div class="feature">${feature}</div>`).join('')}
         </div>
-    </div>
-    ` : ''}
+      </div>
+    `).join('')}
+  </div>
 
-    ${activeService.content.auditAreas ? `
-    <div class="section">
-        <h2>Comprehensive Audit Areas</h2>
-        ${activeService.content.auditAreas.map(area => `
-            <div class="list-item">
-                <p>${area}</p>
-            </div>
-        `).join('')}
+  <div class="section">
+    <h2>Why Choose Us</h2>
+    ${activeService.content.whyChoose.map(reason => `
+      <div class="list-item">
+        <p>${reason}</p>
+      </div>
+    `).join('')}
+  </div>
+  ` : `
+  ${activeService.content.impactAreas ? `
+  <div class="section">
+    <h2>Areas of Impact</h2>
+    <div class="features">
+      ${activeService.content.impactAreas.map(area => `<div class="feature">${area}</div>`).join('')}
     </div>
-    ` : ''}
+  </div>
+  ` : ''}
 
-    ${activeService.content.activityAreas ? `
-    <div class="section">
-        <h2>Activity Areas Covered</h2>
-        <div class="features">
-            ${activeService.content.activityAreas.map(area => `<div class="feature">${area}</div>`).join('')}
-        </div>
-    </div>
-    ` : ''}
+  ${activeService.content.auditAreas ? `
+  <div class="section">
+    <h2>Comprehensive Audit Areas</h2>
+    ${activeService.content.auditAreas.map(area => `
+      <div class="list-item">
+        <p>${area}</p>
+      </div>
+    `).join('')}
+  </div>
+  ` : ''}
 
-    ${activeService.content.implementation ? `
-    <div class="section">
-        <h2>Our Implementation Process</h2>
-        ${activeService.content.implementation.map((step, index) => `
-            <div class="list-item">
-                <h4>Step ${index + 1}</h4>
-                <p>${step}</p>
-            </div>
-        `).join('')}
+  ${activeService.content.activityAreas ? `
+  <div class="section">
+    <h2>Activity Areas Covered</h2>
+    <div class="features">
+      ${activeService.content.activityAreas.map(area => `<div class="feature">${area}</div>`).join('')}
     </div>
-    ` : ''}
-    `}
+  </div>
+  ` : ''}
 
-    <div class="contact-info">
-        <h2>Contact Us</h2>
-        <p>Ready to transform your life? Get in touch with our experts today!</p>
-        <div class="contact-details">
-            <div class="contact-item">
-                <span>📞</span>
-                <span>+91 9175033022</span>
-            </div>
-            <div class="contact-item">
-                <span>✉️</span>
-                <span>social.adiyogifoundation@gmail.com</span>
-            </div>
-        </div>
-        <div class="stats">
-            <div class="stat">
-                <span class="stat-number">15000+</span>
-                <span>Happy Clients</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">15+</span>
-                <span>Years Experience</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">23000+</span>
-                <span>Consultations</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">99%</span>
-                <span>Satisfaction Rate</span>
-            </div>
-        </div>
+  ${activeService.content.implementation ? `
+  <div class="section">
+    <h2>Our Implementation Process</h2>
+    ${activeService.content.implementation.map((step, index) => `
+      <div class="list-item">
+        <h4>Step ${index + 1}</h4>
+        <p>${step}</p>
+      </div>
+    `).join('')}
+  </div>
+  ` : ''}
+  `}
+
+  <div class="contact-info">
+    <h2>Contact Us</h2>
+    <p>Ready to transform your life? Get in touch with our experts today!</p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <span>📞</span>
+        <a href="tel:+919175033022">+91 9175033022</a>
+      </div>
+      <div class="contact-item">
+        <span>✉️</span>
+        <a href="mailto:social.adiyogifoundation@gmail.com">social.adiyogifoundation@gmail.com</a>
+      </div>
     </div>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-number">15000+</span>
+        <span>Happy Clients</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">15+</span>
+        <span>Years Experience</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">23000+</span>
+        <span>Consultations</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">99%</span>
+        <span>Satisfaction Rate</span>
+      </div>
+    </div>
+  </div>
 </body>
 </html>`;
-  };
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
