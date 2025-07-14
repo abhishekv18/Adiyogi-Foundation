@@ -645,9 +645,9 @@ const Header = () => {
 <div className="relative flex-shrink-0">
   <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
     <img 
-      src="/favicon.png" 
+      src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg" 
       alt="Adiyogi Foundation Logo" 
-      className="w-full h-full object-contain rounded-full bg-white p-1" 
+      className="w-full h-full object-contain rounded-full bg-white shadow-sm" 
     />
   </div>
 </div>

@@ -378,9 +378,9 @@ const HeroWithCarousel = () => {
   className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto rounded-full shadow-2xl overflow-hidden"
 >
   <img 
-    src="/favicon.png" 
+    src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg" 
     alt="Adiyogi Foundation Logo" 
-    className="w-full h-full object-contain rounded-full bg-white p-1 sm:p-1.5 md:p-2"
+    className="w-full h-full object-contain rounded-full bg-white shadow-sm"
   />
 </div>
 
