@@ -17,10 +17,14 @@ const app=express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));   
 app.use(cookieParser());    
+// const corsOptions = {
+//     origin:'https://adiyogi-foundation.vercel.app',
+//     credentials:true
+// }
 const corsOptions = {
-    origin:'https://adiyogi-foundation.vercel.app',
-    credentials:true
-}
+    origin: ['https://adiyogi-foundation.vercel.app', 'https://www.adiyogifoundation.org.in'],
+    credentials: true
+};
 
 app.use(cors(corsOptions));
 app.use("/api/user",userRoutes);
