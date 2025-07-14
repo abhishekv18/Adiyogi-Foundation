@@ -1436,6 +1436,14 @@ const generateBrochureContent = () => {
       font-weight: bold;
       display: block;
     }
+      .header img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
     @media print {
       body {
         background: white;
@@ -1449,7 +1457,8 @@ const generateBrochureContent = () => {
 </head>
 <body>
   <div class="header">
-    <img src="https://www.adiyogifoundation.org.in/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg" alt="Adiyogi Logo" />
+    <img src="https://www.adiyogifoundation.org.in/WhatsApp%20Image%202025-07-14%20at%207.33.21%20PM.jpeg" alt="Adiyogi Logo" />
+
     <h1>Adiyogi Foundation</h1>
     <p>${activeService.title}</p>
   </div>
