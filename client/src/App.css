@@ -55,14 +55,14 @@
   width: 320px;
 } */
  /* Success Toast Styles */
-.Toastify__toast--success {
+
+ .Toastify__toast--success {
   background-color: #0f5132;
   color: white;
   border-left: 6px solid #198754;
   font-weight: 600;
 }
 
-/* Error Toast Styles */
 .Toastify__toast--error {
   background-color: #842029;
   color: white;
@@ -70,217 +70,24 @@
   font-weight: 600;
 }
 
-/* Base Toast Styles */
 .Toastify__toast {
-  border-radius: 12px;
-  padding: 18px 48px 18px 20px; /* Added right padding for close button */
-  font-size: 15px;
-  width: 380px;
-  max-width: 92%;
-  margin: 24px auto 0 auto;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  position: relative;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 14px;
+  width: 320px;
+  max-width: 90%;
+  margin: 16px auto 0 auto; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
-/* Toast Container Top Spacing */
-.Toastify__toast-container {
-  top: 24px;
-}
 
-/* Small Mobile Screens (up to 480px) */
-@media (max-width: 480px) {
-  .Toastify__toast {
-    width: 88%;
-    max-width: 280px;
-    font-size: 13px;
-    padding: 14px 40px 14px 16px; /* Adjusted padding for close button */
-    margin-top: 16px;
-    border-radius: 10px;
-  }
-  
-  .Toastify__toast-container {
-    top: 16px;
-  }
-}
-
-/* Mobile Screens (481px to 640px) */
-@media (min-width: 481px) and (max-width: 640px) {
+@media (max-width: 640px) {
   .Toastify__toast {
     width: 90%;
-    max-width: 320px;
-    font-size: 14px;
-    padding: 16px 44px 16px 18px; /* Adjusted padding for close button */
-    margin-top: 20px;
-    border-radius: 11px;
-  }
-  
-  .Toastify__toast-container {
-    top: 20px;
-  }
-}
-
-/* Tablet Screens (641px to 768px) */
-@media (min-width: 641px) and (max-width: 768px) {
-  .Toastify__toast {
-    width: 350px;
-    max-width: 85%;
-    font-size: 14px;
-    padding: 17px 46px 17px 19px; /* Adjusted padding for close button */
-    margin-top: 22px;
-    border-radius: 11px;
-  }
-  
-  .Toastify__toast-container {
-    top: 22px;
-  }
-}
-
-/* Desktop Screens (769px to 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .Toastify__toast {
-    width: 380px;
-    max-width: 80%;
-    font-size: 15px;
-    padding: 18px 48px 18px 20px; /* Adjusted padding for close button */
-    margin-top: 24px;
-    border-radius: 12px;
-  }
-  
-  .Toastify__toast-container {
-    top: 24px;
-  }
-}
-
-/* Large Desktop Screens (1025px to 1440px) */
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .Toastify__toast {
-    width: 420px;
-    max-width: 75%;
-    font-size: 16px;
-    padding: 20px 50px 20px 22px; /* Adjusted padding for close button */
-    margin-top: 28px;
-    border-radius: 14px;
-  }
-  
-  .Toastify__toast-container {
-    top: 28px;
-  }
-}
-
-/* Extra Large Screens (1441px and above) */
-@media (min-width: 1441px) {
-  .Toastify__toast {
-    width: 460px;
-    max-width: 70%;
-    font-size: 17px;
-    padding: 22px 52px 22px 24px; /* Adjusted padding for close button */
-    margin-top: 32px;
-    border-radius: 16px;
-  }
-  
-  .Toastify__toast-container {
-    top: 32px;
-  }
-}
-
-/* Professional Enhancements */
-.Toastify__toast::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-}
-
-.Toastify__toast:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Animation for entrance */
-@keyframes slideInFromTop {
-  0% {
-    transform: translateY(-100%) scale(0.95);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-
-.Toastify__toast {
-  animation: slideInFromTop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Focus and accessibility */
-.Toastify__toast:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.5);
-  outline-offset: 2px;
-}
-
-/* Close button styling */
-.Toastify__close-button {
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-  position: absolute;
-  right: 12px;
-  top: 12px; /* Fixed top position instead of center */
-  background: transparent;
-  border: none;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1;
-  flex-shrink: 0; /* Prevent button from shrinking */
-}
-
-.Toastify__close-button:hover {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-/* Toast content area to prevent overlap */
-.Toastify__toast-body {
-  margin: 0;
-  padding: 0;
-  flex: 1;
-  display: block;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  max-width: 100%;
-}
-
-/* Responsive close button adjustments */
-@media (max-width: 480px) {
-  .Toastify__close-button {
-    right: 10px;
-    top: 10px;
-    width: 18px;
-    height: 18px;
-  }
-}
-
-@media (min-width: 1441px) {
-  .Toastify__close-button {
-    right: 16px;
-    top: 16px;
-    width: 22px;
-    height: 22px;
+    max-width: 280px;
+    font-size: 13px;
+    margin-top: 12px; 
   }
 }
 .logo {
