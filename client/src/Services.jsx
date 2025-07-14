@@ -1449,7 +1449,7 @@ const generateBrochureContent = () => {
 </head>
 <body>
   <div class="header">
-    <img src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg" alt="Adiyogi Logo" />
+    <img src="https://www.adiyogifoundation.org.in/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg" alt="Adiyogi Logo" />
     <h1>Adiyogi Foundation</h1>
     <p>${activeService.title}</p>
   </div>
