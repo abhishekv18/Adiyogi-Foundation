@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Search, Calendar, BookOpen, Flame, Star, Flower, X, ArrowRight, Eye, Clock, Sparkles } from 'lucide-react';
+import { Search, Calendar, BookOpen, Flame, Star, Flower, X, ArrowRight, Eye, Clock, Sparkles, Mail } from 'lucide-react';
 import { setAllBlogs } from './redux/blogSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
@@ -523,7 +523,7 @@ console.log(allBlogs)
     )}
   </div>
 
-  <button
+  {/* <button
     type="submit"
     disabled={loading}
     className="bg-white text-[#C41E3A] px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -555,7 +555,46 @@ console.log(allBlogs)
     ) : (
       'Subscribe'
     )}
-  </button>
+  </button> */}
+  import { Mail } from 'lucide-react';
+
+<button
+  type="submit"
+  disabled={loading}
+  className="bg-white text-[#C41E3A] px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+>
+  {loading ? (
+    <>
+      <svg
+        className="animate-spin h-5 w-5 text-[#C41E3A]"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        ></circle>
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v8H4z"
+        ></path>
+      </svg>
+      <span>Subscribing...</span>
+    </>
+  ) : (
+    <>
+      <Mail className="h-5 w-5 text-[#C41E3A]" />
+      <span>Subscribe</span>
+    </>
+  )}
+</button>
+
 </form>
 
 {/* <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
