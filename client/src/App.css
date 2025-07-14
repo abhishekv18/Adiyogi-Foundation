@@ -58,13 +58,14 @@
   background-color: #0f5132;
   color: white;
   border-left: 6px solid #198754;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .Toastify__toast--error {
   background-color: #842029;
   color: white;
   border-left: 6px solid #dc3545;
+  font-weight: 600;
 }
 
 .Toastify__toast {
@@ -72,16 +73,19 @@
   padding: 16px;
   font-size: 14px;
   width: 320px;
-  max-width: 90%; /* Prevents overflow on very small screens */
-  margin: 0 auto;  /* Centers toast */
+  max-width: 90%;
+  margin: 16px auto 0 auto; /* Top margin added for spacing from top */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
-/* ✅ Make toast narrower on small screens */
+/* ✅ Adjust for small screens */
 @media (max-width: 640px) {
   .Toastify__toast {
     width: 90%;
     max-width: 280px;
     font-size: 13px;
+    margin-top: 12px; /* Slightly smaller top margin for mobile */
   }
 }
 

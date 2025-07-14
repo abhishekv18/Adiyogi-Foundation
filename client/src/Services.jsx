@@ -1532,36 +1532,7 @@ const navigate=useNavigate();
                 <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-red-100">
                   Take the first step towards transformation with our expert consultation.
                 </p>
-                <div className="flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center mb-6 sm:mb-8">
-                  {/* <div className="flex items-center space-x-2 sm:space-x-3">
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="text-base sm:text-lg">+91 9175033022</span>
-                  </div>
-                  <div className="flex items-center space-x-2 sm:space-x-3">
-                    <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="text-base sm:text-lg">social.adiyogifoundation@gmail.com</span>
-                  </div> */}
-                {/* <div className="flex items-center gap-2 sm:gap-3">
-  <Phone className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-  <a
-    href="tel:+919175033022"
-    className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
-    aria-label="Call us at +91 9175033022"
-  >
-    +91 9175033022
-  </a>
-</div>
-
-<div className="flex items-center gap-2 sm:gap-3">
-  <Mail className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-  <a
-    href="mailto:social.adiyogifoundation@gmail.com"
-    className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
-    aria-label="Email us at social.adiyogifoundation@gmail.com"
-  >
-    social.adiyogifoundation@gmail.com
-  </a>
-</div> */}
+                {/* <div className="flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center mb-6 sm:mb-8">
 <div className="flex items-center gap-2 sm:gap-3">
   <Phone className="w-5 h-5 text-gray-600 dark:text-gray-300 flex-shrink-0 translate-y-[1px]" />
   <a
@@ -1585,19 +1556,33 @@ const navigate=useNavigate();
 </div>
 
 
-                </div>
-                {/* <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                  <Link to='/contact'>
-                    <button className="bg-white text-red-600 px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-red-50 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 hover:scale-x-105">
-                    <span className="text-sm sm:text-base">Book Free Consultation</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </button>
-                  </Link>
-                
-                  <button onClick={downloadBrochure} className="border-2 border-white text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-white hover:text-red-600 transition-all duration-300 text-sm sm:text-base">
-                    Download Brochure
-                  </button>
                 </div> */}
+                <div className="flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center mb-6 sm:mb-8">
+  {/* Phone Section */}
+  <div className="flex items-center gap-2 sm:gap-3">
+    <Phone className="w-5 h-5 text-gray-600 dark:text-gray-300 flex-shrink-0" />
+    <a
+      href="tel:+919175033022"
+      className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight"
+      aria-label="Call us at +91 9175033022"
+    >
+      +91 9175033022
+    </a>
+  </div>
+
+  {/* Email Section */}
+  <div className="flex items-center gap-2 sm:gap-3">
+    <Mail className="w-5 h-5 text-gray-600 dark:text-gray-300 flex-shrink-0" />
+    <a
+      href="mailto:social.adiyogifoundation@gmail.com"
+      className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight break-all sm:break-normal"
+      aria-label="Email us at social.adiyogifoundation@gmail.com"
+    >
+      social.adiyogifoundation@gmail.com
+    </a>
+  </div>
+</div>
+
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto">
   <Link to="/contact" className="w-full sm:w-auto">
     <button className="w-full sm:w-auto bg-white text-red-600 px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-red-50 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 hover:scale-105">
