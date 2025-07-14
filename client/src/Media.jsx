@@ -519,7 +519,7 @@ console.log(allBlogs)
       }`}
     />
     {emailError && (
-      <p className="text-red-500 text-sm mt-1 ml-1">{emailError}</p>
+      <p className="text-white text-sm mt-1 ml-1">{emailError}</p>
     )}
   </div>
 

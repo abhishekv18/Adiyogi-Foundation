@@ -560,18 +560,18 @@ const temples = [
   {
     name: "Shri Dev Ganpati Mandir",
     status: "Launching Soon",
-    description: "A forgotten temple in Koikin, discovered during a peaceful agyatvas in October 2022. Though neglected, the spiritual energy remains alive.",
-    detailedDescription: "In October 2022, during a peaceful agyatvas, I visited Koikin a beautiful coastal town known for its clean beaches and lush surroundings. While spending quiet time there, I came across an old temple that caught my heart. It was the Shri Dev Ganpati Mandir. The temple was in a neglected state, walls aged, nature slowly taking over but the spiritual energy around it was still alive. There was a deep sense of calm, like Bappa was silently waiting to be remembered. That moment stayed with me.",
+    description: "A forgotten temple in Kokan, discovered during a peaceful agyatvas in October 2022. Though neglected, the spiritual energy remains alive.",
+    detailedDescription: "In October 2022, during a peaceful agyatvas, I visited Kokan a beautiful coastal town known for its clean beaches and lush surroundings. While spending quiet time there, I came across an old temple that caught my heart. It was the Shri Dev Ganpati Mandir. The temple was in a neglected state, walls aged, nature slowly taking over but the spiritual energy around it was still alive. There was a deep sense of calm, like Bappa was silently waiting to be remembered. That moment stayed with me.",
     image: "/WhatsApp Image 2025-06-27 at 2.16.47 AM.jpeg",
     progress: 10,
-    location: "Koikin, Coastal Maharashtra",
+    location: "Kokan, Coastal Maharashtra",
     significance: "A forgotten coastal temple with untouched spiritual energy, waiting to be restored to its former glory.",
     historicalRelevance: "This ancient Ganpati temple has stood silently by the coast for decades, its walls weathered by time and sea breeze. Despite its neglected state, the divine presence of Bappa remains palpable, creating an atmosphere of profound peace and spiritual connection.",
     restorationPlan: "Phase 1: Complete structural assessment and foundation strengthening. Phase 2: Restoration of original architecture while preserving coastal heritage. Phase 3: Sacred consecration ceremony and community space development.",
     fundingNeeded: "₹3,00,00,000",
     communityImpact: "Will serve the entire coastal community, preserve local heritage, and create a spiritual center for thousands of devotees",
     expectedCompletion: "December 2026",
-    story: "Now, we are planning to raise funds to restore and rebuild this sacred temple, with respect to its history and the peaceful beauty of Koikin. If you believe in preserving our heritage and sacred spaces, we welcome your support be it through contributions, volunteering, or simply spreading the word. Let's come together and bring Shri Dev Ganpati Mandir back to life. 🙏"
+    story: "Now, we are planning to raise funds to restore and rebuild this sacred temple, with respect to its history and the peaceful beauty of Kokan. If you believe in preserving our heritage and sacred spaces, we welcome your support be it through contributions, volunteering, or simply spreading the word. Let's come together and bring Shri Dev Ganpati Mandir back to life. 🙏"
   }
 ];
 
