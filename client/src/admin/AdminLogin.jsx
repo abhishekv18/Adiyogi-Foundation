@@ -55,14 +55,15 @@ const AdminLoginPage = () => {
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center space-x-4 cursor-pointer group">
               <Link to='/'>
-                <div className="bg-gradient-to-t from-red-50 to-white p-2 rounded-lg group-hover:shadow-lg transition-all duration-300">
-                 <div 
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform duration-300"
-                  style={{ background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)' }}
-                >
-                  ॐ
-                </div>
-                </div>
+               <div className="relative flex-shrink-0">
+  <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+    <img 
+      src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg" 
+      alt="Adiyogi Foundation Logo" 
+      className="w-full h-full object-contain rounded-full bg-white shadow-sm" 
+    />
+  </div>
+</div>
               </Link>
               <div>
                 <h1 className="text-2xl hidden md:block font-bold text-gray-900 group-hover:text-red-600 transition-colors">
@@ -245,14 +246,15 @@ const AdminLoginPage = () => {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
-              <div className="p-2 rounded-lg">
-                 <div 
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform duration-300"
-                  style={{ background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)' }}
-                >
-                  ॐ
-                </div>
-              </div>
+              <div className="relative flex-shrink-0">
+  <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+    <img 
+      src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg" 
+      alt="Adiyogi Foundation Logo" 
+      className="w-full h-full object-contain rounded-full bg-white shadow-sm" 
+    />
+  </div>
+</div>
               <div>
                 <h3 className="text-lg font-bold">Adiyogi Foundation</h3>
                 <p className="text-sm text-gray-400">Awakening Inner Divinity</p>
