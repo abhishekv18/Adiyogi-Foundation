@@ -1407,7 +1407,7 @@ const navigate=useNavigate();
           </div>
 
           {/* Call to Action Section */}
-          <div style={{
+       <div style={{
             background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
             borderRadius: '20px',
             padding: isMobile ? '2rem 1rem' : '3rem 2rem',
@@ -1417,13 +1417,12 @@ const navigate=useNavigate();
           }}>
             <div style={{
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: isMobile ? '0.5rem' : '1rem',
-              marginBottom: isMobile ? '1rem' : '1.5rem',
-              flexWrap: 'wrap'
+              marginBottom: isMobile ? '1rem' : '1.5rem'
             }}>
-              <Heart size={isMobile ? 24 : 32} style={{ color: '#FFFEF7' }} />
+              <Sparkles size={isMobile ? 32 : 40} style={{ color: '#FFFEF7', marginBottom: isMobile ? '0.75rem' : '1rem' }} />
               <h2 style={{
                 fontSize: isMobile ? '1.5rem' : '2rem',
                 fontWeight: '700',
@@ -1431,7 +1430,6 @@ const navigate=useNavigate();
               }}>
                 Begin Your Sacred Service
               </h2>
-              <Heart size={isMobile ? 24 : 32} style={{ color: '#FFFEF7' }} />
             </div>
             <p style={{
               fontSize: isMobile ? '1rem' : '1.125rem',

@@ -1780,7 +1780,7 @@ const generateBrochureContent = () => {
             )}
 
             {/* CTA Section */}
-            <div
+        <div
               className={`text-white rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-xl`}
               style={{
                 backgroundImage: `
@@ -1798,73 +1798,48 @@ const generateBrochureContent = () => {
                 <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-red-100">
                   Take the first step towards transformation with our expert consultation.
                 </p>
-                {/* <div className="flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center mb-6 sm:mb-8">
-<div className="flex items-center gap-2 sm:gap-3">
-  <Phone className="w-5 h-5 text-gray-600 dark:text-gray-300 flex-shrink-0 translate-y-[1px]" />
-  <a
-    href="tel:+919175033022"
-    className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight"
-    aria-label="Call us at +91 9175033022"
-  >
-    +91 9175033022
-  </a>
-</div>
+               
+                <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 justify-center items-center mb-6 sm:mb-8">
+                  {/* Phone Section */}
+                  <div className="flex items-center justify-center gap-2 sm:gap-3 w-full lg:w-auto">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0" />
+                    <a
+                      href="tel:+919175033022"
+                      className="text-base sm:text-lg font-medium text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight"
+                      aria-label="Call us at +91 9175033022"
+                    >
+                      +91 9175033022
+                    </a>
+                  </div>
 
-<div className="flex items-center gap-2 sm:gap-3">
-  <Mail className="w-5 h-5 text-gray-600 dark:text-gray-300 flex-shrink-0 translate-y-[1px]" />
-  <a
-    href="mailto:social.adiyogifoundation@gmail.com"
-    className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight break-all sm:break-normal"
-    aria-label="Email us at social.adiyogifoundation@gmail.com"
-  >
-    social.adiyogifoundation@gmail.com
-  </a>
-</div>
-
-
-                </div> */}
-                <div className="flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center mb-6 sm:mb-8">
-  {/* Phone Section */}
-  <div className="flex items-center gap-2 sm:gap-3">
-    <Phone className="w-5 h-5 text-gray-600 dark:text-gray-300 flex-shrink-0" />
-    <a
-      href="tel:+919175033022"
-      className="text-base sm:text-lg font-medium text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight"
-      aria-label="Call us at +91 9175033022"
-    >
-      +91 9175033022
-    </a>
-  </div>
-
-  {/* Email Section */}
-  <div className="flex items-center gap-2 sm:gap-3">
-    <Mail className="w-5 h-5 text-gray-300 flex-shrink-0" />
-    <a
-      href="mailto:social.adiyogifoundation@gmail.com"
-      className="text-base sm:text-lg font-medium text-gray-800 dark:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight break-all sm:break-normal"
-      aria-label="Email us at social.adiyogifoundation@gmail.com"
-    >
-      social.adiyogifoundation@gmail.com
-    </a>
-  </div>
-</div>
+                  {/* Email Section */}
+                  <div className="flex items-center justify-center gap-2 sm:gap-3 w-full lg:w-auto">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0" />
+                    <a
+                      href="mailto:social.adiyogifoundation@gmail.com"
+                      className="text-base sm:text-lg font-medium text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight break-all sm:break-normal text-center lg:text-left"
+                      aria-label="Email us at social.adiyogifoundation@gmail.com"
+                    >
+                      social.adiyogifoundation@gmail.com
+                    </a>
+                  </div>
+                </div>
 
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto">
-  <Link to="/contact" className="w-full sm:w-auto">
-    <button className="w-full sm:w-auto bg-white text-red-600 px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-red-50 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 hover:scale-105">
-      <span className="text-sm sm:text-base">Book Free Consultation</span>
-      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-    </button>
-  </Link>
+                  <Link to="/contact" className="w-full sm:w-auto">
+                    <button className="w-full sm:w-auto bg-white text-red-600 px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-red-50 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 hover:scale-105">
+                      <span className="text-sm sm:text-base">Book Free Consultation</span>
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </button>
+                  </Link>
 
-  <button
-    onClick={downloadBrochure}
-    className="w-full sm:w-auto border-2 border-white text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-white hover:text-red-600 transition-all duration-300 text-sm sm:text-base"
-  >
-    Download Brochure
-  </button>
-</div>
-
+                  <button
+                    onClick={downloadBrochure}
+                    className="w-full sm:w-auto border-2 border-white text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-white hover:text-red-600 transition-all duration-300 text-sm sm:text-base"
+                  >
+                    Download Brochure
+                  </button>
+                </div>
               </div>
             </div>
           </div>
