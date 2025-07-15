@@ -643,7 +643,7 @@ const Header = () => {
             {/* Logo - Optimized for mobile */}
             <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0 min-w-0 max-w-[65%] sm:max-w-none">
 <div className="relative flex-shrink-0">
-  <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+  <div className="w-8 h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
     <img 
       src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg" 
       alt="Adiyogi Foundation Logo" 
