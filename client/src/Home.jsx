@@ -941,7 +941,7 @@ const navigate=useNavigate();
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-8 md:mb-16">
             <div className="flex justify-center mb-4 md:mb-6">
-              <Flower className="w-10 h-10 md:w-12 md:h-12 text-[#C41E3A]" />
+              <Flower className="w-10 h-10 md:w-12 md:h-12 text-[#C41E3A] animate-pulse" />
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C2C2C] mb-4 md:mb-6">
               The Path of <span className="text-[#C41E3A]">Transformation</span>
