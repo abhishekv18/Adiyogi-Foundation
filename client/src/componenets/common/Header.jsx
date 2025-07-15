@@ -664,7 +664,7 @@ const Header = () => {
   </div>
   
   <p className="hidden sm:block text-xs font-medium -mt-1 group-hover:text-sacred-crimson transition-colors duration-300 truncate leading-tight" style={{ color: '#6B4B4B' }}>
-    Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
+    Rebuilding Purpose. Restoring Dharma.
   </p>
 </div>
 

@@ -53,7 +53,7 @@ const AdminLoginPage = () => {
       <header className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-4 cursor-pointer group">
+            {/* <div className="flex items-center space-x-4 cursor-pointer group">
               <Link to='/' className='flex items-center space-x-2 sm:space-x-3 group flex-shrink-0 min-w-0 max-w-[65%] sm:max-w-none'>
                <div className="relative flex-shrink-0">
   <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
@@ -65,12 +65,7 @@ const AdminLoginPage = () => {
   </div>
 </div>
             
-              {/* <div>
-                <h1 className="text-2xl hidden md:block font-bold text-gray-900 group-hover:text-red-600 transition-colors">
-                  Adiyogi Foundation
-                </h1>
-                <p className="text-sm hidden md:block text-gray-600">Awakening Inner Divinity</p>
-              </div> */}
+             
                            <div className="min-w-0 flex-1">
   <div className="flex flex-col lg:flex-row lg:items-baseline lg:space-x-1">
     <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-rich-charcoal group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
@@ -82,12 +77,43 @@ const AdminLoginPage = () => {
   </div>
   
   <p className="hidden sm:block text-xs font-medium -mt-1 group-hover:text-sacred-crimson transition-colors duration-300 truncate leading-tight" style={{ color: '#6B4B4B' }}>
-    Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
+    Rebuilding Purpose. Restoring Dharma.
   </p>
 </div>
   </Link>
-            </div>
-            
+            </div> */}
+            <div className="flex items-center space-x-4 cursor-pointer group">
+  <Link
+    to="/"
+    className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0 min-w-0 max-w-full sm:max-w-none"
+  >
+    <div className="relative flex-shrink-0">
+      <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+        <img
+          src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg"
+          alt="Adiyogi Foundation Logo"
+          className="w-full h-full object-contain rounded-full bg-white shadow-sm"
+        />
+      </div>
+    </div>
+
+    <div className="min-w-0 flex-1">
+      <div className="flex flex-col sm:flex-row sm:items-baseline sm:space-x-1">
+        <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-rich-charcoal group-hover:text-deep-ruby transition-colors duration-300 leading-tight">
+          Adiyogi
+        </h1>
+        <h2 className="text-xs sm:text-base lg:text-2xl font-bold text-sacred-crimson group-hover:text-deep-ruby transition-colors duration-300 leading-tight">
+          Foundation
+        </h2>
+      </div>
+
+      <p className="hidden sm:block text-xs font-medium -mt-1 group-hover:text-sacred-crimson transition-colors duration-300 leading-tight text-[#6B4B4B]">
+        Rebuilding Purpose. Restoring Dharma.
+      </p>
+    </div>
+  </Link>
+</div>
+
             <Link to='/'>
               <button className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors">
                 <Home className="h-4 w-4" />
@@ -273,7 +299,7 @@ const AdminLoginPage = () => {
 </div>
               <div>
                 <h3 className="text-lg font-bold">Adiyogi <span className='text-sacred-crimson'>Foundation</span></h3>
-                <p className="text-sm text-gray-400">Awakening Inner Divinity</p>
+                <p className="text-sm text-gray-400">Rebuilding Purpose. Restoring Dharma.</p>
               </div>
             </div>
             <div className="text-sm text-gray-400">
