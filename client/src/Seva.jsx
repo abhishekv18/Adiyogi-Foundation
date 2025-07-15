@@ -757,7 +757,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { Heart, Droplets, GraduationCap, TreePine, Utensils, Sprout, Shirt, MapPin, Users, Star, ArrowRight, Circle, Award, Target, Calendar, Globe, ChevronDown, Play, Camera, BookOpen, Leaf } from 'lucide-react';
+import { Heart, Droplets, GraduationCap, TreePine, Utensils, Sprout, Shirt, MapPin, Users, Star, ArrowRight, Circle, Award, Target, Calendar, Globe, ChevronDown, Play, Camera, BookOpen, Leaf, Sparkles } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
