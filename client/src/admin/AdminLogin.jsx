@@ -54,7 +54,7 @@ const AdminLoginPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center space-x-4 cursor-pointer group">
-              <Link to='/'>
+              <Link to='/' className='flex items-center space-x-2 sm:space-x-3 group flex-shrink-0 min-w-0 max-w-[65%] sm:max-w-none'>
                <div className="relative flex-shrink-0">
   <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
     <img 
@@ -272,7 +272,7 @@ const AdminLoginPage = () => {
   </div>
 </div>
               <div>
-                <h3 className="text-lg font-bold">Adiyogi Foundation</h3>
+                <h3 className="text-lg font-bold">Adiyogi <span className='text-sacred-crimson'>Foundation</span></h3>
                 <p className="text-sm text-gray-400">Awakening Inner Divinity</p>
               </div>
             </div>
