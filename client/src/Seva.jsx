@@ -1422,7 +1422,12 @@ const navigate=useNavigate();
               justifyContent: 'center',
               marginBottom: isMobile ? '1rem' : '1.5rem'
             }}>
-              <Sparkles size={isMobile ? 32 : 40} style={{ color: '#FFFEF7', marginBottom: isMobile ? '0.75rem' : '1rem' }} />
+            <Sparkles
+  size={isMobile ? 32 : 40}
+  style={{ color: '#FFFEF7', marginBottom: isMobile ? '0.75rem' : '1rem' }}
+  className="animate-pulse"
+/>
+
               <h2 style={{
                 fontSize: isMobile ? '1.5rem' : '2rem',
                 fontWeight: '700',
