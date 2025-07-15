@@ -64,14 +64,30 @@ const AdminLoginPage = () => {
     />
   </div>
 </div>
-              </Link>
-              <div>
+            
+              {/* <div>
                 <h1 className="text-2xl hidden md:block font-bold text-gray-900 group-hover:text-red-600 transition-colors">
                   Adiyogi Foundation
                 </h1>
                 <p className="text-sm hidden md:block text-gray-600">Awakening Inner Divinity</p>
-              </div>
+              </div> */}
+                           <div className="min-w-0 flex-1">
+  <div className="flex flex-col lg:flex-row lg:items-baseline lg:space-x-1">
+    <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-rich-charcoal group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
+      Adiyogi
+    </h1>
+    <h2 className="text-xs sm:text-base lg:text-2xl font-bold text-sacred-crimson group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
+     Foundation
+    </h2>
+  </div>
+  
+  <p className="hidden sm:block text-xs font-medium -mt-1 group-hover:text-sacred-crimson transition-colors duration-300 truncate leading-tight" style={{ color: '#6B4B4B' }}>
+    Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
+  </p>
+</div>
+  </Link>
             </div>
+            
             <Link to='/'>
               <button className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors">
                 <Home className="h-4 w-4" />
