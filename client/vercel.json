@@ -2,15 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "header",
-          "key": "Accept",
-          "value": "text/html"
-        }
-      ],
-      "destination": "/index.html"
+      "source": "/:path((?!.*\\..*).*)",
+      "destination": "/"
     }
   ]
 }
