@@ -1736,8 +1736,8 @@ const Header = () => {
       <header 
         className={`sticky top-0 z-50 transition-all duration-300  ${
           isScrolled 
-            ? 'bg-warm-ivory backdrop-blur-lg shadow-xl border-b border-soft-rose' 
-            : 'bg-warm-ivory backdrop-blur-md shadow-lg border-b border-soft-rose/50'
+            ? 'bg-white backdrop-blur-lg shadow-xl border-b border-soft-rose' 
+            : 'bg-white backdrop-blur-md shadow-lg border-b border-soft-rose/50'
         }`}
         style={{
           boxShadow: isScrolled 
