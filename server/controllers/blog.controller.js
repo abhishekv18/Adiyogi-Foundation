@@ -107,21 +107,21 @@ const blogMail = {
 
         <p style="font-size: 13px; color: #555; margin-bottom: 10px;">Connect with us:</p>
 
-        <div style="margin-bottom: 20px;">
-          <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank" title="Instagram" style="margin-right: 12px;">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" width="24" alt="Instagram" style="filter: grayscale(1);" />
-          </a>
-          <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank" title="Facebook" style="margin-right: 12px;">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" width="24" alt="Facebook" style="filter: grayscale(1);" />
-          </a>
-          <a href="https://youtube.com/@adiyogifoundation.b?si=hHJk8UzEA1spKAx3" target="_blank" title="YouTube" style="margin-right: 12px;">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" width="24" alt="YouTube" style="filter: grayscale(1);" />
-          </a>
-          <a href="https://www.linkedin.com/company/adiyogi-foundation" target="_blank" title="LinkedIn">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" width="24" alt="LinkedIn" style="filter: grayscale(1);" />
-          </a>
-        </div>
-
+       
+  <div style=" margin-bottom: 20px;">
+        <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank"  style="margin-right: 12px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="28" alt="Instagram" />
+        </a>
+        <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank"  style="margin-right: 12px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="28" alt="Facebook" />
+        </a>
+        <a href="https://youtube.com/@adiyogifoundation.b?si=hHJk8UzEA1spKAx3" target="_blank" style="margin-right: 12px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="28" alt="YouTube" />
+        </a>
+          <a href="https://www.linkedin.com/company/adiyogi-foundation" target="_blank" >
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28" alt="LinkedIn" />
+  </a>
+      </div>
         <p style="font-size: 12px; color: #aaa; text-align: center;">
           Adiyogi Foundation | <a href="mailto:social.adiyogifoundation@gmail.com" style="color: #C41E3A; text-decoration: none;">Contact Us</a>
         </p>
