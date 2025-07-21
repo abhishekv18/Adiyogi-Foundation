@@ -962,17 +962,7 @@ const AdminManagement = useMemo(() => (
             <div className="col-span-3 text-sm text-slate-600">
               {new Date(user.createdAt).toLocaleDateString()}
             </div>
-            {/* <div className="col-span-2">
-              {user.role !== 'super-admin' && (
-                <button
-                  onClick={() => showDeleteAdminConfirmation(user._id)}
-                  className="p-2 text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors border border-transparent hover:border-red-200"
-                  title="Delete Admin"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              )}
-            </div> */}
+         
             <div className="col-span-2">
   {user.role !== 'super-admin' ? (
     <button
@@ -1029,42 +1019,7 @@ const AdminManagement = useMemo(() => (
               />
             </div>
 
-            {/* <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Password *
-              </label>
-              <input
-                type="password"
-                required
-                minLength="6"
-                value={formData.password}
-                onChange={(e) => setFormData({...formData, password: e.target.value})}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
-                placeholder="••••••••"
-              />
-            </div> */}
-{/* <div className="relative">
-  <label className="block text-sm font-semibold text-slate-700 mb-2">
-    Password *
-  </label>
-  <input
-    type={showPassword ? "text" : "password"}
-    required
-    // minLength="6"
-    value={formData.password}
-    onChange={(e) => setFormData({...formData, password: e.target.value})}
-    className="w-full px-4 py-3 pr-12 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
-    placeholder="••••••••"
-  />
-  <button
-    type="button"
-    onClick={() => setShowPassword(!showPassword)}
-    className="absolute top-1/2 right-3 transform -translate-y-1/2 text-slate-500 hover:text-slate-700 focus:outline-none"
-    tabIndex={-1}
-  >
-    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-  </button>
-</div> */}
+
 <div className="relative">
   <label className="block text-sm font-semibold text-slate-700 mb-2">
     Password *
