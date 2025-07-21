@@ -5,6 +5,7 @@ import { setLoading, setUser } from '../redux/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import api from '../api';
 
 const AdminLoginPage = () => {
    const isLoading = useSelector((state) => state.auth.loading);
@@ -25,10 +26,13 @@ const AdminLoginPage = () => {
     e.preventDefault();
     try {
       dispatch(setLoading(true));
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/login`, formData, {
-        headers: { 'Content-Type': 'application/json' },
-        withCredentials: true,
-      });
+      // const res = await axios.post(`/api/user/login`, formData, {
+      //   headers: { 'Content-Type': 'application/json' },
+      //   withCredentials: true,
+      // });
+    
+  const res = await api.post('/api/user/login', formData);
+
       if (res.data.success) {
         dispatch(setUser(res.data.user));
         toast.success("Login Successfully");

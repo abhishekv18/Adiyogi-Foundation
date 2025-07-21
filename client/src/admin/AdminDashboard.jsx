@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { setAllUsers, setLoading, setUser } from '../redux/authSlice';
 import { toast } from 'react-toastify';
 import { FaSpinner } from "react-icons/fa";
+
 const AdminDashboard = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -364,7 +365,20 @@ const showDeleteAdminConfirmation = (userId) => {
       toast.error(error.response?.data?.message || 'Failed To Logout');
     }
   };
+// const handleLogout = async () => {
+//   try {
+//     const res = await api.post('/api/user/logout');
 
+//     if (res.data.success) {
+//       dispatch(setUser(null));
+//       toast.success("Logout Successfully");
+//       navigate("/");
+//     }
+//   } catch (error) {
+//     console.error(error.response?.data || error.message);
+//     toast.error(error.response?.data?.message || 'Failed To Logout');
+//   }
+// };
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredBlogs = useMemo(() => {

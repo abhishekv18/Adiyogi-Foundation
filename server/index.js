@@ -13,20 +13,18 @@ import subscribeRoute from "./routes/subscribed.route.js";
 
 const app=express();
 
-
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));   
-app.use(cookieParser());    
-// const corsOptions = {
-//     origin:'https://adiyogi-foundation.vercel.app',
-//     credentials:true
-// }
+app.use(cookieParser()); 
 const corsOptions = {
-    origin: ['https://adiyogi-foundation.vercel.app', 'https://www.adiyogifoundation.org.in'],
+    origin: ['https://adiyogi-foundation.vercel.app', 'https://www.adiyogifoundation.org.in','http://localhost:5173'],
     credentials: true
 };
 
 app.use(cors(corsOptions));
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));   
+   
+
+
 app.use("/api/user",userRoutes);
 app.use("/api/blog",blogRoutes);
 app.use("/api/volunteer",volunteerRoute);
