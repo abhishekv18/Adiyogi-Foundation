@@ -239,10 +239,10 @@ const AdminLoginPage = () => {
                <button
                 type="submit"
                 disabled={isLoading}
-                  className="group relative w-full flex justify-center py-3 px-4 text-sm font-medium rounded-lg text-white bg-gradient-to-r from-sacred-crimson to-red-700 hover:from-red-600 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                  className="group relative w-full flex justify-center py-3 px-4 text-sm cursor-pointer font-medium rounded-lg text-white bg-gradient-to-r from-sacred-crimson to-red-700 hover:from-red-600 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
               >
                 <div className="flex items-center gap-2">
-                  {/* {isLoading ? (
+                  {isLoading ? (
                     <>
                       <svg
                         className="animate-spin h-4 w-4 text-white"
@@ -267,11 +267,11 @@ const AdminLoginPage = () => {
                       <span className="text-sm sm:text-base">Signing in...</span>
                     </>
                   ) : (
-                    <> */}
+                    <>
                       <span className="text-sm sm:text-base">Sign in to Dashboard</span>
                       <ArrowRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
-                    {/* </>
-                  )} */}
+                    </>
+                  )}
                 </div>
               </button>
             </form>
