@@ -15,7 +15,7 @@ const app=express();
 
 app.use(cookieParser()); 
 const corsOptions = {
-    origin: ['https://adiyogi-foundation.vercel.app', 'https://www.adiyogifoundation.org.in','http://localhost:5173'],
+    origin: ['https://adiyogi-foundation.vercel.app', 'https://www.adiyogifoundation.org.in'],
     credentials: true
 };
 
