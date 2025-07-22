@@ -381,7 +381,7 @@ const HeroWithCarousel = () => {
           </div>
 
         
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold mb-4 sm:mb-6 drop-shadow-lg px-2" style={{ color: '#2C2C2C' }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 drop-shadow-lg px-2" style={{ color: '#2C2C2C' }}>
             Adiyogi <span style={{ color: '#C41E3A' }}>Foundation</span>
           </h1>
 
