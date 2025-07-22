@@ -349,7 +349,7 @@ const HeroWithCarousel = () => {
   return (
     <>
       {/* Hero Section */}
-      {/* <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
       
         <div className="absolute inset-0">
           <img
@@ -432,95 +432,8 @@ const HeroWithCarousel = () => {
          
           </div>
         </div>
-      </section> */}
-<section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
-  {/* Background Image and Overlay */}
-  <div className="absolute inset-0">
-    <img
-      src="/istockphoto-542316008-612x612.jpg"
-      alt="Sacred Temple Background"
-      className="w-full h-full object-cover"
-    />
-    <div
-      className="absolute inset-0"
-      style={{
-        background:
-          'linear-gradient(to right, rgba(253, 248, 248, 0.9) 0%, rgba(244, 232, 232, 0.85) 50%, rgba(253, 248, 248, 0.9) 100%)',
-      }}
-    ></div>
-  </div>
+      </section>
 
-  {/* Main Content */}
-  <div className="relative z-10 text-center max-w-6xl mx-auto px-2 sm:px-4">
-    {/* Logo */}
-    <div className="mb-5 sm:mb-8">
-      <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto rounded-full shadow-2xl overflow-hidden">
-        <img
-          src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg"
-          alt="Adiyogi Foundation Logo"
-          className="w-full h-full object-contain rounded-full bg-white shadow-sm"
-        />
-      </div>
-    </div>
-
-    {/* Title */}
-    <h1
-      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 drop-shadow-lg px-2"
-      style={{ color: '#2C2C2C' }}
-    >
-      Adiyogi <span style={{ color: '#C41E3A' }}>Foundation</span>
-    </h1>
-
-    {/* Subtitle */}
-    <p
-      className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold mb-6 sm:mb-8 tracking-wide drop-shadow-md px-2"
-      style={{ color: '#8B1538' }}
-    >
-      Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
-    </p>
-
-    {/* Quote */}
-    <div className="max-w-4xl mx-auto mb-6 sm:mb-10 px-2 sm:px-4">
-      <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-center leading-relaxed text-[#2C2C2C]">
-        "Rooted in sacred knowledge, guided by selfless service we rise together as a community,
-        restoring dharma with every step."
-      </p>
-      <p className="mt-3 sm:mt-4 text-center italic text-[#C41E3A] text-xs sm:text-sm md:text-base">
-        A reflection of clarity, compassion, and collective awakening.
-      </p>
-    </div>
-
-    {/* Buttons */}
-    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-2">
-      <Link to="/volunteers">
-        <button
-          className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 transform hover:scale-105"
-          style={{
-            background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
-            color: '#FFFEF7',
-          }}
-        >
-          <span>Begin Your Journey</span>
-          <ArrowRight size={18} className="sm:w-5 sm:h-5" />
-        </button>
-      </Link>
-
-      <Link to="/donate">
-        <button
-          className="w-full sm:w-auto border-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105 hover:text-red-600"
-          style={{
-            borderColor: '#C41E3A',
-            color: '#C41E3A',
-            backgroundColor: 'rgba(255, 254, 247, 0.8)',
-          }}
-        >
-          <Heart size={18} className="sm:w-5 sm:h-5" />
-          <span>Support Our Mission</span>
-        </button>
-      </Link>
-    </div>
-  </div>
-</section>
 
 
       {/* Image Carousel Section */}
