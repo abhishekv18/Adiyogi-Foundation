@@ -703,19 +703,41 @@ const Media = () => {
 
   if (isFetching) {
     return (
-      <div className="min-h-screen bg-rose-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="relative">
-            <Flower className="w-16 h-16 text-sacred-crimson animate-spin mx-auto mb-4" />
-          </div>
-          <p className="text-gray-600 text-lg font-medium">Loading sacred wisdom...</p>
-          <div className="mt-4 flex justify-center space-x-1">
-            <div className="w-2 h-2 bg-sacred-crimson rounded-full animate-pulse"></div>
-            <div className="w-2 h-2 bg-sacred-crimson rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-            <div className="w-2 h-2 bg-sacred-crimson rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-          </div>
-        </div>
-      </div>
+      // <div className="min-h-screen bg-rose-50 flex items-center justify-center">
+      //   <div className="text-center">
+      //     <div className="relative">
+      //       <Flower className="w-16 h-16 text-sacred-crimson animate-spin mx-auto mb-4" />
+      //     </div>
+      //     <p className="text-gray-600 text-lg font-medium">Loading sacred wisdom...</p>
+      //     <div className="mt-4 flex justify-center space-x-1">
+      //       <div className="w-2 h-2 bg-sacred-crimson rounded-full animate-pulse"></div>
+      //       <div className="w-2 h-2 bg-sacred-crimson rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+      //       <div className="w-2 h-2 bg-sacred-crimson rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+      //     </div>
+      //   </div>
+      // </div>
+      <div className="min-h-screen bg-rose-50 flex items-center justify-center px-4">
+  <div className="text-center space-y-4">
+    <div className="relative flex justify-center">
+      <Flower className="w-16 h-16 text-sacred-crimson animate-spin-slow" />
+    </div>
+    <p className="text-gray-700 text-lg font-semibold tracking-wide">
+      Loading sacred wisdom...
+    </p>
+    <div className="flex justify-center space-x-2">
+      <span className="w-2.5 h-2.5 bg-sacred-crimson rounded-full animate-ping"></span>
+      <span
+        className="w-2.5 h-2.5 bg-sacred-crimson rounded-full animate-ping"
+        style={{ animationDelay: '0.2s' }}
+      ></span>
+      <span
+        className="w-2.5 h-2.5 bg-sacred-crimson rounded-full animate-ping"
+        style={{ animationDelay: '0.4s' }}
+      ></span>
+    </div>
+  </div>
+</div>
+
     );
   }
 

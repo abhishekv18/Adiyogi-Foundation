@@ -80,6 +80,9 @@ export default {
   ],
   theme: {
     extend: {
+       animation: {
+    'spin-slow': 'spin 2s linear infinite',
+  },
       colors: {
         // Red Spiritual Palette
         'sacred-crimson': '#C41E3A',
