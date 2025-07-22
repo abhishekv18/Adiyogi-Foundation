@@ -5,6 +5,7 @@ import express from "express";
 import cookieParser from "cookie-parser";   
 import cors from "cors";
 import connectDB from "./utils/db.js";
+import cron from "node-cron";
 import userRoutes from "./routes/user.route.js";
 import blogRoutes from  "./routes/blog.route.js";
 import volunteerRoute from "./routes/volunteer.route.js";
@@ -40,6 +41,7 @@ app.get("/api/ping", (req, res) => {
 
 
 import "./controllers/monthly.controller.js";
+import axios from "axios";
 const PORT=process.env.PORT || 3000;
 
 app.listen(PORT,()=>{
@@ -47,3 +49,13 @@ app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`);
 });
 
+if (process.env.NODE_ENV === "production") {
+  cron.schedule('*/2 * * * *', async () => {
+    try {
+      const res = await axios.get('https://adiyogi-foundation.onrender.com/api/ping');
+      console.log('Self-ping successful:', res.status);
+    } catch (error) {
+      console.error('Self-ping failed:', error.message);
+    }
+  });
+}
