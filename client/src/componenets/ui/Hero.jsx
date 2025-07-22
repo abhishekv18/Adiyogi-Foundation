@@ -433,7 +433,7 @@ const HeroWithCarousel = () => {
           </div>
         </div>
       </section> */}
-<section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+<section className="relative min-h-[90vh] pt-10 sm:pt-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
   {/* Background Image and Overlay */}
   <div className="absolute inset-0">
     <img
@@ -453,7 +453,7 @@ const HeroWithCarousel = () => {
   {/* Main Content */}
   <div className="relative z-10 text-center max-w-6xl mx-auto px-2 sm:px-4">
     {/* Logo */}
-    <div className="mb-5 sm:mb-8">
+    <div className="mb-4 sm:mb-8">
       <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto rounded-full shadow-2xl overflow-hidden">
         <img
           src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg"
@@ -464,18 +464,12 @@ const HeroWithCarousel = () => {
     </div>
 
     {/* Title */}
-    <h1
-      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 drop-shadow-lg px-2"
-      style={{ color: '#2C2C2C' }}
-    >
-      Adiyogi <span style={{ color: '#C41E3A' }}>Foundation</span>
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-6 drop-shadow-lg px-2 text-[#2C2C2C]">
+      Adiyogi <span className="text-[#C41E3A]">Foundation</span>
     </h1>
 
     {/* Subtitle */}
-    <p
-      className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold mb-5 sm:mb-7 tracking-wide drop-shadow-md px-2"
-      style={{ color: '#8B1538' }}
-    >
+    <p className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold mb-4 sm:mb-7 tracking-wide drop-shadow-md px-2 text-[#8B1538]">
       Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
     </p>
 
@@ -521,6 +515,7 @@ const HeroWithCarousel = () => {
     </div>
   </div>
 </section>
+
 
       {/* Image Carousel Section */}
 
