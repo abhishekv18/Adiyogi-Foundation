@@ -473,19 +473,19 @@ const HeroWithCarousel = () => {
 
     {/* Subtitle */}
     <p
-      className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold mb-6 sm:mb-8 tracking-wide drop-shadow-md px-2"
+      className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold mb-5 sm:mb-7 tracking-wide drop-shadow-md px-2"
       style={{ color: '#8B1538' }}
     >
       Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
     </p>
 
     {/* Quote */}
-    <div className="max-w-4xl mx-auto mb-6 sm:mb-10 px-2 sm:px-4">
+    <div className="max-w-4xl mx-auto mb-5 sm:mb-8 px-2 sm:px-4">
       <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-center leading-relaxed text-[#2C2C2C]">
         "Rooted in sacred knowledge, guided by selfless service we rise together as a community,
         restoring dharma with every step."
       </p>
-      <p className="mt-3 sm:mt-4 text-center italic text-[#C41E3A] text-xs sm:text-sm md:text-base">
+      <p className="mt-2 sm:mt-3 text-center italic text-[#C41E3A] text-xs sm:text-sm md:text-base">
         A reflection of clarity, compassion, and collective awakening.
       </p>
     </div>
