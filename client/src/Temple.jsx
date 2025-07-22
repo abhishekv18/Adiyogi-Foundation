@@ -664,7 +664,7 @@ const timelineEvents = [
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#FDF8F8' }}>
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
+      {/* <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20"></div>
         <div 
           className="absolute inset-0 opacity-15"
@@ -711,7 +711,67 @@ const timelineEvents = [
            
           </div>
         </div>
+      </div> */}
+<div className="relative overflow-hidden">
+  {/* Overlay gradient */}
+  <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20 z-0"></div>
+
+  {/* Background image */}
+  <div
+    className="absolute inset-0 opacity-20 z-0"
+    style={{
+      backgroundImage: "url('https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200&h=800&fit=crop&crop=center')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+    }}
+  ></div>
+
+  {/* Main content */}
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-24 text-center z-10">
+    
+    {/* Icon */}
+    <div className="flex justify-center mb-6 sm:mb-8">
+      <div className="p-3 sm:p-5 rounded-full shadow-lg" style={{ backgroundColor: '#C41E3A' }}>
+        <OmSymbol className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16" color="#FFFEF7" />
       </div>
+    </div>
+
+    {/* Heading */}
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-5 sm:mb-7 text-rich-charcoal">
+      Sacred Temple Restoration
+    </h1>
+
+    {/* Paragraph */}
+    <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl sm:max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 text-rich-charcoal">
+      Our temple work isn't just conservation, it's consecration. We identify neglected sacred sites, 
+      then work with local communities, artisans, and spiritual leaders to restore their physical 
+      structure and spiritual energy.
+    </p>
+
+    {/* Symbol Row */}
+    <div className="flex justify-center items-center space-x-3 sm:space-x-4 md:space-x-6 mb-6 sm:mb-8">
+      <LotusSymbol className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
+      <div className="w-6 sm:w-8 md:w-10 h-0.5" style={{ backgroundColor: '#C41E3A' }}></div>
+      <OmSymbol className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
+      <div className="w-6 sm:w-8 md:w-10 h-0.5" style={{ backgroundColor: '#C41E3A' }}></div>
+      <LotusSymbol className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
+    </div>
+
+    {/* CTA Button */}
+    <Link to="/volunteers">
+      <button
+        className="px-5 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-lg font-semibold text-white text-sm sm:text-base md:text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+        style={{
+          backgroundColor: '#C41E3A',
+          boxShadow: '0 4px 20px rgba(139, 21, 56, 0.2)',
+        }}
+      >
+        Join Our Sacred Mission
+      </button>
+    </Link>
+  </div>
+</div>
 
       {/* Project Overview */}
       <div className="max-w-7xl mx-auto px-4 py-12 sm:py-16 md:py-20 sm:px-6 lg:px-8">
