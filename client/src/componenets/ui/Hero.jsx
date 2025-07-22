@@ -349,7 +349,7 @@ const HeroWithCarousel = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+      {/* <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
       
         <div className="absolute inset-0">
           <img
@@ -432,7 +432,80 @@ const HeroWithCarousel = () => {
          
           </div>
         </div>
-      </section>
+      </section> */}
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+  <div className="absolute inset-0">
+    <img
+      src="/istockphoto-542316008-612x612.jpg"
+      alt="Sacred Temple Background"
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0" style={{
+      background: 'linear-gradient(to right, rgba(253, 248, 248, 0.95) 0%, rgba(244, 232, 232, 0.9) 50%, rgba(253, 248, 248, 0.95) 100%)'
+    }}></div>
+  </div>
+
+  <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 space-y-6 sm:space-y-8">
+    {/* Logo */}
+    <div className="flex justify-center">
+      <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full shadow-2xl overflow-hidden bg-white">
+        <img
+          src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg"
+          alt="Adiyogi Foundation Logo"
+          className="w-full h-full object-contain rounded-full"
+        />
+      </div>
+    </div>
+
+    {/* Heading */}
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg text-[#2C2C2C]">
+      Adiyogi <span className="text-[#C41E3A]">Foundation</span>
+    </h1>
+
+    {/* Subheading */}
+    <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold tracking-wide text-[#8B1538] drop-shadow-md">
+      Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
+    </p>
+
+    {/* Quote */}
+    <div className="px-2 sm:px-4">
+      <p className="text-base sm:text-lg md:text-xl font-medium text-[#2C2C2C] leading-relaxed">
+        "Rooted in sacred knowledge, guided by selfless service we rise together as a community, restoring dharma with every step."
+      </p>
+      <p className="mt-2 text-xs sm:text-sm italic text-[#C41E3A]">
+        A reflection of clarity, compassion, and collective awakening.
+      </p>
+    </div>
+
+    {/* Buttons */}
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4 px-4">
+      <Link to='/volunteers'>
+        <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-transform duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 transform hover:scale-105"
+          style={{
+            background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
+            color: '#FFFEF7'
+          }}>
+          <span>Begin Your Journey</span>
+          <ArrowRight size={18} className="sm:w-5 sm:h-5" />
+        </button>
+      </Link>
+      
+      <Link to='/donate'>
+        <button
+          className="w-full sm:w-auto border-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105 hover:text-red-600"
+          style={{
+            borderColor: '#C41E3A',
+            color: '#C41E3A',
+            backgroundColor: 'rgba(255, 254, 247, 0.9)'
+          }}
+        >
+          <Heart size={18} className="sm:w-5 sm:h-5" />
+          <span>Support Our Mission</span>
+        </button>
+      </Link>
+    </div>
+  </div>
+</section>
 
 
 
