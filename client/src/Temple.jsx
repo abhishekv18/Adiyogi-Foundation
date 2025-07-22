@@ -743,7 +743,7 @@ const timelineEvents = [
     </h1>
 
     {/* Paragraph */}
-    <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl sm:max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 text-rich-charcoal">
+    <p className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl sm:max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 text-rich-charcoal">
       Our temple work isn't just conservation, it's consecration. We identify neglected sacred sites, 
       then work with local communities, artisans, and spiritual leaders to restore their physical 
       structure and spiritual energy.

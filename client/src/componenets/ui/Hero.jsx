@@ -469,10 +469,10 @@ const HeroWithCarousel = () => {
 
     {/* Quote */}
     <div className="px-2 sm:px-4">
-      <p className="text-base sm:text-lg md:text-xl font-medium text-[#2C2C2C] leading-relaxed">
+      <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-[#2C2C2C] leading-relaxed">
         "Rooted in sacred knowledge, guided by selfless service we rise together as a community, restoring dharma with every step."
       </p>
-      <p className="mt-2 text-xs sm:text-sm italic text-[#C41E3A]">
+      <p className="mt-2 text-xs sm:text-sm lg:text-base italic text-[#C41E3A]">
         A reflection of clarity, compassion, and collective awakening.
       </p>
     </div>
