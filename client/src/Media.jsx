@@ -186,11 +186,11 @@ console.log(allBlogs)
   return (
     <div className="min-h-screen bg-rose-50">
       {/* Hero Section */}
-   <div className="relative bg-gradient-to-br from-rose-50 via-rose-100 to-red-50 pt-24 pb-20 overflow-hidden">
-  {/* Gradient overlay */}
+   {/* <div className="relative bg-gradient-to-br from-rose-50 via-rose-100 to-red-50 pt-24 pb-20 overflow-hidden">
+  
   <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20"></div>
 
-  {/* Background image layer (with fixed scroll) */}
+
   <div
     className="absolute inset-0 bg-center bg-cover bg-fixed opacity-20"
     style={{
@@ -201,7 +201,7 @@ console.log(allBlogs)
     }}
   ></div>
 
-  {/* Main Content */}
+  
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
     <div className="flex justify-center mb-8">
       <div className="flex items-center space-x-4 bg-white/70 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
@@ -223,14 +223,14 @@ console.log(allBlogs)
       from the ancient traditions that guide us toward divine consciousness.
     </p>
 
-    {/* Divider */}
+   
     <div className="flex justify-center items-center space-x-4 mb-8">
       <div className="w-16 h-1 bg-sacred-crimson rounded-full"></div>
       <Sparkles className="w-6 h-6 text-sacred-crimson" />
       <div className="w-16 h-1 bg-sacred-crimson rounded-full"></div>
     </div>
 
-    {/* Stats */}
+  
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
       <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
         <BookOpen className="w-8 h-8 text-sacred-crimson mx-auto mb-3" />
@@ -245,6 +245,63 @@ console.log(allBlogs)
       <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
         <Star className="w-8 h-8 text-sacred-crimson mx-auto mb-3" />
         <div className="text-2xl font-bold text-gray-800">100%</div>
+        <div className="text-sm text-gray-600">Transformative</div>
+      </div>
+    </div>
+  </div>
+</div> */}
+<div className="relative bg-gradient-to-br from-rose-50 via-rose-100 to-red-50 pt-16 sm:pt-20 md:pt-24 pb-16 sm:pb-18 md:pb-20 overflow-hidden">
+
+  <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20"></div>
+
+  <div
+    className="absolute inset-0 bg-center bg-cover bg-fixed opacity-20"
+    style={{
+      backgroundImage: `url('/istockphoto-1221349438-612x612.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+    }}
+  ></div>
+
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+    <div className="flex justify-center mb-6 sm:mb-8">
+      <div className="flex items-center space-x-4 bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 sm:px-6 sm:py-3 shadow-lg">
+        <Flame className="w-6 h-6 sm:w-8 sm:h-8 text-sacred-crimson animate-pulse" />
+        <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-sacred-crimson" />
+        <Flower className="w-6 h-6 sm:w-8 sm:h-8 text-sacred-crimson animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
+    </div>
+
+    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-4 sm:mb-6 tracking-tight">
+      Sacred <span className="text-sacred-crimson relative">Media</span>
+    </h1>
+
+    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl sm:max-w-4xl mx-auto mb-6 sm:mb-10 leading-relaxed">
+      Discover profound wisdom, spiritual insights, and transformative teachings
+      from the ancient traditions that guide us toward divine consciousness.
+    </p>
+
+    <div className="flex justify-center items-center space-x-4 mb-6 sm:mb-8">
+      <div className="w-12 sm:w-16 h-1 bg-sacred-crimson rounded-full"></div>
+      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-sacred-crimson" />
+      <div className="w-12 sm:w-16 h-1 bg-sacred-crimson rounded-full"></div>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-2xl mx-auto">
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-sacred-crimson mx-auto mb-2 sm:mb-3" />
+        <div className="text-xl sm:text-2xl font-bold text-gray-800">{blogs.length}</div>
+        <div className="text-sm text-gray-600">Sacred Articles</div>
+      </div>
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <Flame className="w-6 h-6 sm:w-8 sm:h-8 text-sacred-crimson mx-auto mb-2 sm:mb-3" />
+        <div className="text-xl sm:text-2xl font-bold text-gray-800">∞</div>
+        <div className="text-sm text-gray-600">Infinite Wisdom</div>
+      </div>
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <Star className="w-6 h-6 sm:w-8 sm:h-8 text-sacred-crimson mx-auto mb-2 sm:mb-3" />
+        <div className="text-xl sm:text-2xl font-bold text-gray-800">100%</div>
         <div className="text-sm text-gray-600">Transformative</div>
       </div>
     </div>
