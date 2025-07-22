@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import connectDB from "./utils/db.js";
 import cron from "node-cron";
+import axios from "axios";
 import userRoutes from "./routes/user.route.js";
 import blogRoutes from  "./routes/blog.route.js";
 import volunteerRoute from "./routes/volunteer.route.js";
@@ -41,7 +42,7 @@ app.get("/api/ping", (req, res) => {
 
 
 import "./controllers/monthly.controller.js";
-import axios from "axios";
+
 const PORT=process.env.PORT || 3000;
 
 app.listen(PORT,()=>{
