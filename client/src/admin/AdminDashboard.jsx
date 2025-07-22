@@ -15,6 +15,13 @@ const AdminDashboard = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+const user = useSelector((state) => state.auth.user);
+useEffect(() => {
+  if (!user) {
+    navigate("/"); // or "/admin-login"
+  }
+}, [user]);
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [showAdminDeleteModal, setShowAdminDeleteModal] = useState(false);
 const [adminToDelete, setAdminToDelete] = useState(null);
