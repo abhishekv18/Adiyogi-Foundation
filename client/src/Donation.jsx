@@ -539,11 +539,11 @@ const navigate=useNavigate();
       {/* Hero Section */}
    
 
-<section className="py-12 sm:py-16 md:py-20 px-4 relative overflow-hidden">
-  {/* Gradient overlay */}
+{/* <section className="py-12 sm:py-16 md:py-20 px-4 relative overflow-hidden">
+  
   <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20"></div>
 
-  {/* Fixed background image */}
+  
   <div
     className="absolute inset-0 bg-center bg-cover bg-fixed opacity-25"
     style={{
@@ -554,9 +554,9 @@ const navigate=useNavigate();
     }}
   ></div>
 
-  {/* Foreground content */}
+ 
   <div className="max-w-6xl mx-auto text-center relative z-10">
-    {/* Badge */}
+    
     <div
       className="inline-flex items-center space-x-2 mb-4 sm:mb-6 px-3 sm:px-4 py-2 sm:py-3 rounded-full"
       style={{
@@ -570,7 +570,7 @@ const navigate=useNavigate();
       </span>
     </div>
 
-    {/* Heading */}
+   
     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6" style={{ color: '#2C2C2C' }}>
       Support the Divine
       <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-1 sm:mt-2" style={{ color: '#C41E3A' }}>
@@ -578,7 +578,7 @@ const navigate=useNavigate();
       </span>
     </h1>
 
-    {/* Blurred box with content */}
+    
     <div
       className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mt-2 shadow-2xl mb-8 sm:mb-12 backdrop-blur-sm"
       style={{
@@ -594,7 +594,7 @@ const navigate=useNavigate();
         and spread the divine wisdom of Adiyogi to seekers worldwide.
       </p>
 
-      {/* Suggested amounts */}
+     
       <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
         <div
           className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg"
@@ -627,8 +627,59 @@ const navigate=useNavigate();
       </div>
     </div>
   </div>
-</section>
+</section> */}
 
+<section className="py-12 sm:py-16 md:py-20 px-4 relative overflow-hidden">
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20 z-0"></div>
+
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center bg-fixed opacity-25 z-0"
+    style={{
+      backgroundImage: `url('/Stone-mason-working-on-restoring-the-Vatsala-Durga-temple-in-Bhaktapur-Nepal-.jpg')`,
+    }}
+  ></div>
+
+  {/* Main Content */}
+  <div className="max-w-6xl mx-auto text-center relative z-10">
+    {/* Badge */}
+    <div className="inline-flex items-center space-x-2 mb-4 sm:mb-6 px-3 sm:px-4 py-2 sm:py-3 rounded-full border border-[#F4E8E8] bg-[#FFFEF7]">
+      <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-[#C41E3A]" />
+      <span className="text-xs sm:text-sm font-medium text-[#C41E3A]">
+        Join Our Sacred Mission
+      </span>
+    </div>
+
+    {/* Title */}
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-gray-800">
+      Support the Divine
+      <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-1 sm:mt-2 text-[#C41E3A]">
+        Transformation
+      </span>
+    </h1>
+
+    {/* Donation Card */}
+    <div className="bg-[#FFFEF7]/95 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mt-2 shadow-2xl backdrop-blur-sm mb-8 sm:mb-12">
+      <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto leading-relaxed text-[#6B4B4B]">
+        Your generous donation helps us restore ancient temples, conduct spiritual programs,
+        and spread the divine wisdom of Adiyogi to seekers worldwide.
+      </p>
+
+      {/* Suggested Amounts */}
+      <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+        <div className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-[#F4E8E8] bg-[#FFFEF7]">
+          <span className="text-xs sm:text-sm text-[#6B4B4B]">Suggested Amount:</span>
+          <span className="font-bold ml-2 text-[#C41E3A]">₹1,001</span>
+        </div>
+        <div className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-[#F4E8E8] bg-[#FFFEF7]">
+          <span className="text-xs sm:text-sm text-[#6B4B4B]">Or any amount that</span>
+          <span className="font-bold ml-2 text-[#C41E3A]">touches your heart</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       {/* Impact Stats */}
       <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">

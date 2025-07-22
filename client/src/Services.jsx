@@ -1573,11 +1573,11 @@ const generateBrochureContent = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        {/* Gradient Overlay */}
+      {/* <div className="relative overflow-hidden">
+      
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 to-red-800/20 z-0"></div>
 
-        {/* Background Image with Fixed Attachment */}
+       
         <div
           className="absolute inset-0 opacity-20 z-0"
           style={{
@@ -1588,7 +1588,7 @@ const generateBrochureContent = () => {
           }}
         ></div>
 
-        {/* Foreground Content */}
+      
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-24 z-10">
           <div className="text-center" style={{ color: '#2C2C2C' }}>
             <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full mb-6 md:mb-8" style={{ backgroundColor: '#C41E3A' }}>
@@ -1616,8 +1616,56 @@ const generateBrochureContent = () => {
             </div>
           </div>
         </div>
+      </div> */}
+
+<div className="relative overflow-hidden">
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 to-red-800/20 z-0" />
+
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 opacity-20 z-0 bg-cover bg-center bg-fixed"
+    style={{
+      backgroundImage: "url('/istockphoto-137340137-612x612.jpg')",
+    }}
+  />
+
+  {/* Main Content */}
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-16 md:py-20 lg:py-24 z-10">
+    <div className="text-center text-gray-800">
+      {/* Icon */}
+      <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full mb-6 md:mb-8 bg-red-700">
+        <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />
       </div>
 
+      {/* Heading */}
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
+        Our Services
+      </h1>
+
+      {/* Description */}
+      <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 md:mb-12 max-w-3xl md:max-w-4xl mx-auto leading-relaxed text-gray-800">
+        Transform your life through the ancient wisdom of Astrology and Vastu Shastra with our expert guidance and personalized consultations.
+      </p>
+
+      {/* Feature Icons */}
+      <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-gray-800">
+        <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base">
+          <Clock className="w-5 h-5 sm:w-6 sm:h-6" />
+          <span>Available 24/7</span>
+        </div>
+        <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base">
+          <Users className="w-5 h-5 sm:w-6 sm:h-6" />
+          <span>Expert Consultants</span>
+        </div>
+        <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base">
+          <Award className="w-5 h-5 sm:w-6 sm:h-6" />
+          <span>Certified Practitioners</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       {/* Services Navigation */}
       <div className="bg-white shadow-lg sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">

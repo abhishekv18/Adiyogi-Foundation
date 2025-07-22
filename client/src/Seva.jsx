@@ -1032,7 +1032,7 @@ const navigate=useNavigate();
         </div>
       </section>
 
-      {/* Stats Section */}
+    
       <section style={{
         background: 'linear-gradient(135deg, #FFFEF7 0%, #F4E8E8 100%)',
         padding: isMobile ? '2rem 0' : '4rem 0',
