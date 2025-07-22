@@ -118,7 +118,24 @@ const handleSubmit = async (e) => {
 
  
 
-  const fetchAllBlogs = useCallback(async () => {
+  // const fetchAllBlogs = useCallback(async () => {
+  //   try {
+  //     const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/blog/get`, {
+  //       withCredentials: true,
+  //     });
+  //     if (res.data.success) {
+  //       dispatch(setAllBlogs(res.data.blogs));
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [dispatch]);
+
+  // useEffect(() => {
+  //   fetchAllBlogs();
+  // }, [fetchAllBlogs]);
+useEffect(() => {
+  const fetchAllBlogs = async () => {
     try {
       const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/blog/get`, {
         withCredentials: true,
@@ -129,11 +146,10 @@ const handleSubmit = async (e) => {
     } catch (error) {
       console.log(error);
     }
-  }, [dispatch]);
+  };
 
-  useEffect(() => {
-    fetchAllBlogs();
-  }, [fetchAllBlogs]);
+  fetchAllBlogs();
+}, [dispatch]);
 
 console.log(allBlogs)
 
