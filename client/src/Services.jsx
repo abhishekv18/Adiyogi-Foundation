@@ -1895,7 +1895,7 @@ const generateBrochureContent = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="text-white py-12 sm:py-16 md:py-20" style={{ background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)', boxShadow: '0 8px 32px rgba(196, 30, 58, 0.15)' }}>
+      <div className="text-white py-12 sm:py-14 md:py-16" style={{ background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)', boxShadow: '0 8px 32px rgba(196, 30, 58, 0.15)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Trusted by Thousands</h3>
