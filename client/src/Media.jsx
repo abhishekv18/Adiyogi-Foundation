@@ -675,12 +675,26 @@ const Media = () => {
           
           // Only show notification if there were actual changes
           if (res.data.blogs.length !== allBlogs.length) {
-         toast.info('New sacred wisdom has been added', {
+ toast.info('New sacred wisdom has been added', {
   icon: '📖',
-  autoClose: 2000,
+  autoClose: 1500,
   hideProgressBar: true,
-  className: 'bg-red-700 text-white font-semibold', // Tailwind crimson variant
+  className: 'bg-red-700 text-white font-semibold text-center shadow-lg rounded-md',
+  style: {
+    fontSize: 'clamp(12px, 3vw, 14px)',
+    padding: 'clamp(8px, 2vw, 12px) clamp(10px, 3vw, 16px)',
+    width: 'fit-content',
+    maxWidth: 'min(90vw, 400px)',
+    boxSizing: 'border-box',
+    wordBreak: 'break-word',
+    margin: 'clamp(8px, 2vw, 16px)',
+  },
+  bodyStyle: {
+    margin: 0,
+  },
+  position: 'top-center',
 });
+
 
           }
         }
