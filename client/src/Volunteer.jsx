@@ -337,33 +337,40 @@ const Volunteer = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {volunteers.map((volunteer) => (
-            <div 
-              key={volunteer.id}
-              onClick={() => handleVolunteerClick(volunteer)}
-              className="cursor-pointer group transition-all duration-300 hover:scale-105"
-            >
-              <div className="relative overflow-hidden rounded-xl shadow-md h-full" style={{ backgroundColor: '#FFFEF7' }}>
-               <div className="relative pt-[100%] overflow-hidden">
-  <img
-    src={volunteer.image}
-    alt={volunteer.name}
-    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-  />
-</div>
-                <div className="p-4">
-                  <h3 className="font-bold text-lg" style={{ color: '#2C2C2C' }}>{volunteer.name}</h3>
-                  <p className="text-sm mb-1" style={{ color: '#C41E3A' }}>{volunteer.title}</p>
-                  <p className="text-xs" style={{ color: '#6B4B4B' }}>{volunteer.role}</p>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <span className="text-white text-sm font-medium">View Profile →</span>
-                </div>
-              </div>
-            </div>
-          ))}
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+  {volunteers.map((volunteer) => (
+    <div 
+      key={volunteer.id}
+      onClick={() => handleVolunteerClick(volunteer)}
+      className="cursor-pointer group transition-all duration-300 hover:scale-105 w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto"
+    >
+      <div className="relative overflow-hidden rounded-xl shadow-md h-[95%] sm:h-[95%] lg:h-full" style={{ backgroundColor: '#FFFEF7' }}>
+        
+        {/* Image with ratio */}
+        <div className="relative pt-[90%] sm:pt-[95%] lg:pt-[100%] overflow-hidden">
+          <img
+            src={volunteer.image}
+            alt={volunteer.name}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
         </div>
+
+        {/* Text Info */}
+        <div className="p-3 sm:p-4">
+          <h3 className="font-bold text-base sm:text-lg" style={{ color: '#2C2C2C' }}>{volunteer.name}</h3>
+          <p className="text-sm mb-1" style={{ color: '#C41E3A' }}>{volunteer.title}</p>
+          <p className="text-xs" style={{ color: '#6B4B4B' }}>{volunteer.role}</p>
+        </div>
+
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+          <span className="text-white text-sm font-medium">View Profile →</span>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
       </div>
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 py-8 md:py-16">
