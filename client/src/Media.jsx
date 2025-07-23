@@ -993,7 +993,7 @@ const Media = () => {
         </div>
         
         {/* Image - fixed height container */}
-        <div className="relative overflow-hidden group h-48 sm:h-52 md:h-56">
+        <div className="relative overflow-hidden group h-52 sm:h-56 md:h-60">
           <img
             src={blog.imageUrl}
             alt={blog.title}
