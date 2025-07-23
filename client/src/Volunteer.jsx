@@ -337,7 +337,7 @@ const Volunteer = () => {
           </p>
         </div>
 
-  {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {volunteers.map((volunteer) => (
             <div 
               key={volunteer.id}
@@ -363,37 +363,9 @@ const Volunteer = () => {
               </div>
             </div>
           ))}
-        </div> */}
+        </div>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 lg:gap-6">
-  {volunteers.map((volunteer) => (
-    <div 
-      key={volunteer.id}
-      onClick={() => handleVolunteerClick(volunteer)}
-      className="cursor-pointer group transition-all duration-300 hover:scale-105"
-    >
-      <div className="relative overflow-hidden rounded-xl shadow-md h-full" style={{ backgroundColor: '#FFFEF7' }}>
-        {/* Adjusted image container with responsive sizing */}
-        <div className="relative pt-[120%] sm:pt-[110%] lg:pt-[90%] overflow-hidden">
-          <img
-            src={volunteer.image}
-            alt={volunteer.name}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-        </div>
-        {/* Content with responsive padding */}
-        <div className="p-3 sm:p-3 lg:p-4">
-          <h3 className="font-bold text-base sm:text-lg lg:text-lg" style={{ color: '#2C2C2C' }}>{volunteer.name}</h3>
-          <p className="text-xs sm:text-sm lg:text-sm mb-1" style={{ color: '#C41E3A' }}>{volunteer.title}</p>
-          <p className="text-xs" style={{ color: '#6B4B4B' }}>{volunteer.role}</p>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <span className="text-white text-sm font-medium">View Profile →</span>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
+
 
 
       </div>
