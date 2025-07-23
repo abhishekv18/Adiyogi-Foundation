@@ -789,7 +789,7 @@ const Media = () => {
       </div>
 
       {/* Search Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
+      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
         <div className="bg-white rounded-3xl shadow-2xl p-8 mb-12 border border-rose-100" style={{boxShadow: '0 20px 40px rgba(196, 30, 58, 0.15)'}}>
           <div className="text-center mb-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-2">Search Sacred Wisdom</h2>
@@ -825,8 +825,54 @@ const Media = () => {
             </div>
           )}
         </div>
+      </div> */}
+<div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-10">
+  <div 
+    className="bg-white rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-2xl p-5 sm:p-6 md:p-8 mb-8 sm:mb-10 md:mb-12 border border-rose-100" 
+    style={{boxShadow: '0 10px 30px rgba(196, 30, 58, 0.15)'}}
+  >
+    <div className="text-center mb-4 sm:mb-5 md:mb-6">
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-1 sm:mb-2 leading-tight">
+        Search Sacred Wisdom
+      </h2>
+      <p className="text-sm sm:text-base text-gray-600 max-w-lg mx-auto">
+        Find the teachings that resonate with your spiritual journey.
+      </p>
+    </div>
+    
+    <div className="flex justify-center">
+      <div className="relative w-full max-w-md sm:max-w-lg md:max-w-xl">
+        <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 sm:w-6 sm:h-6" />
+        <input
+          type="text"
+          placeholder="Search sacred wisdom, meditation, consciousness..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full pl-10 sm:pl-12 pr-10 sm:pr-12 py-3 sm:py-4 border-2 border-rose-100 rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent text-base sm:text-lg transition-all duration-300 placeholder-gray-400"
+        />
+        {searchTerm && (
+          <div className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2">
+            <button
+              onClick={() => setSearchTerm('')}
+              className="text-gray-400 hover:text-gray-600 transition-colors duration-300"
+              aria-label="Clear search"
+            >
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+          </div>
+        )}
       </div>
-
+    </div>
+    
+    {searchTerm && (
+      <div className="mt-3 sm:mt-4 text-center">
+        <p className="text-xs sm:text-sm text-gray-500">
+          Found {filteredBlogs.length} article{filteredBlogs.length !== 1 ? 's' : ''} matching "{searchTerm}"
+        </p>
+      </div>
+    )}
+  </div>
+</div>
     
       {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
