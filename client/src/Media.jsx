@@ -1202,7 +1202,7 @@ const Media = () => {
   </div>
 )}
       {/* Call to Action Section */}
-      <div
+      {/* <div
         className="text-white py-10 md:py-12"
         style={{
           background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
@@ -1283,7 +1283,96 @@ const Media = () => {
             Join thousands of seekers on their spiritual journey.
           </p>
         </div>
+      </div> */}
+      <div
+  className="text-white py-8 sm:py-10 md:py-12 lg:py-14"
+  style={{
+    background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
+    boxShadow: '0 8px 32px rgba(196, 30, 58, 0.15)',
+  }}
+>
+  <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    {/* Icon - responsive sizing */}
+    <div className="flex justify-center mb-4 sm:mb-5 md:mb-6">
+      <Flower className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-[#FFFEF7] animate-pulse" />
+    </div>
+
+    {/* Heading - responsive sizing */}
+    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.7rem] font-bold mb-2 sm:mb-3 md:mb-4 leading-tight">
+      Stay Connected to Sacred Wisdom
+    </h2>
+
+    {/* Subheading - responsive sizing */}
+    <p className="text-base sm:text-lg md:text-xl lg:text-[1.25rem] text-red-100 max-w-3xl mx-auto mb-6 sm:mb-7 md:mb-8 leading-relaxed">
+      Subscribe to receive the latest spiritual insights and transformative teachings directly to your journey.
+    </p>
+
+    {/* Form - responsive layout */}
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 justify-center max-w-md sm:max-w-xl mx-auto"
+    >
+      <div className="flex-1 w-full">
+        <input
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          type="email"
+          placeholder="Enter your email"
+          className={`w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg border-2 bg-white text-gray-800 placeholder-gray-500 focus:outline-none text-sm sm:text-base ${
+            emailError ? 'border-red-400' : 'border-transparent'
+          }`}
+        />
+        {emailError && (
+          <p className="text-white text-xs sm:text-sm mt-1 ml-1 text-left">{emailError}</p>
+        )}
       </div>
+
+      {/* Button - responsive sizing */}
+      <button
+        type="submit"
+        disabled={loading}
+        className="bg-white text-[#C41E3A] px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap text-sm sm:text-base"
+      >
+        {loading ? (
+          <>
+            <svg
+              className="animate-spin h-4 w-4 sm:h-5 sm:w-5 text-[#C41E3A]"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v8H4z"
+              ></path>
+            </svg>
+            <span>Subscribing...</span>
+          </>
+        ) : (
+          <>
+            <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-[#C41E3A]" />
+            <span>Subscribe</span>
+          </>
+        )}
+      </button>
+    </form>
+
+    {/* Footer text - responsive sizing */}
+    <p className="text-xs sm:text-sm text-red-100 mt-4 sm:mt-5 md:mt-6 opacity-80">
+      Join thousands of seekers on their spiritual journey.
+    </p>
+  </div>
+</div>
     </div>
   );
 };
