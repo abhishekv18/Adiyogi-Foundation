@@ -337,7 +337,7 @@ const Volunteer = () => {
           </p>
         </div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
   {volunteers.map((volunteer) => (
     <div 
       key={volunteer.id}
@@ -346,8 +346,8 @@ const Volunteer = () => {
     >
       <div className="relative overflow-hidden rounded-xl shadow-md h-[95%] sm:h-[95%] lg:h-full" style={{ backgroundColor: '#FFFEF7' }}>
         
-        {/* Image with reduced height on mobile/tablet */}
-        <div className="relative pt-[85%] lg:pt-[100%] overflow-hidden">
+        {/* Reduced image height on mobile/tab */}
+        <div className="relative pt-[80%] lg:pt-[100%] overflow-hidden">
           <img
             src={volunteer.image}
             alt={volunteer.name}
@@ -356,10 +356,10 @@ const Volunteer = () => {
         </div>
 
         {/* Text Info */}
-        <div className="p-3 sm:p-4">
+        <div className="p-4 min-h-[96px] flex flex-col justify-start">
           <h3 className="font-bold text-base sm:text-lg" style={{ color: '#2C2C2C' }}>{volunteer.name}</h3>
           <p className="text-sm mb-1" style={{ color: '#C41E3A' }}>{volunteer.title}</p>
-          <p className="text-xs" style={{ color: '#6B4B4B' }}>{volunteer.role}</p>
+          <p className="text-xs sm:text-sm" style={{ color: '#6B4B4B' }}>{volunteer.role}</p>
         </div>
 
         {/* Hover Overlay */}
@@ -370,6 +370,7 @@ const Volunteer = () => {
     </div>
   ))}
 </div>
+
 
 
       </div>
