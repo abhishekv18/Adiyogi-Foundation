@@ -150,9 +150,12 @@ const blogMail = {
     // Send emails
     // to subscribers
     await transporter.sendMail(adminMail);  //
+if (emailList.length > 0) {
+  await transporter.sendMail(blogMail);
+}
 
     // Send email
-    await transporter.sendMail(blogMail);
+   
 
     return res.status(201).json({
       message: "Blog posted and subscribers notified",
