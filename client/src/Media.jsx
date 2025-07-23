@@ -1006,16 +1006,16 @@ const Media = () => {
         </div>
         
         {/* Content area with fixed height */}
-        <div className="p-4 sm:p-5 md:p-6 flex flex-col" style={{ minHeight: '220px' }}>
+        <div className="p-5 sm:p-6 md:p-7 flex flex-col" style={{ minHeight: '220px' }}>
           {/* Title section */}
-          <div className="mb-2 md:mb-3">
+          <div className="mb-3 md:mb-4">
             <h3 className="text-lg sm:text-xl md:text-xl font-bold text-gray-800 group-hover:text-red-600 transition-colors duration-300 leading-tight line-clamp-2">
               {blog.title}
             </h3>
           </div>
           
           {/* Content with fixed height and scroll if needed */}
-          <div className="mb-3 md:mb-4 flex-grow overflow-hidden">
+          <div className="mb-4 md:mb-5 flex-grow overflow-hidden">
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed line-clamp-3 h-full">
               {truncateContent(blog.content, 140)}
             </p>
@@ -1024,7 +1024,7 @@ const Media = () => {
           {/* Metadata and button section - always at bottom */}
           <div className="mt-auto">
             <div className="flex items-center justify-between text-xs sm:text-sm text-gray-500 mb-3 md:mb-4">
-              <div className="flex items-center bg-gray-50 rounded-full px-2 py-1 sm:px-3 sm:py-1.5">
+              <div className="flex items-center bg-gray-50 rounded-full px-2 py-1.5 sm:px-3 sm:py-2">
                 <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 <span>{new Date(blog.createdAt).toLocaleDateString('en-US', { 
                   month: 'short', 
