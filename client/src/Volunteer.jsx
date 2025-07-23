@@ -337,7 +337,7 @@ const Volunteer = () => {
           </p>
         </div>
 
-       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
   {volunteers.map((volunteer) => (
     <div 
       key={volunteer.id}
@@ -346,8 +346,8 @@ const Volunteer = () => {
     >
       <div className="relative overflow-hidden rounded-xl shadow-md h-[95%] sm:h-[95%] lg:h-full" style={{ backgroundColor: '#FFFEF7' }}>
         
-        {/* Image with ratio */}
-        <div className="relative pt-[90%] sm:pt-[95%] lg:pt-[100%] overflow-hidden">
+        {/* Image with reduced height on mobile/tablet */}
+        <div className="relative pt-[90%] lg:pt-[100%] overflow-hidden">
           <img
             src={volunteer.image}
             alt={volunteer.name}
@@ -370,6 +370,7 @@ const Volunteer = () => {
     </div>
   ))}
 </div>
+
 
       </div>
       {/* Main Content */}
