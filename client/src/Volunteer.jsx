@@ -347,7 +347,7 @@ const Volunteer = () => {
       <div className="relative overflow-hidden rounded-xl shadow-md h-[95%] sm:h-[95%] lg:h-full" style={{ backgroundColor: '#FFFEF7' }}>
         
         {/* Image with reduced height on mobile/tablet */}
-        <div className="relative pt-[90%] lg:pt-[100%] overflow-hidden">
+        <div className="relative pt-[85%] lg:pt-[100%] overflow-hidden">
           <img
             src={volunteer.image}
             alt={volunteer.name}
