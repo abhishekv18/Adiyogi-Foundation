@@ -703,19 +703,7 @@ const Media = () => {
 
   if (isFetching) {
     return (
-      // <div className="min-h-screen bg-rose-50 flex items-center justify-center">
-      //   <div className="text-center">
-      //     <div className="relative">
-      //       <Flower className="w-16 h-16 text-sacred-crimson animate-spin mx-auto mb-4" />
-      //     </div>
-      //     <p className="text-gray-600 text-lg font-medium">Loading sacred wisdom...</p>
-      //     <div className="mt-4 flex justify-center space-x-1">
-      //       <div className="w-2 h-2 bg-sacred-crimson rounded-full animate-pulse"></div>
-      //       <div className="w-2 h-2 bg-sacred-crimson rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-      //       <div className="w-2 h-2 bg-sacred-crimson rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-      //     </div>
-      //   </div>
-      // </div>
+  
       <div className="min-h-screen bg-rose-50 flex items-center justify-center px-4">
   <div className="text-center space-y-4">
     <div className="relative flex justify-center">
@@ -843,68 +831,146 @@ const Media = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredBlogs.map((blog, index) => (
+            // <div
+            //   key={blog._id}
+            //   className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group relative"
+            //   style={{
+            //     boxShadow: '0 10px 30px rgba(196, 30, 58, 0.15)',
+            //     animationDelay: `${index * 0.1}s`
+            //   }}
+            // >
+            //   <div className="absolute top-4 left-4 z-10 bg-sacred-crimson text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold shadow-lg">
+            //     {index+1}
+            //   </div>
+              
+            //   <div className="relative overflow-hidden group">
+            //     <img
+            //       src={blog.imageUrl}
+            //       alt={blog.title}
+            //       className="w-full h-56 sm:h-64 md:h-72 object-cover transition-transform duration-500 group-hover:scale-105"
+            //     />
+            //     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            //     <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+            //       <Eye className="w-5 h-5 text-sacred-crimson" />
+            //     </div>
+            //   </div>
+              
+            //   <div className="p-8">
+            //     <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-red-600 transition-colors duration-300 leading-tight">
+            //       {blog.title}
+            //     </h3>
+            //     <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
+            //       {truncateContent(blog.content, 140)}
+            //     </p>
+                
+            //     <div className="flex items-center justify-between mb-6">
+            //       <div className="flex items-center text-sm text-gray-500 bg-gray-50 rounded-full px-3 py-2">
+            //         <Calendar className="w-4 h-4 mr-2" />
+            //         <span>{new Date(blog.createdAt).toLocaleDateString('en-US', { 
+            //           month: 'short', 
+            //           day: 'numeric',
+            //           year: 'numeric'
+            //         })}</span>
+            //       </div>
+            //       <div className="flex items-center text-sm text-gray-500">
+            //         <Clock className="w-4 h-4 mr-1" />
+            //         <span>{Math.ceil(blog.content.length / 200)} min read</span>
+            //       </div>
+            //     </div>
+                
+            //     <button 
+            //       onClick={() => { 
+            //         setSelectedBlog(blog); 
+            //         setIsModalOpen(true); 
+            //       }}
+            //       className="w-full cursor-pointer bg-sacred-crimson text-white py-4 rounded-2xl font-semibold hover:from-red-800 hover:to-red-900 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group/btn relative overflow-hidden"
+            //     >
+            //       <span className="relative z-10 flex items-center">
+            //         Read Full Article
+            //         <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+            //       </span>
+            //       <div className="absolute inset-0 bg-white/10 transform scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left"></div>
+            //     </button>
+            //   </div>
+            // </div>
             <div
-              key={blog._id}
-              className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group relative"
-              style={{
-                boxShadow: '0 10px 30px rgba(196, 30, 58, 0.15)',
-                animationDelay: `${index * 0.1}s`
-              }}
-            >
-              <div className="absolute top-4 left-4 z-10 bg-sacred-crimson text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold shadow-lg">
-                {index+1}
-              </div>
-              
-              <div className="relative overflow-hidden group">
-                <img
-                  src={blog.imageUrl}
-                  alt={blog.title}
-                  className="w-full h-56 sm:h-64 md:h-72 object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <Eye className="w-5 h-5 text-sacred-crimson" />
-                </div>
-              </div>
-              
-              <div className="p-8">
-                <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-red-600 transition-colors duration-300 leading-tight">
-                  {blog.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
-                  {truncateContent(blog.content, 140)}
-                </p>
-                
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center text-sm text-gray-500 bg-gray-50 rounded-full px-3 py-2">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    <span>{new Date(blog.createdAt).toLocaleDateString('en-US', { 
-                      month: 'short', 
-                      day: 'numeric',
-                      year: 'numeric'
-                    })}</span>
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <Clock className="w-4 h-4 mr-1" />
-                    <span>{Math.ceil(blog.content.length / 200)} min read</span>
-                  </div>
-                </div>
-                
-                <button 
-                  onClick={() => { 
-                    setSelectedBlog(blog); 
-                    setIsModalOpen(true); 
-                  }}
-                  className="w-full cursor-pointer bg-sacred-crimson text-white py-4 rounded-2xl font-semibold hover:from-red-800 hover:to-red-900 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group/btn relative overflow-hidden"
-                >
-                  <span className="relative z-10 flex items-center">
-                    Read Full Article
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                  </span>
-                  <div className="absolute inset-0 bg-white/10 transform scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left"></div>
-                </button>
-              </div>
-            </div>
+  key={blog._id}
+  className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group relative flex flex-col h-full"
+  style={{
+    boxShadow: '0 10px 30px rgba(196, 30, 58, 0.15)',
+    animationDelay: `${index * 0.1}s`
+  }}
+>
+  {/* Number badge */}
+  <div className="absolute top-4 left-4 z-10 bg-sacred-crimson text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold shadow-lg">
+    {index+1}
+  </div>
+  
+  {/* Image - fixed height */}
+  <div className="relative overflow-hidden group aspect-[4/3]">
+    <img
+      src={blog.imageUrl}
+      alt={blog.title}
+      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+      <Eye className="w-5 h-5 text-sacred-crimson" />
+    </div>
+  </div>
+  
+  {/* Content area with consistent spacing */}
+  <div className="p-6 flex flex-col flex-grow">
+    {/* Title section with consistent height */}
+    <div className="mb-3 min-h-[3.5rem]">
+      <h3 className="text-xl font-bold text-gray-800 group-hover:text-red-600 transition-colors duration-300 leading-tight line-clamp-2">
+        {blog.title}
+      </h3>
+    </div>
+    
+    {/* Content with consistent height */}
+    <div className="mb-4 min-h-[4.5rem]">
+      <p className="text-gray-600 leading-relaxed line-clamp-3">
+        {truncateContent(blog.content, 140)}
+      </p>
+    </div>
+    
+    {/* Spacer to push metadata and button down */}
+    <div className="flex-grow"></div>
+    
+    {/* Metadata and button section */}
+    <div className="space-y-4">
+      <div className="flex items-center justify-between text-sm text-gray-500">
+        <div className="flex items-center bg-gray-50 rounded-full px-3 py-1.5">
+          <Calendar className="w-4 h-4 mr-2" />
+          <span>{new Date(blog.createdAt).toLocaleDateString('en-US', { 
+            month: 'short', 
+            day: 'numeric',
+            year: 'numeric'
+          })}</span>
+        </div>
+        <div className="flex items-center">
+          <Clock className="w-4 h-4 mr-1" />
+          <span>{Math.ceil(blog.content.length / 200)} min read</span>
+        </div>
+      </div>
+      
+      {/* Button - now consistently positioned */}
+      <button 
+        onClick={() => { 
+          setSelectedBlog(blog); 
+          setIsModalOpen(true); 
+        }}
+        className="w-full bg-sacred-crimson text-white py-3 rounded-2xl font-semibold hover:bg-red-700 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center group/btn"
+      >
+        <span className="flex items-center">
+          Read Full Article
+          <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
           ))}
         </div>
         
@@ -927,7 +993,7 @@ const Media = () => {
       </div>
 
       {/* Modal for Full Article */}
-      {isModalOpen && selectedBlog && (
+      {/* {isModalOpen && selectedBlog && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-2 sm:p-4 z-50 backdrop-blur-sm">
           <div className="bg-white rounded-2xl sm:rounded-3xl max-w-5xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden shadow-2xl transform transition-all duration-300 mx-2">
             <div className="relative">
@@ -1009,8 +1075,96 @@ const Media = () => {
             </div>
           </div>
         </div>
-      )}
-
+      )} */}
+{isModalOpen && selectedBlog && (
+  <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-2 sm:p-4 z-50 backdrop-blur-sm">
+    <div className="bg-white rounded-2xl sm:rounded-3xl max-w-5xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden shadow-2xl transform transition-all duration-300 mx-2 flex flex-col">
+    {/* Header with sticky positioning */}
+    <div className="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-rose-100 p-4 sm:p-6 flex items-start justify-between z-10">
+      <div className="flex items-start space-x-3 sm:space-x-4 overflow-hidden">
+        <div className="bg-sacred-crimson text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-1">
+          {blogs.findIndex(b => b._id === selectedBlog._id) + 1}
+        </div>
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 break-words">
+          {selectedBlog.title}
+        </h2>
+      </div>
+      <button
+        onClick={closeModal}
+        className="p-2 sm:p-3 text-gray-400 hover:text-gray-600 hover:bg-rose-50 rounded-full transition-all duration-300 hover:rotate-90 flex-shrink-0"
+      >
+        <X className="w-5 h-5 sm:w-6 sm:h-6" />
+      </button>
+    </div>
+    
+    {/* Scrollable content area */}
+    <div className="overflow-y-auto flex-1">
+      <div className="p-4 sm:p-6 md:p-8">
+        {/* Metadata row */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 p-3 sm:p-4 bg-rose-50 rounded-xl sm:rounded-2xl gap-2 sm:gap-0">
+          <div className="flex items-center space-x-2 sm:space-x-6 overflow-x-auto pb-2 sm:pb-0">
+            <div className="flex items-center text-xs sm:text-sm text-gray-600 bg-white rounded-full px-3 py-1 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
+              <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-sacred-crimson" />
+              <span>{new Date(selectedBlog.createdAt).toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })}</span>
+            </div>
+            <div className="flex items-center text-xs sm:text-sm text-gray-600 bg-white rounded-full px-3 py-1 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
+              <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-sacred-crimson" />
+              <span>{Math.ceil(selectedBlog.content.length / 200)} min read</span>
+            </div>
+          </div>
+          <div className="flex items-center space-x-1 sm:space-x-2">
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-sacred-crimson" />
+            <span className="text-xs sm:text-sm text-gray-600 font-medium">Sacred Wisdom</span>
+          </div>
+        </div>
+        
+        {/* Blog image */}
+        <div className="mb-6 sm:mb-8 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl w-full">
+          <img
+            src={selectedBlog.imageUrl}
+            alt={selectedBlog.title}
+            className="w-full object-contain rounded-lg shadow max-h-[600px]"
+          />
+        </div>
+        
+        {/* Blog content - full width and height */}
+        <div className="prose max-w-none">
+          <div className="text-gray-700 leading-relaxed text-base sm:text-lg whitespace-pre-line">
+            {selectedBlog.content}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Footer */}
+    <div className="sticky bottom-0 bg-white border-t border-rose-100 p-4 sm:p-6">
+      <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-3 sm:gap-4">
+        <div className="flex items-center space-x-2 sm:space-x-4 w-full sm:w-auto justify-between sm:justify-start">
+          <div className="flex items-center space-x-1 sm:space-x-2 bg-rose-50 rounded-full px-3 py-1 sm:px-4 sm:py-2">
+            <Flower className="w-4 h-4 sm:w-6 sm:h-6 text-red-600" />
+            <span className="text-xs sm:text-sm text-gray-600 font-medium">Sacred Wisdom</span>
+          </div>
+          <div className="flex items-center space-x-1">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-sacred-crimson fill-current" />
+            ))}
+          </div>
+        </div>
+        <button
+          onClick={closeModal}
+          className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto text-center"
+        >
+          Close Article
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+)}
       {/* Call to Action Section */}
       <div
         className="text-white py-14"
