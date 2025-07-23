@@ -1903,7 +1903,7 @@ const generateBrochureContent = () => {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
             <div className="space-y-1 sm:space-y-2">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">15000+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">15,000+</div>
               <div className="text-red-100 text-sm sm:text-base md:text-lg">Happy Clients</div>
             </div>
             <div className="space-y-1 sm:space-y-2">
@@ -1911,7 +1911,7 @@ const generateBrochureContent = () => {
               <div className="text-red-100 text-sm sm:text-base md:text-lg">Years Experience</div>
             </div>
             <div className="space-y-1 sm:space-y-2">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">23000+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold">23,000+</div>
               <div className="text-red-100 text-sm sm:text-base md:text-lg">Consultations</div>
             </div>
             <div className="space-y-1 sm:space-y-2">
