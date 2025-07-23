@@ -345,7 +345,7 @@ const Volunteer = () => {
               className="cursor-pointer group transition-all duration-300 hover:scale-105"
             >
               <div className="relative overflow-hidden rounded-xl shadow-md h-full" style={{ backgroundColor: '#FFFEF7' }}>
-               <div className="relative pt-[90%] md:pt-[100%] overflow-hidden">
+               <div className="relative pt-[80%] sm:pt-[90%] md:pt-[100%] overflow-hidden">
   <img
     src={volunteer.image}
     alt={volunteer.name}
