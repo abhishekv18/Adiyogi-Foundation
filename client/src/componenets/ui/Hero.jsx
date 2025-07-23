@@ -95,7 +95,7 @@ const HeroWithCarousel = () => {
       className="w-full h-full object-cover"
     />
     <div className="absolute inset-0" style={{
-      background: 'linear-gradient(to right, rgba(253, 248, 248, 0.95) 0%, rgba(244, 232, 232, 0.9) 50%, rgba(253, 248, 248, 0.95) 100%)'
+      background: 'linear-gradient(to right, rgba(253, 248, 248, 0.90) 0%, rgba(244, 232, 232, 0.87) 50%, rgba(253, 248, 248, 0.90) 100%)'
     }}></div>
   </div>
 
