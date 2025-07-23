@@ -660,7 +660,7 @@ const Media = () => {
   // Fetch blogs with polling
   useEffect(() => {
     let isMounted = true;
-    const POLLING_INTERVAL = 15000; // 30 seconds
+    const POLLING_INTERVAL = 10000; // 30 seconds
 
     const fetchBlogs = async () => {
       try {
@@ -675,11 +675,13 @@ const Media = () => {
           
           // Only show notification if there were actual changes
           if (res.data.blogs.length !== allBlogs.length) {
-            toast.info('New sacred wisdom has been added', {
-              icon: '📖',
-              autoClose: 2000,
-              hideProgressBar: true,
-            });
+         toast.info('New sacred wisdom has been added', {
+  icon: '📖',
+  autoClose: 2000,
+  hideProgressBar: true,
+  className: 'bg-red-700 text-white font-semibold', // Tailwind crimson variant
+});
+
           }
         }
       } catch (error) {
