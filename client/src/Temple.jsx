@@ -1219,7 +1219,7 @@ const timelineEvents = [
 </div>
 
         {/* Call to Action */}
-        <div className="text-center p-8 sm:p-10 md:p-12 rounded-xl" style={{   
+        {/* <div className="text-center p-8 sm:p-10 md:p-12 rounded-xl" style={{   
           background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
           boxShadow: '0 8px 32px rgba(196, 30, 58, 0.15)' 
         }}>
@@ -1261,7 +1261,61 @@ const timelineEvents = [
            </Link>
            
           </div>
-        </div>
+        </div> */}
+        <div className="relative text-center p-8 sm:p-10 md:p-12 rounded-xl overflow-hidden" style={{   
+  background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
+  boxShadow: '0 8px 32px rgba(196, 30, 58, 0.15)' 
+}}>
+  
+  {/* Background Image */}
+  <img
+    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+    alt="Sacred Background"
+    className="absolute inset-0 w-full h-full object-cover opacity-10"
+  />
+
+  {/* Content Layer */}
+  <div className="relative z-10">
+    <div className="flex justify-center mb-4 sm:mb-6">
+      <LotusSymbol className="w-12 h-12 sm:w-16 sm:h-16" />
+    </div>
+    <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: '#FFFEF7' }}>
+      Be Part of This Sacred Mission
+    </h3>
+    <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-3xl mx-auto" style={{ color: '#FFFEF7' }}>
+      Every contribution, whether through funds, time, or prayers, helps restore these ancient sanctuaries 
+      to their divine glory. Join us in preserving spiritual heritage for future generations.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+      <Link to='/donate'>
+        <button
+          className="px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-white text-sm sm:text-base md:text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+          style={{ 
+            backgroundColor: '#C41E3A',
+            boxShadow: '0 4px 20px rgba(196, 30, 58, 0.3)'
+          }}
+        >
+          <Heart className="w-4 h-4 sm:w-5 sm:h-5 inline mr-2" />
+          Donate Now
+        </button>
+      </Link>
+      <Link to='/volunteers'>
+        <button
+          className="px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold border-2 text-sm sm:text-base md:text-lg transition-all duration-300 hover:shadow-lg"
+          style={{ 
+            borderColor: '#8B1538',
+            color: '#FFFEF7',
+            backgroundColor: 'transparent'
+          }}
+        >
+          <Users className="w-4 h-4 sm:w-5 sm:h-5 inline mr-2" />
+          Volunteer with Us
+        </button>
+      </Link>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   );

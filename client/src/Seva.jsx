@@ -1407,7 +1407,7 @@ const navigate=useNavigate();
           </div>
 
           {/* Call to Action Section */}
-       <div style={{
+       {/* <div style={{
             background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
             borderRadius: '20px',
             padding: isMobile ? '2rem 1rem' : '3rem 2rem',
@@ -1494,7 +1494,135 @@ const navigate=useNavigate();
              </Link>
             
             </div>
-          </div>
+          </div> */}
+          <div
+  className="relative overflow-hidden"
+  style={{
+    background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
+    borderRadius: '20px',
+    padding: isMobile ? '2rem 1rem' : '3rem 2rem',
+    textAlign: 'center',
+    color: '#FFFEF7',
+    marginTop: isMobile ? '2rem' : '3rem',
+  }}
+>
+  {/* Background Image */}
+  <img
+    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+    alt="Background"
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      opacity: 0.1,
+      zIndex: 0,
+    }}
+  />
+
+  {/* Content */}
+  <div style={{ position: 'relative', zIndex: 1 }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: isMobile ? '1rem' : '1.5rem',
+      }}
+    >
+      <Sparkles
+        size={isMobile ? 32 : 40}
+        style={{
+          color: '#FFFEF7',
+          marginBottom: isMobile ? '0.75rem' : '1rem',
+        }}
+        className="animate-pulse"
+      />
+
+      <h2
+        style={{
+          fontSize: isMobile ? '1.5rem' : '2rem',
+          fontWeight: '700',
+          margin: 0,
+        }}
+      >
+        Begin Your Sacred Service
+      </h2>
+    </div>
+
+    <p
+      style={{
+        fontSize: isMobile ? '1rem' : '1.125rem',
+        lineHeight: '1.6',
+        marginBottom: isMobile ? '1.5rem' : '2rem',
+        maxWidth: '600px',
+        margin: '0 auto 2rem auto',
+        opacity: 0.95,
+        padding: isMobile ? '0 0.5rem' : '0',
+      }}
+    >
+      Every act of seva transforms not just the world, but the one who serves.
+      Choose your path of service and become part of something greater than yourself.
+    </p>
+
+    <div
+      style={{
+        display: 'flex',
+        gap: isMobile ? '0.75rem' : '1rem',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+      }}
+    >
+      <Link to="/volunteers">
+        <button
+          style={{
+            padding: isMobile ? '0.875rem 1.25rem' : '1rem 2rem',
+            backgroundColor: '#FFFEF7',
+            color: '#C41E3A',
+            border: 'none',
+            borderRadius: '12px',
+            fontSize: isMobile ? '0.9rem' : '1rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+          }}
+        >
+          <Users size={isMobile ? 18 : 20} />
+          Volunteer Now
+        </button>
+      </Link>
+
+      <Link to="/donate">
+        <button
+          style={{
+            padding: isMobile ? '0.875rem 1.25rem' : '1rem 2rem',
+            backgroundColor: 'transparent',
+            color: '#FFFEF7',
+            border: '2px solid #FFFEF7',
+            borderRadius: '12px',
+            fontSize: isMobile ? '0.9rem' : '1rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+          }}
+        >
+          <Heart size={isMobile ? 18 : 20} />
+          Make a Donation
+        </button>
+      </Link>
+    </div>
+  </div>
+</div>
+
         </div>
       </main>
     </div>
