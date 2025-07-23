@@ -1167,7 +1167,7 @@ const Media = () => {
 )}
       {/* Call to Action Section */}
       <div
-        className="text-white py-14"
+        className="text-white py-10 md:py-12"
         style={{
           background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
           boxShadow: '0 8px 32px rgba(196, 30, 58, 0.15)',
