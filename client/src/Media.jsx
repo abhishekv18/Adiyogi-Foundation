@@ -660,7 +660,7 @@ const Media = () => {
   // Fetch blogs with polling
   useEffect(() => {
     let isMounted = true;
-    const POLLING_INTERVAL = 10000; // 30 seconds
+    const POLLING_INTERVAL = 15000; // 30 seconds
 
     const fetchBlogs = async () => {
       try {
