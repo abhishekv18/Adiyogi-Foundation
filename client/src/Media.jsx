@@ -561,6 +561,70 @@
 // export default Media;
 
 
+// import React, { useState, useEffect } from 'react';
+// import { Search, Calendar, BookOpen, Flame, Star, Flower, X, ArrowRight, Eye, Clock, Sparkles, Mail } from 'lucide-react';
+// import { setAllBlogs } from './redux/blogSlice';
+// import { useDispatch, useSelector } from 'react-redux';
+// import axios from 'axios';
+// import { useNavigate } from 'react-router-dom';
+// import { toast } from 'react-toastify';
+
+// const Media = () => {
+//   const dispatch = useDispatch();
+//   const navigate = useNavigate();
+//   const user = useSelector((state) => state.auth.user);
+//   const { allBlogs = [] } = useSelector((state) => state.blog);
+  
+//   // Local states
+//   const [loading, setLoading] = useState(false);
+//   const [blogs, setBlogs] = useState(allBlogs);
+//   const [filteredBlogs, setFilteredBlogs] = useState(allBlogs);
+//   const [searchTerm, setSearchTerm] = useState('');
+//   const [selectedBlog, setSelectedBlog] = useState(null);
+//   const [isModalOpen, setIsModalOpen] = useState(false);
+//   const [formData, setFormData] = useState({ email: '' });
+//   const [emailError, setEmailError] = useState('');
+//   const [isFetching, setIsFetching] = useState(true);
+
+//   // Redirect if user is logged in
+//   useEffect(() => {
+//     if (user) {
+//       navigate('/admin-dashboard');
+//     }
+//   }, [user, navigate]);
+
+//   // Fetch blogs on component mount
+//   useEffect(() => {
+//     const fetchBlogs = async () => {
+//       setIsFetching(true);
+//       try {
+//         const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/blog/get`, {
+//           withCredentials: true,
+//         });
+        
+//         if (res.data.success) {
+//           dispatch(setAllBlogs(res.data.blogs));
+//           setBlogs(res.data.blogs);
+//           setFilteredBlogs(res.data.blogs);
+//         }
+//       } catch (error) {
+//         console.error("Error fetching blogs:", error);
+//         toast.error("Failed to load sacred wisdom");
+//       } finally {
+//         setIsFetching(false);
+//       }
+//     };
+
+//     // Only fetch if we don't already have blogs
+  
+//   // Update filtered blogs when search term changes
+//   useEffect(() => {
+//     const filtered = blogs.filter(blog =>
+//       blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+//       blog.content.toLowerCase().includes(searchTerm.toLowerCase())
+//     );
+//     setFilteredBlogs(filtered);
+//   }, [searchTerm, blogs]);
 import React, { useState, useEffect } from 'react';
 import { Search, Calendar, BookOpen, Flame, Star, Flower, X, ArrowRight, Eye, Clock, Sparkles, Mail } from 'lucide-react';
 import { setAllBlogs } from './redux/blogSlice';
@@ -593,34 +657,54 @@ const Media = () => {
     }
   }, [user, navigate]);
 
-  // Fetch blogs on component mount
+  // Fetch blogs with polling
   useEffect(() => {
+    let isMounted = true;
+    const POLLING_INTERVAL = 15000; // 30 seconds
+
     const fetchBlogs = async () => {
-      setIsFetching(true);
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/blog/get`, {
           withCredentials: true,
         });
         
-        if (res.data.success) {
+        if (res.data.success && isMounted) {
           dispatch(setAllBlogs(res.data.blogs));
           setBlogs(res.data.blogs);
           setFilteredBlogs(res.data.blogs);
+          
+          // Only show notification if there were actual changes
+          if (res.data.blogs.length !== allBlogs.length) {
+            toast.info('New sacred wisdom has been added', {
+              icon: '📖',
+              autoClose: 2000,
+              hideProgressBar: true,
+            });
+          }
         }
       } catch (error) {
         console.error("Error fetching blogs:", error);
-        toast.error("Failed to load sacred wisdom");
+        if (isMounted) {
+          toast.error("Failed to load sacred wisdom");
+        }
       } finally {
-        setIsFetching(false);
+        if (isMounted) {
+          setIsFetching(false);
+        }
       }
     };
 
-    // Only fetch if we don't already have blogs
-    if (allBlogs.length === 0) {
-      fetchBlogs();
-    } else {
-      setIsFetching(false);
-    }
+    // Initial fetch
+    fetchBlogs();
+    
+    // Set up polling
+    const intervalId = setInterval(fetchBlogs, POLLING_INTERVAL);
+
+    // Clean up
+    return () => {
+      isMounted = false;
+      clearInterval(intervalId);
+    };
   }, [dispatch, allBlogs.length]);
 
   // Update filtered blogs when search term changes
@@ -873,109 +957,7 @@ const Media = () => {
     )}
   </div>
 </div>
-    
-      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {filteredBlogs.map((blog, index) => (
-           
-            <div
-  key={blog._id}
-  className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group relative flex flex-col h-full"
-  style={{
-    boxShadow: '0 10px 30px rgba(196, 30, 58, 0.15)',
-    animationDelay: `${index * 0.1}s`
-  }}
->
  
-  <div className="absolute top-4 left-4 z-10 bg-sacred-crimson text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold shadow-lg">
-    {index+1}
-  </div>
-  
- 
-  <div className="relative overflow-hidden group aspect-[4/3]">
-    <img
-      src={blog.imageUrl}
-      alt={blog.title}
-      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-      <Eye className="w-5 h-5 text-sacred-crimson" />
-    </div>
-  </div>
-  
- 
-  <div className="p-6 flex flex-col flex-grow">
-   
-    <div className="mb-3 min-h-[3.5rem]">
-      <h3 className="text-xl font-bold text-gray-800 group-hover:text-red-600 transition-colors duration-300 leading-tight line-clamp-2">
-        {blog.title}
-      </h3>
-    </div>
-    
-  
-    <div className="mb-4 min-h-[4.5rem]">
-      <p className="text-gray-600 leading-relaxed line-clamp-3">
-        {truncateContent(blog.content, 140)}
-      </p>
-    </div>
-    
-  
-    <div className="flex-grow"></div>
-    
-   
-    <div className="space-y-4">
-      <div className="flex items-center justify-between text-sm text-gray-500">
-        <div className="flex items-center bg-gray-50 rounded-full px-3 py-1.5">
-          <Calendar className="w-4 h-4 mr-2" />
-          <span>{new Date(blog.createdAt).toLocaleDateString('en-US', { 
-            month: 'short', 
-            day: 'numeric',
-            year: 'numeric'
-          })}</span>
-        </div>
-        <div className="flex items-center">
-          <Clock className="w-4 h-4 mr-1" />
-          <span>{Math.ceil(blog.content.length / 200)} min read</span>
-        </div>
-      </div>
-      
-     
-      <button 
-        onClick={() => { 
-          setSelectedBlog(blog); 
-          setIsModalOpen(true); 
-        }}
-        className="w-full bg-sacred-crimson text-white py-3 rounded-2xl font-semibold hover:bg-red-700 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center group/btn"
-      >
-        <span className="flex items-center">
-          Read Full Article
-          <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
-        </span>
-      </button>
-    </div>
-  </div>
-</div>
-          ))}
-        </div>
-        
-        {filteredBlogs.length === 0 && (
-          <div className="text-center py-20">
-            <div className="relative inline-block mb-6">
-              <Flower className="w-20 h-20 text-gray-300 mx-auto" />
-              <Sparkles className="w-8 h-8 text-gray-200 absolute -top-2 -right-2 animate-pulse" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-600 mb-3">No Sacred Wisdom Found</h3>
-            <p className="text-gray-500 text-lg mb-6">The universe hasn't revealed those teachings yet</p>
-            <button
-              onClick={() => setSearchTerm('')}
-              className="bg-sacred-crimson text-white px-8 py-3 rounded-xl font-semibold hover:bg-red-700 transition-colors duration-300"
-            >
-              Clear Search
-            </button>
-          </div>
-        )}
-      </div> */}
 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-20">
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
     {filteredBlogs.map((blog, index) => (
@@ -1074,90 +1056,7 @@ const Media = () => {
     </div>
   )}
 </div>
-      {/* Modal for Full Article */}
-      {/* {isModalOpen && selectedBlog && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-2 sm:p-4 z-50 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl sm:rounded-3xl max-w-5xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden shadow-2xl transform transition-all duration-300 mx-2">
-            <div className="relative">
-              <div className="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-rose-100 p-4 sm:p-6 md:p-8 flex items-center justify-between z-10">
-                <div className="flex items-center space-x-2 sm:space-x-4 overflow-hidden">
-                  <div className="bg-sacred-crimson text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0">
-                    {blogs.findIndex(b => b._id === selectedBlog._id) + 1}
-                  </div>
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 pr-2 sm:pr-8 truncate">
-                    {selectedBlog.title}
-                  </h2>
-                </div>
-                <button
-                  onClick={closeModal}
-                  className="p-2 sm:p-3 text-gray-400 hover:text-gray-600 hover:bg-rose-50 rounded-full transition-all duration-300 hover:rotate-90 flex-shrink-0"
-                >
-                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
-                </button>
-              </div>
-              
-              <div className="p-4 sm:p-6 md:p-8 overflow-y-auto max-h-[calc(95vh-120px)] sm:max-h-[calc(90vh-140px)]">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 p-3 sm:p-4 bg-rose-50 rounded-xl sm:rounded-2xl gap-2 sm:gap-0">
-                  <div className="flex items-center space-x-2 sm:space-x-6 overflow-x-auto pb-2 sm:pb-0">
-                    <div className="flex items-center text-xs sm:text-sm text-gray-600 bg-white rounded-full px-3 py-1 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
-                      <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-sacred-crimson" />
-                      <span>{new Date(selectedBlog.createdAt).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                      })}</span>
-                    </div>
-                    <div className="flex items-center text-xs sm:text-sm text-gray-600 bg-white rounded-full px-3 py-1 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
-                      <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-sacred-crimson" />
-                      <span>{Math.ceil(selectedBlog.content.length / 200)} min read</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-1 sm:space-x-2">
-                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-sacred-crimson" />
-                    <span className="text-xs sm:text-sm text-gray-600 font-medium">Sacred Wisdom</span>
-                  </div>
-                </div>
-                
-                <div className="mb-6 sm:mb-8 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl w-full">
-                  <img
-                    src={selectedBlog.imageUrl}
-                    alt={selectedBlog.title}
-                    className="w-full object-contain rounded-lg shadow max-h-[600px]"
-                  />
-                </div>
-                
-                <div className="prose prose-sm sm:prose-lg max-w-none">
-                  <div className="text-gray-700 leading-relaxed text-base sm:text-lg whitespace-pre-line">
-                    {selectedBlog.content}
-                  </div>
-                </div>
-                
-                <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-rose-100">
-                  <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-3 sm:gap-4">
-                    <div className="flex items-center space-x-2 sm:space-x-4 w-full sm:w-auto justify-between sm:justify-start">
-                      <div className="flex items-center space-x-1 sm:space-x-2 bg-rose-50 rounded-full px-3 py-1 sm:px-4 sm:py-2">
-                        <Flower className="w-4 h-4 sm:w-6 sm:h-6 text-red-600" />
-                        <span className="text-xs sm:text-sm text-gray-600 font-medium">Sacred Wisdom</span>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-sacred-crimson fill-current" />
-                        ))}
-                      </div>
-                    </div>
-                    <button
-                      onClick={closeModal}
-                      className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto text-center"
-                    >
-                      Close Article
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )} */}
+     
 {isModalOpen && selectedBlog && (
   <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-2 sm:p-4 z-50 backdrop-blur-sm">
     <div className="bg-white rounded-xl sm:rounded-2xl w-full max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-2 h-[90vh] max-h-[95dvh] flex flex-col overflow-hidden shadow-2xl">
@@ -1247,89 +1146,7 @@ const Media = () => {
     </div>
   </div>
 )}
-      {/* Call to Action Section */}
-      {/* <div
-        className="text-white py-10 md:py-12"
-        style={{
-          background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
-          boxShadow: '0 8px 32px rgba(196, 30, 58, 0.15)',
-        }}
-      >
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <div className="flex justify-center mb-6">
-            <Flower className="w-14 h-14 text-[#FFFEF7] animate-pulse" />
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
-            Stay Connected to Sacred Wisdom
-          </h2>
-          <p className="text-lg md:text-xl text-red-100 max-w-3xl mx-auto mb-8">
-            Subscribe to receive the latest spiritual insights and transformative teachings directly to your journey.
-          </p>
-
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col sm:flex-row sm:items-start gap-4 justify-center max-w-xl mx-auto"
-          >
-            <div className="flex-1">
-              <input
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                type="email"
-                placeholder="Enter your email"
-                className={`w-full px-5 py-3 rounded-lg border-2 bg-white text-gray-800 placeholder-gray-500 focus:outline-none ${
-                  emailError ? 'border-red-400' : 'border-transparent'
-                }`}
-              />
-              {emailError && (
-                <p className="text-white text-sm mt-1 ml-1">{emailError}</p>
-              )}
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="bg-white text-[#C41E3A] px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-100 hover:scale-x-105 shadow-md flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <>
-                  <svg
-                    className="animate-spin h-5 w-5 text-[#C41E3A]"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8v8H4z"
-                    ></path>
-                  </svg>
-                  <span>Subscribing...</span>
-                </>
-              ) : (
-                <>
-                  <Mail className="h-5 w-5 text-[#C41E3A]" />
-                  <span>Subscribe</span>
-                </>
-              )}
-            </button>
-          </form>
-
-          <p className="text-sm text-red-100 mt-6 opacity-80">
-            Join thousands of seekers on their spiritual journey.
-          </p>
-        </div>
-      </div> */}
+   
       <div
   className="text-white py-7 sm:py-9 md:py-11 lg:py-12"
   style={{
