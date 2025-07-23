@@ -1078,92 +1078,92 @@ const Media = () => {
       )} */}
 {isModalOpen && selectedBlog && (
   <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-2 sm:p-4 z-50 backdrop-blur-sm">
-    <div className="bg-white rounded-2xl sm:rounded-3xl max-w-5xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden shadow-2xl transform transition-all duration-300 mx-2 flex flex-col">
-    {/* Header with sticky positioning */}
-    <div className="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-rose-100 p-4 sm:p-6 flex items-start justify-between z-10">
-      <div className="flex items-start space-x-3 sm:space-x-4 overflow-hidden">
-        <div className="bg-sacred-crimson text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-1">
-          {blogs.findIndex(b => b._id === selectedBlog._id) + 1}
-        </div>
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 break-words">
-          {selectedBlog.title}
-        </h2>
-      </div>
-      <button
-        onClick={closeModal}
-        className="p-2 sm:p-3 text-gray-400 hover:text-gray-600 hover:bg-rose-50 rounded-full transition-all duration-300 hover:rotate-90 flex-shrink-0"
-      >
-        <X className="w-5 h-5 sm:w-6 sm:h-6" />
-      </button>
-    </div>
-    
-    {/* Scrollable content area */}
-    <div className="overflow-y-auto flex-1">
-      <div className="p-4 sm:p-6 md:p-8">
-        {/* Metadata row */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 p-3 sm:p-4 bg-rose-50 rounded-xl sm:rounded-2xl gap-2 sm:gap-0">
-          <div className="flex items-center space-x-2 sm:space-x-6 overflow-x-auto pb-2 sm:pb-0">
-            <div className="flex items-center text-xs sm:text-sm text-gray-600 bg-white rounded-full px-3 py-1 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
-              <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-sacred-crimson" />
-              <span>{new Date(selectedBlog.createdAt).toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-              })}</span>
-            </div>
-            <div className="flex items-center text-xs sm:text-sm text-gray-600 bg-white rounded-full px-3 py-1 sm:px-4 sm:py-2 shadow-sm whitespace-nowrap">
-              <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-sacred-crimson" />
-              <span>{Math.ceil(selectedBlog.content.length / 200)} min read</span>
-            </div>
+    <div className="bg-white rounded-xl sm:rounded-2xl w-full max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-2 h-[90vh] max-h-[95dvh] flex flex-col overflow-hidden shadow-2xl">
+      {/* Header with sticky positioning */}
+      <div className="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-rose-100 p-3 sm:p-4 md:p-6 flex items-start justify-between z-10">
+        <div className="flex items-start space-x-2 sm:space-x-3 md:space-x-4 overflow-hidden">
+          <div className="bg-sacred-crimson text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 mt-0.5">
+            {blogs.findIndex(b => b._id === selectedBlog._id) + 1}
           </div>
-          <div className="flex items-center space-x-1 sm:space-x-2">
-            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-sacred-crimson" />
-            <span className="text-xs sm:text-sm text-gray-600 font-medium">Sacred Wisdom</span>
-          </div>
-        </div>
-        
-        {/* Blog image */}
-        <div className="mb-6 sm:mb-8 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl w-full">
-          <img
-            src={selectedBlog.imageUrl}
-            alt={selectedBlog.title}
-            className="w-full object-contain rounded-lg shadow max-h-[600px]"
-          />
-        </div>
-        
-        {/* Blog content - full width and height */}
-        <div className="prose max-w-none">
-          <div className="text-gray-700 leading-relaxed text-base sm:text-lg whitespace-pre-line">
-            {selectedBlog.content}
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    {/* Footer */}
-    <div className="sticky bottom-0 bg-white border-t border-rose-100 p-4 sm:p-6">
-      <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-3 sm:gap-4">
-        <div className="flex items-center space-x-2 sm:space-x-4 w-full sm:w-auto justify-between sm:justify-start">
-          <div className="flex items-center space-x-1 sm:space-x-2 bg-rose-50 rounded-full px-3 py-1 sm:px-4 sm:py-2">
-            <Flower className="w-4 h-4 sm:w-6 sm:h-6 text-red-600" />
-            <span className="text-xs sm:text-sm text-gray-600 font-medium">Sacred Wisdom</span>
-          </div>
-          <div className="flex items-center space-x-1">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-sacred-crimson fill-current" />
-            ))}
-          </div>
+          <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-800 break-words line-clamp-2">
+            {selectedBlog.title}
+          </h2>
         </div>
         <button
           onClick={closeModal}
-          className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto text-center"
+          className="p-1 sm:p-2 md:p-3 text-gray-400 hover:text-gray-600 hover:bg-rose-50 rounded-full transition-all duration-200 hover:rotate-90 flex-shrink-0"
         >
-          Close Article
+          <X className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
         </button>
+      </div>
+      
+      {/* Scrollable content area */}
+      <div className="overflow-y-auto flex-1">
+        <div className="p-3 sm:p-4 md:p-6 lg:p-8">
+          {/* Metadata row */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 p-2 sm:p-3 md:p-4 bg-rose-50 rounded-lg sm:rounded-xl gap-1 sm:gap-0">
+            <div className="flex items-center space-x-1 sm:space-x-3 md:space-x-4 overflow-x-auto pb-1 sm:pb-0">
+              <div className="flex items-center text-xs sm:text-sm text-gray-600 bg-white rounded-full px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 shadow-sm whitespace-nowrap">
+                <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-sacred-crimson" />
+                <span>{new Date(selectedBlog.createdAt).toLocaleDateString('en-US', { 
+                  year: 'numeric', 
+                  month: 'short', 
+                  day: 'numeric' 
+                })}</span>
+              </div>
+              <div className="flex items-center text-xs sm:text-sm text-gray-600 bg-white rounded-full px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 shadow-sm whitespace-nowrap">
+                <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-sacred-crimson" />
+                <span>{Math.ceil(selectedBlog.content.length / 200)} min read</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-1 sm:space-x-2 mt-1 sm:mt-0">
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-sacred-crimson" />
+              <span className="text-xs sm:text-sm text-gray-600 font-medium">Sacred Wisdom</span>
+            </div>
+          </div>
+          
+          {/* Blog image */}
+          <div className="mb-4 sm:mb-6 md:mb-8 rounded-lg sm:rounded-xl overflow-hidden shadow-md sm:shadow-lg w-full">
+            <img
+              src={selectedBlog.imageUrl}
+              alt={selectedBlog.title}
+              className="w-full h-auto max-h-[40vh] sm:max-h-[50vh] object-cover"
+            />
+          </div>
+          
+          {/* Blog content */}
+          <div className="prose prose-sm sm:prose-base max-w-none">
+            <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+              {selectedBlog.content}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Footer */}
+      <div className="sticky bottom-0 bg-white border-t border-rose-100 p-3 sm:p-4 md:p-6">
+        <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-2 sm:gap-3 md:gap-4">
+          <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3 w-full sm:w-auto justify-between sm:justify-start">
+            <div className="flex items-center space-x-1 sm:space-x-2 bg-rose-50 rounded-full px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2">
+              <Flower className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-red-600" />
+              <span className="text-xs sm:text-sm text-gray-600 font-medium">Sacred Wisdom</span>
+            </div>
+            <div className="flex items-center space-x-0.5 sm:space-x-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-sacred-crimson fill-current" />
+              ))}
+            </div>
+          </div>
+          <button
+            onClick={closeModal}
+            className="bg-gradient-to-r from-red-600 to-red-700 text-white px-4 py-1.5 sm:px-5 sm:py-2 md:px-6 md:py-2.5 rounded-md sm:rounded-lg font-medium hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-sm hover:shadow-md w-full sm:w-auto text-sm sm:text-base text-center"
+          >
+            Close Article
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 )}
       {/* Call to Action Section */}
       <div
