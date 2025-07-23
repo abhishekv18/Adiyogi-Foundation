@@ -1164,7 +1164,7 @@ const Media = () => {
 )}
    
       <div
-  className="text-white py-6 sm:py-8 md:py-9 lg:py-10"
+  className="text-white py-7 sm:py-8 md:py-9 lg:py-10"
   style={{
     background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
     boxShadow: '0 8px 32px rgba(196, 30, 58, 0.15)',
