@@ -1726,7 +1726,8 @@ const Header = () => {
 
             </div>
             <div className="flex items-center">
-              <span className="text-sacred-crimson font-medium whitespace-nowrap">🕉️ ॐ नमः शिवाय</span>
+           <span className="text-sacred-crimson font-normal whitespace-nowrap">Reviving Heritage, Restoring Faith</span>
+
             </div>
           </div>
         </div>

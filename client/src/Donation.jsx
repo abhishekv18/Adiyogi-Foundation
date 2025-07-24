@@ -804,7 +804,7 @@ const navigate=useNavigate();
                   <div className="p-4 rounded-lg" style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
                     <label className="block text-sm font-medium mb-2" style={{ color: '#6B4B4B' }}>Account Name</label>
                     <div className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: '#FFFEF7', border: '1px solid #F4E8E8' }}>
-                      <span className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Adiyogi Spiritual Foundation</span>
+                      <span className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Adiyogi Foundation</span>
                       <button
                         onClick={() => copyToClipboard('Adiyogi Spiritual Foundation', 'account')}
                         className="p-2 rounded-lg transition-colors duration-200 flex-shrink-0"
@@ -818,7 +818,7 @@ const navigate=useNavigate();
                   <div className="p-4 rounded-lg" style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
                     <label className="block text-sm font-medium mb-2" style={{ color: '#6B4B4B' }}>Account Number</label>
                     <div className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: '#FFFEF7', border: '1px solid #F4E8E8' }}>
-                      <span className="font-mono font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>1234567890123456</span>
+                      <span className="font-mono font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>50200112612132</span>
                       <button
                         onClick={() => copyToClipboard('1234567890123456', 'accno')}
                         className="p-2 rounded-lg transition-colors duration-200 flex-shrink-0"
@@ -832,7 +832,7 @@ const navigate=useNavigate();
                   <div className="p-4 rounded-lg" style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
                     <label className="block text-sm font-medium mb-2" style={{ color: '#6B4B4B' }}>IFSC Code</label>
                     <div className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: '#FFFEF7', border: '1px solid #F4E8E8' }}>
-                      <span className="font-mono font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>SBIN0001234</span>
+                      <span className="font-mono font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>HDFC0008382</span>
                       <button
                         onClick={() => copyToClipboard('SBIN0001234', 'ifsc')}
                         className="p-2 rounded-lg transition-colors duration-200 flex-shrink-0"
@@ -848,14 +848,14 @@ const navigate=useNavigate();
                   <div className="p-4 rounded-lg" style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
                     <label className="block text-sm font-medium mb-2" style={{ color: '#6B4B4B' }}>Bank Name</label>
                     <div className="p-3 rounded-lg" style={{ backgroundColor: '#FFFEF7', border: '1px solid #F4E8E8' }}>
-                      <span className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>State Bank of India</span>
+                      <span className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>HDFC BANK</span>
                     </div>
                   </div>
 
                   <div className="p-4 rounded-lg" style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
                     <label className="block text-sm font-medium mb-2" style={{ color: '#6B4B4B' }}>Branch</label>
                     <div className="p-3 rounded-lg" style={{ backgroundColor: '#FFFEF7', border: '1px solid #F4E8E8' }}>
-                      <span className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Coimbatore Main Branch</span>
+                      <span className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Badlapur west Branch</span>
                     </div>
                   </div>
 

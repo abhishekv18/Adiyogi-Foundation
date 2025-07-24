@@ -609,7 +609,7 @@ const [errors, setErrors] = useState({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           <div className="text-center">
             <p className="text-lg sm:text-xl md:text-2xl font-semibold mb-2" style={{ color: '#C41E3A' }}>
-              🕉️ Om Namah Shivaya 🕉️
+             Reviving Heritage, Restoring Faith
             </p>
             <p className="text-sm sm:text-base text-gray-600">
               May your journey with us be filled with divine blessings and inner peace.

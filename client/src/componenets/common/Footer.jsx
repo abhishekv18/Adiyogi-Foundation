@@ -645,7 +645,7 @@ const [emailError, setEmailError] = useState('');
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 sm:space-y-6 md:space-y-0">
             <div className="flex items-center space-x-2 text-gray-400 text-xs sm:text-sm text-center md:text-left">
-              <span>© 2025 Adiyogi Foundation. Made by Abhishek. </span>
+              <span>© 2025 Adiyogi Foundation. Made by Volunteer Abhishek. </span>
               <Heart size={12} className="sm:w-3.5 sm:h-3.5 text-sacred-crimson animate-pulse" />
               {/* <span>for humanity.</span> */}
             </div>
