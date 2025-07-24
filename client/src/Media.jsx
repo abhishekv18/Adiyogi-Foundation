@@ -1141,23 +1141,34 @@ const Media = () => {
             //   },
             //   position: 'top-center',
             // });
-            toast('📖 New sacred wisdom has been added', {
+toast('📖 New sacred wisdom has been added', {
   autoClose: 1500,
   hideProgressBar: true,
-  className: 'bg-red-700 text-white font-semibold text-center shadow-lg rounded-md',
+  className: 'bg-red-600 text-white font-semibold text-center shadow-lg rounded-md',
   style: {
-    fontSize: 'clamp(12px, 3vw, 14px)',
-    padding: 'clamp(8px, 2vw, 12px) clamp(10px, 3vw, 16px)',
+    background: '#dc2626', // red-600
+    fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)',
+    padding: 'clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.625rem, 2vw, 1rem)',
     width: 'fit-content',
+    minWidth: '200px',
     maxWidth: 'min(90vw, 400px)',
     boxSizing: 'border-box',
     wordBreak: 'break-word',
-    margin: 'clamp(8px, 2vw, 16px)',
+    margin: 'clamp(0.5rem, 1.5vw, 1rem)',
+    borderRadius: '0.375rem',
+    boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+    lineHeight: '1.25',
   },
   bodyStyle: {
     margin: 0,
+    padding: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '0.5rem',
   },
   position: 'top-center',
+  icon: false, // Remove default icon if you're using emoji in text
 });
 
           }
