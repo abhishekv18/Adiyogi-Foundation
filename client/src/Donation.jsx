@@ -806,7 +806,7 @@ const navigate=useNavigate();
                     <div className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: '#FFFEF7', border: '1px solid #F4E8E8' }}>
                       <span className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Adiyogi Foundation</span>
                       <button
-                        onClick={() => copyToClipboard('Adiyogi Spiritual Foundation', 'account')}
+                        onClick={() => copyToClipboard('Adiyogi Foundation', 'account')}
                         className="p-2 rounded-lg transition-colors duration-200 flex-shrink-0"
                         style={{ backgroundColor: copiedText === 'account' ? '#8B1538' : '#C41E3A', color: 'white' }}
                       >
@@ -820,7 +820,7 @@ const navigate=useNavigate();
                     <div className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: '#FFFEF7', border: '1px solid #F4E8E8' }}>
                       <span className="font-mono font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>50200112612132</span>
                       <button
-                        onClick={() => copyToClipboard('1234567890123456', 'accno')}
+                        onClick={() => copyToClipboard('50200112612132', 'accno')}
                         className="p-2 rounded-lg transition-colors duration-200 flex-shrink-0"
                         style={{ backgroundColor: copiedText === 'accno' ? '#8B1538' : '#C41E3A', color: 'white' }}
                       >
@@ -834,7 +834,7 @@ const navigate=useNavigate();
                     <div className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: '#FFFEF7', border: '1px solid #F4E8E8' }}>
                       <span className="font-mono font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>HDFC0008382</span>
                       <button
-                        onClick={() => copyToClipboard('SBIN0001234', 'ifsc')}
+                        onClick={() => copyToClipboard('HDFC0008382', 'ifsc')}
                         className="p-2 rounded-lg transition-colors duration-200 flex-shrink-0"
                         style={{ backgroundColor: copiedText === 'ifsc' ? '#8B1538' : '#C41E3A', color: 'white' }}
                       >
@@ -896,7 +896,7 @@ const navigate=useNavigate();
                     <div className="flex items-center justify-between">
                       <span className="font-mono font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>+91 9175033022</span>
                       <button
-                        onClick={() => copyToClipboard('+91 98765 43210', 'whatsapp')}
+                        onClick={() => copyToClipboard('+91 9175033022', 'whatsapp')}
                         className="p-2 rounded-lg transition-colors duration-200 flex-shrink-0"
                         style={{ backgroundColor: copiedText === 'whatsapp' ? '#8B1538' : '#C41E3A', color: 'white' }}
                       >
@@ -973,7 +973,7 @@ const navigate=useNavigate();
             Our dedicated support team is here to assist you with your donation.
           </p>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div className="p-4 sm:p-6 rounded-xl" style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
               <Phone className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-3 sm:mb-4" style={{ color: '#C41E3A' }} />
               <h3 className="font-bold mb-2 text-base sm:text-lg" style={{ color: '#2C2C2C' }}>Call Us</h3>
@@ -986,7 +986,38 @@ const navigate=useNavigate();
               <p style={{ color: '#6B4B4B' }}>+91 9175033022</p>
               <p className="text-sm mt-1" style={{ color: '#6B4B4B' }}>Quick response guaranteed</p>
             </div>
-          </div>
+          </div> */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+
+  {/* Call Us */}
+  <a href="tel:+919175033022" className="block">
+    <div className="p-4 sm:p-6 rounded-xl cursor-pointer hover:shadow-md transition"
+         style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
+      <Phone className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-3 sm:mb-4" style={{ color: '#C41E3A' }} />
+      <h3 className="font-bold mb-2 text-base sm:text-lg" style={{ color: '#2C2C2C' }}>Call Us</h3>
+      <p className="text-sm sm:text-base" style={{ color: '#6B4B4B' }}>+91 9175033022</p>
+      <p className="text-xs sm:text-sm mt-1" style={{ color: '#6B4B4B' }}>Mon-Sat: 9 AM - 6 PM</p>
+    </div>
+  </a>
+
+  {/* WhatsApp */}
+  <a
+     href="https://wa.me/919175033022?text=Hello%2C%20I%20want%20to%20donate%20to%20Adiyogi%20Foundation"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block"
+  >
+    <div className="p-6 rounded-xl cursor-pointer hover:shadow-md transition"
+         style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
+      <MessageCircle className="w-8 h-8 mx-auto mb-4" style={{ color: '#C41E3A' }} />
+      <h3 className="font-bold mb-2" style={{ color: '#2C2C2C' }}>WhatsApp</h3>
+      <p style={{ color: '#6B4B4B' }}>+91 9175033022</p>
+      <p className="text-sm mt-1" style={{ color: '#6B4B4B' }}>Quick response guaranteed</p>
+    </div>
+  </a>
+
+</div>
+
         </div>
       </div>
 
