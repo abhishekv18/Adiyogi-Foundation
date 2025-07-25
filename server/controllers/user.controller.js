@@ -166,7 +166,7 @@ export const login = async (req, res) => {
         secure: true,
         sameSite: 'None',
         maxAge: 1 * 24 * 60 * 60 * 1000, // 1 day
-        path: '/',
+        // path: '/',
       })
       .json({
         message: 'Welcome back Admin',
