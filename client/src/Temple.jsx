@@ -1271,7 +1271,7 @@ const timelineEvents = [
   <img
     src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
     alt="Sacred Background"
-    className="absolute inset-0 w-full h-full object-cover opacity-10"
+    className="absolute inset-0 w-full h-full object-cover opacity-15"
   />
 
   {/* Content Layer */}
