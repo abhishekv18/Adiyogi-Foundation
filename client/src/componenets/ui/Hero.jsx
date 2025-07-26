@@ -87,7 +87,7 @@ const HeroWithCarousel = () => {
   return (
     <>
     
-<section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+{/* <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
   <div className="absolute inset-0">
     <img
       src="/WhatsApp Image 2025-07-26 at 22.16.56_530cabac.jpg"
@@ -159,8 +159,81 @@ const HeroWithCarousel = () => {
       </Link>
     </div>
   </div>
-</section>
+</section> */}
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+  <div className="absolute inset-0">
+    <img
+      src="/WhatsApp Image 2025-07-26 at 22.16.56_530cabac.jpg"
+      alt="Sacred Temple Background"
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0" style={{
+      background: 'linear-gradient(to right, rgba(253, 248, 248, 0.92) 0%, rgba(244, 232, 232, 0.85) 50%, rgba(253, 248, 248, 0.92) 100%)'
+    }}></div>
+  </div>
 
+  <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-10">
+   
+    {/* Logo - Larger on mobile */}
+    <div className="flex justify-center">
+      <div className="w-28 h-28 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full shadow-2xl overflow-hidden bg-white">
+        <img
+          src="/WhatsApp Image 2025-07-27 at 02.18.25_b5e40d14.jpg"
+          alt="Adiyogi Foundation Logo"
+          className="w-full h-full object-contain rounded-full"
+        />
+      </div>
+    </div>
+
+    {/* Main Heading - Larger on mobile */}
+    <h1 className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold drop-shadow-lg text-[#2C2C2C]">
+      Adiyogi <span className="text-[#C41E3A]">Foundation</span>
+    </h1>
+
+    {/* Tagline - Larger on mobile */}
+    <p className="text-2xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold tracking-wide text-[#8B1538] drop-shadow-md">
+      Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
+    </p>
+
+    {/* Quote - Larger on mobile */}
+    <div className="px-4 sm:px-4">
+      <p className="text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-[#2C2C2C] leading-relaxed">
+        "Rooted in sacred knowledge, guided by selfless service we rise together as a community, restoring dharma with every step."
+      </p>
+      <p className="mt-3 text-sm sm:text-sm lg:text-base xl:text-lg italic text-[#C41E3A]">
+        A reflection of clarity, compassion, and collective awakening.
+      </p>
+    </div>
+
+    {/* Buttons - Larger on mobile */}
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-5 mt-6 px-4">
+      <Link to='/volunteers'>
+        <button className="w-full sm:w-auto px-8 py-4 sm:px-8 sm:py-4 rounded-lg font-semibold text-lg sm:text-lg transition-transform duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 transform hover:scale-105"
+          style={{
+            background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
+            color: '#FFFEF7'
+          }}>
+          <span>Begin Your Journey</span>
+          <ArrowRight size={20} className="sm:w-5 sm:h-5" />
+        </button>
+      </Link>
+      
+      <Link to='/donate'>
+        <button
+          className="w-full sm:w-auto border-2 px-8 py-4 sm:px-8 sm:py-4 rounded-lg font-semibold text-lg sm:text-lg transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105 hover:text-red-600"
+          style={{
+            borderColor: '#C41E3A',
+            color: '#C41E3A',
+            backgroundColor: 'rgba(255, 254, 247, 0.9)'
+          }}
+        >
+          <Heart size={20} className="sm:w-5 sm:h-5" />
+          <span>Support Our Mission</span>
+        </button>
+      </Link>
+    </div>
+  </div>
+</section>
 
 
       {/* Image Carousel Section */}
@@ -316,80 +389,7 @@ const HeroWithCarousel = () => {
     </p>
   </div>
 </section> */}
-{/* <section className="py-10 sm:py-14 md:py-18 bg-gradient-to-br from-[#FFFEF7] to-[#FDF8F8] relative overflow-hidden">
-      
-  <div className="absolute inset-0 bg-[url('/pattern/om-light.svg')] opacity-5 bg-center bg-no-repeat bg-cover pointer-events-none"></div>
 
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7 items-center relative z-10">
-    
-    
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8 }}
-      className="rounded-xl sm:rounded-2xl overflow-hidden shadow-xl order-2 md:order-1 w-full h-[320px] sm:h-[380px] md:h-[450px] flex justify-end"
-    >
-      <img
-        src="/WhatsApp Image 2025-07-26 at 22.16.56_5bdc78ff.jpg"
-        alt="Aditya Parshuram Nikam"
-        className="h-full w-auto object-cover object-right"
-      />
-    </motion.div>
-
-   
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9 }}
-      className="order-1 md:order-2 py-3 sm:py-5 text-center md:text-left"
-    >
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-[#2C2C2C]">
-        Our <span className="text-[#C41E3A]">Founder's</span> Journey
-      </h1>
-
-      <p className="text-sm sm:text-base md:text-lg text-[#8B1538] font-medium mb-4 sm:mb-5 mx-auto md:mx-0 max-w-md">
-        A personal quest turned into a collective purpose from inner seeking to sacred service.
-      </p>
-
-      <div className="space-y-3 sm:space-y-4 text-[#2C2C2C]/80 text-sm sm:text-base leading-relaxed max-h-[300px] sm:max-h-[350px] overflow-y-auto px-2 sm:px-0 scroll-smooth scrollbar-thin scrollbar-thumb-[#C41E3A]/30 scrollbar-track-transparent">
-        <p>
-          I never imagined I'd be starting something like the Adiyogi Foundation. I spent years pursuing a traditional career real estate, finance, ambition but something always felt... missing.
-        </p>
-        <p>
-          It wasn't about failure or success. It was about <strong>meaning</strong>. Even in moments of achievement, a quiet voice echoed within
-          <em className="text-[#C41E3A]"> what is all this for?</em>
-        </p>
-        <p>
-          Slowly, I began revisiting the ancient insights I'd grown up hearing: <strong>Vastu Shastra</strong>, <strong>Jyotish</strong>, <strong>Indian philosophy</strong>. Not to seek answers, but to reconnect. What began as curiosity, became clarity.
-        </p>
-        <p>
-          The Adiyogi Foundation wasn't born from a plan it emerged from a need. A need to slow down, to reflect, and to share a space where others could do the same.
-        </p>
-        <p>
-          Today, this foundation is not about preaching. It is about remembering. About creating a sacred pause in a chaotic world where you can <strong>realign with your inner direction</strong>.
-        </p>
-        <p>
-          We don't promise shortcuts. But we promise sincerity a community of humans walking their own unique spiritual path with compassion, clarity, and courage.
-        </p>
-        <p>
-          This isn't about me. I'm still learning. And this space it's open for all who wish to walk a little deeper into themselves.
-        </p>
-      </div>
-    </motion.div>
-  </div>
-
- 
-  <div className="mt-8 sm:mt-10 md:mt-14 text-center max-w-3xl mx-auto px-4 sm:px-6">
-    <p className="text-base sm:text-lg md:text-xl italic text-[#8B1538] mb-2">
-      "You don't have to be a saint or a seeker to belong here. Just human."
-    </p>
-    <p className="text-xs sm:text-sm text-[#C41E3A]/70">— Aditya P Nikam</p>
-    <p className="mt-2 sm:mt-3 text-xs sm:text-sm italic text-[#2C2C2C]/60">
-      <span className="text-[#C41E3A] font-semibold">ध्यानम् आत्मा । सेवा धर्मः ।</span>  
-      <br />"Meditation is the soul, Seva is our dharma."
-    </p>
-  </div>
-</section> */}
 <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-[#FFFEF7] to-[#FDF8F8] relative overflow-hidden">
       
   <div className="absolute inset-0 bg-[url('/pattern/om-light.svg')] opacity-5 bg-center bg-no-repeat bg-cover pointer-events-none"></div>
