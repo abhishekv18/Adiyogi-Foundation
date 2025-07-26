@@ -172,7 +172,7 @@ const HeroWithCarousel = () => {
     }}></div>
   </div>
 
-  <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-10">
+  <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 space-y-7 sm:space-y-9">
    
     {/* Logo - Larger on mobile */}
     <div className="flex justify-center">
