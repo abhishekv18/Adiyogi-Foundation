@@ -1732,7 +1732,36 @@ const Header = () => {
           </div>
         </div>
       </div>
+{/* <div className="hidden lg:block bg-white text-[#8B1538] py-2 border-b border-[#C41E3A]/20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center text-sm">
+      <div className="flex items-center space-x-4 xl:space-x-8">
+        <div className="flex items-center space-x-2">
+          <Mail size={16} className="text-[#C41E3A] flex-shrink-0" />
+          <a 
+            href="mailto:social.adiyogifoundation@gmail.com"
+            className="truncate hover:text-[#C41E3A] transition-colors duration-300"
+          >
+            social.adiyogifoundation@gmail.com
+          </a>
+        </div>
 
+        <div className="flex items-center space-x-2">
+          <Phone size={16} className="text-[#C41E3A] flex-shrink-0" />
+          <a 
+            href="tel:+919175033022"
+            className="hover:text-[#C41E3A] transition-colors duration-300"
+          >
+            +91 9175033022
+          </a>
+        </div>
+      </div>
+      <div className="flex items-center">
+        <span className="text-[#8B1538] font-medium whitespace-nowrap">Reviving Heritage, Restoring Faith</span>
+      </div>
+    </div>
+  </div>
+</div> */}
       {/* Main Header */}
       <header 
         className={`sticky top-0 z-50 transition-all duration-300  ${
@@ -1756,7 +1785,7 @@ const Header = () => {
     <img 
       src="/WhatsApp Image 2025-07-27 at 02.18.25_b5e40d14.jpg" 
       alt="Adiyogi Foundation Logo" 
-      className="w-full h-full object-contain rounded-full bg-white shadow-sm" 
+      className="w-full h-full object-contain rounded-ful shadow-sm bg-white" 
     />
   </div>
 </div>
