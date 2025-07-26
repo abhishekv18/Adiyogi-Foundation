@@ -316,13 +316,13 @@ const HeroWithCarousel = () => {
     </p>
   </div>
 </section> */}
-<section className="py-10 sm:py-14 md:py-18 bg-gradient-to-br from-[#FFFEF7] to-[#FDF8F8] relative overflow-hidden">
+{/* <section className="py-10 sm:py-14 md:py-18 bg-gradient-to-br from-[#FFFEF7] to-[#FDF8F8] relative overflow-hidden">
       
   <div className="absolute inset-0 bg-[url('/pattern/om-light.svg')] opacity-5 bg-center bg-no-repeat bg-cover pointer-events-none"></div>
 
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7 items-center relative z-10">
     
-    {/* Image Section */}
+    
     <motion.div
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -336,7 +336,7 @@ const HeroWithCarousel = () => {
       />
     </motion.div>
 
-    {/* Text Content Section */}
+   
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -378,13 +378,82 @@ const HeroWithCarousel = () => {
     </motion.div>
   </div>
 
-  {/* Quote Section */}
+ 
   <div className="mt-8 sm:mt-10 md:mt-14 text-center max-w-3xl mx-auto px-4 sm:px-6">
     <p className="text-base sm:text-lg md:text-xl italic text-[#8B1538] mb-2">
       "You don't have to be a saint or a seeker to belong here. Just human."
     </p>
     <p className="text-xs sm:text-sm text-[#C41E3A]/70">— Aditya P Nikam</p>
     <p className="mt-2 sm:mt-3 text-xs sm:text-sm italic text-[#2C2C2C]/60">
+      <span className="text-[#C41E3A] font-semibold">ध्यानम् आत्मा । सेवा धर्मः ।</span>  
+      <br />"Meditation is the soul, Seva is our dharma."
+    </p>
+  </div>
+</section> */}
+<section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-[#FFFEF7] to-[#FDF8F8] relative overflow-hidden">
+      
+  <div className="absolute inset-0 bg-[url('/pattern/om-light.svg')] opacity-5 bg-center bg-no-repeat bg-cover pointer-events-none"></div>
+
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 items-stretch relative z-10">
+    
+    {/* Image Section - Now with tighter control */}
+    <motion.div
+      initial={{ opacity: 0, x: -30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7 }}
+      className="rounded-lg sm:rounded-xl overflow-hidden shadow-lg order-2 md:order-1 w-full h-[280px] sm:h-[340px] md:h-[420px] lg:h-[480px] flex justify-end"
+    >
+      <img
+        src="/WhatsApp Image 2025-07-26 at 22.16.56_5bdc78ff.jpg"
+        alt="Aditya Parshuram Nikam"
+        className="h-full w-full sm:w-auto object-cover object-right"
+      />
+    </motion.div>
+
+    {/* Text Content Section */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="order-1 md:order-2 py-2 sm:py-4 text-center md:text-left flex flex-col justify-center"
+    >
+      <div className="mx-auto md:mx-0 max-w-md">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-[#2C2C2C]">
+          Our <span className="text-[#C41E3A]">Founder's</span> Journey
+        </h1>
+
+        <p className="text-sm sm:text-base md:text-lg text-[#8B1538] font-medium mb-3 sm:mb-4">
+          A personal quest turned into a collective purpose from inner seeking to sacred service.
+        </p>
+      </div>
+
+      <div className="space-y-2 sm:space-y-3 text-[#2C2C2C]/80 text-sm sm:text-base leading-relaxed max-h-[280px] sm:max-h-[320px] overflow-y-auto px-1 sm:px-2 scroll-smooth">
+        <p>
+          Slowly, I began revisiting the ancient insights I'd grown up hearing: <strong>Vastu Shastra</strong>, <strong>Jyotish</strong>, <strong>Indian philosophy</strong>. Not to seek answers, but to reconnect. What began as curiosity, became clarity.
+        </p>
+        <p>
+          The Adiyogi Foundation wasn't born from a plan it emerged from a need. A need to slow down, to reflect, and to share a space where others could do the same.
+        </p>
+        <p>
+          Today, this foundation is not about preaching. It is about remembering. About creating a sacred pause in a chaotic world where you can <strong>realign with your inner direction</strong>.
+        </p>
+        <p>
+          We don't promise shortcuts. But we promise sincerity a community of humans walking their own unique spiritual path with compassion, clarity, and courage.
+        </p>
+        <p>
+          This isn't about me. I'm still learning. And this space it's open for all who wish to walk a little deeper into themselves.
+        </p>
+      </div>
+    </motion.div>
+  </div>
+
+  {/* Quote Section */}
+  <div className="mt-6 sm:mt-8 md:mt-12 text-center max-w-2xl mx-auto px-4">
+    <p className="text-sm sm:text-base md:text-lg italic text-[#8B1538] mb-1 sm:mb-2">
+      "You don't have to be a saint or a seeker to belong here. Just human."
+    </p>
+    <p className="text-xs sm:text-sm text-[#C41E3A]/70">— Aditya P Nikam</p>
+    <p className="mt-1 sm:mt-2 text-xs italic text-[#2C2C2C]/60">
       <span className="text-[#C41E3A] font-semibold">ध्यानम् आत्मा । सेवा धर्मः ।</span>  
       <br />"Meditation is the soul, Seva is our dharma."
     </p>
