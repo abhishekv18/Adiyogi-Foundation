@@ -426,7 +426,7 @@ const [emailError, setEmailError] = useState('');
               <div className="relative">
                 <div className="w-8 h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
     <img 
-      src="/WhatsApp Image 2025-07-14 at 7.33.21 PM.jpeg" 
+      src="/WhatsApp Image 2025-07-27 at 02.18.25_b5e40d14.jpg" 
       alt="Adiyogi Foundation Logo" 
       className="w-full h-full object-contain rounded-full bg-white shadow-sm" 
     />
