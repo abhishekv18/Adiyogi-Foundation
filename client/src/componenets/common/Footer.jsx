@@ -806,13 +806,18 @@ const [emailError, setEmailError] = useState('');
   </div>
 
   {/* Bottom Footer */}
-  {/* <div className="bg-[#F2EAE6] border-t border-[#EADBD5]">
-    <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-[#6F6156]">
-      <div className="flex items-center space-x-2">
+  
+   {/* <div className="bg-[#F2EAE6] border-t border-[#EADBD5]">
+    <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col gap-3 sm:gap-4 md:flex-row md:justify-between md:items-center text-sm text-[#6F6156]">
+      
+     
+      <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2 text-center sm:text-left">
         <span>© 2025 Adiyogi Foundation. Made by Volunteer Abhishek.</span>
-        <Heart size={12} className="text-sacred-crimson animate-pulse" />
+        <Heart size={12} className="text-sacred-crimson animate-pulse inline-block mt-1 sm:mt-0" />
       </div>
-      <div className="flex items-center space-x-2 mt-3 md:mt-0 text-xs">
+      
+   
+      <div className="flex items-center justify-center space-x-2 text-xs">
         <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
         <span>All systems operational</span>
       </div>
@@ -822,9 +827,11 @@ const [emailError, setEmailError] = useState('');
     <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col gap-3 sm:gap-4 md:flex-row md:justify-between md:items-center text-sm text-[#6F6156]">
       
       {/* Left Section */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2 text-center sm:text-left">
-        <span>© 2025 Adiyogi Foundation. Made by Volunteer Abhishek.</span>
-        <Heart size={12} className="text-sacred-crimson animate-pulse inline-block mt-1 sm:mt-0" />
+      <div className="text-center sm:text-left">
+        <span>
+          © 2025 Adiyogi Foundation. Made by Volunteer Abhishek
+          <Heart size={12} className="inline-block ml-1 text-sacred-crimson animate-pulse" />
+        </span>
       </div>
       
       {/* Right Section */}

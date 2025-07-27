@@ -134,10 +134,13 @@ const navigate=useNavigate();
     }, 300);
   };
 
-  const handleDonate=()=>{
-    navigate("/donate");
-    setIsVisible(false);
-  }
+const handleDonate = () => {
+  setIsVisible(false); // First hide
+  setTimeout(() => {
+    navigate("/donate"); // Then navigate
+  }, 300); // Match your animation duration
+};
+
   if (!isVisible) return null;
 
   return (
@@ -207,11 +210,11 @@ const navigate=useNavigate();
                 className="w-28 h-28 border border-[#F4E8E8] rounded-md shadow-sm"
               />
               <div className="text-xs text-[#C41E3A] font-medium my-1">OR</div>
-              <Link onClick={handleDonate}>
-               <button className="bg-gradient-to-br from-[#C41E3A] to-[#8B1538] text-white text-xs font-medium px-4 py-2 rounded-md shadow-sm hover:opacity-90 transition-opacity">
+             
+               <button onClick={handleDonate} className="bg-gradient-to-br from-[#C41E3A] to-[#8B1538] text-white text-xs font-medium px-4 py-2 rounded-md shadow-sm hover:opacity-90 transition-opacity">
                 Donate Page
               </button>
-              </Link>
+              
              
             </div>
           </div>
