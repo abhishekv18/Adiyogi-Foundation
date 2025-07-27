@@ -1932,16 +1932,26 @@ const Header = () => {
 // onMouseLeave={(e) => {
 //   e.target.style.background = '#6B4B4B'; // Same color on mouse leave
 // }}
-     style={{ 
-                  background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
-                  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
-                }}
+    //  style={{ 
+    //               background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
+    //               boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+    //             }}
+    //             onMouseEnter={(e) => {
+    //               e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
+    //             }}
+    //             onMouseLeave={(e) => {
+    //               e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
+    //             }}
+style={{
+  backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
+  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+}}
+onMouseEnter={(e) => {
+  e.target.style.backgroundColor = '#8B1538'; // slightly darker on hover
+}}
+onMouseLeave={(e) => {
+  e.target.style.backgroundColor = '#C41E3A';
+}}
 
               >
                 <span>Donate</span>
@@ -1952,16 +1962,27 @@ const Header = () => {
               <Link
                 to="/volunteers"
                 className="text-white px-5 xl:px-6 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
-                style={{ 
-                  background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
-                  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
-                }}
+                // style={{ 
+                //   background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
+                //   boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+                // }}
+                // onMouseEnter={(e) => {
+                //   e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
+                // }}
+                // onMouseLeave={(e) => {
+                //   e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
+                // }}
+                style={{
+  backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
+  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+}}
+onMouseEnter={(e) => {
+  e.target.style.backgroundColor = '#8B1538'; // slightly darker on hover
+}}
+onMouseLeave={(e) => {
+  e.target.style.backgroundColor = '#C41E3A';
+}}
+
               >
                 Join Us
               </Link>
@@ -1983,16 +2004,26 @@ const Header = () => {
                   // onMouseLeave={(e) => {
                   //   e.target.style.background = 'linear-gradient(135deg, #2C2C2C 0%, #6B4B4B 100%)';
                   // }}
-    style={{ 
-                    background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
-                    boxShadow: '0 1px 4px rgba(139, 21, 56, 0.2)'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
-                  }}
+    // style={{ 
+    //                 background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
+    //                 boxShadow: '0 1px 4px rgba(139, 21, 56, 0.2)'
+    //               }}
+    //               onMouseEnter={(e) => {
+    //                 e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
+    //               }}
+    //               onMouseLeave={(e) => {
+    //                 e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
+    //               }}
+style={{
+  backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
+  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+}}
+onMouseEnter={(e) => {
+  e.target.style.backgroundColor = '#8B1538'; // slightly darker on hover
+}}
+onMouseLeave={(e) => {
+  e.target.style.backgroundColor = '#C41E3A';
+}}
 
                 >
                   <span>Donate</span>
@@ -2003,16 +2034,27 @@ const Header = () => {
               <Link to="/volunteers" className="flex">
                 <button
                   className="flex items-center justify-center text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[36px] sm:h-[40px]"
-                  style={{ 
-                    background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
-                    boxShadow: '0 1px 4px rgba(139, 21, 56, 0.2)'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
-                  }}
+                  // style={{ 
+                  //   background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
+                  //   boxShadow: '0 1px 4px rgba(139, 21, 56, 0.2)'
+                  // }}
+                  // onMouseEnter={(e) => {
+                  //   e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
+                  // }}
+                  // onMouseLeave={(e) => {
+                  //   e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
+                  // }}
+                  style={{
+  backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
+  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+}}
+onMouseEnter={(e) => {
+  e.target.style.backgroundColor = '#8B1538'; // slightly darker on hover
+}}
+onMouseLeave={(e) => {
+  e.target.style.backgroundColor = '#C41E3A';
+}}
+
                 >
                   Join
                 </button>
