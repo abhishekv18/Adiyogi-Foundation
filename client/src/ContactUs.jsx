@@ -214,7 +214,7 @@ const [errors, setErrors] = useState({
             className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center"
             style={{ backgroundColor: '#C41E3A' }}
           >
-            <Flower className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+            <Flower className="w-8 h-8 sm:w-10 sm:h-10 text-white animate-pulse" />
           </div>
           <div
             className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center"

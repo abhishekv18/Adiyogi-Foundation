@@ -1635,7 +1635,7 @@ const generateBrochureContent = () => {
     <div className="text-center text-gray-800">
       {/* Icon */}
       <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full mb-6 md:mb-8 bg-red-700">
-        <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />
+        <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white animate-pulse" />
       </div>
 
       {/* Heading */}
