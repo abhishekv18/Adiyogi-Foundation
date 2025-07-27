@@ -103,17 +103,26 @@ const AdminLoginPage = () => {
 
     <div className="min-w-0 flex-1">
       <div className="flex flex-col sm:flex-row sm:items-baseline sm:space-x-1">
-        <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-rich-charcoal group-hover:text-deep-ruby transition-colors duration-300 leading-tight">
+        {/* <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-rich-charcoal group-hover:text-deep-ruby transition-colors duration-300 leading-tight">
           Adiyogi
         </h1>
         <h2 className="text-xs sm:text-base lg:text-2xl font-bold text-sacred-crimson group-hover:text-deep-ruby transition-colors duration-300 leading-tight">
           Foundation
-        </h2>
+        </h2> */}
+           <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-[#8C6C6C] group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
+      Adiyogi
+    </h1>
+    <h2 className="text-xs sm:text-base lg:text-2xl font-bold text-sacred-crimson group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
+     Foundation
+    </h2>
       </div>
 
-      <p className="hidden sm:block text-xs font-medium -mt-1 group-hover:text-sacred-crimson transition-colors duration-300 leading-tight text-[#6B4B4B]">
+      {/* <p className="hidden sm:block text-xs font-medium -mt-1 group-hover:text-sacred-crimson transition-colors duration-300 leading-tight text-[#6B4B4B]">
         Rebuilding Purpose. Restoring Dharma.
-      </p>
+      </p> */}
+       <p className="hidden sm:block text-xs font-medium -mt-1 group-hover:text-sacred-crimson transition-colors duration-300 truncate leading-tight" style={{ color: '#6B4B4B' }}>
+    Rebuilding Purpose. Restoring Dharma.
+  </p>
     </div>
   </Link>
 </div>
@@ -288,7 +297,7 @@ const AdminLoginPage = () => {
         </div>
       </div>
 
-      <footer className="bg-[#2C2C2C] text-white">
+      {/* <footer className="bg-[#2C2C2C] text-white">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
@@ -311,7 +320,34 @@ const AdminLoginPage = () => {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> */}
+      <footer className="bg-[#FDFDFB] text-gray-800 border-t border-[#E8E8E8]">
+  <div className="max-w-7xl mx-auto px-4 py-6">
+    <div className="flex flex-col md:flex-row items-center justify-between">
+      <div className="flex items-center space-x-3 mb-4 md:mb-0">
+        <div className="relative flex-shrink-0">
+          <div className="w-8 h-8 rounded-full flex items-center justify-center">
+            <img 
+              src="/WhatsApp Image 2025-07-27 at 02.18.25_b5e40d14.jpg" 
+              alt="Adiyogi Foundation Logo" 
+              className="w-full h-full object-contain rounded-full bg-white shadow-sm" 
+            />
+          </div>
+        </div>
+        <div>
+          <h3 className="text-lg font-bold text-gray-900">
+            <span className='text-[#8C6C6C]'>Adiyogi</span> <span className="text-[#C41E3A]">Foundation</span>
+          </h3>
+          <p className="text-sm text-[#6B4B4B]">Rebuilding Purpose. Restoring Dharma.</p>
+        </div>
+      </div>
+      <div className="text-sm text-gray-500">
+        © 2025 Adiyogi Foundation. All rights reserved.
+      </div>
+    </div>
+  </div>
+</footer>
+
     </div>
   );
 };

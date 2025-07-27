@@ -196,7 +196,7 @@ const HeroWithCarousel = () => {
 
     {/* Main Heading - Larger on mobile */}
     <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg text-[#2C2C2C]">
-    <span className='text-[#6B4B4B]'>Adiyogi</span>  <span className="text-[#C41E3A]">Foundation</span>
+    <span className='text-[#8C6C6C]'>Adiyogi</span>  <span className="text-[#C41E3A]">Foundation</span>
     </h1>
 
     {/* Tagline - Larger on mobile */}

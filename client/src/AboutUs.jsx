@@ -505,7 +505,7 @@ const navigate=useNavigate();
   <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20 z-0"></div>
 
   <div
-    className="absolute inset-0 bg-center bg-cover opacity-20 z-0"
+    className="absolute inset-0 bg-center bg-cover opacity-15 z-0"
     style={{
       backgroundImage: `url('/istockphoto-178757243-612x612.jpg')`,
       backgroundSize: 'cover',
@@ -517,12 +517,12 @@ const navigate=useNavigate();
   <div className="max-w-6xl mx-auto text-center relative z-10">
     {/* Heading & Icon */}
     <div className="mb-6 sm:mb-10">
-      <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2 text-rich-charcoal">
-        About Adiyogi Foundation
+      <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2 ">
+       <span className='text-[#8C6C6C]'>Adiyogi</span>  <span className="text-[#C41E3A]">Foundation</span>
       </h1>
 
       <div
-        className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mx-auto mb-6 sm:mb-8 rounded-full flex items-center justify-center shadow-lg"
+        className="w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 mx-auto mb-6 sm:mb-8 rounded-full flex items-center justify-center shadow-lg"
         style={{ backgroundColor: '#C41E3A' }}
       >
         <Flower className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />

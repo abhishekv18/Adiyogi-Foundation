@@ -1405,10 +1405,12 @@ const navigate=useNavigate();
         </div>
       </section> */}
 <section className="py-12 md:py-20 relative overflow-hidden bg-gradient-to-br from-[#FDF8F8] to-[#FFFEF7]">
-  <div className="absolute inset-0 bg-[url('/public/istockphoto-1195731546-612x612.jpg')] bg-cover bg-center opacity-40 mix-blend-multiply"></div>
+  {/* <div className="absolute inset-0 bg-[url('/public/istockphoto-1195731546-612x612.jpg')] bg-cover bg-center opacity-40 mix-blend-multiply"></div>
 
-  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23C41E3A\\' fill-opacity=\\'0.05\\'%3E%3Ccircle cx=\\'30\\' cy=\\'30\\' r=\\'4\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23C41E3A\\' fill-opacity=\\'0.05\\'%3E%3Ccircle cx=\\'30\\' cy=\\'30\\' r=\\'4\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div> */}
+<div className="absolute inset-0 bg-[url('/WhatsApp%20Image%202025-07-26%20at%2022.16.55_306c1710.jpg')] bg-cover bg-center opacity-40 mix-blend-multiply"></div>
 
+  <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg...')] opacity-30"></div>
   <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
     <div className="text-center mb-8 md:mb-16">
       <div className="flex justify-center mb-4 md:mb-6">
@@ -1439,7 +1441,7 @@ const navigate=useNavigate();
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C2C2C] mb-4 md:mb-6">
             We're not <span className="text-[#C41E3A]">hiring</span>, we're <span className="text-[#C41E3A]">inviting</span>
           </h2>
-          
+         
           <p className="text-lg md:text-xl text-[#2C2C2C] mb-8 md:mb-12">
             Become a Sahyogi Join our community and co create the future.
           </p>
