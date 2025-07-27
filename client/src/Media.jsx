@@ -1144,9 +1144,9 @@ const Media = () => {
 toast('📖 New sacred wisdom has been added', {
   autoClose: 1500,
   hideProgressBar: true,
-  className: 'bg-red-600 text-white font-semibold text-center shadow-lg rounded-md',
+  className: 'bg-red-300 text-white font-semibold text-center shadow-lg rounded-md',
   style: {
-    background: '#dc2626', // red-600
+  background: '#fca5a5', // red-300 (very light red)
     fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)',
     padding: 'clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.625rem, 2vw, 1rem)',
     width: 'fit-content',

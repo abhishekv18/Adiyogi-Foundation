@@ -161,17 +161,26 @@ const HeroWithCarousel = () => {
   </div>
 </section> */}
 <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-  <div className="absolute inset-0">
+  {/* <div className="absolute inset-0">
     <img
-      src="/WhatsApp Image 2025-07-26 at 22.16.56_530cabac.jpg"
+      src="/WhatsApp Image 2025-07-27 at 14.40.43_2e3b5f4c.jpg"
       alt="Sacred Temple Background"
       className="w-full h-full object-cover"
     />
     <div className="absolute inset-0" style={{
       background: 'linear-gradient(to right, rgba(253, 248, 248, 0.92) 0%, rgba(244, 232, 232, 0.85) 50%, rgba(253, 248, 248, 0.92) 100%)'
     }}></div>
-  </div>
-
+  </div> */}
+<div className="absolute inset-0">
+  <img
+    src="/WhatsApp Image 2025-07-27 at 14.40.43_2e3b5f4c.jpg"
+    alt="Sacred Temple Background"
+    className="w-full h-full object-cover"
+  />
+  <div className="absolute inset-0" style={{
+    background: 'linear-gradient(to right, rgba(253, 248, 248, 0.86) 0%, rgba(244, 232, 232, 0.81) 50%, rgba(253, 248, 248, 0.86) 100%)'
+  }}></div>
+</div>
   <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-10">
    
     {/* Logo - Larger on mobile */}
@@ -187,7 +196,7 @@ const HeroWithCarousel = () => {
 
     {/* Main Heading - Larger on mobile */}
     <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg text-[#2C2C2C]">
-      Adiyogi <span className="text-[#C41E3A]">Foundation</span>
+    <span className='text-[#6B4B4B]'>Adiyogi</span>  <span className="text-[#C41E3A]">Foundation</span>
     </h1>
 
     {/* Tagline - Larger on mobile */}
@@ -197,7 +206,7 @@ const HeroWithCarousel = () => {
 
     {/* Quote - Larger on mobile */}
     <div className="px-3 sm:px-4">
-      <p className="text-lg sm:text-lg md:text-xl lg:text-2xl font-medium text-[#2C2C2C] leading-relaxed">
+      <p className="text-lg sm:text-lg md:text-xl lg:text-2xl font-medium text-[#6B4B4B] leading-relaxed">
         "Rooted in sacred knowledge, guided by selfless service we rise together as a community, restoring dharma with every step."
       </p>
       <p className="mt-3 text-sm sm:text-sm lg:text-base italic text-[#C41E3A]">

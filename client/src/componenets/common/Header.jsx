@@ -1698,7 +1698,7 @@ const Header = () => {
   return (
     <>
       {/* Top Contact Bar - Hidden on mobile */}
-      <div className="hidden lg:block bg-rich-charcoal text-warm-ivory py-2 border-b border-soft-rose">
+      {/* <div className="hidden lg:block bg-rich-charcoal text-warm-ivory py-2 border-b border-soft-rose">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-4 xl:space-x-8">
@@ -1731,7 +1731,37 @@ const Header = () => {
             </div>
           </div>
         </div>
+      </div> */}
+      <div className="hidden lg:block bg-rich-charcoal text-warm-ivory py-2 border-b border-soft-rose">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center text-sm">
+      <div className="flex items-center space-x-4 xl:space-x-8">
+        <div className="flex items-center space-x-2">
+          <Mail size={16} className="text-sacred-crimson flex-shrink-0 mt-0.5" />
+          <a 
+            href="mailto:social.adiyogifoundation@gmail.com"
+            className="truncate hover:text-sacred-crimson transition-colors duration-300"
+          >
+            social.adiyogifoundation@gmail.com
+          </a>
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <Phone size={16} className="text-sacred-crimson flex-shrink-0 mt-0.5" />
+          <a 
+            href="tel:+919175033022"
+            className="hover:text-sacred-crimson transition-colors duration-300"
+          >
+            +91 9175033022
+          </a>
+        </div>
       </div>
+      <div className="flex items-center">
+        <span className="text-sacred-crimson font-normal whitespace-nowrap">Reviving Heritage, Restoring Faith</span>
+      </div>
+    </div>
+  </div>
+</div>
 {/* <div className="hidden lg:block bg-white text-[#8B1538] py-2 border-b border-[#C41E3A]/20">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center text-sm">
@@ -1793,7 +1823,7 @@ const Header = () => {
 
               <div className="min-w-0 flex-1">
   <div className="flex flex-col lg:flex-row lg:items-baseline lg:space-x-1">
-    <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-rich-charcoal group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
+    <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-[#6B4B4B] group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
       Adiyogi
     </h1>
     <h2 className="text-xs sm:text-base lg:text-2xl font-bold text-sacred-crimson group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
@@ -1889,16 +1919,16 @@ const Header = () => {
                <button
              
                 className="flex items-center space-x-2 text-white px-4 xl:px-5 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
-                style={{ 
-                  background: 'linear-gradient(135deg, #2C2C2C 0%, #6B4B4B 100%)',
-                  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'linear-gradient(135deg, #6B4B4B 0%, #2C2C2C 100%)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'linear-gradient(135deg, #2C2C2C 0%, #6B4B4B 100%)';
-                }}
+           style={{ 
+  background: '#6B4B4B',
+  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+}}
+onMouseEnter={(e) => {
+  e.target.style.background = '#6B4B4B'; // Same color on hover
+}}
+onMouseLeave={(e) => {
+  e.target.style.background = '#6B4B4B'; // Same color on mouse leave
+}}
               >
                 <span>Donate</span>
               </button>
