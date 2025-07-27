@@ -172,11 +172,11 @@ const HeroWithCarousel = () => {
     }}></div>
   </div>
 
-  <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 space-y-7 sm:space-y-9">
+  <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-10">
    
     {/* Logo - Larger on mobile */}
     <div className="flex justify-center">
-      <div className="w-28 h-28 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full shadow-2xl overflow-hidden bg-white">
+      <div className="w-24 h-24 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full shadow-2xl overflow-hidden bg-white">
         <img
           src="/WhatsApp Image 2025-07-27 at 02.18.25_b5e40d14.jpg"
           alt="Adiyogi Foundation Logo"
@@ -186,21 +186,21 @@ const HeroWithCarousel = () => {
     </div>
 
     {/* Main Heading - Larger on mobile */}
-    <h1 className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold drop-shadow-lg text-[#2C2C2C]">
+    <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg text-[#2C2C2C]">
       Adiyogi <span className="text-[#C41E3A]">Foundation</span>
     </h1>
 
     {/* Tagline - Larger on mobile */}
-    <p className="text-2xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold tracking-wide text-[#8B1538] drop-shadow-md">
+    <p className="text-lg md:text-xl lg:text-2xl font-semibold tracking-wide text-[#8B1538] drop-shadow-md">
       Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
     </p>
 
     {/* Quote - Larger on mobile */}
-    <div className="px-4 sm:px-4">
-      <p className="text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-[#2C2C2C] leading-relaxed">
+    <div className="px-3 sm:px-4">
+      <p className="text-lg sm:text-lg md:text-xl lg:text-2xl font-medium text-[#2C2C2C] leading-relaxed">
         "Rooted in sacred knowledge, guided by selfless service we rise together as a community, restoring dharma with every step."
       </p>
-      <p className="mt-3 text-sm sm:text-sm lg:text-base xl:text-lg italic text-[#C41E3A]">
+      <p className="mt-3 text-sm sm:text-sm lg:text-base italic text-[#C41E3A]">
         A reflection of clarity, compassion, and collective awakening.
       </p>
     </div>
@@ -214,7 +214,7 @@ const HeroWithCarousel = () => {
             color: '#FFFEF7'
           }}>
           <span>Begin Your Journey</span>
-          <ArrowRight size={20} className="sm:w-5 sm:h-5" />
+          <ArrowRight size={20} className=" w-4 h-4 sm:w-5 sm:h-5" />
         </button>
       </Link>
       
@@ -227,7 +227,7 @@ const HeroWithCarousel = () => {
             backgroundColor: 'rgba(255, 254, 247, 0.9)'
           }}
         >
-          <Heart size={20} className="sm:w-5 sm:h-5" />
+          <Heart size={20} className="w-4 h-4 sm:w-5 sm:h-5" />
           <span>Support Our Mission</span>
         </button>
       </Link>
