@@ -408,7 +408,7 @@ const [emailError, setEmailError] = useState('');
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'Media', path: '/media' },
-    { name: 'Temples', path: '/temples' },
+    // { name: 'Temples', path: '/temples' },
     { name: 'Seva', path: '/seva' },
     { name: 'Contact Us', path: '/contact' }
   ];
@@ -677,7 +677,7 @@ const [emailError, setEmailError] = useState('');
           </div>
           <div>
             <h3 className="text-xl font-bold">
-              <span className='text-[#8C6C6C]'>Adiyogi</span> <span className="text-sacred-crimson">Foundation</span>
+             <span className="text-sacred-crimson">Adiyogi Foundation</span>
             </h3>
             <p className="text-sm text-[#6B4B4B]">Rebuilding Purpose. Restoring Dharma.</p>
           </div>

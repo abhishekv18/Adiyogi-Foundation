@@ -1673,7 +1673,7 @@ const Header = () => {
   const navItems = [
     { name: 'About us', path: '/about' },
     { name: 'Media', path: '/media' },
-    { name: 'Temples', path: '/temples' },
+    // { name: 'Temples', path: '/temples' },
     { name: 'Seva', path: '/seva' },
     {name:'Services',path:'/services'}
   ];
@@ -1826,7 +1826,7 @@ const Header = () => {
 
               <div className="min-w-0 flex-1">
   <div className="flex flex-col lg:flex-row lg:items-baseline lg:space-x-1">
-    <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-[#8C6C6C] group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
+    <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-sacred-crimson group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
       Adiyogi
     </h1>
     <h2 className="text-xs sm:text-base lg:text-2xl font-bold text-sacred-crimson group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
@@ -1932,16 +1932,16 @@ const Header = () => {
 // onMouseLeave={(e) => {
 //   e.target.style.background = '#6B4B4B'; // Same color on mouse leave
 // }}
-style={{ 
-  background: '#8C6C6C',
-  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-}}
-onMouseEnter={(e) => {
-  e.target.style.background = '#8C6C6C'; // Same lighter color on hover
-}}
-onMouseLeave={(e) => {
-  e.target.style.background = '#8C6C6C'; // Same lighter color on mouse leave
-}}
+     style={{ 
+                  background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
+                  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
+                }}
 
               >
                 <span>Donate</span>
@@ -1983,16 +1983,16 @@ onMouseLeave={(e) => {
                   // onMouseLeave={(e) => {
                   //   e.target.style.background = 'linear-gradient(135deg, #2C2C2C 0%, #6B4B4B 100%)';
                   // }}
-style={{ 
-  background: '#8C6C6C',
-  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-}}
-onMouseEnter={(e) => {
-  e.target.style.background = '#8C6C6C'; // Same lighter color on hover
-}}
-onMouseLeave={(e) => {
-  e.target.style.background = '#8C6C6C'; // Same lighter color on mouse leave
-}}
+    style={{ 
+                    background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
+                    boxShadow: '0 1px 4px rgba(139, 21, 56, 0.2)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
+                  }}
 
                 >
                   <span>Donate</span>

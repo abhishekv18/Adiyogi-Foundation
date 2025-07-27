@@ -27,7 +27,7 @@ function App() {
         <Routes>
            <Route path="/" element={<Home />} />
              <Route path="/about" element={<AboutUs />} />
-               <Route path="/temples" element={<Temple />} />
+               {/* <Route path="/temples" element={<Temple />} /> */}
                    <Route path="/seva" element={<SevaProjectsPage />} />
                     <Route path="/contact" element={<ContactUs />} />
                        <Route path="/volunteers" element={<Volunteer />} />

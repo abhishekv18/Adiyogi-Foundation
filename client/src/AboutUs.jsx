@@ -518,7 +518,7 @@ const navigate=useNavigate();
     {/* Heading & Icon */}
     <div className="mb-6 sm:mb-10">
       <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2 ">
-       <span className='text-[#8C6C6C]'>Adiyogi</span>  <span className="text-[#C41E3A]">Foundation</span>
+      <span className="text-[#C41E3A]">Adiyogi Foundation</span>
       </h1>
 
       <div

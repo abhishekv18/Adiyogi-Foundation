@@ -109,7 +109,7 @@ const AdminLoginPage = () => {
         <h2 className="text-xs sm:text-base lg:text-2xl font-bold text-sacred-crimson group-hover:text-deep-ruby transition-colors duration-300 leading-tight">
           Foundation
         </h2> */}
-           <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-[#8C6C6C] group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
+           <h1 className="text-sm sm:text-lg lg:text-2xl font-bold text-sacred-crimson group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
       Adiyogi
     </h1>
     <h2 className="text-xs sm:text-base lg:text-2xl font-bold text-sacred-crimson group-hover:text-deep-ruby transition-colors duration-300 truncate leading-tight">
@@ -336,7 +336,7 @@ const AdminLoginPage = () => {
         </div>
         <div>
           <h3 className="text-lg font-bold text-gray-900">
-            <span className='text-[#8C6C6C]'>Adiyogi</span> <span className="text-[#C41E3A]">Foundation</span>
+            <span className="text-[#C41E3A]">Adiyogi Foundation</span>
           </h3>
           <p className="text-sm text-[#6B4B4B]">Rebuilding Purpose. Restoring Dharma.</p>
         </div>
