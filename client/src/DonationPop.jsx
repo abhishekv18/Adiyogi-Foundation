@@ -109,12 +109,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { X, Users, Landmark } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const DonationPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-
+const navigate=useNavigate();
   useEffect(() => {
     const hasShownPopup = sessionStorage.getItem('donation-popup-shown');
     if (!hasShownPopup) {
@@ -134,6 +134,10 @@ const DonationPopup = () => {
     }, 300);
   };
 
+  const handleDonate=()=>{
+    navigate("/donate");
+    setIsVisible(false);
+  }
   if (!isVisible) return null;
 
   return (
@@ -203,7 +207,7 @@ const DonationPopup = () => {
                 className="w-28 h-28 border border-[#F4E8E8] rounded-md shadow-sm"
               />
               <div className="text-xs text-[#C41E3A] font-medium my-1">OR</div>
-              <Link t='/donate'>
+              <Link onClick={handleDonate}>
                <button className="bg-gradient-to-br from-[#C41E3A] to-[#8B1538] text-white text-xs font-medium px-4 py-2 rounded-md shadow-sm hover:opacity-90 transition-opacity">
                 Donate Page
               </button>
