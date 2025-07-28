@@ -2043,10 +2043,10 @@ onMouseLeave={(e) => {
                 {isMenuOpen ? <X size={20} className="sm:w-6 sm:h-6" /> : <Menu size={20} className="sm:w-6 sm:h-6" />}
               </button>
             </div> */}
-            <div className="flex items-center space-x-1 sm:space-x-2 lg:hidden flex-shrink-0">
+ <div className="flex items-center space-x-0.5 sm:space-x-2 lg:hidden flex-shrink-0">
   <Link to="/donate" className="flex">
     <button
-      className="flex items-center justify-center gap-1 sm:gap-2 text-white px-2 sm:px-3 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[36px] sm:h-[40px]"
+      className="flex items-center justify-center gap-[2px] sm:gap-2 text-white px-1.5 sm:px-4 py-1 sm:py-2 rounded text-[10px] sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[30px] sm:h-[40px]"
       style={{
         backgroundColor: '#C41E3A',
         boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
@@ -2054,14 +2054,14 @@ onMouseLeave={(e) => {
       onMouseEnter={(e) => e.target.style.backgroundColor = '#8B1538'}
       onMouseLeave={(e) => e.target.style.backgroundColor = '#C41E3A'}
     >
-      <Heart size={14} strokeWidth={2} />
+      <Heart size={12} strokeWidth={2} />
       <span>Donate</span>
     </button>
   </Link>
 
   <Link to="/volunteers" className="flex">
     <button
-      className="flex items-center justify-center gap-1 sm:gap-2 text-white px-2 sm:px-3 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[36px] sm:h-[40px]"
+      className="flex items-center justify-center gap-[2px] sm:gap-2 text-white px-1.5 sm:px-4 py-1 sm:py-2 rounded text-[10px] sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[30px] sm:h-[40px]"
       style={{
         backgroundColor: '#C41E3A',
         boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
@@ -2069,7 +2069,7 @@ onMouseLeave={(e) => {
       onMouseEnter={(e) => e.target.style.backgroundColor = '#8B1538'}
       onMouseLeave={(e) => e.target.style.backgroundColor = '#C41E3A'}
     >
-      <Users size={14} strokeWidth={2} />
+      <Users size={12} strokeWidth={2} />
       <span>Join</span>
     </button>
   </Link>
@@ -2077,12 +2077,14 @@ onMouseLeave={(e) => {
   {/* Mobile Menu Button */}
   <button
     onClick={() => setIsMenuOpen(!isMenuOpen)}
-    className="lg:hidden p-1.5 sm:p-2 rounded text-rich-charcoal hover:text-sacred-crimson hover:bg-soft-rose transition-all duration-200 flex-shrink-0 h-[36px] sm:h-[40px] w-[36px] sm:w-[40px] flex items-center justify-center"
+    className="lg:hidden p-[6px] sm:p-2 rounded text-rich-charcoal hover:text-sacred-crimson hover:bg-soft-rose transition-all duration-200 flex-shrink-0 h-[30px] sm:h-[40px] w-[30px] sm:w-[40px] flex items-center justify-center"
     aria-label="Toggle menu"
   >
-    {isMenuOpen ? <X size={20} className="sm:w-6 sm:h-6" /> : <Menu size={20} className="sm:w-6 sm:h-6" />}
+    {isMenuOpen ? <X size={16} className="sm:w-6 sm:h-6" /> : <Menu size={16} className="sm:w-6 sm:h-6" />}
   </button>
 </div>
+
+
 
           </div>
         </div>
