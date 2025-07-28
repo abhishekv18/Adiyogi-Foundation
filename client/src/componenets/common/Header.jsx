@@ -1632,7 +1632,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Mail, Heart, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, Mail, Heart, ChevronDown, Users } from 'lucide-react';
 
 
 const Header = () => {
@@ -1917,32 +1917,13 @@ const Header = () => {
             </nav>
 
             {/* Desktop CTA Buttons */}
-            <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-shrink-0">
+            {/* <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-shrink-0">
               <Link to='/donate'>
                <button
              
-                className="flex items-center space-x-2 text-white px-4 xl:px-5 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
-//            style={{ 
-//   background: '#6B4B4B',
-//   boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-// }}
-// onMouseEnter={(e) => {
-//   e.target.style.background = '#6B4B4B'; // Same color on hover
-// }}
-// onMouseLeave={(e) => {
-//   e.target.style.background = '#6B4B4B'; // Same color on mouse leave
-// }}
-    //  style={{ 
-    //               background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
-    //               boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-    //             }}
-    //             onMouseEnter={(e) => {
-    //               e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
-    //             }}
-    //             onMouseLeave={(e) => {
-    //               e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
-    //             }}
-style={{
+                 className="text-white px-4 xl:px-5 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
+
+               style={{
   backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
   boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
 }}
@@ -1952,7 +1933,6 @@ onMouseEnter={(e) => {
 onMouseLeave={(e) => {
   e.target.style.backgroundColor = '#C41E3A';
 }}
-
               >
                 <span>Donate</span>
               </button>
@@ -1961,17 +1941,8 @@ onMouseLeave={(e) => {
 
               <Link
                 to="/volunteers"
-                className="text-white px-5 xl:px-6 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
-                // style={{ 
-                //   background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
-                //   boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-                // }}
-                // onMouseEnter={(e) => {
-                //   e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
-                // }}
-                // onMouseLeave={(e) => {
-                //   e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
-                // }}
+                className="text-white px-4 xl:px-5 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
+             
                 style={{
   backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
   boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
@@ -1986,34 +1957,46 @@ onMouseLeave={(e) => {
               >
                 Join Us
               </Link>
-            </div>
+            </div> */}
+<div className="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-shrink-0">
+  <Link to="/donate">
+    <button
+      className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
+      style={{
+        backgroundColor: '#C41E3A',
+        boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+      }}
+      onMouseEnter={(e) => e.target.style.backgroundColor = '#8B1538'}
+      onMouseLeave={(e) => e.target.style.backgroundColor = '#C41E3A'}
+    >
+      <Heart size={16} strokeWidth={2} />
+      <span>Donate</span>
+    </button>
+  </Link>
+
+  <Link to="/volunteers">
+    <button
+      className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
+      style={{
+        backgroundColor: '#C41E3A',
+        boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+      }}
+      onMouseEnter={(e) => e.target.style.backgroundColor = '#8B1538'}
+      onMouseLeave={(e) => e.target.style.backgroundColor = '#C41E3A'}
+    >
+      <Users size={16} strokeWidth={2} />
+      <span>Join Us</span>
+    </button>
+  </Link>
+</div>
 
             {/* Mobile Right Section - Donate + Join Us Button + Menu Button */}
-            <div className="flex items-center space-x-1 sm:space-x-2 lg:hidden flex-shrink-0">
-              {/* Mobile Donate Button */}
+            {/* <div className="flex items-center space-x-1 sm:space-x-2 lg:hidden flex-shrink-0">
+            
               <Link to='/donate' className="flex">
                 <button
-                  className="flex items-center justify-center text-white px-2 sm:px-3 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[36px] sm:h-[40px]"
-                  // style={{ 
-                  //   background: 'linear-gradient(135deg, #2C2C2C 0%, #6B4B4B 100%)',
-                  //   boxShadow: '0 1px 4px rgba(139, 21, 56, 0.2)'
-                  // }}
-                  // onMouseEnter={(e) => {
-                  //   e.target.style.background = 'linear-gradient(135deg, #6B4B4B 0%, #2C2C2C 100%)';
-                  // }}
-                  // onMouseLeave={(e) => {
-                  //   e.target.style.background = 'linear-gradient(135deg, #2C2C2C 0%, #6B4B4B 100%)';
-                  // }}
-    // style={{ 
-    //                 background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
-    //                 boxShadow: '0 1px 4px rgba(139, 21, 56, 0.2)'
-    //               }}
-    //               onMouseEnter={(e) => {
-    //                 e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
-    //               }}
-    //               onMouseLeave={(e) => {
-    //                 e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
-    //               }}
+               className="flex items-center justify-center text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[36px] sm:h-[40px]"
+                 
 style={{
   backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
   boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
@@ -2030,20 +2013,11 @@ onMouseLeave={(e) => {
                 </button>
               </Link>
 
-              {/* Mobile Join Us Button */}
+             
               <Link to="/volunteers" className="flex">
                 <button
                   className="flex items-center justify-center text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[36px] sm:h-[40px]"
-                  // style={{ 
-                  //   background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
-                  //   boxShadow: '0 1px 4px rgba(139, 21, 56, 0.2)'
-                  // }}
-                  // onMouseEnter={(e) => {
-                  //   e.target.style.background = 'linear-gradient(135deg, #8B1538 0%, #C41E3A 100%)';
-                  // }}
-                  // onMouseLeave={(e) => {
-                  //   e.target.style.background = 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)';
-                  // }}
+                 
                   style={{
   backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
   boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
@@ -2060,7 +2034,7 @@ onMouseLeave={(e) => {
                 </button>
               </Link>
 
-              {/* Mobile Menu Button */}
+             
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="lg:hidden p-1.5 sm:p-2 rounded text-rich-charcoal hover:text-sacred-crimson hover:bg-soft-rose transition-all duration-200 flex-shrink-0 h-[36px] sm:h-[40px] w-[36px] sm:w-[40px] flex items-center justify-center"
@@ -2068,7 +2042,48 @@ onMouseLeave={(e) => {
               >
                 {isMenuOpen ? <X size={20} className="sm:w-6 sm:h-6" /> : <Menu size={20} className="sm:w-6 sm:h-6" />}
               </button>
-            </div>
+            </div> */}
+            <div className="flex items-center space-x-1 sm:space-x-2 lg:hidden flex-shrink-0">
+  <Link to="/donate" className="flex">
+    <button
+      className="flex items-center justify-center gap-1 sm:gap-2 text-white px-2 sm:px-3 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[36px] sm:h-[40px]"
+      style={{
+        backgroundColor: '#C41E3A',
+        boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+      }}
+      onMouseEnter={(e) => e.target.style.backgroundColor = '#8B1538'}
+      onMouseLeave={(e) => e.target.style.backgroundColor = '#C41E3A'}
+    >
+      <Heart size={14} strokeWidth={2} />
+      <span>Donate</span>
+    </button>
+  </Link>
+
+  <Link to="/volunteers" className="flex">
+    <button
+      className="flex items-center justify-center gap-1 sm:gap-2 text-white px-2 sm:px-3 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[36px] sm:h-[40px]"
+      style={{
+        backgroundColor: '#C41E3A',
+        boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
+      }}
+      onMouseEnter={(e) => e.target.style.backgroundColor = '#8B1538'}
+      onMouseLeave={(e) => e.target.style.backgroundColor = '#C41E3A'}
+    >
+      <Users size={14} strokeWidth={2} />
+      <span>Join</span>
+    </button>
+  </Link>
+
+  {/* Mobile Menu Button */}
+  <button
+    onClick={() => setIsMenuOpen(!isMenuOpen)}
+    className="lg:hidden p-1.5 sm:p-2 rounded text-rich-charcoal hover:text-sacred-crimson hover:bg-soft-rose transition-all duration-200 flex-shrink-0 h-[36px] sm:h-[40px] w-[36px] sm:w-[40px] flex items-center justify-center"
+    aria-label="Toggle menu"
+  >
+    {isMenuOpen ? <X size={20} className="sm:w-6 sm:h-6" /> : <Menu size={20} className="sm:w-6 sm:h-6" />}
+  </button>
+</div>
+
           </div>
         </div>
 
