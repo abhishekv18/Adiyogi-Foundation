@@ -668,11 +668,11 @@ const [emailError, setEmailError] = useState('');
       {/* Brand */}
       <div className="sm:col-span-2 lg:col-span-5">
         <div className="flex items-center space-x-3 mb-6 sm:mb-8">
-          <div className="w-10 h-10 rounded-full overflow-hidden shadow-md">
+          <div className="w-11 h-11 rounded-full overflow-hidden">
             <img 
-              src="/WhatsApp Image 2025-07-27 at 02.18.25_b5e40d14.jpg" 
+              src="/Adiyogifoundation logo_02.png" 
               alt="Adiyogi Foundation Logo" 
-              className="w-full h-full object-cover bg-white rounded-full"
+              className="w-full h-full object-cover rounded-full"
             />
           </div>
           <div>

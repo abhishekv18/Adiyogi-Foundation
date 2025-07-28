@@ -92,11 +92,11 @@ const AdminLoginPage = () => {
     className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0 min-w-0 max-w-full sm:max-w-none"
   >
     <div className="relative flex-shrink-0">
-      <div className="w-8 h-8 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+      <div className="w-11 h-11 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
         <img
-          src="/WhatsApp Image 2025-07-27 at 02.18.25_b5e40d14.jpg"
+          src="/Adiyogifoundation logo_02.png"
           alt="Adiyogi Foundation Logo"
-          className="w-full h-full object-contain rounded-full bg-white shadow-sm"
+          className="w-full h-full object-contain rounded-full"
         />
       </div>
     </div>
@@ -326,11 +326,11 @@ const AdminLoginPage = () => {
     <div className="flex flex-col md:flex-row items-center justify-between">
       <div className="flex items-center space-x-3 mb-4 md:mb-0">
         <div className="relative flex-shrink-0">
-          <div className="w-8 h-8 rounded-full flex items-center justify-center">
+          <div className="w-11 h-11 rounded-full flex items-center justify-center">
             <img 
-              src="/WhatsApp Image 2025-07-27 at 02.18.25_b5e40d14.jpg" 
+              src="/Adiyogifoundation logo_02.png" 
               alt="Adiyogi Foundation Logo" 
-              className="w-full h-full object-contain rounded-full bg-white shadow-sm" 
+              className="w-full h-full object-contain rounded-full " 
             />
           </div>
         </div>
