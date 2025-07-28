@@ -607,7 +607,7 @@ const Volunteer = () => {
               {/* Skills Field */}
               <div>
                 <label className="block text-xs md:text-sm font-medium mb-1 md:mb-2" style={{ color: '#2C2C2C' }}>
-                  Skills & Expertise
+                  Skills & Expertise *
                 </label>
                 <div className="relative">
                   <Award size={16} style={{ color: '#C41E3A' }} className="absolute left-3 top-3 md:top-4" />
@@ -630,7 +630,7 @@ const Volunteer = () => {
               {/* Message Field */}
               <div>
                 <label className="block text-xs md:text-sm font-medium mb-1 md:mb-2" style={{ color: '#2C2C2C' }}>
-                  Message & Motivation
+                  Message & Motivation *
                 </label>
                 <div className="relative">
                   <MessageSquare size={16} style={{ color: '#C41E3A' }} className="absolute left-3 top-3 md:top-4" />

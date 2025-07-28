@@ -1484,7 +1484,7 @@ toast('📖 New sacred wisdom has been added', {
                         </div>
                         <div className="flex items-center">
                           <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                          <span>{Math.ceil(blog.content.length / 200)} min read</span>
+                          <span>{Math.ceil(blog.content.length / 410)} min read</span>
                         </div>
                       </div>
                       
@@ -1563,7 +1563,7 @@ toast('📖 New sacred wisdom has been added', {
               </div>
               <div className="flex items-center text-xs sm:text-sm text-gray-600 bg-white rounded-full px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 shadow-sm whitespace-nowrap">
                 <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-sacred-crimson" />
-                <span>{Math.ceil(selectedBlog.content.length / 200)} min read</span>
+                <span>{Math.ceil(selectedBlog.content.length / 410)} min read</span>
               </div>
             </div>
             <div className="flex items-center space-x-1 sm:space-x-2 mt-1 sm:mt-0">
