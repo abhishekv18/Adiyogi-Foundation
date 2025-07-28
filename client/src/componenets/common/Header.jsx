@@ -1961,7 +1961,7 @@ onMouseLeave={(e) => {
 <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-shrink-0">
   <Link to="/donate">
     <button
-      className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
+      className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
       style={{
         backgroundColor: '#C41E3A',
         boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
@@ -1976,7 +1976,7 @@ onMouseLeave={(e) => {
 
   <Link to="/volunteers">
     <button
-      className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
+      className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm  transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
       style={{
         backgroundColor: '#C41E3A',
         boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
