@@ -186,7 +186,7 @@ const handleDonate = () => {
         </div>
 
         <div className="p-4 sm:p-5">
-          <div className="grid grid-cols-2 gap-3 mb-4">
+          <div className="grid grid-cols-2 gap-3 mb-3 md:mb-4">
             <div className="text-center p-2 bg-[#FDF8F8] rounded-lg border border-[#F4E8E8]">
               <Landmark className="w-4 h-4 text-[#C41E3A] mx-auto mb-1" />
               <div className="text-base font-bold text-[#2C2C2C]">2+</div>
@@ -211,8 +211,8 @@ const handleDonate = () => {
               />
               <div className="text-xs text-[#C41E3A] font-medium my-1">OR</div>
              
-               <button onClick={handleDonate} className="bg-gradient-to-br from-[#C41E3A] to-[#8B1538] text-white text-xs font-medium px-4 py-2 rounded-md shadow-sm hover:opacity-90 transition-opacity">
-                Donate Page
+               <button onClick={handleDonate} className="bg-gradient-to-br from-[#C41E3A] to-[#8B1538] text-white text-xs font-medium px-4 py-2 md:px-5 md:py-2.5 rounded-md shadow-sm hover:opacity-90 transition-opacity">
+                Donation Page
               </button>
               
              

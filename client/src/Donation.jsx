@@ -785,7 +785,7 @@ const navigate=useNavigate();
                 <div className="p-4 rounded-lg" style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
                   <label className="block text-sm font-medium mb-2" style={{ color: '#6B4B4B' }}>Beneficiary Name</label>
                   <div className="p-3 rounded-lg" style={{ backgroundColor: '#FFFEF7', border: '1px solid #F4E8E8' }}>
-                    <span className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Adiyogi Spiritual Foundation</span>
+                    <span className="font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>Adiyogi Foundation</span>
                   </div>
                 </div>
 
