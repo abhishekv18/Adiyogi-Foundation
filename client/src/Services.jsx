@@ -1626,7 +1626,7 @@ const generateBrochureContent = () => {
   <div
     className="absolute inset-0 opacity-20 z-0 bg-cover bg-center bg-scroll"
     style={{
-      backgroundImage: "url('/istockphoto-137340137-612x612.jpg')",
+      backgroundImage: "url('/240_F_914601473_DZkb0mhvnrHvQExlOYLkXh3AfVzdEHyf.jpg')",
     }}
   />
 
