@@ -716,23 +716,23 @@ const timelineEvents = [
   {/* Overlay gradient */}
   <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20 z-0"></div>
 
-  {/* Background image */}
+  {/* Background image without backgroundAttachment: 'fixed' */}
   <div
-    className="absolute inset-0 opacity-20 z-0"
+    className="absolute inset-0 opacity-20 z-0 bg-cover bg-center bg-no-repeat"
     style={{
-      backgroundImage: "url('https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200&h=800&fit=crop&crop=center')",
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundAttachment: 'fixed',
+      backgroundImage:
+        "url('https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1200&h=800&fit=crop&crop=center')",
     }}
   ></div>
 
   {/* Main content */}
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-24 text-center z-10">
-    
     {/* Icon */}
     <div className="flex justify-center mb-6 sm:mb-8">
-      <div className="p-3 sm:p-5 rounded-full shadow-lg" style={{ backgroundColor: '#C41E3A' }}>
+      <div
+        className="p-3 sm:p-5 rounded-full shadow-lg"
+        style={{ backgroundColor: "#C41E3A" }}
+      >
         <OmSymbol className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16" color="#FFFEF7" />
       </div>
     </div>
@@ -752,9 +752,9 @@ const timelineEvents = [
     {/* Symbol Row */}
     <div className="flex justify-center items-center space-x-3 sm:space-x-4 md:space-x-6 mb-6 sm:mb-8">
       <LotusSymbol className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
-      <div className="w-6 sm:w-8 md:w-10 h-0.5" style={{ backgroundColor: '#C41E3A' }}></div>
+      <div className="w-6 sm:w-8 md:w-10 h-0.5" style={{ backgroundColor: "#C41E3A" }}></div>
       <OmSymbol className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
-      <div className="w-6 sm:w-8 md:w-10 h-0.5" style={{ backgroundColor: '#C41E3A' }}></div>
+      <div className="w-6 sm:w-8 md:w-10 h-0.5" style={{ backgroundColor: "#C41E3A" }}></div>
       <LotusSymbol className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
     </div>
 
@@ -763,8 +763,8 @@ const timelineEvents = [
       <button
         className="px-5 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-lg font-semibold text-white text-sm sm:text-base md:text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
         style={{
-          backgroundColor: '#C41E3A',
-          boxShadow: '0 4px 20px rgba(139, 21, 56, 0.2)',
+          backgroundColor: "#C41E3A",
+          boxShadow: "0 4px 20px rgba(139, 21, 56, 0.2)",
         }}
       >
         Join Our Sacred Mission
@@ -772,6 +772,7 @@ const timelineEvents = [
     </Link>
   </div>
 </div>
+
 
       {/* Project Overview */}
       <div className="max-w-7xl mx-auto px-4 py-12 sm:py-16 md:py-20 sm:px-6 lg:px-8">
