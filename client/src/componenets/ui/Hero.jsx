@@ -87,90 +87,9 @@ const HeroWithCarousel = () => {
   return (
     <>
     
-{/* <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-  <div className="absolute inset-0">
-    <img
-      src="/WhatsApp Image 2025-07-26 at 22.16.56_530cabac.jpg"
-      alt="Sacred Temple Background"
-      className="w-full h-full object-cover"
-    />
-    <div className="absolute inset-0" style={{
-      background: 'linear-gradient(to right, rgba(253, 248, 248, 0.92) 0%, rgba(244, 232, 232, 0.85) 50%, rgba(253, 248, 248, 0.92) 100%)'
-    }}></div>
-  </div>
-
-  <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 space-y-6 sm:space-y-8">
-   
-    <div className="flex justify-center">
-      <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full shadow-2xl overflow-hidden bg-white">
-        <img
-          src="/WhatsApp Image 2025-07-27 at 02.18.25_b5e40d14.jpg"
-          alt="Adiyogi Foundation Logo"
-          className="w-full h-full object-contain rounded-full"
-        />
-      </div>
-    </div>
-
-   
-    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg text-[#2C2C2C]">
-      Adiyogi <span className="text-[#C41E3A]">Foundation</span>
-    </h1>
-
-   
-    <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold tracking-wide text-[#8B1538] drop-shadow-md">
-      Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
-    </p>
-
-   
-    <div className="px-2 sm:px-4">
-      <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-[#2C2C2C] leading-relaxed">
-        "Rooted in sacred knowledge, guided by selfless service we rise together as a community, restoring dharma with every step."
-      </p>
-      <p className="mt-2 text-xs sm:text-sm lg:text-base italic text-[#C41E3A]">
-        A reflection of clarity, compassion, and collective awakening.
-      </p>
-    </div>
-
-   
-    <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4 px-4">
-      <Link to='/volunteers'>
-        <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-transform duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 transform hover:scale-105"
-          style={{
-            background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
-            color: '#FFFEF7'
-          }}>
-          <span>Begin Your Journey</span>
-          <ArrowRight size={18} className="sm:w-5 sm:h-5" />
-        </button>
-      </Link>
-      
-      <Link to='/donate'>
-        <button
-          className="w-full sm:w-auto border-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105 hover:text-red-600"
-          style={{
-            borderColor: '#C41E3A',
-            color: '#C41E3A',
-            backgroundColor: 'rgba(255, 254, 247, 0.9)'
-          }}
-        >
-          <Heart size={18} className="sm:w-5 sm:h-5" />
-          <span>Support Our Mission</span>
-        </button>
-      </Link>
-    </div>
-  </div>
-</section> */}
+{/* 
 <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-  {/* <div className="absolute inset-0">
-    <img
-      src="/WhatsApp Image 2025-07-27 at 14.40.43_2e3b5f4c.jpg"
-      alt="Sacred Temple Background"
-      className="w-full h-full object-cover"
-    />
-    <div className="absolute inset-0" style={{
-      background: 'linear-gradient(to right, rgba(253, 248, 248, 0.92) 0%, rgba(244, 232, 232, 0.85) 50%, rgba(253, 248, 248, 0.92) 100%)'
-    }}></div>
-  </div> */}
+ 
 <div className="absolute inset-0">
   <img
     src="/WhatsApp Image 2025-07-27 at 14.40.43_2e3b5f4c.jpg"
@@ -183,7 +102,7 @@ const HeroWithCarousel = () => {
 </div>
   <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-10">
    
-    {/* Logo - Larger on mobile */}
+   
     <div className="flex justify-center">
       <div className="w-32 h-32 sm:w-32 sm:h-32 md:w-36 md:h-36 xl:w-40 xl:h-40 rounded-full overflow-hidden">
         <img
@@ -194,17 +113,17 @@ const HeroWithCarousel = () => {
       </div>
     </div>
 
-    {/* Main Heading - Larger on mobile */}
+   
     <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg text-[#2C2C2C]">
      <span className="text-[#C41E3A]">Adiyogi Foundation</span>
     </h1>
 
-    {/* Tagline - Larger on mobile */}
+    
     <p className="text-lg md:text-xl lg:text-2xl font-semibold tracking-wide text-[#8B1538] drop-shadow-md">
       Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
     </p>
 
-    {/* Quote - Larger on mobile */}
+    
     <div className="px-3 sm:px-4">
       <p className="text-lg sm:text-lg md:text-xl lg:text-2xl font-medium text-[#6B4B4B] leading-relaxed">
         "Rooted in sacred knowledge, guided by selfless service we rise together as a community, restoring dharma with every step."
@@ -214,7 +133,7 @@ const HeroWithCarousel = () => {
       </p>
     </div>
 
-    {/* Buttons - Larger on mobile */}
+   
     <div className="flex flex-col sm:flex-row justify-center items-center gap-5 mt-6 px-4">
       <Link to='/volunteers'>
         <button className="w-full sm:w-auto px-7 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-lg sm:text-lg transition-transform duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 transform hover:scale-105"
@@ -242,7 +161,88 @@ const HeroWithCarousel = () => {
       </Link>
     </div>
   </div>
+</section> */}
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 pt-5 sm:pt-9 lg:pt-11 pb-12 sm:pb-20">
+  <div className="absolute inset-0">
+    <img
+      src="/WhatsApp Image 2025-07-27 at 14.40.43_2e3b5f4c.jpg"
+      alt="Sacred Temple Background"
+      className="w-full h-full object-cover"
+    />
+    <div
+      className="absolute inset-0"
+      style={{
+        background:
+          'linear-gradient(to right, rgba(253, 248, 248, 0.86) 0%, rgba(244, 232, 232, 0.81) 50%, rgba(253, 248, 248, 0.86) 100%)',
+      }}
+    ></div>
+  </div>
+
+  <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6">
+    
+    {/* Logo */}
+    <div className="flex justify-center mb-4 sm:mb-6 lg:mb-3 mt-0">
+      <div className="w-32 h-32 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full overflow-hidden">
+        <img
+          src="/Adiyogifoundation logo_02.png"
+          alt="Adiyogi Foundation Logo"
+          className="w-full h-full object-cover rounded-full"
+        />
+      </div>
+    </div>
+
+    {/* Heading */}
+    <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg text-[#2C2C2C] mb-3 sm:mb-4">
+      <span className="text-[#C41E3A]">Adiyogi Foundation</span>
+    </h1>
+
+    {/* Subheading */}
+    <p className="text-lg md:text-xl lg:text-2xl font-semibold tracking-wide text-[#8B1538] drop-shadow-md mb-4 sm:mb-6">
+      Rebuilding Purpose. Restoring Dharma. Reviving the Sacred.
+    </p>
+
+    {/* Quote */}
+    <div className="px-3 sm:px-4 mb-4 sm:mb-6">
+      <p className="text-lg sm:text-lg md:text-xl lg:text-2xl font-medium text-[#6B4B4B] leading-relaxed">
+        "Rooted in sacred knowledge, guided by selfless service we rise together as a community, restoring dharma with every step."
+      </p>
+      <p className="mt-3 text-sm sm:text-sm lg:text-base italic text-[#C41E3A]">
+        A reflection of clarity, compassion, and collective awakening.
+      </p>
+    </div>
+
+    {/* Buttons */}
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-5 mt-6 px-4">
+      <Link to="/volunteers">
+        <button
+          className="w-full sm:w-auto px-7 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-lg sm:text-lg transition-transform duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 transform hover:scale-105"
+          style={{
+            background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
+            color: '#FFFEF7',
+          }}
+        >
+          <span>Begin Your Journey</span>
+          <ArrowRight size={20} className="w-4 h-4 sm:w-5 sm:h-5" />
+        </button>
+      </Link>
+
+      <Link to="/donate">
+        <button
+          className="w-full sm:w-auto border-2 px-7 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-lg sm:text-lg transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105 hover:text-red-600"
+          style={{
+            borderColor: '#C41E3A',
+            color: '#C41E3A',
+            backgroundColor: 'rgba(255, 254, 247, 0.9)',
+          }}
+        >
+          <Heart size={20} className="w-4 h-4 sm:w-5 sm:h-5" />
+          <span>Support Our Mission</span>
+        </button>
+      </Link>
+    </div>
+  </div>
 </section>
+
 
 
       {/* Image Carousel Section */}
