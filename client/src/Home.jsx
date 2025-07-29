@@ -915,31 +915,36 @@ const navigate=useNavigate();
 
   return (
     <>
-    <Helmet>
+   <Helmet>
   {/* Primary Meta Tags */}
   <title>Adiyogi Foundation | Rebuilding Purpose. Restoring Dharma.</title>
   <meta name="title" content="Adiyogi Foundation | Rebuilding Purpose. Restoring Dharma." />
-  <meta name="description" content="Adiyogi Foundation is committed to restoring Sanatana Dharma, guiding spiritual growth, and reviving ancient Indian wisdom for a better world." />
-  <meta name="keywords" content="Adiyogi, Foundation, Dharma, Sanatana Dharma, Spirituality, Yoga, Indian Culture, Meditation, Inner Peace" />
+  <meta name="description" content="Adiyogi Foundation is a spiritual and cultural movement committed to restoring Sanatana Dharma, reviving ancient wisdom, and guiding humanity towards peace and purpose." />
+  <meta name="keywords" content="Adiyogi Foundation, Sanatana Dharma, Yoga, Spirituality, Indian Culture, Meditation, Dharma Revival, Inner Peace, Ancient Wisdom, Adiyogi Mission" />
   <meta name="author" content="Adiyogi Foundation" />
   <meta name="robots" content="index, follow" />
+  <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  {/* Canonical Link */}
+  <link rel="canonical" href="https://www.adiyogifoundation.org.in/" />
 
   {/* Open Graph / Facebook / LinkedIn */}
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.adiyogifoundation.org.in/" />
   <meta property="og:title" content="Adiyogi Foundation | Rebuilding Purpose. Restoring Dharma." />
-  <meta property="og:description" content="Join the Adiyogi Foundation in restoring Dharma and guiding humanity toward spiritual awakening and peace." />
-  <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
-  <meta property="og:image:alt" content="Adiyogi Foundation Logo" />
+  <meta property="og:description" content="Join Adiyogi Foundation in restoring Dharma and guiding humanity through ancient Indian spiritual traditions and inner transformation." />
+  <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation%20logo_02.png" />
+  <meta property="og:image:alt" content="Adiyogi Foundation Logo - Reviving Dharma" />
   <meta property="og:site_name" content="Adiyogi Foundation" />
 
   {/* Twitter */}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://www.adiyogifoundation.org.in/" />
   <meta name="twitter:title" content="Adiyogi Foundation | Rebuilding Purpose. Restoring Dharma." />
-  <meta name="twitter:description" content="Follow the mission to restore Sanatana Dharma and revive ancient spiritual wisdom for the modern world." />
-  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
-  <meta name="twitter:image:alt" content="Adiyogi Foundation Logo" />
+  <meta name="twitter:description" content="Discover the movement to revive Sanatana Dharma, Yoga, and India's ancient spiritual wisdom through Adiyogi Foundation." />
+  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation%20logo_02.png" />
+  <meta name="twitter:image:alt" content="Adiyogi Foundation Twitter Image" />
 </Helmet>
 
 
