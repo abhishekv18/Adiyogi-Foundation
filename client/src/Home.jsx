@@ -733,6 +733,7 @@ import {
 import Hero from './componenets/ui/Hero';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
+import { Helmet } from "react-helmet";
 
 const Home = () => {
 
@@ -913,7 +914,36 @@ const navigate=useNavigate();
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FDF8F8] to-[#FFFEF7]">
+    <>
+    <Helmet>
+  {/* Primary Meta Tags */}
+  <title>Adiyogi Foundation | Rebuilding Purpose. Restoring Dharma.</title>
+  <meta name="title" content="Adiyogi Foundation | Rebuilding Purpose. Restoring Dharma." />
+  <meta name="description" content="Adiyogi Foundation is committed to restoring Sanatana Dharma, guiding spiritual growth, and reviving ancient Indian wisdom for a better world." />
+  <meta name="keywords" content="Adiyogi, Foundation, Dharma, Sanatana Dharma, Spirituality, Yoga, Indian Culture, Meditation, Inner Peace" />
+  <meta name="author" content="Adiyogi Foundation" />
+  <meta name="robots" content="index, follow" />
+
+  {/* Open Graph / Facebook / LinkedIn */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.adiyogifoundation.org.in/" />
+  <meta property="og:title" content="Adiyogi Foundation | Rebuilding Purpose. Restoring Dharma." />
+  <meta property="og:description" content="Join the Adiyogi Foundation in restoring Dharma and guiding humanity toward spiritual awakening and peace." />
+  <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta property="og:image:alt" content="Adiyogi Foundation Logo" />
+  <meta property="og:site_name" content="Adiyogi Foundation" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.adiyogifoundation.org.in/" />
+  <meta name="twitter:title" content="Adiyogi Foundation | Rebuilding Purpose. Restoring Dharma." />
+  <meta name="twitter:description" content="Follow the mission to restore Sanatana Dharma and revive ancient spiritual wisdom for the modern world." />
+  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta name="twitter:image:alt" content="Adiyogi Foundation Logo" />
+</Helmet>
+
+
+      <div className="min-h-screen bg-gradient-to-b from-[#FDF8F8] to-[#FFFEF7]">
       {/* Hero Section */}
       <Hero />
 
@@ -1480,6 +1510,8 @@ const navigate=useNavigate();
         </div>
       </section>
     </div>
+    </>
+  
   );
 };
 
