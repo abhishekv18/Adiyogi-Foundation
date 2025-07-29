@@ -18,6 +18,7 @@ import ProtectedRoute from './ProtectedRoute';
 import AdminDashboard from './admin/AdminDashboard';
 import DonationPage from './Donation';
 import Media from './Media';
+import KPHoroscopeGenerator from './KPHoroscopeGenerator';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
            <Route path="/" element={<Home />} />
              <Route path="/about" element={<AboutUs />} />
                {/* <Route path="/temples" element={<Temple />} /> */}
+                {/* <Route path="/horoscope" element={<KPHoroscopeGenerator />} /> */}
                    <Route path="/seva" element={<SevaProjectsPage />} />
                     <Route path="/contact" element={<ContactUs />} />
                        <Route path="/volunteers" element={<Volunteer />} />

@@ -409,8 +409,9 @@ const [emailError, setEmailError] = useState('');
     { name: 'About Us', path: '/about' },
     { name: 'Media', path: '/media' },
     // { name: 'Temples', path: '/temples' },
-    { name: 'Seva', path: '/seva' },
-    { name: 'Contact Us', path: '/contact' }
+    { name: 'Services', path: '/services' },
+    { name: 'Contact Us', path: '/contact' },
+    
   ];
 
   const coreValues = ['Dharma', 'Dignity', 'Service', 'Sustainability', 'Synchronicity'];

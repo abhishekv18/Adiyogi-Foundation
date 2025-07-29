@@ -973,7 +973,7 @@ const navigate=useNavigate();
               letterSpacing: '-0.02em',
               lineHeight: 1.2
             }}>
-              Seva Projects
+              Seva <span className="text-sacred-crimson relative">Projects</span>
             </h1>
           </div>
 

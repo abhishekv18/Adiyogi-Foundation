@@ -1640,7 +1640,7 @@ const generateBrochureContent = () => {
 
       {/* Heading */}
       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-        Our Services
+        Our <span className="text-sacred-crimson relative">Services</span>
       </h1>
 
       {/* Description */}
@@ -1650,15 +1650,15 @@ const generateBrochureContent = () => {
 
       {/* Feature Icons */}
       <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-gray-800">
-        <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base">
+        <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base font-medium">
           <Clock className="w-5 h-5 sm:w-6 sm:h-6" />
           <span>Available 24/7</span>
         </div>
-        <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base">
+        <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base font-medium">
           <Users className="w-5 h-5 sm:w-6 sm:h-6" />
           <span>Expert Consultants</span>
         </div>
-        <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base">
+        <div className="flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base font-medium">
           <Award className="w-5 h-5 sm:w-6 sm:h-6" />
           <span>Certified Practitioners</span>
         </div>

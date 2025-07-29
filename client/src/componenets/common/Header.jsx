@@ -1675,7 +1675,8 @@ const Header = () => {
     { name: 'Media', path: '/media' },
     // { name: 'Temples', path: '/temples' },
     { name: 'Seva', path: '/seva' },
-    {name:'Services',path:'/services'}
+    {name:'Services',path:'/services'},
+    //  {name:'Horoscope',path:'/horoscope'}
   ];
 
   const dropdownItems = [
