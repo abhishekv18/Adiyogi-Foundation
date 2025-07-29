@@ -946,7 +946,7 @@ const navigate=useNavigate();
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20 z-0"></div>
 
         <div
-          className="absolute inset-0 bg-center bg-cover bg-fixed z-0 opacity-15"
+          className="absolute inset-0 bg-center bg-cover bg-scroll z-0 opacity-15"
           style={{
             backgroundImage: "url('/premium_photo-1697729603226-8c8627dfc12b.avif')",
           }}

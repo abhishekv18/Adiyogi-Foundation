@@ -195,7 +195,7 @@ const [errors, setErrors] = useState({
 <div className="relative overflow-hidden">
   {/* Background image with opacity */}
   <div
-    className="absolute inset-0 bg-center bg-cover bg-fixed"
+    className="absolute inset-0 bg-center bg-cover bg-scroll"
     style={{
       backgroundImage: `url('/istockphoto-2154401942-612x612.jpg')`,
       opacity: 0.3, // adjust this value (0.1 to 0.3 recommended)

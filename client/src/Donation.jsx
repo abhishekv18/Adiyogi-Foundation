@@ -635,7 +635,7 @@ const navigate=useNavigate();
 
   {/* Background Image */}
   <div
-    className="absolute inset-0 bg-cover bg-center bg-fixed opacity-25 z-0"
+    className="absolute inset-0 bg-cover bg-center bg-scroll opacity-25 z-0"
     style={{
       backgroundImage: `url('/Stone-mason-working-on-restoring-the-Vatsala-Durga-temple-in-Bhaktapur-Nepal-.jpg')`,
     }}

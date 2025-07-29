@@ -283,7 +283,7 @@ const Volunteer = () => {
       {/* Hero Section */}
       <div className="relative overflow-hidden py-12 md:py-20 px-4">
         <div
-          className="absolute inset-0 bg-center bg-cover bg-fixed z-0"
+          className="absolute inset-0 bg-center bg-cover bg-scroll z-0"
           style={{
             backgroundImage: "url('/about us/istockphoto-825022486-612x612.webp')",
             opacity: 0.25,

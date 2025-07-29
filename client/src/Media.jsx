@@ -1315,12 +1315,12 @@ toast('📖 New sacred wisdom has been added', {
       <div className="relative bg-gradient-to-br from-rose-50 via-rose-100 to-red-50 pt-16 sm:pt-20 md:pt-24 pb-16 sm:pb-18 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20"></div>
         <div
-          className="absolute inset-0 bg-center bg-cover bg-fixed opacity-20"
+          className="absolute inset-0 bg-center bg-cover opacity-20 bg-scroll"
           style={{
             backgroundImage: `url('/istockphoto-1221349438-612x612.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundAttachment: 'fixed',
+          
           }}
         ></div>
 
