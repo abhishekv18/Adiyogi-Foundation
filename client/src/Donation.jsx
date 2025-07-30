@@ -637,7 +637,7 @@ const navigate=useNavigate();
   <div
     className="absolute inset-0 bg-cover bg-center bg-scroll opacity-25 z-0"
     style={{
-      backgroundImage: `url('/Stone-mason-working-on-restoring-the-Vatsala-Durga-temple-in-Bhaktapur-Nepal-.jpg')`,
+      backgroundImage: `url('/WhatsApp Image 2025-07-30 at 17.31.29_425d6f60.jpg')`,
     }}
   ></div>
 
@@ -660,13 +660,13 @@ const navigate=useNavigate();
     </h1>
 
     {/* Donation Card */}
-    <div className="bg-[#FFFEF7]/95 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mt-2 shadow-2xl backdrop-blur-sm mb-8 sm:mb-12">
+    {/* <div className="bg-[#FFFEF7]/95 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mt-2 shadow-2xl backdrop-blur-sm mb-8 sm:mb-12">
       <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto leading-relaxed text-[#6B4B4B]">
         Your generous donation helps us restore ancient temples, conduct spiritual programs,
         and spread the divine wisdom of Adiyogi to seekers worldwide.
       </p>
 
-      {/* Suggested Amounts */}
+    
       <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
         <div className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-[#F4E8E8] bg-[#FFFEF7]">
           <span className="text-xs sm:text-sm text-[#6B4B4B]">Suggested Amount:</span>
@@ -677,7 +677,25 @@ const navigate=useNavigate();
           <span className="font-bold ml-2 text-[#C41E3A]">touches your heart</span>
         </div>
       </div>
+    </div> */}
+    <div className="bg-[#FFFEF7]/95 rounded-2xl sm:rounded-3xl px-3 py-6 sm:px-4 sm:py-7 md:px-7 md:py-12 mt-2 shadow-2xl backdrop-blur-sm mb-8 sm:mb-12 max-w-3xl mx-auto">
+  <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-10 leading-relaxed text-[#6B4B4B] text-center">
+    Your generous donation helps us restore ancient temples, conduct spiritual programs,
+    and spread the divine wisdom of Adiyogi to seekers worldwide.
+  </p>
+
+  <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+    <div className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-[#F4E8E8] bg-[#FFFEF7]">
+      <span className="text-xs sm:text-sm text-[#6B4B4B]">Suggested Amount:</span>
+      <span className="font-bold ml-2 text-[#C41E3A]">₹1,001</span>
     </div>
+    <div className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-[#F4E8E8] bg-[#FFFEF7]">
+      <span className="text-xs sm:text-sm text-[#6B4B4B]">Or any amount that</span>
+      <span className="font-bold ml-2 text-[#C41E3A]">touches your heart</span>
+    </div>
+  </div>
+</div>
+
   </div>
 </section>
       {/* Impact Stats */}
