@@ -527,23 +527,24 @@ const navigate=useNavigate();
     </div>
 
     <div
-      className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 lg:p-16 shadow-2xl mb-10 sm:mb-14 backdrop-blur-sm mx-2 sm:mx-4"
-      style={{
-        backgroundColor: 'rgba(255, 254, 247, 0.95)',
-        boxShadow: '0 8px 32px rgba(196, 30, 58, 0.2)',
-      }}
-    >
-      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-8 text-sacred-crimson">
-        Our Sacred Vision
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-5xl mx-auto font-light px-2 text-rich-charcoal">
-        Adiyogi Foundation is rooted in the timeless wisdom of Bharat, striving to awaken the sacred in
-        every heart and space. Through the restoration of temples, spiritual education, and acts of
-        service, we envision a world where <span className="text-sacred-crimson font-bold">
-          dharma, dignity, and inner clarity
-        </span> are not just ideals but lived experiences.
-      </p>
-    </div>
+  className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-2xl mb-6 sm:mb-10 backdrop-blur-sm mx-2 sm:mx-4"
+  style={{
+    backgroundColor: 'rgba(255, 254, 247, 0.95)',
+    boxShadow: '0 8px 32px rgba(196, 30, 58, 0.2)',
+  }}
+>
+  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-8 text-rich-charcoal">
+    Our Sacred Vision
+  </h2>
+  <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-5xl mx-auto font-light px-2 text-rich-charcoal">
+    Adiyogi Foundation is rooted in the timeless wisdom of Bharat, striving to awaken the sacred in
+    every heart and space. Through the restoration of temples, spiritual education, and acts of
+    service, we envision a world where <span className="text-sacred-crimson font-bold">
+      dharma, dignity, and inner clarity
+    </span> are not just ideals but lived experiences.
+  </p>
+</div>
+
   </div>
 </section>
 
