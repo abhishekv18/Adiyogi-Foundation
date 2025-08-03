@@ -1702,8 +1702,8 @@ const Header = () => {
  
 
 
-{/* 
-<div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
+
+{/* <div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center text-sm min-h-[20px]">
       <div className="flex items-center space-x-4 xl:space-x-8">
@@ -1771,81 +1771,85 @@ const Header = () => {
     </div>
   </div>
 </div> */}
-<div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center text-sm">
-      <div className="flex items-center space-x-4 xl:space-x-8">
+<div className="bg-[#FDF8F8] text-[#5C4B4B] border-b border-[#E6CACA] hidden lg:block relative overflow-hidden">
+  <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 relative">
+    <div className="flex items-center justify-between h-8 sm:h-9 lg:h-10 text-xs sm:text-sm">
+      {/* Left Side - Contact Info */}
+      <div className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
+        <div className="flex items-center space-x-1.5 sm:space-x-2 text-[#5C4B4B] transition-all duration-300 group cursor-pointer">
+          <div className="p-1 sm:p-1.5 bg-[#C41E3A]/10 rounded-lg group-hover:bg-[#C41E3A]/20 transition-all duration-300">
+            <Mail className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#C41E3A]" />
+          </div>
+          <div>
+            <a 
+              href="mailto:social.adiyogifoundation@gmail.com" 
+              className="font-medium text-[#5C4B4B] text-xs sm:text-sm hover:text-[#C41E3A] transition-colors duration-300"
+            >
+              social.adiyogifoundation@gmail.com
+            </a>
+          </div>
+        </div>
         
-        <div className="flex items-center gap-2">
-          <div className="flex items-center justify-center w-4 h-4">
-            <Mail size={13} className="text-[#C41E3A]" />
+        <div className="flex items-center space-x-1.5 sm:space-x-2 text-[#5C4B4B] transition-all duration-300 group cursor-pointer">
+          <div className="p-1 sm:p-1.5 bg-[#C41E3A]/10 rounded-lg group-hover:bg-[#C41E3A]/20 transition-all duration-300">
+            <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#C41E3A]" />
           </div>
-          <a 
-            href="mailto:social.adiyogifoundation@gmail.com"
-            className="truncate hover:text-[#C41E3A] transition-colors duration-300 leading-4"
-          >
-            social.adiyogifoundation@gmail.com
-          </a>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <div className="flex items-center justify-center w-4 h-4">
-            <Phone size={13} className="text-[#C41E3A]" />
-          </div>
-          <a 
-            href="tel:+919175033022"
-            className="hover:text-[#C41E3A] transition-colors duration-300 leading-4"
-          >
-            +91 9175033022
-          </a>
-        </div>
-
-      </div>
-
-      <div className="flex items-center space-x-4 text-[#C41E3A] font-medium">
-        <div className="flex items-center justify-center h-4">
-          <span className="whitespace-nowrap leading-4">Follow us:</span>
-        </div>
-        <div className="flex items-center space-x-3">
-          <div className="flex items-center justify-center w-4 h-4">
+          <div>
             <a 
-              href="https://www.linkedin.com/company/adiyogi-foundation" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="tel:+919175033022" 
+              className="font-medium text-[#5C4B4B] text-xs sm:text-sm hover:text-[#C41E3A] transition-colors duration-300"
             >
-              <FaLinkedin className="w-4 h-4 hover:text-[#0077b5] transition-colors duration-300" />
-            </a>
-          </div>
-          <div className="flex items-center justify-center w-4 h-4">
-            <a 
-              href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <FaInstagram className="w-4 h-4 hover:text-[#C13584] transition-colors duration-300" />
-            </a>
-          </div>
-          <div className="flex items-center justify-center w-4 h-4">
-            <a 
-              href="https://www.facebook.com/share/19wQKAWb1b/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <FaFacebook className="w-4 h-4 hover:text-[#1877F2] transition-colors duration-300" />
-            </a>
-          </div>
-          <div className="flex items-center justify-center w-4 h-4">
-            <a 
-              href="https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <FaYoutube className="w-4 h-4 hover:text-[#FF0000] transition-colors duration-300" />
+              +91 9175033022
             </a>
           </div>
         </div>
       </div>
-
+      
+      {/* Right Side - Social Media */}
+      <div className="flex items-center space-x-2 sm:space-x-4">
+        <span className="text-[#C41E3A] font-medium text-xs sm:text-sm hidden lg:inline">Follow Us:</span>
+        <div className="flex space-x-1 sm:space-x-2">
+          {[
+            {
+              name: 'linkedin',
+              icon: FaLinkedin,
+              link: 'https://www.linkedin.com/company/adiyogi-foundation',
+              color: 'hover:bg-[#0077b5] hover:text-white'
+            },
+            {
+              name: 'instagram',
+              icon: FaInstagram,
+              link: 'https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg',
+              color: 'hover:bg-[#C13584] hover:text-white'
+            },
+            {
+              name: 'facebook',
+              icon: FaFacebook,
+              link: 'https://www.facebook.com/share/19wQKAWb1b/',
+              color: 'hover:bg-[#1877F2] hover:text-white'
+            },
+            {
+              name: 'youtube',
+              icon: FaYoutube,
+              link: 'https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA',
+              color: 'hover:bg-[#FF0000] hover:text-white'
+            }
+          ].map((social) => {
+            const IconComponent = social.icon;
+            return (
+              <a
+                key={social.name}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-6 h-6 sm:w-7 sm:h-7 ${social.color} rounded-full flex items-center justify-center text-[#C41E3A] transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#C41E3A]/20 group`}
+              >
+                <IconComponent className="h-3 w-3 sm:h-3.5 sm:w-3.5 group-hover:scale-110 transition-transform duration-300" />
+              </a>
+            );
+          })}
+        </div>
+      </div>
     </div>
   </div>
 </div>
