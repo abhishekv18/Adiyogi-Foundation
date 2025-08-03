@@ -539,7 +539,7 @@ const [emailError, setEmailError] = useState('');
         <div className="space-y-6 mb-6">
           {/* Email */}
           <div className="flex space-x-3 items-start">
-            <div className="w-10 h-10 bg-[#F5EDEA] rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-[#FFF3F3] to-[#FBEDEA] rounded-lg flex items-center justify-center">
               <Mail size={16} className="text-sacred-crimson" />
             </div>
             <div>
@@ -550,7 +550,7 @@ const [emailError, setEmailError] = useState('');
 
           {/* Phone */}
           <div className="flex space-x-3 items-start">
-            <div className="w-10 h-10 bg-[#F5EDEA] rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-[#FFF3F3] to-[#FBEDEA] rounded-lg flex items-center justify-center">
               <Phone size={16} className="text-sacred-crimson" />
             </div>
             <div>
