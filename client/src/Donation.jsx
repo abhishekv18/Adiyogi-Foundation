@@ -762,7 +762,7 @@ const navigate=useNavigate();
               <div className="inline-block p-4 sm:p-6 rounded-xl mb-4 sm:mb-6" style={{ backgroundColor: '#FDF8F8', border: '2px solid #C41E3A' }}>
                 <div className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto bg-white rounded-lg flex items-center justify-center">
                   <img
-                  src='/volunteers/WhatsApp Image 2025-07-05 at 8.36.53 PM (1).jpeg'
+                  src='/WhatsApp Image 2025-08-03 at 14.22.14_ea0b4173.jpg'
                   className="w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36" style={{ color: '#C41E3A' }} 
                   />
                  
@@ -773,7 +773,7 @@ const navigate=useNavigate();
               </p>
               <div className="flex justify-center space-x-4">
                 <div className="px-3 sm:px-4 py-2 rounded-lg" style={{ backgroundColor: '#F4E8E8' }}>
-                  <span className="font-medium text-sm sm:text-base" style={{ color: '#C41E3A' }}>UPI ID: aaditya.niikam-2@okaxis</span>
+                  <span className="font-medium text-sm sm:text-base" style={{ color: '#C41E3A' }}>UPI ID: 9175033022@pz</span>
                 </div>
               </div>
             </div>
@@ -786,9 +786,9 @@ const navigate=useNavigate();
                 <div className="p-4 rounded-lg" style={{ backgroundColor: '#FDF8F8', border: '1px solid #F4E8E8' }}>
                   <label className="block text-sm font-medium mb-2" style={{ color: '#6B4B4B' }}>UPI ID</label>
                   <div className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: '#FFFEF7', border: '1px solid #F4E8E8' }}>
-                    <span className="font-mono font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>aaditya.niikam-2@okaxis</span>
+                    <span className="font-mono font-medium text-sm sm:text-base" style={{ color: '#2C2C2C' }}>9175033022@pz</span>
                     <button
-                      onClick={() => copyToClipboard('aaditya.niikam-2@okaxis', 'upi')}
+                      onClick={() => copyToClipboard('9175033022@pz', 'upi')}
                       className="p-2 rounded-lg transition-colors duration-200"
                       style={{ backgroundColor: copiedText === 'upi' ? '#8B1538' : '#C41E3A', color: 'white' }}
                     >

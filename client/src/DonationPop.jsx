@@ -336,7 +336,7 @@ const DonationPopup = () => {
           {/* QR + Button */}
           <div className="flex flex-col items-center gap-2">
             <img
-              src="/volunteers/WhatsApp Image 2025-07-05 at 8.36.53 PM (1).jpeg"
+              src="/WhatsApp Image 2025-08-03 at 14.22.14_ea0b4173.jpg"
               alt="Donate QR"
               className="w-28 h-28 border border-[#F4E8E8] rounded-md shadow-sm"
             />
