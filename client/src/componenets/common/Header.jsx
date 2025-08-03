@@ -1699,73 +1699,14 @@ const Header = () => {
   return (
     <>
       {/* Top Contact Bar - Hidden on mobile */}
-   
-      {/* <div className="hidden lg:block bg-rich-charcoal text-warm-ivory py-2 border-b border-soft-rose">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center text-sm">
-      <div className="flex items-center space-x-4 xl:space-x-8">
-        <div className="flex items-center space-x-2">
-          <Mail size={16} className="text-sacred-crimson flex-shrink-0 mt-0.5" />
-          <a 
-            href="mailto:social.adiyogifoundation@gmail.com"
-            className="truncate hover:text-sacred-crimson transition-colors duration-300"
-          >
-            social.adiyogifoundation@gmail.com
-          </a>
-        </div>
+ 
 
-        <div className="flex items-center space-x-2">
-          <Phone size={16} className="text-sacred-crimson flex-shrink-0 mt-0.5" />
-          <a 
-            href="tel:+919175033022"
-            className="hover:text-sacred-crimson transition-colors duration-300"
-          >
-            +91 9175033022
-          </a>
-        </div>
-      </div>
-      <div className="flex items-center">
-        <span className="text-sacred-crimson font-normal whitespace-nowrap">Reviving Heritage, Restoring Faith</span>
-      </div>
-    </div>
-  </div>
-</div> */}
 {/* <div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center text-sm">
       <div className="flex items-center space-x-4 xl:space-x-8">
-        <div className="flex items-center space-x-2">
-          <Mail size={16} className="text-[#C41E3A] flex-shrink-0 mt-0.5" />
-          <a 
-            href="mailto:social.adiyogifoundation@gmail.com"
-            className="truncate hover:text-[#C41E3A] transition-colors duration-300"
-          >
-            social.adiyogifoundation@gmail.com
-          </a>
-        </div>
-
-        <div className="flex items-center space-x-2">
-          <Phone size={16} className="text-[#C41E3A] flex-shrink-0 mt-0.5" />
-          <a 
-            href="tel:+919175033022"
-            className="hover:text-[#C41E3A] transition-colors duration-300"
-          >
-            +91 9175033022
-          </a>
-        </div>
-      </div>
-      <div className="flex items-center">
-        <span className="text-[#C41E3A] font-medium whitespace-nowrap">Reviving Heritage, Restoring Faith</span>
-      </div>
-    </div>
-  </div>
-</div> */}
-<div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center text-sm">
-      <div className="flex items-center space-x-4 xl:space-x-8">
         
-        <div className="flex items-center gap-2">
+        <div className="flex items-baseline gap-2">
           <Mail size={16} className="text-[#C41E3A] flex-shrink-0" />
           <a 
             href="mailto:social.adiyogifoundation@gmail.com"
@@ -1775,7 +1716,7 @@ const Header = () => {
           </a>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-baseline gap-2">
           <Phone size={16} className="text-[#C41E3A] flex-shrink-0" />
           <a 
             href="tel:+919175033022"
@@ -1787,28 +1728,169 @@ const Header = () => {
 
       </div>
 
-  <div className="flex items-center space-x-4 text-[#C41E3A] font-medium">
-  <span className="whitespace-nowrap">Follow us:</span>
-  <div className="flex items-center space-x-3 text-[#C41E3A]">
-    <a href="https://www.linkedin.com/company/adiyogi-foundation" target="_blank" rel="noopener noreferrer">
-      <FaLinkedin className="w-5 h-5 hover:text-[#0077b5] transition" />
-    </a>
-    <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank" rel="noopener noreferrer">
-      <FaInstagram className="w-5 h-5 hover:text-[#C13584] transition" />
-    </a>
-    <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank" rel="noopener noreferrer">
-      <FaFacebook className="w-5 h-5 hover:text-[#1877F2] transition" />
-    </a>
-    <a href="https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA" target="_blank" rel="noopener noreferrer">
-      <FaYoutube className="w-5 h-5 hover:text-[#FF0000] transition" />
-    </a>
+      <div className="flex items-center space-x-4 text-[#C41E3A] font-medium">
+        <span className="whitespace-nowrap leading-5">Follow us:</span>
+        <div className="flex items-center space-x-3 text-[#C41E3A]">
+          <a 
+            href="https://www.linkedin.com/company/adiyogi-foundation" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center"
+          >
+            <FaLinkedin className="w-5 h-5 hover:text-[#0077b5] transition-colors duration-300" />
+          </a>
+          <a 
+            href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center"
+          >
+            <FaInstagram className="w-5 h-5 hover:text-[#C13584] transition-colors duration-300" />
+          </a>
+          <a 
+            href="https://www.facebook.com/share/19wQKAWb1b/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center"
+          >
+            <FaFacebook className="w-5 h-5 hover:text-[#1877F2] transition-colors duration-300" />
+          </a>
+          <a 
+            href="https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center"
+          >
+            <FaYoutube className="w-5 h-5 hover:text-[#FF0000] transition-colors duration-300" />
+          </a>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
+</div> */}
+<style jsx>{`
+  .header-container {
+    display: flex;
+    align-items: center;
+    min-height: 28px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 24px;
+  }
+  .contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+  .contact-text {
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+  }
+  .social-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 24px;
+  }
+  .social-text {
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+  }
+  .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+  }
+`}</style>
+
+<div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center text-sm min-h-[20px]">
+      <div className="flex items-center space-x-4 xl:space-x-8">
+        
+        <div className="flex items-center gap-2 h-5">
+          <div className="flex items-center justify-center w-4 h-4">
+            <Mail size={14} className="text-[#C41E3A]" />
+          </div>
+          <a 
+            href="mailto:social.adiyogifoundation@gmail.com"
+            className="truncate hover:text-[#C41E3A] transition-colors duration-300 leading-5"
+          >
+            social.adiyogifoundation@gmail.com
+          </a>
+        </div>
+
+        <div className="flex items-center gap-2 h-5">
+          <div className="flex items-center justify-center w-4 h-4">
+            <Phone size={14} className="text-[#C41E3A]" />
+          </div>
+          <a 
+            href="tel:+919175033022"
+            className="hover:text-[#C41E3A] transition-colors duration-300 leading-5"
+          >
+            +91 9175033022
+          </a>
+        </div>
+
+      </div>
+
+      <div className="flex items-center space-x-4 text-[#C41E3A] font-medium h-5">
+        <span className="whitespace-nowrap leading-5 flex items-center">Follow us:</span>
+        <div className="flex items-center space-x-3">
+          <a 
+            href="https://www.linkedin.com/company/adiyogi-foundation" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-5 h-5"
+          >
+            <FaLinkedin className="w-4 h-4 hover:text-[#0077b5] transition-colors duration-300" />
+          </a>
+          <a 
+            href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-5 h-5"
+          >
+            <FaInstagram className="w-4 h-4 hover:text-[#C13584] transition-colors duration-300" />
+          </a>
+          <a 
+            href="https://www.facebook.com/share/19wQKAWb1b/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-5 h-5"
+          >
+            <FaFacebook className="w-4 h-4 hover:text-[#1877F2] transition-colors duration-300" />
+          </a>
+          <a 
+            href="https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-5 h-5"
+          >
+            <FaYoutube className="w-4 h-4 hover:text-[#FF0000] transition-colors duration-300" />
+          </a>
+        </div>
+      </div>
 
     </div>
   </div>
 </div>
-
       {/* Main Header */}
       <header 
         className={`sticky top-0 z-50 transition-all duration-300  ${
