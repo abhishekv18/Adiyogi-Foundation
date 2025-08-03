@@ -216,10 +216,15 @@ const HeroWithCarousel = () => {
       <Link to="/volunteers">
         <button
           className="w-full sm:w-auto px-7 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-lg sm:text-lg transition-transform duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 transform hover:scale-105"
-          style={{
-            background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
-            color: '#FFFEF7',
-          }}
+          // style={{
+          //   background: 'linear-gradient(135deg, #C41E3A 0%, #8B1538 100%)',
+          //   color: '#FFFEF7',
+          // }}
+            style={{
+        backgroundColor: '#C41E3A',
+        boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)',
+        color: '#FFFEF7',
+      }}
         >
           <span>Begin Your Journey</span>
           <ArrowRight size={20} className="w-4 h-4 sm:w-5 sm:h-5" />

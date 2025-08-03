@@ -1974,78 +1974,8 @@ const Header = () => {
               </div>
             </nav>
 
-            {/* Desktop CTA Buttons */}
-            {/* <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-shrink-0">
-              <Link to='/donate'>
-               <button
-             
-                 className="text-white px-4 xl:px-5 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
-
-               style={{
-  backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
-  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-}}
-onMouseEnter={(e) => {
-  e.target.style.backgroundColor = '#8B1538'; // slightly darker on hover
-}}
-onMouseLeave={(e) => {
-  e.target.style.backgroundColor = '#C41E3A';
-}}
-              >
-                <span>Donate</span>
-              </button>
-              </Link>
-             
-
-              <Link
-                to="/volunteers"
-                className="text-white px-4 xl:px-5 py-2.5 rounded-lg font-semibold text-sm xl:text-base transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
-             
-                style={{
-  backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
-  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-}}
-onMouseEnter={(e) => {
-  e.target.style.backgroundColor = '#8B1538'; // slightly darker on hover
-}}
-onMouseLeave={(e) => {
-  e.target.style.backgroundColor = '#C41E3A';
-}}
-
-              >
-                Join Us
-              </Link>
-            </div> */}
 <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-shrink-0">
-  {/* <Link to="/donate">
-    <button
-      className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
-      style={{
-        backgroundColor: '#C41E3A',
-        boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-      }}
-      onMouseEnter={(e) => e.target.style.backgroundColor = '#8B1538'}
-      onMouseLeave={(e) => e.target.style.backgroundColor = '#C41E3A'}
-    >
-      <Heart size={16} strokeWidth={2} />
-      <span>Donate</span>
-    </button>
-  </Link>
 
-  <Link to="/volunteers">
-    <button
-      className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm  transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
-      style={{
-        backgroundColor: '#C41E3A',
-        boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-      }}
-      onMouseEnter={(e) => e.target.style.backgroundColor = '#8B1538'}
-      onMouseLeave={(e) => e.target.style.backgroundColor = '#C41E3A'}
-    >
-      <Users size={16} strokeWidth={2} />
-      <span>Join Us</span>
-    </button>
-  </Link> */}
   <Link to="/donate">
   <button
     className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap bg-[#C41E3A] hover:bg-[#8B1538]"
@@ -2066,63 +1996,10 @@ onMouseLeave={(e) => {
 
 </div>
 
-            {/* Mobile Right Section - Donate + Join Us Button + Menu Button */}
-            {/* <div className="flex items-center space-x-1 sm:space-x-2 lg:hidden flex-shrink-0">
-            
-              <Link to='/donate' className="flex">
-                <button
-               className="flex items-center justify-center text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[36px] sm:h-[40px]"
-                 
-style={{
-  backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
-  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-}}
-onMouseEnter={(e) => {
-  e.target.style.backgroundColor = '#8B1538'; // slightly darker on hover
-}}
-onMouseLeave={(e) => {
-  e.target.style.backgroundColor = '#C41E3A';
-}}
-
-                >
-                  <span>Donate</span>
-                </button>
-              </Link>
-
-             
-              <Link to="/volunteers" className="flex">
-                <button
-                  className="flex items-center justify-center text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[36px] sm:h-[40px]"
-                 
-                  style={{
-  backgroundColor: '#C41E3A', // or use Tailwind class 'bg-sacred-crimson' if defined
-  boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
-}}
-onMouseEnter={(e) => {
-  e.target.style.backgroundColor = '#8B1538'; // slightly darker on hover
-}}
-onMouseLeave={(e) => {
-  e.target.style.backgroundColor = '#C41E3A';
-}}
-
-                >
-                  Join
-                </button>
-              </Link>
-
-             
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-1.5 sm:p-2 rounded text-rich-charcoal hover:text-sacred-crimson hover:bg-soft-rose transition-all duration-200 flex-shrink-0 h-[36px] sm:h-[40px] w-[36px] sm:w-[40px] flex items-center justify-center"
-                aria-label="Toggle menu"
-              >
-                {isMenuOpen ? <X size={20} className="sm:w-6 sm:h-6" /> : <Menu size={20} className="sm:w-6 sm:h-6" />}
-              </button>
-            </div> */}
  <div className="flex items-center space-x-0.5 sm:space-x-2 lg:hidden flex-shrink-0">
   <Link to="/donate" className="flex">
     <button
-      className="flex items-center justify-center gap-[2px] sm:gap-2 text-white px-1.5 sm:px-4 py-1 sm:py-2 rounded text-[10px] sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[30px] sm:h-[40px]"
+      className="flex items-center justify-center gap-[2px] sm:gap-2 text-white px-1.5 sm:px-4 py-1 sm:py-2 rounded text-[10px] sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[25px] sm:h-[35px]"
       style={{
         backgroundColor: '#C41E3A',
         boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'
@@ -2137,7 +2014,7 @@ onMouseLeave={(e) => {
 
   <Link to="/volunteers" className="flex">
     <button
-      className="flex items-center justify-center gap-[2px] sm:gap-2 text-white px-1.5 sm:px-4 py-1 sm:py-2 rounded text-[10px] sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[30px] sm:h-[40px]"
+      className="flex items-center justify-center gap-[2px] sm:gap-2 text-white px-1.5 sm:px-4 py-1 sm:py-2 rounded text-[10px] sm:text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap h-[25px] sm:h-[35px]"
       style={{
         backgroundColor: '#C41E3A',
         boxShadow: '0 2px 8px rgba(139, 21, 56, 0.25)'

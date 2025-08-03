@@ -492,6 +492,17 @@ const KPHoroscopeGenerator = () => {
         
         setLocationSuggestions(suggestions);
         setShowSuggestions(true);
+        setFormData({
+           fullName: '',
+    birthDate: '',
+    birthTime: '',
+    birthPlace: '',
+    phone: '',
+    email: '',
+    latitude: '',
+    longitude: '',
+    timezone: ''
+        });
       }
     } catch (error) {
       console.error('Error fetching locations:', error);
