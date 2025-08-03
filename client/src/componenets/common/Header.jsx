@@ -2156,7 +2156,7 @@ onMouseLeave={(e) => {
                   </Link>
                 ))}
                 
-                {/* Mobile Get Involved Dropdown */}
+              
                 <div>
                   <button
                     onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
@@ -2173,7 +2173,7 @@ onMouseLeave={(e) => {
                     <ChevronDown size={16} className={`sm:w-5 sm:h-5 transition-transform duration-200 ${isMobileDropdownOpen ? 'rotate-180' : ''}`} />
                   </button>
                   
-                  {/* Mobile Dropdown Items */}
+                 
                   <div className={`ml-3 sm:ml-4 mt-1 space-y-1 overflow-hidden transition-all duration-200 ${
                     isMobileDropdownOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
                   }`}>
@@ -2199,10 +2199,72 @@ onMouseLeave={(e) => {
                     ))}
                   </div>
                 </div>
+
+                {/* Social Media Icons on Mobile */}
+{/* Social Media Icons on Mobile - Centered & Professional */}
+{/* <div className="pt-5 mt-4 border-t border-[#F4E8E8] text-center">
+  <p className="text-sm sm:text-base font-semibold text-rich-charcoal mb-3">Follow us</p>
+  <div className="flex justify-center items-center gap-5 text-[#C41E3A]">
+    <a href="https://www.linkedin.com/company/adiyogi-foundation" target="_blank" rel="noopener noreferrer">
+      <FaLinkedin className="w-6 h-6 hover:text-[#0077b5] transition duration-200" />
+    </a>
+    <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank" rel="noopener noreferrer">
+      <FaInstagram className="w-6 h-6 hover:text-[#C13584] transition duration-200" />
+    </a>
+    <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank" rel="noopener noreferrer">
+      <FaFacebook className="w-6 h-6 hover:text-[#1877F2] transition duration-200" />
+    </a>
+    <a href="https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA" target="_blank" rel="noopener noreferrer">
+      <FaYoutube className="w-6 h-6 hover:text-[#FF0000] transition duration-200" />
+    </a>
+  </div>
+</div> */}
+{/* Social Media Icons - Responsive & Centered */}
+<div className="pt-5 mt-4 border-t border-[#F4E8E8]">
+  <div className="flex flex-col items-center text-center">
+    <p className="text-sm sm:text-base font-semibold text-rich-charcoal mb-3">
+      Follow us
+    </p>
+    <div className="flex justify-center items-center gap-4 sm:gap-6 text-[#C41E3A]">
+      <a
+        href="https://www.linkedin.com/company/adiyogi-foundation"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaLinkedin className="w-6 h-6 hover:text-[#0077b5] transition duration-200" />
+      </a>
+      <a
+        href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaInstagram className="w-6 h-6 hover:text-[#C13584] transition duration-200" />
+      </a>
+      <a
+        href="https://www.facebook.com/share/19wQKAWb1b/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaFacebook className="w-6 h-6 hover:text-[#1877F2] transition duration-200" />
+      </a>
+      <a
+        href="https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaYoutube className="w-6 h-6 hover:text-[#FF0000] transition duration-200" />
+      </a>
+    </div>
+  </div>
+</div>
+
+
               </div>
             </div>
           </div>
         </div>
+
+
       </header>
 
       {/* Spacer */}
