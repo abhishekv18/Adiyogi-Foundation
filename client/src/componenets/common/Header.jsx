@@ -1702,13 +1702,14 @@ const Header = () => {
  
 
 
-{/* <div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
+{/* 
+<div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center text-sm min-h-[20px]">
       <div className="flex items-center space-x-4 xl:space-x-8">
         
-        <div className="flex items-center gap-2">
-          <Mail size={14} className="text-[#C41E3A] flex-shrink-0" />
+        <div className="flex items-baseline gap-2">
+          <Mail size={14} className="text-[#C41E3A] flex-shrink-0 translate-y-0.5" />
           <a 
             href="mailto:social.adiyogifoundation@gmail.com"
             className="truncate hover:text-[#C41E3A] transition-colors duration-300"
@@ -1717,8 +1718,8 @@ const Header = () => {
           </a>
         </div>
 
-        <div className="flex items-center gap-2">
-          <Phone size={14} className="text-[#C41E3A] flex-shrink-0" />
+        <div className="flex items-baseline gap-2">
+          <Phone size={14} className="text-[#C41E3A] flex-shrink-0 translate-y-0.5" />
           <a 
             href="tel:+919175033022"
             className="hover:text-[#C41E3A] transition-colors duration-300"
@@ -1798,7 +1799,7 @@ const Header = () => {
       </div>
 
       <div className="flex items-center space-x-4 text-[#C41E3A] font-medium">
-        <span className="whitespace-nowrap">Follow us:</span>
+        <span className="whitespace-nowrap flex items-center">Follow us:</span>
         <div className="flex items-center space-x-3">
           <a 
             href="https://www.linkedin.com/company/adiyogi-foundation" 
