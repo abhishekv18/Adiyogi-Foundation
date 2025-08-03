@@ -1701,75 +1701,8 @@ const Header = () => {
       {/* Top Contact Bar - Hidden on mobile */}
  
 
+
 {/* <div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center text-sm">
-      <div className="flex items-center space-x-4 xl:space-x-8">
-        
-        <div className="flex items-baseline gap-2">
-          <Mail size={16} className="text-[#C41E3A] flex-shrink-0" />
-          <a 
-            href="mailto:social.adiyogifoundation@gmail.com"
-            className="truncate hover:text-[#C41E3A] transition-colors duration-300"
-          >
-            social.adiyogifoundation@gmail.com
-          </a>
-        </div>
-
-        <div className="flex items-baseline gap-2">
-          <Phone size={16} className="text-[#C41E3A] flex-shrink-0" />
-          <a 
-            href="tel:+919175033022"
-            className="hover:text-[#C41E3A] transition-colors duration-300"
-          >
-            +91 9175033022
-          </a>
-        </div>
-
-      </div>
-
-      <div className="flex items-center space-x-4 text-[#C41E3A] font-medium">
-        <span className="whitespace-nowrap leading-5">Follow us:</span>
-        <div className="flex items-center space-x-3 text-[#C41E3A]">
-          <a 
-            href="https://www.linkedin.com/company/adiyogi-foundation" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center justify-center"
-          >
-            <FaLinkedin className="w-5 h-5 hover:text-[#0077b5] transition-colors duration-300" />
-          </a>
-          <a 
-            href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center justify-center"
-          >
-            <FaInstagram className="w-5 h-5 hover:text-[#C13584] transition-colors duration-300" />
-          </a>
-          <a 
-            href="https://www.facebook.com/share/19wQKAWb1b/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center justify-center"
-          >
-            <FaFacebook className="w-5 h-5 hover:text-[#1877F2] transition-colors duration-300" />
-          </a>
-          <a 
-            href="https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center justify-center"
-          >
-            <FaYoutube className="w-5 h-5 hover:text-[#FF0000] transition-colors duration-300" />
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div> */}
-<div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center text-sm min-h-[20px]">
       <div className="flex items-center space-x-4 xl:space-x-8">
@@ -1786,6 +1719,74 @@ const Header = () => {
 
         <div className="flex items-center gap-2">
           <Phone size={14} className="text-[#C41E3A] flex-shrink-0" />
+          <a 
+            href="tel:+919175033022"
+            className="hover:text-[#C41E3A] transition-colors duration-300"
+          >
+            +91 9175033022
+          </a>
+        </div>
+
+      </div>
+
+      <div className="flex items-center space-x-4 text-[#C41E3A] font-medium">
+        <span className="whitespace-nowrap">Follow us:</span>
+        <div className="flex items-center space-x-3">
+          <a 
+            href="https://www.linkedin.com/company/adiyogi-foundation" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-5 h-5"
+          >
+            <FaLinkedin className="w-4 h-4 hover:text-[#0077b5] transition-colors duration-300" />
+          </a>
+          <a 
+            href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-5 h-5"
+          >
+            <FaInstagram className="w-4 h-4 hover:text-[#C13584] transition-colors duration-300" />
+          </a>
+          <a 
+            href="https://www.facebook.com/share/19wQKAWb1b/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-5 h-5"
+          >
+            <FaFacebook className="w-4 h-4 hover:text-[#1877F2] transition-colors duration-300" />
+          </a>
+          <a 
+            href="https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-5 h-5"
+          >
+            <FaYoutube className="w-4 h-4 hover:text-[#FF0000] transition-colors duration-300" />
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div> */}
+<div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center text-sm min-h-[20px]">
+      <div className="flex items-center space-x-4 xl:space-x-8">
+        
+        <div className="flex items-baseline gap-2">
+          <Mail size={14} className="text-[#C41E3A] flex-shrink-0 translate-y-0.5" />
+          <a 
+            href="mailto:social.adiyogifoundation@gmail.com"
+            className="truncate hover:text-[#C41E3A] transition-colors duration-300"
+          >
+            social.adiyogifoundation@gmail.com
+          </a>
+        </div>
+
+        <div className="flex items-baseline gap-2">
+          <Phone size={14} className="text-[#C41E3A] flex-shrink-0 translate-y-0.5" />
           <a 
             href="tel:+919175033022"
             className="hover:text-[#C41E3A] transition-colors duration-300"
