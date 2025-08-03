@@ -591,7 +591,7 @@ const [emailError, setEmailError] = useState('');
       {/* Right Section */}
       <div className="flex items-center justify-center space-x-2 text-xs">
         <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-        <span>All systems operational</span>
+        <span>All systems operational.</span>
       </div>
     </div>
   </div>
