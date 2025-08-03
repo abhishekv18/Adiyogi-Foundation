@@ -960,7 +960,7 @@ const KPHoroscopeGenerator = () => {
 
                   {(!formData.latitude || !formData.longitude) && (
                     <p className="text-center text-sm text-amber-600 bg-amber-50 border border-amber-200 rounded-lg p-3">
-                      Please select a location from the search suggestions to enable horoscope generation
+                      Please select a location from the search suggestions to enable horoscope generation.
                     </p>
                   )}
                 </form>
