@@ -1633,7 +1633,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, Heart, ChevronDown, Users } from 'lucide-react';
-
+import { FaLinkedin, FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -1676,7 +1676,7 @@ const Header = () => {
     // { name: 'Temples', path: '/temples' },
     { name: 'Seva', path: '/seva' },
     {name:'Services',path:'/services'},
-    //  {name:'Horoscope',path:'/horoscope'}
+     {name:'Horoscope',path:'/horoscope'}
   ];
 
   const dropdownItems = [
@@ -1787,11 +1787,24 @@ const Header = () => {
 
       </div>
 
-      <div className="flex items-center">
-        <span className="text-[#C41E3A] font-medium whitespace-nowrap">
-          Reviving Heritage, Restoring Faith
-        </span>
-      </div>
+  <div className="flex items-center space-x-4 text-[#C41E3A] font-medium">
+  <span className="whitespace-nowrap">Follow us:</span>
+  <div className="flex items-center space-x-3 text-[#C41E3A]">
+    <a href="https://www.linkedin.com/company/adiyogi-foundation" target="_blank" rel="noopener noreferrer">
+      <FaLinkedin className="w-5 h-5 hover:text-[#0077b5] transition" />
+    </a>
+    <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank" rel="noopener noreferrer">
+      <FaInstagram className="w-5 h-5 hover:text-[#C13584] transition" />
+    </a>
+    <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank" rel="noopener noreferrer">
+      <FaFacebook className="w-5 h-5 hover:text-[#1877F2] transition" />
+    </a>
+    <a href="https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA" target="_blank" rel="noopener noreferrer">
+      <FaYoutube className="w-5 h-5 hover:text-[#FF0000] transition" />
+    </a>
+  </div>
+</div>
+
     </div>
   </div>
 </div>
@@ -1960,7 +1973,7 @@ onMouseLeave={(e) => {
               </Link>
             </div> */}
 <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 flex-shrink-0">
-  <Link to="/donate">
+  {/* <Link to="/donate">
     <button
       className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap"
       style={{
@@ -1988,7 +2001,25 @@ onMouseLeave={(e) => {
       <Users size={16} strokeWidth={2} />
       <span>Join Us</span>
     </button>
-  </Link>
+  </Link> */}
+  <Link to="/donate">
+  <button
+    className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap bg-[#C41E3A] hover:bg-[#8B1538]"
+  >
+    <Heart size={16} strokeWidth={2} />
+    <span>Donate</span>
+  </button>
+</Link>
+
+<Link to="/volunteers">
+  <button
+    className="flex items-center gap-1 xl:gap-2 text-white px-4 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap bg-[#C41E3A] hover:bg-[#8B1538]"
+  >
+    <Users size={16} strokeWidth={2} />
+    <span>Join Us</span>
+  </button>
+</Link>
+
 </div>
 
             {/* Mobile Right Section - Donate + Join Us Button + Menu Button */}

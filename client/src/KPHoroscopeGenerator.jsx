@@ -27,7 +27,7 @@ const KPHoroscopeGenerator = () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 2000));
       console.log('Form submitted:', formData);
-      alert('Order processed successfully!');
+      alert('This page is in working');
     } catch (error) {
       console.error('Error:', error);
       alert('Something went wrong. Please try again.');
@@ -133,10 +133,10 @@ const KPHoroscopeGenerator = () => {
       </div>
 
       {/* Form Section */}
-      <div className="py-12 sm:py-16 lg:py-20">
+      <div className="py-12 sm:py-16 lg:py-20 bg-rose-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            {/* Form Card */}
+            
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
               {/* Header */}
               <div className="bg-gradient-to-r from-[#E24A5B] to-[#A73750] px-6 sm:px-8 py-6 sm:py-8 text-center text-white">
@@ -198,7 +198,7 @@ const KPHoroscopeGenerator = () => {
                             onChange={handleInputChange}
                             required
                             className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C41E3A] focus:border-[#C41E3A] transition-all duration-200 bg-gray-50 focus:bg-white"
-                            placeholder="+91 98765 43210"
+                            placeholder="9876543210"
                           />
                         </div>
                       </div>
@@ -314,7 +314,7 @@ const KPHoroscopeGenerator = () => {
                   </div>
 
                   {/* Submit Button */}
-                  <button
+                  {/* <button
                     type="submit"
                     onClick={handleSubmit}
                     disabled={isLoading}
@@ -334,12 +334,56 @@ const KPHoroscopeGenerator = () => {
                         Generate My Horoscope - ₹501
                       </>
                     )}
-                  </button>
+                  </button> */}
+                  <button
+  type="submit"
+  onClick={handleSubmit}
+  disabled={isLoading}
+  className="w-full bg-gradient-to-r from-[#E24A5B] to-[#A73750] hover:from-[#A73750] hover:to-[#C41E3A] disabled:opacity-70 text-white font-bold 
+    py-3 px-4 sm:py-4 sm:px-6 
+    rounded-xl transition-all duration-300 flex items-center justify-center 
+    gap-2 sm:gap-3 shadow-lg hover:shadow-xl 
+    text-base sm:text-lg transform hover:scale-[1.02]"
+>
+  {isLoading ? (
+    <>
+      <svg
+        className="animate-spin -ml-1 mr-2 h-5 w-5 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        ></circle>
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
+      </svg>
+      <span className="text-sm sm:text-base">Processing...</span>
+    </>
+  ) : (
+    <>
+      <Star className="w-5 h-5 flex-shrink-0" />
+      <span className="text-sm sm:text-base lg:text-lg whitespace-nowrap text-center">
+        Generate My Horoscope – ₹501
+      </span>
+    </>
+  )}
+</button>
+
                 </div>
               </div>
             </div>
 
-            {/* Trust Footer */}
+           
             <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 mt-8 border border-gray-100">
               <div className="text-center">
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-6">Trusted Worldwide</h3>

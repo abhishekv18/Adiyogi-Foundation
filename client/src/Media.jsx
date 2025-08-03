@@ -1116,31 +1116,19 @@ const Media = () => {
         });
         
         if (res.data.success && isMounted) {
-          dispatch(setAllBlogs(res.data.blogs));
-          setBlogs(res.data.blogs);
-          setFilteredBlogs(res.data.blogs);
-          
+          // dispatch(setAllBlogs(res.data.blogs));
+          // setBlogs(res.data.blogs);
+          // setFilteredBlogs(res.data.blogs);
+          const sortedBlogs = [...res.data.blogs].sort(
+  (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+);
+
+dispatch(setAllBlogs(sortedBlogs));
+setBlogs(sortedBlogs);
+setFilteredBlogs(sortedBlogs);
           // Only show notification if there were actual changes
           if (res.data.blogs.length !== allBlogs.length) {
-            // toast.info('New sacred wisdom has been added', {
-            //   icon: '📖',
-            //   autoClose: 1500,
-            //   hideProgressBar: true,
-            //   className: 'bg-red-700 text-white font-semibold text-center shadow-lg rounded-md',
-            //   style: {
-            //     fontSize: 'clamp(12px, 3vw, 14px)',
-            //     padding: 'clamp(8px, 2vw, 12px) clamp(10px, 3vw, 16px)',
-            //     width: 'fit-content',
-            //     maxWidth: 'min(90vw, 400px)',
-            //     boxSizing: 'border-box',
-            //     wordBreak: 'break-word',
-            //     margin: 'clamp(8px, 2vw, 16px)',
-            //   },
-            //   bodyStyle: {
-            //     margin: 0,
-            //   },
-            //   position: 'top-center',
-            // });
+      
 toast('📖 New sacred wisdom has been added', {
   autoClose: 1500,
   hideProgressBar: true,
@@ -1484,7 +1472,7 @@ toast('📖 New sacred wisdom has been added', {
                         </div>
                         <div className="flex items-center">
                           <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                          <span>{Math.ceil(blog.content.length / 450)} min read</span>
+                          <span>{Math.ceil(blog.content.length / 460)} min read</span>
                         </div>
                       </div>
                       
@@ -1563,7 +1551,7 @@ toast('📖 New sacred wisdom has been added', {
               </div>
               <div className="flex items-center text-xs sm:text-sm text-gray-600 bg-white rounded-full px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 shadow-sm whitespace-nowrap">
                 <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-sacred-crimson" />
-                <span>{Math.ceil(selectedBlog.content.length / 450)} min read</span>
+                <span>{Math.ceil(selectedBlog.content.length / 460)} min read</span>
               </div>
             </div>
             <div className="flex items-center space-x-1 sm:space-x-2 mt-1 sm:mt-0">

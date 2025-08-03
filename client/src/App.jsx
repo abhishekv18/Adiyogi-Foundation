@@ -29,7 +29,7 @@ function App() {
            <Route path="/" element={<Home />} />
              <Route path="/about" element={<AboutUs />} />
                {/* <Route path="/temples" element={<Temple />} /> */}
-                {/* <Route path="/horoscope" element={<KPHoroscopeGenerator />} /> */}
+                <Route path="/horoscope" element={<KPHoroscopeGenerator />} />
                    <Route path="/seva" element={<SevaProjectsPage />} />
                     <Route path="/contact" element={<ContactUs />} />
                        <Route path="/volunteers" element={<Volunteer />} />
