@@ -1769,80 +1769,26 @@ const Header = () => {
     </div>
   </div>
 </div> */}
-<style jsx>{`
-  .header-container {
-    display: flex;
-    align-items: center;
-    min-height: 28px;
-  }
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    height: 24px;
-  }
-  .contact-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-  }
-  .contact-text {
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-  }
-  .social-container {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    height: 24px;
-  }
-  .social-text {
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-  }
-  .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-  }
-`}</style>
-
 <div className="hidden lg:block bg-[#FDF8F8] text-[#5C4B4B] py-2 border-b border-[#E6CACA]">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center text-sm min-h-[20px]">
       <div className="flex items-center space-x-4 xl:space-x-8">
         
-        <div className="flex items-center gap-2 h-5">
-          <div className="flex items-center justify-center w-4 h-4">
-            <Mail size={14} className="text-[#C41E3A]" />
-          </div>
+        <div className="flex items-center gap-2">
+          <Mail size={14} className="text-[#C41E3A] flex-shrink-0" />
           <a 
             href="mailto:social.adiyogifoundation@gmail.com"
-            className="truncate hover:text-[#C41E3A] transition-colors duration-300 leading-5"
+            className="truncate hover:text-[#C41E3A] transition-colors duration-300"
           >
             social.adiyogifoundation@gmail.com
           </a>
         </div>
 
-        <div className="flex items-center gap-2 h-5">
-          <div className="flex items-center justify-center w-4 h-4">
-            <Phone size={14} className="text-[#C41E3A]" />
-          </div>
+        <div className="flex items-center gap-2">
+          <Phone size={14} className="text-[#C41E3A] flex-shrink-0" />
           <a 
             href="tel:+919175033022"
-            className="hover:text-[#C41E3A] transition-colors duration-300 leading-5"
+            className="hover:text-[#C41E3A] transition-colors duration-300"
           >
             +91 9175033022
           </a>
@@ -1850,8 +1796,8 @@ const Header = () => {
 
       </div>
 
-      <div className="flex items-center space-x-4 text-[#C41E3A] font-medium h-5">
-        <span className="whitespace-nowrap leading-5 flex items-center">Follow us:</span>
+      <div className="flex items-center space-x-4 text-[#C41E3A] font-medium">
+        <span className="whitespace-nowrap">Follow us:</span>
         <div className="flex items-center space-x-3">
           <a 
             href="https://www.linkedin.com/company/adiyogi-foundation" 
