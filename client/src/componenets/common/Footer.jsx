@@ -419,7 +419,7 @@ const [emailError, setEmailError] = useState('');
 
   return (
 
-<footer className="bg-[#FDF8F4] text-[#3E3E3E]">
+<footer className="bg-[#FDF8F8] text-[#5C4B4B] ">
   <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
 
@@ -484,7 +484,7 @@ const [emailError, setEmailError] = useState('');
                 placeholder="Enter your email"
                 className={`w-full border ${
                   emailError ? 'border-red-400' : 'border-[#EADBD5]'
-                } rounded-lg px-4 py-2 text-sm text-[#3E3E3E] bg-[#FDF8F4] placeholder-[#B7AFA8] focus:outline-none focus:border-sacred-crimson transition`}
+                } rounded-lg px-4 py-2 text-sm text-[#3E3E3E] bg-gradient-to-r from-[#FFF3F3] to-[#FBEDEA] placeholder-[#B7AFA8] focus:outline-none focus:border-sacred-crimson transition`}
               />
               {emailError && (
                 <p className="mt-1 text-xs text-red-500">{emailError}</p>
@@ -577,7 +577,7 @@ const [emailError, setEmailError] = useState('');
   </div>
 
 
-   <div className="bg-[#F2EAE6] border-t border-[#EADBD5]">
+   <div className="bg-gradient-to-r from-[#FFF3F3] to-[#FBEDEA] border-t border-[#EADBD5]">
     <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col gap-3 sm:gap-4 md:flex-row md:justify-between md:items-center text-sm text-[#6F6156]">
       
       {/* Left Section */}

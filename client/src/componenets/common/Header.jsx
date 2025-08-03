@@ -1777,7 +1777,7 @@ const Header = () => {
       {/* Left Side - Contact Info */}
       <div className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
         <div className="flex items-center space-x-1.5 sm:space-x-2 text-[#5C4B4B] transition-all duration-300 group cursor-pointer">
-          <div className="p-1 sm:p-1.5 bg-[#C41E3A]/10 rounded-lg group-hover:bg-[#C41E3A]/20 transition-all duration-300">
+          <div className="p-1 sm:p-1.5 bg-[#F5EDEA] rounded-lg group-hover:bg-[#C41E3A]/20 transition-all duration-300">
             <Mail className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#C41E3A]" />
           </div>
           <div>
@@ -1791,7 +1791,7 @@ const Header = () => {
         </div>
         
         <div className="flex items-center space-x-1.5 sm:space-x-2 text-[#5C4B4B] transition-all duration-300 group cursor-pointer">
-          <div className="p-1 sm:p-1.5 bg-[#C41E3A]/10 rounded-lg group-hover:bg-[#C41E3A]/20 transition-all duration-300">
+          <div className="p-1 sm:p-1.5 bg-[#F5EDEA] rounded-lg group-hover:bg-[#C41E3A]/20 transition-all duration-300">
             <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#C41E3A]" />
           </div>
           <div>
