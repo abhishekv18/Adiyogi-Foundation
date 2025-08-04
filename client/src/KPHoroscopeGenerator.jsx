@@ -492,17 +492,7 @@ const KPHoroscopeGenerator = () => {
         
         setLocationSuggestions(suggestions);
         setShowSuggestions(true);
-        setFormData({
-           fullName: '',
-    birthDate: '',
-    birthTime: '',
-    birthPlace: '',
-    phone: '',
-    email: '',
-    latitude: '',
-    longitude: '',
-    timezone: ''
-        });
+     
       }
     } catch (error) {
       console.error('Error fetching locations:', error);
@@ -592,6 +582,17 @@ const KPHoroscopeGenerator = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
       console.log('Form submitted:', formData);
       alert('Form submitted successfully! Your horoscope will be generated with the precise coordinates.');
+         setFormData({
+           fullName: '',
+    birthDate: '',
+    birthTime: '',
+    birthPlace: '',
+    phone: '',
+    email: '',
+    latitude: '',
+    longitude: '',
+    timezone: ''
+        });
     } catch (error) {
       console.error('Error:', error);
       alert('Something went wrong. Please try again.');
