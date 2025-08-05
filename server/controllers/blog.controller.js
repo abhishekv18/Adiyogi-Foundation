@@ -93,7 +93,7 @@ const blogMail = {
         </p>
 
         <div style="text-align: center; margin: 30px 0;">
-          <a href="https://adiyogifoundation.org.in/" 
+          <a href="https://adiyogifoundation.org.in/media" 
              style="background-color: #C41E3A; color: #fff; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500;">
             Read Full Blog
           </a>
@@ -142,7 +142,7 @@ const blogMail = {
           <p><strong>Image URL:</strong> ${imageUrl}</p>
           <p><strong>Content Preview:</strong></p>
           <p>${content.slice(0, 250)}...</p>
-          <p>Visit: <a href="https://adiyogifoundation.org.in/">View Blog</a></p>
+          <p>Visit: <a href="https://adiyogifoundation.org.in/media">View Blog</a></p>
         </div>
       `
     };
