@@ -428,7 +428,7 @@ const [emailError, setEmailError] = useState('');
         <div className="flex items-center space-x-3 mb-6 sm:mb-8">
           <div className="w-11 h-11 rounded-full overflow-hidden">
             <img 
-              src="/Adiyogifoundation logo_02.png" 
+              src="/adiyogifoundation_logo.png" 
               alt="Adiyogi Foundation Logo" 
               className="w-full h-full object-cover rounded-full"
             />

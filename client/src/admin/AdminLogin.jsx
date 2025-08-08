@@ -94,7 +94,7 @@ const AdminLoginPage = () => {
     <div className="relative flex-shrink-0">
       <div className="w-11 h-11 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
         <img
-          src="/Adiyogifoundation logo_02.png"
+          src="/adiyogifoundation_logo.png"
           alt="Adiyogi Foundation Logo"
           className="w-full h-full object-contain rounded-full"
         />
@@ -328,7 +328,7 @@ const AdminLoginPage = () => {
         <div className="relative flex-shrink-0">
           <div className="w-11 h-11 rounded-full flex items-center justify-center">
             <img 
-              src="/Adiyogifoundation logo_02.png" 
+              src="/adiyogifoundation_logo.png" 
               alt="Adiyogi Foundation Logo" 
               className="w-full h-full object-contain rounded-full " 
             />
