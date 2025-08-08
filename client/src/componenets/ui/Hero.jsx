@@ -184,7 +184,7 @@ const HeroWithCarousel = () => {
     <div className="flex justify-center mb-4 sm:mb-6 lg:mb-3 mt-0">
       <div className="w-32 h-32 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full overflow-hidden">
         <img
-          src="/Adiyogifoundation logo_02.png"
+          src="/adiyogifoundation_logo.png"
           alt="Adiyogi Foundation Logo"
           className="w-full h-full object-cover rounded-full"
         />
