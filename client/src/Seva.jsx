@@ -999,35 +999,41 @@ const navigate=useNavigate();
           }}>
             "सेवा परमो धर्मः" - Service is the highest dharma
           </div>
-<Link to='/contact'>
-   <button style={{
-            padding: isMobile ? '0.875rem 1.75rem' : '1rem 2.5rem',
-            backgroundColor: '#FFFEF7',
-            color: '#C41E3A',
-            border: 'none',
-            borderRadius: '50px',
-            fontSize: isMobile ? '1rem' : '1.1rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-            transform: 'translateY(0)',
-          }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = 'translateY(-2px)';
-              e.target.style.boxShadow = '0 6px 25px rgba(0,0,0,0.3)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
-            }}>
-            <Play size={isMobile ? 18 : 20} />
-            Explore Our Impact
-          </button>
-</Link>
+<a 
+  href="https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA" 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  <button style={{
+      padding: isMobile ? '0.875rem 1.75rem' : '1rem 2.5rem',
+      backgroundColor: '#FFFEF7',
+      color: '#C41E3A',
+      border: 'none',
+      borderRadius: '50px',
+      fontSize: isMobile ? '1rem' : '1.1rem',
+      fontWeight: '600',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+      transform: 'translateY(0)',
+    }}
+    onMouseEnter={(e) => {
+      e.target.style.transform = 'translateY(-2px)';
+      e.target.style.boxShadow = '0 6px 25px rgba(0,0,0,0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.transform = 'translateY(0)';
+      e.target.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
+    }}
+  >
+    <Play size={isMobile ? 18 : 20} />
+    Explore Our Impact
+  </button>
+</a>
+
        
         </div>
       </section>
