@@ -25,30 +25,6 @@ export const handleImageUpload = async (req, res) => {
 
 
 
-// export const addBlog = async(req,res)=>{
-//     try {
-//         const{title,imageUrl,content}=req.body;
-
-
-//         if ( !title || !imageUrl || !content ) {
-//             return res.status(400).json({
-//                 message: "Something is missing",
-//                 success: false
-//             });
-//         };
-     
-//         const newBlog = new Blog({title,imageUrl,content});
-//         await newBlog.save();
-//         return res.status(201).json({
-//             message:"Blog Post Successfully",
-//             success:true,
-//             newBlog
-//         });
-
-//     } catch (error) {
-//          console.log(error);
-//     }
-// }
 
 export const addBlog = async (req, res) => {
   try {
@@ -234,6 +210,33 @@ export const deleteBlogs = async (req, res) => {
         return res.status(200).json({
             message: "Blog deleted successfully",
             success: true
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            message: "Internal server error",
+            success: false
+        });
+    }
+}
+
+
+export const getBlogById = async (req, res) => {
+    try {
+        const blogId = req.params.id;
+        const blog = await Blog.findById(blogId);
+        
+        if (!blog) {
+            return res.status(404).json({
+                message: "Blog not found",
+                success: false
+            });
+        }
+        
+        return res.status(200).json({
+            message: "Blog fetched successfully",
+            success: true,
+            blog
         });
     } catch (error) {
         console.error(error);

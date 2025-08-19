@@ -19,6 +19,7 @@ import AdminDashboard from './admin/AdminDashboard';
 import DonationPage from './Donation';
 import Media from './Media';
 import KPHoroscopeGenerator from './KPHoroscopeGenerator';
+import BlogPage from './BlogPage';
 
 function App() {
   return (
@@ -42,12 +43,8 @@ function App() {
                  } />
                   <Route path="/donate" element={<DonationPage />} />
                   <Route path="/media" element={<Media />} />
-          {/* <Route path="/about" element={<About />} />
-          <Route path="/programs" element={<Programs />} />
-          <Route path="/temples" element={<Temples />} />
-          <Route path="/seva" element={<Seva />} />
-          <Route path="/get-involved" element={<GetInvolved />} />
-          <Route path="/contact" element={<Contact />} /> */ }
+                    <Route path="/blog/:id" element={<BlogPage />} />
+        
         </Routes>
       </Layout>
     </Router>

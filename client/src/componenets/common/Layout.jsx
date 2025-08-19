@@ -37,41 +37,73 @@ import DonationPopup from '../../DonationPop';
 import ScrollToTopButton from '../../ScrollToTopButton';
 import { useLocation } from 'react-router-dom';
 
+// const Layout = ({ children }) => {
+
+//  const location = useLocation();
+
+//   const hideLayoutRoutes = ['/admin-login','/admin-dashboard','/blog/:id']; // pages where we hide header & footer
+
+//   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
+
+//   return (
+//     <div className="min-h-screen bg-rose-cream">
+//        {!shouldHideLayout && <Header />}
+
+     
+//         <motion.main
+          
+//           className="flex-1"
+//             initial={{ opacity: 0, y: 30 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.6, ease: 'easeOut' }}
+//         >
+//           {children}
+//         </motion.main>
+
+//        {!shouldHideLayout && (
+//         <>
+//            <Footer />
+//       <WhatsAppDrawer />
+//       <ScrollToTopButton/>
+//       <DonationPopup />
+//         </>
+//       )}
+
+    
+//     </div>
+//   );
+// };
 const Layout = ({ children }) => {
-
- const location = useLocation();
-
-  const hideLayoutRoutes = ['/admin-login','/admin-dashboard']; // pages where we hide header & footer
-
-  const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
+  const location = useLocation();
+  
+  // Hide layout for admin routes and any blog page
+  const hideLayoutRoutes = ['/admin-login', '/admin-dashboard'];
+  const isBlogPage = location.pathname.startsWith('/blog/');
+  
+  const shouldHideLayout = hideLayoutRoutes.includes(location.pathname) || isBlogPage;
 
   return (
     <div className="min-h-screen bg-rose-cream">
        {!shouldHideLayout && <Header />}
 
-     
         <motion.main
-          
           className="flex-1"
-            initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           {children}
         </motion.main>
 
        {!shouldHideLayout && (
         <>
-           <Footer />
-      <WhatsAppDrawer />
-      <ScrollToTopButton/>
-      <DonationPopup />
+          <Footer />
+          <WhatsAppDrawer />
+          <ScrollToTopButton/>
+          <DonationPopup />
         </>
-      )}
-
-    
+       )}
     </div>
   );
 };
-
 export default Layout;
