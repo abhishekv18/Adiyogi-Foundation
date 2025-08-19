@@ -53,7 +53,7 @@ app.listen(PORT,()=>{
 if (process.env.NODE_ENV === "production") {
   cron.schedule('*/2 * * * *', async () => {
     try {
-      const res = await axios.get('https://adiyogi-foundation.onrender.com/api/ping');
+      const res = await axios.get('https://adiyogi-foundation-5oye.onrender.com/api/ping');
       console.log('Self-ping successful:', res.status);
     } catch (error) {
       console.error('Self-ping failed:', error.message);
