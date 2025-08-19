@@ -249,7 +249,7 @@ const DonationPopup = () => {
 
             <button
               onClick={handleDonate}
-              className="bg-gradient-to-br from-[#C41E3A] to-[#8B1538] text-white text-xs font-medium px-4 py-2 md:px-4 md:py-2 rounded-md shadow-sm hover:opacity-90 transition-opacity"
+              className="bg-gradient-to-br from-[#C41E3A] to-[#8B1538] text-white text-xs font-medium px-4 py-2 md:px-4 lg:py-3 rounded-md shadow-sm hover:opacity-90 transition-opacity"
             >
               Go to Donation Page
             </button>
