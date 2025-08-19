@@ -765,6 +765,7 @@ const SevaProjectsPage = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
   const [activeTab, setActiveTab] = useState('all');
   const [scrollY, setScrollY] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 const navigate=useNavigate();
 
@@ -1584,21 +1585,39 @@ const navigate=useNavigate();
     >
       <Link to="/volunteers">
         <button
-          style={{
-            padding: isMobile ? '0.875rem 1.25rem' : '1rem 2rem',
-            backgroundColor: '#FFFEF7',
-            color: '#C41E3A',
-            border: 'none',
-            borderRadius: '12px',
-            fontSize: isMobile ? '0.9rem' : '1rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-          }}
-        >
+          // style={{
+          //   padding: isMobile ? '0.875rem 1.25rem' : '1rem 2rem',
+          //   backgroundColor: '#FFFEF7',
+          //   color: '#C41E3A',
+          //   border: 'none',
+          //   borderRadius: '12px',
+          //   fontSize: isMobile ? '0.9rem' : '1rem',
+          //   fontWeight: '600',
+          //   cursor: 'pointer',
+          //   transition: 'all 0.3s ease',
+          //   display: 'flex',
+          //   alignItems: 'center',
+          //   gap: '0.5rem',
+          // }}
+            style={{
+    padding: isMobile ? "0.875rem 1.25rem" : "1rem 2rem",
+    backgroundColor: "#FFFEF7",
+    color: "#C41E3A",
+    border: "none",
+    borderRadius: "12px",
+    fontSize: isMobile ? "0.9rem" : "1rem",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    display: "flex",
+    alignItems: "center",
+    gap: "0.5rem",
+    transform: isHovered ? "scale(1.05)" : "scale(1)", // hover effect
+  }}
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+>
+        
           <Users size={isMobile ? 18 : 20} />
           Volunteer Now
         </button>
@@ -1619,8 +1638,11 @@ const navigate=useNavigate();
             display: 'flex',
             alignItems: 'center',
             gap: '0.5rem',
-          }}
-        >
+          transform: isHovered ? "scale(1.05)" : "scale(1)", // hover effect
+  }}
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+>
           <Heart size={isMobile ? 18 : 20} />
           Make a Donation
         </button>
