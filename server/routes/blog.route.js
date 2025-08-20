@@ -1,5 +1,5 @@
 import express from "express";
-import { addBlog, deleteBlogs, editBlog, getBlogs, handleImageUpload } from "../controllers/blog.controller.js";
+import { addBlog, deleteBlogs, editBlog, getBlogById, getBlogs, handleImageUpload } from "../controllers/blog.controller.js";
 import { upload } from "../helpers/cloudinary.js";
 
 
