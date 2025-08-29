@@ -372,20 +372,6 @@ const showDeleteAdminConfirmation = (userId) => {
       toast.error(error.response?.data?.message || 'Failed To Logout');
     }
   };
-// const handleLogout = async () => {
-//   try {
-//     const res = await api.post('/api/user/logout');
-
-//     if (res.data.success) {
-//       dispatch(setUser(null));
-//       toast.success("Logout Successfully");
-//       navigate("/");
-//     }
-//   } catch (error) {
-//     console.error(error.response?.data || error.message);
-//     toast.error(error.response?.data?.message || 'Failed To Logout');
-//   }
-// };
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredBlogs = useMemo(() => {
@@ -624,88 +610,6 @@ const Dashboard = useMemo(() => (
     </div>
   </div>
 ), [allBlogs, allUsers.length, navigateToEditor, navigateToEditBlog, showDeleteConfirmation]);
-
-// const BlogList = useMemo(() => (
-//   <div className="space-y-6">
-//     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-//       <h2 className="text-2xl font-bold text-slate-800">Manage Blogs ({allBlogs.length})</h2>
-//       <button
-//         onClick={navigateToEditor}
-//         className="bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors flex items-center gap-2 shadow-lg w-full sm:w-auto"
-//       >
-//         <Plus className="w-4 h-4" />
-//         New Blog Post
-//       </button>
-//     </div>
-
-//     <div className="bg-white rounded-xl shadow-lg border border-slate-200">
-//       <div className="p-4 md:p-6 border-b border-slate-200">
-//         <div className="flex items-center gap-4">
-//           <div className="flex-1 relative">
-//             <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
-//             <input
-//               type="text"
-//               placeholder="Search blogs..."
-//               value={searchTerm}
-//               onChange={handleSearchChange}
-//               className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
-//             />
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="divide-y divide-slate-200">
-//         {filteredBlogs.map((blog) => (
-//           <div key={blog.id || blog._id} className="p-4 md:p-6 hover:bg-slate-50 transition-colors">
-//             <div className="flex flex-col sm:flex-row items-start gap-4">
-//               <div className="relative w-full sm:w-24 flex-shrink-0">
-//                 <img
-//                   src={blog.imageUrl}
-//                   alt={blog.title}
-//                   className="w-full sm:w-24 h-24 object-cover rounded-xl shadow-md border border-slate-200"
-//                 />
-//                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
-//                   <span className="text-white text-xs font-bold">✓</span>
-//                 </div>
-//               </div>
-//               <div className="flex-1 min-w-0">
-//                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-//                   <div className="flex-1 min-w-0">
-//                     <h3 className="font-semibold text-slate-800 text-lg mb-2 truncate">{blog.title}</h3>
-//                     <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 mb-3">
-//                       {blog.content.substring(0, 120)}...
-//                     </p>
-//                     <div className="flex items-center gap-4 text-sm text-slate-500">
-//                       <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
-//                         Published
-//                       </span>
-//                     </div>
-//                   </div>
-//                   <div className="flex items-center gap-2 flex-shrink-0">
-//                     <button
-//                       onClick={() => navigateToEditBlog(blog)}
-//                       className="p-2 sm:p-3 text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors border border-transparent hover:border-emerald-200"
-//                       title="Edit Blog"
-//                     >
-//                       <Edit className="w-5 h-5" />
-//                     </button>
-//                     <button
-//                       onClick={() => showDeleteConfirmation(blog)}
-//                       className="p-2 sm:p-3 text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors border border-transparent hover:border-red-200"
-//                       title="Delete Blog"
-//                     >
-//                       <Trash2 className="w-5 h-5" />
-//                     </button>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   </div>
-// ), [filteredBlogs, navigateToEditor, handleSearchChange, searchTerm, navigateToEditBlog, showDeleteConfirmation]);
 
 
 
@@ -1115,26 +1019,7 @@ const AdminManagement = useMemo(() => (
 ),[allUsers, showModal, formData, isLoading, handleAddAdmin, showAdminDeleteModal, adminToDelete]);
 
 return (
-  // <div className="bg-gray-50 min-h-screen">
-  //   {Sidebar}
-    
-  //   {/* Mobile menu button */}
-  //   <button 
-  //     className="fixed top-4 left-4 z-40 lg:hidden p-2 rounded-md bg-slate-800 text-white shadow-lg"
-  //     onClick={() => document.querySelector('.fixed.left-0').classList.toggle('translate-x-0')}
-  //   >
-  //     <Menu className="w-6 h-6" />
-  //   </button>
-    
-  //   <div className="lg:ml-64 p-4 md:p-8 pt-20 lg:pt-8">
-  //     {currentView === 'dashboard' && Dashboard}
-  //     {currentView === 'blogs' && BlogList}
-  //     {currentView === 'editor' && BlogEditor}
-  //     {currentView === 'admins' && AdminManagement}
-  //   </div>
-    
-  //   {DeleteConfirmationModal}
-  // </div>
+
     <div className="bg-gray-50 min-h-screen relative">
     {Sidebar}
     
