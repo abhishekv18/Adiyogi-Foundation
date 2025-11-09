@@ -376,7 +376,7 @@ const HeroWithCarousel = () => {
       className="absolute inset-0"
       style={{
         background:
-          'linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(248, 240, 255, 0.5) 50%, rgba(255, 255, 255, 0.6) 100%)',
+          'linear-gradient(to right, rgba(255, 255, 255, 0.3) 0%, rgba(248, 240, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 100%)',
       }}
     ></div>
   </div>
