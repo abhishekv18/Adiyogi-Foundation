@@ -427,7 +427,7 @@ const [productLoading, setProductLoading] = useState(false);
 // Replace all hardcoded URLs with environment variable
 const fetchProducts = async () => {
   try {
-    const res = await axios.get(`http://localhost:5000/api/products/get`, {
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/get`, {
       withCredentials: true,
     });
     if (res.data.success) {
@@ -464,7 +464,7 @@ const fetchProducts = async () => {
     data.append('my_file', productImage);
     try {
    const response = await axios.post(
-  `http://localhost:5000/api/products/upload-image`,
+  `${import.meta.env.VITE_API_URL}/api/products/upload-image`,
   data, {
     headers: {
       "Content-Type": "multipart/form-data",
@@ -508,7 +508,7 @@ const handleSubmitProduct = useCallback(async (e) => {
     let res;
     if (isEditProductMode) {
       res = await axios.put(
-        `http://localhost:5000/api/products/edit/${editingProductId}`,
+        `${import.meta.env.VITE_API_URL}/api/products/edit/${editingProductId}`,
         productData,
         {
           headers: { 'Content-Type': 'application/json' },
@@ -517,7 +517,7 @@ const handleSubmitProduct = useCallback(async (e) => {
       );
     } else {
       res = await axios.post(
-        `http://localhost:5000/api/products/add`,
+        `${import.meta.env.VITE_API_URL}/api/products/add`,
         productData,
         {
           headers: { 'Content-Type': 'application/json' },
@@ -588,7 +588,7 @@ const confirmDeleteProduct = useCallback(async () => {
   setProductLoading(true); // Start loading
   try {
     const res = await axios.delete(
-      `http://localhost:5000/api/products/delete/${productToDelete._id}`,
+      `${import.meta.env.VITE_API_URL}/api/products/delete/${productToDelete._id}`,
       { withCredentials: true }
     );
     
@@ -752,7 +752,7 @@ const [orderStats, setOrderStats] = useState({
 
 const fetchOrders = useCallback(async () => {
   try {
-    const res = await axios.get(`http://localhost:5000/api/payments/orders`, {
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/payments/orders`, {
       withCredentials: true,
     });
     
