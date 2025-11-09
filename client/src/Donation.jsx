@@ -589,11 +589,11 @@ const navigate=useNavigate();
     >
       <source src="/Donate .mp4" type="video/mp4" />
       {/* Fallback image if video doesn't load */}
-      <img
+      {/* <img
         src="/WhatsApp Image 2025-07-30 at 17.31.29_425d6f60.jpg"
         alt="Sacred Temple Background"
         className="w-full h-full object-cover"
-      />
+      /> */}
     </video>
     
     {/* Gradient Overlay */}
