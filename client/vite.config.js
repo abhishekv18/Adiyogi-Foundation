@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://adiyogi-foundation.onrender.com',
+        target: 'https://adiyogi-foundation-5oye.onrender.com',
         changeOrigin: true,
         secure: false
       }

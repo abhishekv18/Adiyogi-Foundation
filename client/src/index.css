@@ -45,7 +45,7 @@ body {
   background: #B8860B;
 } */
 
-
+/* 
 ::-webkit-scrollbar-track {
   background: #FDF8F8;
 }
@@ -57,4 +57,16 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #8B1538;
+} */
+ ::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6a0dad;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a0ba5;
 }

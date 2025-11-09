@@ -1,10 +1,42 @@
-// import React, { useState, useEffect } from 'react';
-// import { Heart, Droplets, GraduationCap, TreePine, Utensils, Sprout, Shirt, MapPin, Users, Star, ArrowRight, Circle, Award, Target, Calendar, Globe, ChevronDown, Play, Camera, BookOpen, Leaf } from 'lucide-react';
 
+// import React, { useState, useEffect } from 'react';
+// import { Heart, Droplets, GraduationCap, TreePine, Utensils, Sprout, Shirt, MapPin, Users, Star, ArrowRight, Circle, Award, Target, Calendar, Globe, ChevronDown, Play, Camera, BookOpen, Leaf, Sparkles } from 'lucide-react';
+// import { Link, useNavigate } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+// import { Helmet } from 'react-helmet';
 // const SevaProjectsPage = () => {
 //   const [hoveredProject, setHoveredProject] = useState(null);
 //   const [activeTab, setActiveTab] = useState('all');
 //   const [scrollY, setScrollY] = useState(0);
+//   const [isHovered, setIsHovered] = useState(false);
+//   const [isMobile, setIsMobile] = useState(false);
+// const navigate=useNavigate();
+
+//  const user = useSelector((state) => state.auth.user);
+
+//   useEffect(() => {
+//     if (user) {
+//       navigate('/admin-dashboard');
+//     }
+//   }, [user]);
+//   useEffect(() => {
+
+
+
+
+
+
+
+
+
+//     const handleResize = () => {
+//       setIsMobile(window.innerWidth < 768);
+//     };
+    
+//     handleResize();
+//     window.addEventListener('resize', handleResize);
+//     return () => window.removeEventListener('resize', handleResize);
+//   }, []);
 
 //   useEffect(() => {
 //     const handleScroll = () => setScrollY(window.scrollY);
@@ -27,8 +59,7 @@
 //       status: "Active",
 //       founded: "2019",
 //       impact: "Ancient traditions preserved",
-//       imageUrl: "/public/istockphoto-542316008-612x612 (1).jpg",
-//       // achievements: ["15 UNESCO heritage sites restored", "50+ traditional craftsmen trained", "100,000+ pilgrims served annually"]
+//       imageUrl: "/istockphoto-542316008-612x612 (1).jpg",
 //     },
 //     {
 //       id: 2,
@@ -44,8 +75,7 @@
 //       status: "Expanding",
 //       founded: "2020",
 //       impact: "Clean water for all",
-//       imageUrl: "/public/istockphoto-671568704-612x612.jpg",
-//       // achievements: ["12 rivers cleaned", "200+ wells restored", "50,000+ families have clean water"]
+//       imageUrl: "/istockphoto-671568704-612x612.jpg",
 //     },
 //     {
 //       id: 3,
@@ -61,8 +91,7 @@
 //       status: "Growing",
 //       founded: "2018",
 //       impact: "Future leaders shaped",
-//       imageUrl: "/public/istockphoto-1395727822-612x612.jpg",
-//       // achievements: ["10,000+ children educated", "95% graduation rate", "500+ teachers trained"]
+//       imageUrl: "/istockphoto-1395727822-612x612.jpg",
 //     },
 //     {
 //       id: 4,
@@ -78,8 +107,7 @@
 //       status: "Thriving",
 //       founded: "2019",
 //       impact: "Cleaner air, greener earth",
-//       imageUrl: "/public/istockphoto-1254698338-612x612.jpg",
-//       // achievements: ["500,000+ trees planted", "25% air quality improvement", "50 urban forests created"]
+//       imageUrl: "/istockphoto-1254698338-612x612.jpg",
 //     },
 //     {
 //       id: 5,
@@ -96,7 +124,6 @@
 //       founded: "2017",
 //       impact: "Nourishing communities",
 //       imageUrl: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=400&fit=crop&crop=center",
-//       // achievements: ["2 million meals served", "Zero food waste achieved", "150 community gardens established"]
 //     },
 //     {
 //       id: 6,
@@ -112,8 +139,7 @@
 //       status: "Cultivating",
 //       founded: "2020",
 //       impact: "Sustainable farming future",
-//       imageUrl: "/public/istockphoto-953464358-612x612.jpg",
-//       // achievements: ["5,000+ farmers trained", "40% yield increase", "Pesticide-free cultivation"]
+//       imageUrl: "/istockphoto-953464358-612x612.jpg",
 //     },
 //     {
 //       id: 7,
@@ -129,8 +155,7 @@
 //       status: "Sharing",
 //       founded: "2021",
 //       impact: "Dignity through giving",
-//       imageUrl: "/public/download (5).jpeg",
-//       // achievements: ["100,000+ garments distributed", "Zero waste clothing model", "Community dignity preserved"]
+//       imageUrl: "/download (5).jpeg",
 //     }
 //   ];
 
@@ -148,88 +173,106 @@
 
 //   const stats = [
 //     { number: "50+", label: "Active Volunteers", icon: Users },
-//     { number: "4", label: "Project Sites", icon: MapPin },
-//     { number: "2k+", label: "Lives Impacted", icon: Heart },
-//     { number: "3", label: "Core Initiatives", icon: Target }
+//     { number: "2+", label: "Project Sites", icon: MapPin },
+//     { number: "1k+", label: "Lives Impacted", icon: Heart },
+//     { number: "2+", label: "Core Initiatives", icon: Target }
 //   ];
 
 //   return (
-//     <div style={{ 
+
+//     <>
+//     <Helmet>
+//   <title>Seva | Adiyogi Foundation</title>
+//   <meta name="description" content="Participate in seva (selfless service) programs of Adiyogi Foundation to serve society, spread Dharma, and support spiritual growth." />
+//   <meta name="keywords" content="Adiyogi Foundation Seva, Volunteer, Selfless Service, Dharma Seva" />
+//   <link rel="canonical" href="https://www.adiyogifoundation.org.in/seva" />
+
+//   <meta property="og:title" content="Seva | Adiyogi Foundation" />
+//   <meta property="og:description" content="Join seva initiatives at Adiyogi Foundation and contribute to Dharma revival." />
+//   <meta property="og:url" content="https://www.adiyogifoundation.org.in/seva" />
+//   <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+
+//   <meta name="twitter:card" content="summary_large_image" />
+//   <meta name="twitter:title" content="Seva | Adiyogi Foundation" />
+//   <meta name="twitter:description" content="Participate in seva initiatives of Adiyogi Foundation to support Dharma." />
+//   <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+// </Helmet>
+// <div style={{ 
 //       backgroundColor: '#FDF8F8', 
 //       minHeight: '100vh',
 //       fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
 //     }}>
      
-// <section className="relative overflow-hidden py-16 px-3">
-//   {/* ✅ Rose Gradient Overlay */}
-//   <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20 z-0"></div>
+//       {/* Hero Section */}
+//       <section className="relative overflow-hidden py-16 px-4">
+//         <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20 z-0"></div>
 
-//   {/* ✅ Background Image with Fixed Attachment */}
-//   <div
-//     className="absolute inset-0 bg-center bg-cover bg-fixed z-0 opacity-15"
-//     style={{
-//       backgroundImage: "url('/public/premium_photo-1697729603226-8c8627dfc12b.avif')", // ✅ Adjust path if needed
-//     }}
-//   ></div>
+//         <div
+//           className="absolute inset-0 bg-center bg-cover bg-scroll z-0 opacity-15"
+//           style={{
+//             backgroundImage: "url('/premium_photo-1697729603226-8c8627dfc12b.avif')",
+//           }}
+//         ></div>
 
-//   {/* ✅ Main Content */}
-//   <div className="relative z-10" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem', textAlign: 'center' }}>
-//     <div style={{
-//       display: 'inline-flex',
-//       alignItems: 'center',
-//       gap: '1rem',
-//       marginBottom: '2rem',
-//       marginTop: "2rem"
-//     }}>
-//       <h1 style={{
-//         fontSize: '3.5rem',
-//         fontWeight: '800',
-//         color: '#2C2C2C',
-//         margin: 0,
-//         letterSpacing: '-0.02em',
-//       }}>
-//         Seva Projects
-//       </h1>
-//     </div>
+//         <div className="relative z-10" style={{ 
+//           maxWidth: '1200px', 
+//           margin: '0 auto', 
+//           textAlign: 'center' 
+//         }}>
+//           <div style={{
+//             display: 'inline-flex',
+//             alignItems: 'center',
+//             gap: '1rem',
+//             marginBottom: isMobile ? '1.5rem' : '2rem',
+//             marginTop: isMobile ? '1rem' : '2rem',
+//             flexDirection: isMobile ? 'column' : 'row'
+//           }}>
+//             <h1 style={{
+//               fontSize: isMobile ? '2.5rem' : '3.5rem',
+//               fontWeight: '800',
+//               color: '#2C2C2C',
+//               margin: 0,
+//               letterSpacing: '-0.02em',
+//               lineHeight: 1.2
+//             }}>
+//               Seva <span className="text-sacred-crimson relative">Projects</span>
+//             </h1>
+//           </div>
 
-//     {/* <div style={{
-//       width: '120px',
-//       height: '4px',
-//       backgroundColor: '#FFFEF7',
-//       margin: '0 auto 2rem auto',
-//       borderRadius: '2px',
-//       boxShadow: '0 2px 10px rgba(255,255,255,0.3)'
-//     }}></div> */}
+//           <p style={{
+//             fontSize: isMobile ? '1rem' : '1.25rem',
+//             color: '#2C2C2C',
+//             maxWidth: '800px',
+//             margin: '0 auto 3rem auto',
+//             lineHeight: '1.8',
+//             fontWeight: '400',
+//             padding: isMobile ? '0 1rem' : '0'
+//           }}>
+//             While our programs serve the self, our <span style={{ fontWeight: '700' }}>Seva Projects</span> serve the world.
+//             These ground-level initiatives work in areas where pain is physical hunger, pollution, clothing, education and respond with hands, hearts, and heritage.
+//           </p>
 
-//     <p style={{
-//       fontSize: '1.25rem',
-//       color: '#2C2C2C',
-//       maxWidth: '800px',
-//       margin: '0 auto 3rem auto',
-//       lineHeight: '1.8',
-//       fontWeight: '400',
-//     }}>
-//       While our programs serve the self, our <span style={{ fontWeight: '700' }}>Seva Projects</span> serve the world.
-//       These ground-level initiatives work in areas where pain is physical hunger, pollution, clothing, education and respond with hands, hearts, and heritage.
-//     </p>
-
-//     <div style={{
-//       fontSize: '1rem',
-//       color: '#C41E3A',
-//       fontWeight:'500',
-//       fontStyle: 'italic',
-//       marginBottom: '2rem'
-//     }}>
-//       "सेवा परमो धर्मः" - Service is the highest dharma
-//     </div>
-
-//     <button style={{
-//       padding: '1rem 2.5rem',
+//           <div style={{
+//             fontSize: isMobile ? '0.9rem' : '1rem',
+//             color: '#C41E3A',
+//             fontWeight:'500',
+//             fontStyle: 'italic',
+//             marginBottom: isMobile ? '1.5rem' : '2rem'
+//           }}>
+//             "सेवा परमो धर्मः" - Service is the highest dharma
+//           </div>
+// <a 
+//   href="https://www.youtube.com/channel/UCL8UZJkhwQ0o3YJKB8od1nA" 
+//   target="_blank" 
+//   rel="noopener noreferrer"
+// >
+//   <button style={{
+//       padding: isMobile ? '0.875rem 1.75rem' : '1rem 2.5rem',
 //       backgroundColor: '#FFFEF7',
 //       color: '#C41E3A',
 //       border: 'none',
 //       borderRadius: '50px',
-//       fontSize: '1.1rem',
+//       fontSize: isMobile ? '1rem' : '1.1rem',
 //       fontWeight: '600',
 //       cursor: 'pointer',
 //       transition: 'all 0.3s ease',
@@ -239,31 +282,39 @@
 //       boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
 //       transform: 'translateY(0)',
 //     }}
-//       onMouseEnter={(e) => {
-//         e.target.style.transform = 'translateY(-2px)';
-//         e.target.style.boxShadow = '0 6px 25px rgba(0,0,0,0.3)';
-//       }}
-//       onMouseLeave={(e) => {
-//         e.target.style.transform = 'translateY(0)';
-//         e.target.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
-//       }}>
-//       <Play size={20} />
-//       Explore Our Impact
-//     </button>
-//   </div>
-// </section>
+//     onMouseEnter={(e) => {
+//       e.target.style.transform = 'translateY(-2px)';
+//       e.target.style.boxShadow = '0 6px 25px rgba(0,0,0,0.3)';
+//     }}
+//     onMouseLeave={(e) => {
+//       e.target.style.transform = 'translateY(0)';
+//       e.target.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
+//     }}
+//   >
+//     <Play size={isMobile ? 18 : 20} />
+//     Explore Our Impact
+//   </button>
+// </a>
 
-//       {/* Stats Section */}
+       
+//         </div>
+//       </section>
+
+    
 //       <section style={{
 //         background: 'linear-gradient(135deg, #FFFEF7 0%, #F4E8E8 100%)',
-//         padding: '4rem 0',
+//         padding: isMobile ? '2rem 0' : '4rem 0',
 //         borderBottom: '1px solid #F4E8E8'
 //       }}>
-//         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+//         <div style={{ 
+//           maxWidth: '1200px', 
+//           margin: '0 auto', 
+//           padding: isMobile ? '0 1rem' : '0 1rem' 
+//         }}>
 //           <div style={{
 //             display: 'grid',
-//             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-//             gap: '3rem',
+//             gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(auto-fit, minmax(250px, 1fr))',
+//             gap: isMobile ? '1.5rem' : '3rem',
 //             textAlign: 'center'
 //           }}>
 //             {stats.map((stat, index) => {
@@ -273,29 +324,29 @@
 //                   position: 'relative'
 //                 }}>
 //                   <div style={{
-//                     width: '80px',
-//                     height: '80px',
+//                     width: isMobile ? '60px' : '80px',
+//                     height: isMobile ? '60px' : '80px',
 //                     borderRadius: '50%',
 //                     backgroundColor: '#C41E3A',
 //                     display: 'flex',
 //                     alignItems: 'center',
 //                     justifyContent: 'center',
-//                     margin: '0 auto 1.5rem auto',
-//                     boxShadow: '0 8px 25px rgba(196, 30, 58, 0.3)'
+//                     margin: '0 auto 1rem auto',
+//                     boxShadow: '0 8px 25px rgba(196, 30, 58, 0.1)'
 //                   }}>
-//                     <IconComponent size={32} style={{ color: '#FFFEF7' }} />
+//                     <IconComponent size={isMobile ? 24 : 32} style={{ color: '#FFFEF7' }} />
 //                   </div>
 //                   <h3 style={{
-//                     fontSize: '2.5rem',
+//                     fontSize: isMobile ? '1.75rem' : '2.5rem',
 //                     fontWeight: '800',
-//                     color: '#C41E3A',
+//                      color: '#E53935',
 //                     margin: '0 0 0.5rem 0'
 //                   }}>
 //                     {stat.number}
 //                   </h3>
 //                   <p style={{
-//                     fontSize: '1.1rem',
-//                     color: '#2C2C2C',
+//                     fontSize: isMobile ? '0.9rem' : '1.1rem',
+//                     color: '#5C5C5C',
 //                     margin: 0,
 //                     fontWeight: '500'
 //                   }}>
@@ -309,14 +360,30 @@
 //       </section>
 
 //       {/* Category Filter */}
-//       <section style={{ padding: '2rem 0', backgroundColor: '#FFFEF7' }}>
-//         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
-//           <div style={{
-//             display: 'flex',
-//             gap: '1rem',
-//             justifyContent: 'center',
-//             flexWrap: 'wrap'
-//           }}>
+//       <section style={{ 
+//         padding: isMobile ? '1.5rem 0' : '2rem 0', 
+//         backgroundColor: '#FFFEF7' 
+//       }}>
+//         <div style={{ 
+//           maxWidth: '1200px', 
+//           margin: '0 auto', 
+//           padding: isMobile ? '0 1rem' : '0 1rem' 
+//         }}>
+        
+//           <div
+//   className="no-scrollbar"
+//   style={{
+//     display: 'flex',
+//     gap: isMobile ? '0.5rem' : '1rem',
+//     justifyContent: 'center',
+//     flexWrap: 'wrap',
+//     overflowX: isMobile ? 'auto' : 'visible',
+//     paddingBottom: isMobile ? '0.5rem' : '0',
+//   }}
+// >
+//   {/* content here */}
+
+
 //             {categories.map((category) => {
 //               const IconComponent = category.icon;
 //               const isActive = activeTab === category.id;
@@ -325,21 +392,23 @@
 //                   key={category.id}
 //                   onClick={() => setActiveTab(category.id)}
 //                   style={{
-//                     padding: '0.75rem 1.5rem',
+//                     padding: isMobile ? '0.5rem 1rem' : '0.75rem 1.5rem',
 //                     backgroundColor: isActive ? '#C41E3A' : 'transparent',
 //                     color: isActive ? '#FFFEF7' : '#2C2C2C',
 //                     border: '2px solid #C41E3A',
 //                     borderRadius: '50px',
-//                     fontSize: '0.95rem',
+//                     fontSize: isMobile ? '0.85rem' : '0.95rem',
 //                     fontWeight: '600',
 //                     cursor: 'pointer',
 //                     transition: 'all 0.3s ease',
 //                     display: 'flex',
 //                     alignItems: 'center',
-//                     gap: '0.5rem'
+//                     gap: '0.5rem',
+//                     whiteSpace: 'nowrap',
+//                     flexShrink: 0
 //                   }}
 //                 >
-//                   <IconComponent size={18} />
+//                   <IconComponent size={isMobile ? 16 : 18} />
 //                   {category.name}
 //                 </button>
 //               );
@@ -349,23 +418,29 @@
 //       </section>
 
 //       {/* Projects Grid */}
-//       <main style={{ padding: '4rem 0' }}>
-//         <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 1rem' }}>
+//       <main style={{ 
+//         padding: isMobile ? '2rem 0' : '4rem 0',
+//         maxWidth: '1400px',
+//         margin: '0 auto'
+//       }}>
+//         <div style={{ 
+//           padding: isMobile ? '0 1rem' : '0 1rem',
+//           marginBottom: isMobile ? '2rem' : '4rem'
+//         }}>
 //           <div style={{
 //             display: 'grid',
-//             gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))',
-//             gap: '2.5rem',
-//             marginBottom: '4rem'
+//             gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(420px, 1fr))',
+//             gap: isMobile ? '1.5rem' : '2.5rem',
 //           }}>
 //             {filteredProjects.map((project) => {
 //               const IconComponent = project.icon;
-//               const isHovered = hoveredProject === project.id;
+//               const isHovered = hoveredProject === project.id && !isMobile;
               
 //               return (
 //                 <div
 //                   key={project.id}
-//                   onMouseEnter={() => setHoveredProject(project.id)}
-//                   onMouseLeave={() => setHoveredProject(null)}
+//                   onMouseEnter={() => !isMobile && setHoveredProject(project.id)}
+//                   onMouseLeave={() => !isMobile && setHoveredProject(null)}
 //                   style={{
 //                     background: '#FFFEF7',
 //                     borderRadius: '20px',
@@ -383,7 +458,7 @@
 //                   {/* Project Image */}
 //                   <div style={{
 //                     position: 'relative',
-//                     height: '200px',
+//                     height: isMobile ? '180px' : '200px',
 //                     overflow: 'hidden'
 //                   }}>
 //                     <img 
@@ -422,7 +497,6 @@
 //                     }}>
 //                       {project.category}
 //                     </div>
-
 //                     {/* Status Badge */}
 //                     <div style={{
 //                       position: 'absolute',
@@ -449,17 +523,19 @@
 //                   </div>
 
 //                   {/* Project Content */}
-//                   <div style={{ padding: '2rem' }}>
+//                   <div style={{ 
+//                     padding: isMobile ? '1.5rem' : '2rem' 
+//                   }}>
 //                     {/* Project Header */}
 //                     <div style={{
 //                       display: 'flex',
 //                       alignItems: 'center',
-//                       gap: '1rem',
-//                       marginBottom: '1.5rem'
+//                       gap: isMobile ? '0.75rem' : '1rem',
+//                       marginBottom: isMobile ? '1rem' : '1.5rem'
 //                     }}>
 //                       <div style={{
-//                         width: '60px',
-//                         height: '60px',
+//                         width: isMobile ? '50px' : '60px',
+//                         height: isMobile ? '50px' : '60px',
 //                         backgroundColor: isHovered ? '#C41E3A' : '#F4E8E8',
 //                         borderRadius: '15px',
 //                         display: 'flex',
@@ -468,7 +544,7 @@
 //                         transition: 'all 0.3s ease'
 //                       }}>
 //                         <IconComponent 
-//                           size={28} 
+//                           size={isMobile ? 24 : 28} 
 //                           style={{ 
 //                             color: isHovered ? '#FFFEF7' : '#C41E3A',
 //                             transition: 'color 0.3s ease'
@@ -477,7 +553,7 @@
 //                       </div>
 //                       <div>
 //                         <h3 style={{
-//                           fontSize: '1.4rem',
+//                           fontSize: isMobile ? '1.2rem' : '1.4rem',
 //                           fontWeight: '700',
 //                           color: '#2C2C2C',
 //                           margin: '0 0 0.25rem 0'
@@ -485,7 +561,7 @@
 //                           {project.title}
 //                         </h3>
 //                         <p style={{
-//                           fontSize: '0.9rem',
+//                           fontSize: isMobile ? '0.8rem' : '0.9rem',
 //                           color: '#C41E3A',
 //                           margin: 0,
 //                           fontWeight: '600',
@@ -500,8 +576,8 @@
 //                     <p style={{
 //                       color: '#2C2C2C',
 //                       lineHeight: '1.6',
-//                       fontSize: '0.95rem',
-//                       marginBottom: '1.5rem'
+//                       fontSize: isMobile ? '0.9rem' : '0.95rem',
+//                       marginBottom: isMobile ? '1rem' : '1.5rem'
 //                     }}>
 //                       {project.description}
 //                     </p>
@@ -509,9 +585,9 @@
 //                     {/* Project Impact */}
 //                     <div style={{
 //                       backgroundColor: '#F4E8E8',
-//                       padding: '1rem',
+//                       padding: isMobile ? '0.75rem' : '1rem',
 //                       borderRadius: '12px',
-//                       marginBottom: '1.5rem'
+//                       marginBottom: isMobile ? '1rem' : '1.5rem'
 //                     }}>
 //                       <div style={{
 //                         display: 'flex',
@@ -519,9 +595,9 @@
 //                         gap: '0.5rem',
 //                         marginBottom: '0.5rem'
 //                       }}>
-//                         <Award size={16} style={{ color: '#C41E3A' }} />
+//                         <Award size={isMobile ? 14 : 16} style={{ color: '#C41E3A' }} />
 //                         <span style={{
-//                           fontSize: '0.85rem',
+//                           fontSize: isMobile ? '0.8rem' : '0.85rem',
 //                           fontWeight: '600',
 //                           color: '#C41E3A'
 //                         }}>
@@ -529,7 +605,7 @@
 //                         </span>
 //                       </div>
 //                       <p style={{
-//                         fontSize: '0.9rem',
+//                         fontSize: isMobile ? '0.85rem' : '0.9rem',
 //                         color: '#2C2C2C',
 //                         margin: 0,
 //                         fontWeight: '500'
@@ -538,102 +614,20 @@
 //                       </p>
 //                     </div>
 
-//                     {/* Project Stats */}
-//                     {/* <div style={{
-//                       display: 'grid',
-//                       gridTemplateColumns: 'repeat(3, 1fr)',
-//                       gap: '1rem',
-//                       marginBottom: '1.5rem'
-//                     }}>
-//                       <div style={{ textAlign: 'center' }}>
-//                         <div style={{
-//                           display: 'flex',
-//                           alignItems: 'center',
-//                           justifyContent: 'center',
-//                           gap: '0.25rem',
-//                           marginBottom: '0.25rem'
-//                         }}>
-//                           <Users size={16} style={{ color: '#C41E3A' }} />
-//                           <span style={{
-//                             fontSize: '0.9rem',
-//                             fontWeight: '700',
-//                             color: '#2C2C2C'
-//                           }}>
-//                             {project.participants}
-//                           </span>
-//                         </div>
-//                         <span style={{
-//                           fontSize: '0.75rem',
-//                           color: '#6B4B4B'
-//                         }}>
-//                           Volunteers
-//                         </span>
-//                       </div>
-                      
-//                       <div style={{ textAlign: 'center' }}>
-//                         <div style={{
-//                           display: 'flex',
-//                           alignItems: 'center',
-//                           justifyContent: 'center',
-//                           gap: '0.25rem',
-//                           marginBottom: '0.25rem'
-//                         }}>
-//                           <MapPin size={16} style={{ color: '#C41E3A' }} />
-//                           <span style={{
-//                             fontSize: '0.9rem',
-//                             fontWeight: '700',
-//                             color: '#2C2C2C'
-//                           }}>
-//                             {project.locations}
-//                           </span>
-//                         </div>
-//                         <span style={{
-//                           fontSize: '0.75rem',
-//                           color: '#6B4B4B'
-//                         }}>
-//                           Locations
-//                         </span>
-//                       </div>
-                      
-//                       <div style={{ textAlign: 'center' }}>
-//                         <div style={{
-//                           display: 'flex',
-//                           alignItems: 'center',
-//                           justifyContent: 'center',
-//                           gap: '0.25rem',
-//                           marginBottom: '0.25rem'
-//                         }}>
-//                           <Calendar size={16} style={{ color: '#C41E3A' }} />
-//                           <span style={{
-//                             fontSize: '0.9rem',
-//                             fontWeight: '700',
-//                             color: '#2C2C2C'
-//                           }}>
-//                             {project.founded}
-//                           </span>
-//                         </div>
-//                         <span style={{
-//                           fontSize: '0.75rem',
-//                           color: '#6B4B4B'
-//                         }}>
-//                           Founded
-//                         </span>
-//                       </div>
-//                     </div> */}
-
 //                     {/* Action Buttons */}
 //                     <div style={{
 //                       display: 'flex',
-//                       gap: '0.75rem'
+//                       gap: isMobile ? '0.5rem' : '0.75rem'
 //                     }}>
-//                       <button style={{
+                    
+//                         <button style={{
 //                         flex: 1,
-//                         padding: '0.875rem 1.5rem',
+//                         padding: isMobile ? '0.75rem 1rem' : '0.875rem 1.5rem',
 //                         backgroundColor: isHovered ? '#8B1538' : '#C41E3A',
 //                         color: '#FFFEF7',
 //                         border: 'none',
 //                         borderRadius: '12px',
-//                         fontSize: '0.9rem',
+//                         fontSize: isMobile ? '0.85rem' : '0.9rem',
 //                         fontWeight: '600',
 //                         cursor: 'pointer',
 //                         transition: 'all 0.3s ease',
@@ -642,12 +636,13 @@
 //                         justifyContent: 'center',
 //                         gap: '0.5rem'
 //                       }}>
-//                         <Heart size={16} />
+//                         <Heart size={isMobile ? 14 : 16} />
 //                         Join Seva
 //                       </button>
-                      
-//                       <button style={{
-//                         padding: '0.875rem',
+                   
+//                     <Link to='/volunteers'>
+//                      <button style={{
+//                         padding: isMobile ? '0.75rem' : '0.875rem',
 //                         backgroundColor: 'transparent',
 //                         color: '#C41E3A',
 //                         border: '2px solid #C41E3A',
@@ -655,8 +650,11 @@
 //                         cursor: 'pointer',
 //                         transition: 'all 0.3s ease'
 //                       }}>
-//                         <ArrowRight size={16} />
+//                         <ArrowRight size={isMobile ? 14 : 16} />
 //                       </button>
+//                     </Link>
+                      
+                     
 //                     </div>
 //                   </div>
 //                 </div>
@@ -664,103 +662,155 @@
 //             })}
 //           </div>
 
-//           {/* Call to Action Section */}
-//        <div style={{
-//           background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
-//             borderRadius: '20px',
-//             padding: '3rem 2rem',
-//             textAlign: 'center',
-//             color: '#FFFEF7'
-//           }}>
-//             <div style={{
-//               display: 'flex',
-//               alignItems: 'center',
-//               justifyContent: 'center',
-//               gap: '1rem',
-//               marginBottom: '1.5rem'
-//             }}>
-//               <Heart size={32} style={{ color: '#FFFEF7' }} />
-//               <h2 style={{
-//                 fontSize: '2rem',
-//                 fontWeight: '700',
-//                 margin: 0
-//               }}>
-//                 Begin Your Sacred Service
-//               </h2>
-//               <Heart size={32} style={{ color: '#FFFEF7' }} />
-//             </div>
-//             <p style={{
-//               fontSize: '1.125rem',
-//               lineHeight: '1.6',
-//               marginBottom: '2rem',
-//               maxWidth: '600px',
-//               margin: '0 auto 2rem auto',
-//               opacity: 0.95
-//             }}>
-//               Every act of seva transforms not just the world, but the one who serves. 
-//               Choose your path of service and become part of something greater than yourself.
-//             </p>
-//             <div style={{
-//               display: 'flex',
-//               gap: '1rem',
-//               justifyContent: 'center',
-//               flexWrap: 'wrap'
-//             }}>
-//               <button style={{
-//                 padding: '1rem 2rem',
-//                 backgroundColor: '#FFFEF7',
-//                 color: '#C41E3A',
-//                 border: 'none',
-//                 borderRadius: '12px',
-//                 fontSize: '1rem',
-//                 fontWeight: '600',
-//                 cursor: 'pointer',
-//                 transition: 'all 0.3s ease',
-//                 display: 'flex',
-//                 alignItems: 'center',
-//                 gap: '0.5rem'
-//               }}>
-//                 <Users size={20} />
-//                 Volunteer Now
-//               </button>
-//               <button style={{
-//                 padding: '1rem 2rem',
-//                 backgroundColor: 'transparent',
-//                 color: '#FFFEF7',
-//                 border: '2px solid #FFFEF7',
-//                 borderRadius: '12px',
-//                 fontSize: '1rem',
-//                 fontWeight: '600',
-//                 cursor: 'pointer',
-//                 transition: 'all 0.3s ease',
-//                 display: 'flex',
-//                 alignItems: 'center',
-//                 gap: '0.5rem'
-//               }}>
-//                 <Heart size={20} />
-//                 Make a Donation
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-//              </main>
+//           <div
+//   className="relative overflow-hidden"
+//   style={{
+//     background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
+//     borderRadius: '20px',
+//     padding: isMobile ? '2rem 1rem' : '3rem 2rem',
+//     textAlign: 'center',
+//     color: '#FFFEF7',
+//     marginTop: isMobile ? '2rem' : '3rem',
+//   }}
+// >
+//   {/* Background Image */}
+//   <img
+//     src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+//     alt="Background"
+//     style={{
+//       position: 'absolute',
+//       top: 0,
+//       left: 0,
+//       width: '100%',
+//       height: '100%',
+//       objectFit: 'cover',
+//       opacity: 0.1,
+//       zIndex: 0,
+//     }}
+//   />
+
+//   {/* Content */}
+//   <div style={{ position: 'relative', zIndex: 1 }}>
+//     <div
+//       style={{
+//         display: 'flex',
+//         flexDirection: 'column',
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//         marginBottom: isMobile ? '1rem' : '1.5rem',
+//       }}
+//     >
+//       <Sparkles
+//         size={isMobile ? 32 : 40}
+//         style={{
+//           color: '#FFFEF7',
+//           marginBottom: isMobile ? '0.75rem' : '1rem',
+//         }}
+//         className="animate-pulse"
+//       />
+
+//       <h2
+//         style={{
+//           fontSize: isMobile ? '1.5rem' : '2rem',
+//           fontWeight: '700',
+//           margin: 0,
+//         }}
+//       >
+//         Begin Your Sacred Service
+//       </h2>
 //     </div>
+
+//     <p
+//       style={{
+//         fontSize: isMobile ? '1rem' : '1.125rem',
+//         lineHeight: '1.6',
+//         marginBottom: isMobile ? '1.5rem' : '2rem',
+//         maxWidth: '600px',
+//         margin: '0 auto 2rem auto',
+//         opacity: 0.95,
+//         padding: isMobile ? '0 0.5rem' : '0',
+//       }}
+//     >
+//       Every act of seva transforms not just the world, but the one who serves.
+//       Choose your path of service and become part of something greater than yourself.
+//     </p>
+
+//     <div
+//       style={{
+//         display: 'flex',
+//         gap: isMobile ? '0.75rem' : '1rem',
+//         justifyContent: 'center',
+//         flexWrap: 'wrap',
+//       }}
+//     >
+//       <Link to="/volunteers">
+//         <button
+//             style={{
+//     padding: isMobile ? "0.875rem 1.25rem" : "1rem 2rem",
+//     backgroundColor: "#FFFEF7",
+//     color: "#C41E3A",
+//     border: "none",
+//     borderRadius: "12px",
+//     fontSize: isMobile ? "0.9rem" : "1rem",
+//     fontWeight: "600",
+//     cursor: "pointer",
+//     transition: "all 0.3s ease",
+//     display: "flex",
+//     alignItems: "center",
+//     gap: "0.5rem",
+//     transform: isHovered ? "scale(1.05)" : "scale(1)", // hover effect
+//   }}
+//   onMouseEnter={() => setIsHovered(true)}
+//   onMouseLeave={() => setIsHovered(false)}
+// >
+        
+//           <Users size={isMobile ? 18 : 20} />
+//           Volunteer Now
+//         </button>
+//       </Link>
+
+//       <Link to="/donate">
+//         <button
+//           style={{
+//             padding: isMobile ? '0.875rem 1.25rem' : '1rem 2rem',
+//             backgroundColor: 'transparent',
+//             color: '#FFFEF7',
+//             border: '2px solid #FFFEF7',
+//             borderRadius: '12px',
+//             fontSize: isMobile ? '0.9rem' : '1rem',
+//             fontWeight: '600',
+//             cursor: 'pointer',
+//             transition: 'all 0.3s ease',
+//             display: 'flex',
+//             alignItems: 'center',
+//             gap: '0.5rem',
+//           transform: isHovered ? "scale(1.05)" : "scale(1)", // hover effect
+//   }}
+//   onMouseEnter={() => setIsHovered(true)}
+//   onMouseLeave={() => setIsHovered(false)}
+// >
+//           <Heart size={isMobile ? 18 : 20} />
+//           Make a Donation
+//         </button>
+//       </Link>
+//     </div>
+//   </div>
+// </div>
+
+//         </div>
+//       </main>
+//     </div>
+//     </>
+    
 //   );
 // };
 
 // export default SevaProjectsPage;
-
-
-
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import { Heart, Droplets, GraduationCap, TreePine, Utensils, Sprout, Shirt, MapPin, Users, Star, ArrowRight, Circle, Award, Target, Calendar, Globe, ChevronDown, Play, Camera, BookOpen, Leaf, Sparkles } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
+import { Helmet } from 'react-helmet';
 const SevaProjectsPage = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
   const [activeTab, setActiveTab] = useState('all');
@@ -810,7 +860,7 @@ const navigate=useNavigate();
       fullDescription: "Through meticulous archaeological research and community collaboration, we restore ancient temples to their former glory while preserving their spiritual essence. Our restoration projects include structural repairs, artistic conservation, and the revival of traditional rituals and ceremonies.",
       icon: Circle,
       category: "heritage",
-      color: "#C41E3A",
+      color: "#6a0dad",
       participants: "2,500+",
       locations: "45 Sites",
       status: "Active",
@@ -826,7 +876,7 @@ const navigate=useNavigate();
       fullDescription: "Our comprehensive water conservation program combines traditional water harvesting techniques with modern technology. We work with local communities to clean water bodies, install filtration systems, and educate about water conservation practices.",
       icon: Droplets,
       category: "environment",
-      color: "#C41E3A",
+      color: "#6a0dad",
       participants: "1,800+",
       locations: "32 Rivers",
       status: "Expanding",
@@ -842,7 +892,7 @@ const navigate=useNavigate();
       fullDescription: "Our holistic education approach combines academic excellence with moral values, practical skills, and spiritual wisdom. We provide free education from primary to higher secondary level, along with vocational training and character development programs.",
       icon: GraduationCap,
       category: "education",
-      color: "#C41E3A",
+      color: "#6a0dad",
       participants: "5,200+",
       locations: "68 Centers",
       status: "Growing",
@@ -858,7 +908,7 @@ const navigate=useNavigate();
       fullDescription: "Our reforestation initiative focuses on planting native species to restore ecological balance. We create urban forests, establish community orchards, and implement air quality monitoring systems while educating communities about environmental conservation.",
       icon: TreePine,
       category: "environment",
-      color: "#C41E3A",
+      color: "#6a0dad",
       participants: "3,400+",
       locations: "156 Sites",
       status: "Thriving",
@@ -874,7 +924,7 @@ const navigate=useNavigate();
       fullDescription: "Our comprehensive food security program ensures no one goes hungry while promoting nutrition education and sustainable food practices. We operate community kitchens, mobile food units, and establish urban gardens to provide fresh, healthy meals.",
       icon: Utensils,
       category: "social",
-      color: "#C41E3A",
+      color: "#6a0dad",
       participants: "4,100+",
       locations: "89 Kitchens",
       status: "Serving",
@@ -890,7 +940,7 @@ const navigate=useNavigate();
       fullDescription: "We empower farmers with sustainable agricultural practices that restore soil health and increase crop yields naturally. Our program includes organic farming training, soil testing, composting techniques, and market linkage for organic produce.",
       icon: Sprout,
       category: "environment",
-      color: "#C41E3A",
+      color: "#6a0dad",
       participants: "2,900+",
       locations: "234 Farms",
       status: "Cultivating",
@@ -906,7 +956,7 @@ const navigate=useNavigate();
       fullDescription: "Our innovative clothing distribution system operates like a dignified shopping experience for those in need. We collect, clean, and organize donated clothes in boutique-style centers where people can choose what they need with respect and privacy.",
       icon: Shirt,
       category: "social",
-      color: "#C41E3A",
+      color: "#6a0dad",
       participants: "1,600+",
       locations: "28 Centers",
       status: "Sharing",
@@ -936,15 +986,33 @@ const navigate=useNavigate();
   ];
 
   return (
-    <div style={{ 
-      backgroundColor: '#FDF8F8', 
+
+    <>
+    <Helmet>
+  <title>Seva | Adiyogi Foundation</title>
+  <meta name="description" content="Participate in seva (selfless service) programs of Adiyogi Foundation to serve society, spread Dharma, and support spiritual growth." />
+  <meta name="keywords" content="Adiyogi Foundation Seva, Volunteer, Selfless Service, Dharma Seva" />
+  <link rel="canonical" href="https://www.adiyogifoundation.org.in/seva" />
+
+  <meta property="og:title" content="Seva | Adiyogi Foundation" />
+  <meta property="og:description" content="Join seva initiatives at Adiyogi Foundation and contribute to Dharma revival." />
+  <meta property="og:url" content="https://www.adiyogifoundation.org.in/seva" />
+  <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Seva | Adiyogi Foundation" />
+  <meta name="twitter:description" content="Participate in seva initiatives of Adiyogi Foundation to support Dharma." />
+  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+</Helmet>
+<div style={{ 
+      backgroundColor: '#FFFFFF', 
       minHeight: '100vh',
       fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
     }}>
      
       {/* Hero Section */}
       <section className="relative overflow-hidden py-16 px-4">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20 z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-purple-800/20 z-0"></div>
 
         <div
           className="absolute inset-0 bg-center bg-cover bg-scroll z-0 opacity-15"
@@ -974,7 +1042,7 @@ const navigate=useNavigate();
               letterSpacing: '-0.02em',
               lineHeight: 1.2
             }}>
-              Seva <span className="text-sacred-crimson relative">Projects</span>
+              Seva <span className="text-[#6a0dad] relative">Projects</span>
             </h1>
           </div>
 
@@ -993,7 +1061,7 @@ const navigate=useNavigate();
 
           <div style={{
             fontSize: isMobile ? '0.9rem' : '1rem',
-            color: '#C41E3A',
+            color: '#6a0dad',
             fontWeight:'500',
             fontStyle: 'italic',
             marginBottom: isMobile ? '1.5rem' : '2rem'
@@ -1008,7 +1076,7 @@ const navigate=useNavigate();
   <button style={{
       padding: isMobile ? '0.875rem 1.75rem' : '1rem 2.5rem',
       backgroundColor: '#FFFEF7',
-      color: '#C41E3A',
+      color: '#6a0dad',
       border: 'none',
       borderRadius: '50px',
       fontSize: isMobile ? '1rem' : '1.1rem',
@@ -1041,9 +1109,9 @@ const navigate=useNavigate();
 
     
       <section style={{
-        background: 'linear-gradient(135deg, #FFFEF7 0%, #F4E8E8 100%)',
+        background: 'linear-gradient(135deg, #FFFEF7 0%, #F8F0FF 100%)',
         padding: isMobile ? '2rem 0' : '4rem 0',
-        borderBottom: '1px solid #F4E8E8'
+        borderBottom: '1px solid #F0E6FF'
       }}>
         <div style={{ 
           maxWidth: '1200px', 
@@ -1066,19 +1134,19 @@ const navigate=useNavigate();
                     width: isMobile ? '60px' : '80px',
                     height: isMobile ? '60px' : '80px',
                     borderRadius: '50%',
-                    backgroundColor: '#C41E3A',
+                    backgroundColor: '#6a0dad',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     margin: '0 auto 1rem auto',
-                    boxShadow: '0 8px 25px rgba(196, 30, 58, 0.1)'
+                    boxShadow: '0 8px 25px rgba(106, 13, 173, 0.1)'
                   }}>
                     <IconComponent size={isMobile ? 24 : 32} style={{ color: '#FFFEF7' }} />
                   </div>
                   <h3 style={{
                     fontSize: isMobile ? '1.75rem' : '2.5rem',
                     fontWeight: '800',
-                     color: '#E53935',
+                     color: '#6a0dad',
                     margin: '0 0 0.5rem 0'
                   }}>
                     {stat.number}
@@ -1108,19 +1176,7 @@ const navigate=useNavigate();
           margin: '0 auto', 
           padding: isMobile ? '0 1rem' : '0 1rem' 
         }}>
-          {/* <div style={{
-            display: 'flex',
-            gap: isMobile ? '0.5rem' : '1rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            overflowX: isMobile ? 'auto' : 'visible',
-            paddingBottom: isMobile ? '0.5rem' : '0',
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none',
-            '&::-webkit-scrollbar': {
-              display: 'none'
-            }
-          }}> */}
+        
           <div
   className="no-scrollbar"
   style={{
@@ -1144,9 +1200,9 @@ const navigate=useNavigate();
                   onClick={() => setActiveTab(category.id)}
                   style={{
                     padding: isMobile ? '0.5rem 1rem' : '0.75rem 1.5rem',
-                    backgroundColor: isActive ? '#C41E3A' : 'transparent',
+                    backgroundColor: isActive ? '#6a0dad' : 'transparent',
                     color: isActive ? '#FFFEF7' : '#2C2C2C',
-                    border: '2px solid #C41E3A',
+                    border: '2px solid #6a0dad',
                     borderRadius: '50px',
                     fontSize: isMobile ? '0.85rem' : '0.95rem',
                     fontWeight: '600',
@@ -1197,9 +1253,9 @@ const navigate=useNavigate();
                     borderRadius: '20px',
                     overflow: 'hidden',
                     boxShadow: isHovered 
-                      ? '0 20px 40px rgba(196, 30, 58, 0.25)' 
-                      : '0 8px 25px rgba(196, 30, 58, 0.15)',
-                    border: '1px solid #F4E8E8',
+                      ? '0 20px 40px rgba(106, 13, 173, 0.25)' 
+                      : '0 8px 25px rgba(106, 13, 173, 0.15)',
+                    border: '1px solid #F0E6FF',
                     transition: 'all 0.4s ease',
                     transform: isHovered ? 'translateY(-8px) scale(1.02)' : 'translateY(0) scale(1)',
                     cursor: 'pointer',
@@ -1229,7 +1285,7 @@ const navigate=useNavigate();
                       left: 0,
                       right: 0,
                       bottom: 0,
-                      background: `linear-gradient(135deg, rgba(196, 30, 58, 0.${isHovered ? '4' : '2'}) 0%, rgba(139, 21, 56, 0.${isHovered ? '6' : '3'}) 100%)`,
+                      background: `linear-gradient(135deg, rgba(106, 13, 173, 0.${isHovered ? '4' : '2'}) 0%, rgba(90, 11, 165, 0.${isHovered ? '6' : '3'}) 100%)`,
                       transition: 'all 0.4s ease'
                     }}></div>
                     
@@ -1239,7 +1295,7 @@ const navigate=useNavigate();
                       top: '1rem',
                       right: '1rem',
                       backgroundColor: '#FFFEF7',
-                      color: '#C41E3A',
+                      color: '#6a0dad',
                       padding: '0.5rem 1rem',
                       borderRadius: '20px',
                       fontSize: '0.8rem',
@@ -1253,7 +1309,7 @@ const navigate=useNavigate();
                       position: 'absolute',
                       bottom: '1rem',
                       left: '1rem',
-                      backgroundColor: '#C41E3A',
+                      backgroundColor: '#6a0dad',
                       color: '#FFFEF7',
                       padding: '0.5rem 1rem',
                       borderRadius: '20px',
@@ -1287,7 +1343,7 @@ const navigate=useNavigate();
                       <div style={{
                         width: isMobile ? '50px' : '60px',
                         height: isMobile ? '50px' : '60px',
-                        backgroundColor: isHovered ? '#C41E3A' : '#F4E8E8',
+                        backgroundColor: isHovered ? '#6a0dad' : '#F8F0FF',
                         borderRadius: '15px',
                         display: 'flex',
                         alignItems: 'center',
@@ -1297,7 +1353,7 @@ const navigate=useNavigate();
                         <IconComponent 
                           size={isMobile ? 24 : 28} 
                           style={{ 
-                            color: isHovered ? '#FFFEF7' : '#C41E3A',
+                            color: isHovered ? '#FFFEF7' : '#6a0dad',
                             transition: 'color 0.3s ease'
                           }} 
                         />
@@ -1313,7 +1369,7 @@ const navigate=useNavigate();
                         </h3>
                         <p style={{
                           fontSize: isMobile ? '0.8rem' : '0.9rem',
-                          color: '#C41E3A',
+                          color: '#6a0dad',
                           margin: 0,
                           fontWeight: '600',
                           fontStyle: 'italic'
@@ -1335,7 +1391,7 @@ const navigate=useNavigate();
 
                     {/* Project Impact */}
                     <div style={{
-                      backgroundColor: '#F4E8E8',
+                      backgroundColor: '#F8F0FF',
                       padding: isMobile ? '0.75rem' : '1rem',
                       borderRadius: '12px',
                       marginBottom: isMobile ? '1rem' : '1.5rem'
@@ -1346,11 +1402,11 @@ const navigate=useNavigate();
                         gap: '0.5rem',
                         marginBottom: '0.5rem'
                       }}>
-                        <Award size={isMobile ? 14 : 16} style={{ color: '#C41E3A' }} />
+                        <Award size={isMobile ? 14 : 16} style={{ color: '#6a0dad' }} />
                         <span style={{
                           fontSize: isMobile ? '0.8rem' : '0.85rem',
                           fontWeight: '600',
-                          color: '#C41E3A'
+                          color: '#6a0dad'
                         }}>
                           Key Impact
                         </span>
@@ -1374,7 +1430,7 @@ const navigate=useNavigate();
                         <button style={{
                         flex: 1,
                         padding: isMobile ? '0.75rem 1rem' : '0.875rem 1.5rem',
-                        backgroundColor: isHovered ? '#8B1538' : '#C41E3A',
+                        backgroundColor: isHovered ? '#5a0ba5' : '#6a0dad',
                         color: '#FFFEF7',
                         border: 'none',
                         borderRadius: '12px',
@@ -1395,8 +1451,8 @@ const navigate=useNavigate();
                      <button style={{
                         padding: isMobile ? '0.75rem' : '0.875rem',
                         backgroundColor: 'transparent',
-                        color: '#C41E3A',
-                        border: '2px solid #C41E3A',
+                        color: '#6a0dad',
+                        border: '2px solid #6a0dad',
                         borderRadius: '12px',
                         cursor: 'pointer',
                         transition: 'all 0.3s ease'
@@ -1413,99 +1469,10 @@ const navigate=useNavigate();
             })}
           </div>
 
-          {/* Call to Action Section */}
-       {/* <div style={{
-            background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
-            borderRadius: '20px',
-            padding: isMobile ? '2rem 1rem' : '3rem 2rem',
-            textAlign: 'center',
-            color: '#FFFEF7',
-            marginTop: isMobile ? '2rem' : '3rem'
-          }}>
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: isMobile ? '1rem' : '1.5rem'
-            }}>
-            <Sparkles
-  size={isMobile ? 32 : 40}
-  style={{ color: '#FFFEF7', marginBottom: isMobile ? '0.75rem' : '1rem' }}
-  className="animate-pulse"
-/>
-
-              <h2 style={{
-                fontSize: isMobile ? '1.5rem' : '2rem',
-                fontWeight: '700',
-                margin: 0
-              }}>
-                Begin Your Sacred Service
-              </h2>
-            </div>
-            <p style={{
-              fontSize: isMobile ? '1rem' : '1.125rem',
-              lineHeight: '1.6',
-              marginBottom: isMobile ? '1.5rem' : '2rem',
-              maxWidth: '600px',
-              margin: '0 auto 2rem auto',
-              opacity: 0.95,
-              padding: isMobile ? '0 0.5rem' : '0'
-            }}>
-              Every act of seva transforms not just the world, but the one who serves. 
-              Choose your path of service and become part of something greater than yourself.
-            </p>
-            <div style={{
-              display: 'flex',
-              gap: isMobile ? '0.75rem' : '1rem',
-              justifyContent: 'center',
-              flexWrap: 'wrap'
-            }}>
-              <Link to='/volunteers'>
-               <button style={{
-                padding: isMobile ? '0.875rem 1.25rem' : '1rem 2rem',
-                backgroundColor: '#FFFEF7',
-                color: '#C41E3A',
-                border: 'none',
-                borderRadius: '12px',
-                fontSize: isMobile ? '0.9rem' : '1rem',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}>
-                <Users size={isMobile ? 18 : 20} />
-                Volunteer Now
-              </button>
-              </Link>
-             <Link to='/donate'>
-               <button style={{
-                padding: isMobile ? '0.875rem 1.25rem' : '1rem 2rem',
-                backgroundColor: 'transparent',
-                color: '#FFFEF7',
-                border: '2px solid #FFFEF7',
-                borderRadius: '12px',
-                fontSize: isMobile ? '0.9rem' : '1rem',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}>
-                <Heart size={isMobile ? 18 : 20} />
-                Make a Donation
-              </button>
-             </Link>
-            
-            </div>
-          </div> */}
           <div
   className="relative overflow-hidden"
   style={{
-    background: 'linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(139, 21, 56, 1) 100%)',
+    background: 'linear-gradient(135deg, rgba(106, 13, 173, 0.7) 0%, rgba(90, 11, 165, 1) 100%)',
     borderRadius: '20px',
     padding: isMobile ? '2rem 1rem' : '3rem 2rem',
     textAlign: 'center',
@@ -1585,24 +1552,10 @@ const navigate=useNavigate();
     >
       <Link to="/volunteers">
         <button
-          // style={{
-          //   padding: isMobile ? '0.875rem 1.25rem' : '1rem 2rem',
-          //   backgroundColor: '#FFFEF7',
-          //   color: '#C41E3A',
-          //   border: 'none',
-          //   borderRadius: '12px',
-          //   fontSize: isMobile ? '0.9rem' : '1rem',
-          //   fontWeight: '600',
-          //   cursor: 'pointer',
-          //   transition: 'all 0.3s ease',
-          //   display: 'flex',
-          //   alignItems: 'center',
-          //   gap: '0.5rem',
-          // }}
             style={{
     padding: isMobile ? "0.875rem 1.25rem" : "1rem 2rem",
     backgroundColor: "#FFFEF7",
-    color: "#C41E3A",
+    color: "#6a0dad",
     border: "none",
     borderRadius: "12px",
     fontSize: isMobile ? "0.9rem" : "1rem",
@@ -1654,6 +1607,8 @@ const navigate=useNavigate();
         </div>
       </main>
     </div>
+    </>
+    
   );
 };
 

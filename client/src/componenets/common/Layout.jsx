@@ -79,8 +79,11 @@ const Layout = ({ children }) => {
   // Hide layout for admin routes and any blog page
   const hideLayoutRoutes = ['/admin-login', '/admin-dashboard'];
   const isBlogPage = location.pathname.startsWith('/blog/');
-  
-  const shouldHideLayout = hideLayoutRoutes.includes(location.pathname) || isBlogPage;
+  const isProductPage = location.pathname.startsWith('/product/');
+const isCheckPage = location.pathname.startsWith('/checkout');
+const isTermsPage = location.pathname.startsWith('/terms-conditions');
+const isOrderSuccessPage = location.pathname.startsWith('/order-success');
+  const shouldHideLayout = hideLayoutRoutes.includes(location.pathname) || isBlogPage || isProductPage || isCheckPage || isOrderSuccessPage || isTermsPage;
 
   return (
     <div className="min-h-screen bg-rose-cream">

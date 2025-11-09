@@ -511,7 +511,7 @@ import React, { useEffect, useState } from 'react';
 import { Calendar, MapPin, Heart, Users, Star, ChevronDown, ChevronUp, Eye, Compass, Building, Zap, Clock, CheckCircle, Circle, DotIcon, Satellite } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
+import { Helmet } from 'react-helmet';
 const Temple = () => {
 
 
@@ -662,7 +662,32 @@ const timelineEvents = [
   ];
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#FDF8F8' }}>
+    <>
+    <Helmet>
+  <title>Temples | Adiyogi Foundation</title>
+  <meta name="title" content="Temples | Adiyogi Foundation" />
+  <meta name="description" content="Explore the temples associated with Adiyogi Foundation, preserving sacred spaces and reviving Sanatana Dharma through devotion and spiritual practice." />
+  <meta name="keywords" content="Adiyogi Foundation Temples, Indian Temples, Spiritual Centers, Sanatana Dharma Temples, Meditation Temples, Dharma Revival" />
+  <meta name="author" content="Adiyogi Foundation" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.adiyogifoundation.org.in/temples" />
+
+  {/* Open Graph */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.adiyogifoundation.org.in/temples" />
+  <meta property="og:title" content="Temples | Adiyogi Foundation" />
+  <meta property="og:description" content="Discover the sacred temples nurtured by Adiyogi Foundation, where ancient traditions meet modern spiritual awakening." />
+  <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta property="og:site_name" content="Adiyogi Foundation" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.adiyogifoundation.org.in/temples" />
+  <meta name="twitter:title" content="Temples | Adiyogi Foundation" />
+  <meta name="twitter:description" content="Explore sacred temples and spiritual spaces supported by Adiyogi Foundation." />
+  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+</Helmet>
+<div className="min-h-screen" style={{ backgroundColor: '#FDF8F8' }}>
       {/* Hero Section */}
       {/* <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/20"></div>
@@ -1319,6 +1344,8 @@ const timelineEvents = [
 
       </div>
     </div>
+    </>
+    
   );
 };
 

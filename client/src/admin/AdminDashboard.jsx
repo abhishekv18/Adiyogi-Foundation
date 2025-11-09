@@ -1,7 +1,7 @@
 
-
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { Plus, Edit, Trash2, Eye, Calendar, User, LogOut, Search, Filter, X, Hamburger, Menu, EyeOff } from 'lucide-react';
+import OrderManagement from './OrderManagment';
+import { Plus, Edit, Trash2, Eye, User, LogOut, Search, X, Menu, EyeOff,  IndianRupee, Package, Box, Truck } from 'lucide-react';
   import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,9 +9,10 @@ import { setAllBlogs, setLoadin } from '../redux/blogSlice';
 import { useNavigate } from 'react-router-dom';
 import { setAllUsers, setLoading, setUser } from '../redux/authSlice';
 import { toast } from 'react-toastify';
-import { FaSpinner } from "react-icons/fa";
-
+import { setProducts } from '../redux/authEcommerce';
+import { setOrder, setOrders } from '../redux/orderSlice';
 const AdminDashboard = () => {
+  const ECOMMERCE_BACKEND_URL = 'https://adiyogi-foundation-5oye.onrender.com';
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const [formData, setFormData] = useState({
 });
 
 const { allUsers = [] } = useSelector((state) => state.auth);
-
+const { products  } = useSelector((state) => state.ecommerce);
 
 
 const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -396,7 +397,293 @@ const showDeleteAdminConfirmation = (userId) => {
     if (fileInput) fileInput.value = '';
   }, [isEditMode]);
 
-  // Delete Confirmation Modal Component
+
+
+
+
+
+
+
+//  const [products, setProducts] = useState([]);
+  const [productForm, setProductForm] = useState({
+    name: '',
+    description: '',
+    price: '',
+    quantity: '',
+    category: 'Others',
+    status: 'inStock'
+  });
+  const [showProductModal, setShowProductModal] = useState(false);
+  const [isEditProductMode, setIsEditProductMode] = useState(false);
+  const [editingProductId, setEditingProductId] = useState(null);
+  const [productImage, setProductImage] = useState(null);
+  const [productImagePreview, setProductImagePreview] = useState(null);
+  const [uploadedProductImageUrl, setUploadedProductImageUrl] = useState(null);
+  const [showDeleteProductModal, setShowDeleteProductModal] = useState(false);
+  const [productToDelete, setProductToDelete] = useState(null);
+  const [productSearchTerm, setProductSearchTerm] = useState('');
+const [productLoading, setProductLoading] = useState(false);
+  // Fetch products
+// Replace all hardcoded URLs with environment variable
+const fetchProducts = async () => {
+  try {
+    const res = await axios.get(`http://localhost:5000/api/products/get`, {
+      withCredentials: true,
+    });
+    if (res.data.success) {
+      dispatch(setProducts(res.data.products)); // Use Redux dispatch
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+  useEffect(() => {
+    if (currentView === 'ecommerce') {
+      fetchProducts();
+    }
+  }, [currentView, fetchProducts]);
+
+  // Handle product image selection
+  const handleProductImageChange = useCallback((e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setProductImage(file);
+      setProductImagePreview(URL.createObjectURL(file));
+    } else {
+      setProductImage(null);
+      setProductImagePreview(null);
+    }
+  }, []);
+
+  // Upload product image to Cloudinary
+  const uploadProductImage = useCallback(async () => {
+    if (!productImage) return;
+    
+    const data = new FormData();
+    data.append('my_file', productImage);
+    try {
+   const response = await axios.post(
+  `http://localhost:5000/api/products/upload-image`,
+  data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    withCredentials: true,
+  }
+);
+
+      if (response.data.success) {
+        setUploadedProductImageUrl(response.data.result.url);
+      }
+    } catch (error) {
+      console.error("Image upload failed:", error);
+      toast.error('Failed to upload image');
+    }
+  }, [productImage]);
+
+  useEffect(() => {
+    if (productImage) {
+      uploadProductImage();
+    }
+  }, [productImage, uploadProductImage]);
+
+  // Handle product form changes
+  const handleProductChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setProductForm(prev => ({ ...prev, [name]: value }));
+  }, []);
+
+const handleSubmitProduct = useCallback(async (e) => {
+  e.preventDefault();
+  setProductLoading(true); // Start loading
+  try {
+    const productData = {
+      ...productForm,
+      price: parseFloat(productForm.price),
+      quantity: parseInt(productForm.quantity),
+      imageUrl: uploadedProductImageUrl || (isEditProductMode ? productForm.imageUrl : '')
+    };
+
+    let res;
+    if (isEditProductMode) {
+      res = await axios.put(
+        `http://localhost:5000/api/products/edit/${editingProductId}`,
+        productData,
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        }
+      );
+    } else {
+      res = await axios.post(
+        `http://localhost:5000/api/products/add`,
+        productData,
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        }
+      );
+    }
+
+    if (res.data.success) {
+      toast.success(isEditProductMode ? "Product updated successfully" : "Product added successfully");
+      setShowProductModal(false);
+      resetProductForm();
+      fetchProducts();
+    }
+  } catch (error) {
+    console.error(error);
+    toast.error(error.response?.data?.message || `Failed to ${isEditProductMode ? 'edit' : 'add'} product`);
+  } finally {
+    setProductLoading(false); // End loading
+  }
+}, [productForm, uploadedProductImageUrl, isEditProductMode, editingProductId, fetchProducts]);
+
+  // Reset product form
+  const resetProductForm = useCallback(() => {
+    setProductForm({
+      name: '',
+      description: '',
+      price: '',
+      quantity: '',
+      category: '',
+      status: 'inStock'
+    });
+    setProductImage(null);
+    setProductImagePreview(null);
+    setUploadedProductImageUrl(null);
+    setIsEditProductMode(false);
+    setEditingProductId(null);
+  }, []);
+
+  // Edit product
+  const handleEditProduct = useCallback((product) => {
+    setIsEditProductMode(true);
+    setEditingProductId(product._id);
+    setProductForm({
+      name: product.name,
+      description: product.description,
+      price: product.price.toString(),
+      quantity: product.quantity.toString(),
+      category: product.category,
+      status: product.status,
+      imageUrl: product.imageUrl
+    });
+    setProductImage(null);
+    setProductImagePreview(null);
+    setUploadedProductImageUrl(null);
+    setShowProductModal(true);
+  }, []);
+
+  // Show delete product confirmation
+  const showDeleteProductConfirmation = useCallback((product) => {
+    setProductToDelete(product);
+    setShowDeleteProductModal(true);
+  }, []);
+
+const confirmDeleteProduct = useCallback(async () => {
+  if (!productToDelete) return;
+  
+  setProductLoading(true); // Start loading
+  try {
+    const res = await axios.delete(
+      `http://localhost:5000/api/products/delete/${productToDelete._id}`,
+      { withCredentials: true }
+    );
+    
+    if (res.data.success) {
+      toast.success("Product deleted successfully");
+      setShowDeleteProductModal(false);
+      setProductToDelete(null);
+      fetchProducts();
+    }
+  } catch (error) {
+    console.error(error.message);
+    toast.error(error.response?.data?.message || 'Failed to delete product');
+  } finally {
+    setProductLoading(false); // End loading
+  }
+}, [productToDelete, products]);
+  // Filter products based on search term
+  // const filteredProducts = useMemo(() => {
+  //   return products.filter(product => 
+  //     product.name.toLowerCase().includes(productSearchTerm.toLowerCase()) ||
+  //     product.description.toLowerCase().includes(productSearchTerm.toLowerCase()) ||
+  //     product.category.toLowerCase().includes(productSearchTerm.toLowerCase())
+  //   );
+  // }, [products, productSearchTerm]);
+
+  // Product statistics for dashboard
+  const productStats = useMemo(() => {
+    const totalProducts = products.length;
+    const inStockProducts = products.filter(p => p.status === 'inStock').length;
+    const outOfStockProducts = products.filter(p => p.status === 'outOfStock').length;
+    const totalValue = products.reduce((sum, product) => sum + (product.price * product.quantity), 0);
+    
+    return {
+      totalProducts,
+      inStockProducts,
+      outOfStockProducts,
+      totalValue: totalValue.toFixed(2)
+    };
+  }, [products]);
+
+const [selectedCategory, setSelectedCategory] = useState('all');
+const [sortBy, setSortBy] = useState('name');
+const [sortOrder, setSortOrder] = useState('asc');
+
+// Update the filteredProducts function to include category filtering and sorting
+const filteredProducts = useMemo(() => {
+  let filtered = products.filter(product => {
+    const matchesSearch = product.name.toLowerCase().includes(productSearchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(productSearchTerm.toLowerCase()) ||
+      product.category.toLowerCase().includes(productSearchTerm.toLowerCase());
+    
+    const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
+    
+    return matchesSearch && matchesCategory;
+  });
+
+  // Sorting logic
+  filtered.sort((a, b) => {
+    let valueA, valueB;
+    
+    switch (sortBy) {
+      case 'price':
+        valueA = a.price;
+        valueB = b.price;
+        break;
+      case 'quantity':
+        valueA = a.quantity;
+        valueB = b.quantity;
+        break;
+      case 'name':
+      default:
+        valueA = a.name.toLowerCase();
+        valueB = b.name.toLowerCase();
+        break;
+    }
+    
+    if (sortOrder === 'asc') {
+      return valueA > valueB ? 1 : -1;
+    } else {
+      return valueA < valueB ? 1 : -1;
+    }
+  });
+
+  return filtered;
+}, [products, productSearchTerm, selectedCategory, sortBy, sortOrder]);
+
+// Get unique categories for filter dropdown
+const categories = useMemo(() => {
+  const uniqueCategories = [...new Set(products.map(product => product.category))];
+  return ['all', ...uniqueCategories].filter(category => category);
+}, [products]);
+
+
+
+  
   const DeleteConfirmationModal = useMemo(() => {
     if (!showDeleteModal) return null;
 
@@ -443,6 +730,697 @@ const handleNavigation = (view) => {
   setCurrentView(view);
   setIsSidebarOpen(false);
 };
+
+
+// Add to your existing imports
+
+
+// Add to your component state (with your other useState declarations)
+// const [orders, setOrders] = useState([]);
+const { orders=[] } = useSelector((state) => state.orders);
+
+const [orderStats, setOrderStats] = useState({
+  totalOrders: 0,
+  processingOrders: 0,
+  shippedOrders: 0,
+  deliveredOrders: 0,
+  cancelledOrders: 0,
+  totalRevenue: 0
+});
+
+// Add this fetch function (with your other fetch functions)
+
+const fetchOrders = useCallback(async () => {
+  try {
+    const res = await axios.get(`http://localhost:5000/api/payments/orders`, {
+      withCredentials: true,
+    });
+    
+    if (res.data.success) {
+      dispatch(setOrders(res.data.orders));
+     
+      // Calculate order statistics
+      const totalOrders = res.data.orders.length;
+   
+      const processingOrders = res.data.orders.filter(o => o.orderStatus === 'processing').length;
+      const shippedOrders = res.data.orders.filter(o => o.orderStatus === 'shipped').length;
+      const deliveredOrders = res.data.orders.filter(o => o.orderStatus === 'delivered').length;
+      const cancelledOrders = res.data.orders.filter(o => o.orderStatus === 'cancelled').length;
+      
+      const totalRevenue = res.data.orders
+        .filter(o => o.orderStatus === 'delivered')
+        .reduce((sum, order) => sum + order.totalAmount, 0);
+      
+      setOrderStats({
+        totalOrders,
+        processingOrders,
+        shippedOrders,
+        deliveredOrders,
+        cancelledOrders,
+        totalRevenue: totalRevenue.toFixed(2)
+      });
+    }
+  } catch (error) {
+    console.error('Error fetching orders:', error);
+  }
+}, []);
+
+// Call fetchOrders in useEffect (add to your existing useEffect)
+useEffect(() => {
+  if (currentView === 'dashboard' || currentView === 'orders') {
+    fetchOrders();
+  }
+}, [currentView, fetchOrders]);
+console.log(orders);
+
+const EcommerceDashboard = useMemo(() => (
+  <div className="space-y-6">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <h2 className="text-2xl font-bold text-slate-800">E-commerce Dashboard</h2>
+      <button
+        onClick={() => {
+          resetProductForm();
+          setShowProductModal(true);
+        }}
+        className="bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors flex items-center gap-2 shadow-lg w-full sm:w-auto"
+      >
+        <Plus className="w-4 h-4" />
+        Add Product
+      </button>
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+      <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-4 md:p-6 rounded-xl shadow-lg border border-emerald-200">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-700">Total Products</h3>
+            <p className="text-3xl font-bold text-emerald-600 mt-2">{productStats.totalProducts}</p>
+          </div>
+          <div className="p-3 bg-emerald-500 rounded-lg">
+            <Package className="w-6 h-6 text-white" />
+          </div>
+        </div>
+      </div>
+      
+      <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 md:p-6 rounded-xl shadow-lg border border-blue-200">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-700">In Stock</h3>
+            <p className="text-3xl font-bold text-blue-600 mt-2">{productStats.inStockProducts}</p>
+          </div>
+          <div className="p-3 bg-blue-500 rounded-lg">
+            <Box className="w-6 h-6 text-white" />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 md:p-6 rounded-xl shadow-lg border border-amber-200">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-700">Out of Stock</h3>
+            <p className="text-3xl font-bold text-amber-600 mt-2">{productStats.outOfStockProducts}</p>
+          </div>
+          <div className="p-3 bg-amber-500 rounded-lg">
+            <Package className="w-6 h-6 text-white" />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 md:p-6 rounded-xl shadow-lg border border-purple-200">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-700">Total Value</h3>
+            <p className="text-3xl font-bold text-purple-600 mt-2">₹{productStats.totalValue}</p>
+          </div>
+          <div className="p-3 bg-purple-500 rounded-lg">
+            <IndianRupee className="w-6 h-6 text-white" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="bg-white rounded-xl shadow-lg border border-slate-200">
+      <div className="p-4 md:p-6 border-b border-slate-200">
+        <h3 className="text-lg font-semibold text-slate-800">Recent Products</h3>
+      </div>
+      <div className="p-4 md:p-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {products.slice(0, 4).map((product) => (
+            <div key={product._id} className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:shadow-md transition-shadow">
+              <div className="relative h-48 w-full mb-4">
+                <img 
+                  src={product.imageUrl} 
+                  alt={product.name}
+                  className="w-full h-full object-cover rounded-lg border border-slate-200"
+                />
+              </div>
+              <div className="space-y-2">
+                <h4 className="font-semibold text-slate-800 truncate">{product.name}</h4>
+                <p className="text-emerald-600 font-bold">₹{product.price}</p>
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-slate-600">Qty: {product.quantity}</p>
+                  <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                    product.status === 'inStock' 
+                      ? 'bg-emerald-100 text-emerald-800' 
+                      : 'bg-amber-100 text-amber-800'
+                  }`}>
+                    {product.status === 'inStock' ? 'In Stock' : 'Out of Stock'}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+), [products, productStats, resetProductForm]);
+
+// const ProductList = useMemo(() => (
+//   <div className="space-y-6 px-2 sm:px-4">
+//     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+//       <h2 className="text-xl sm:text-2xl font-bold text-slate-800">
+//         Manage Products ({products.length})
+//       </h2>
+//       <button
+//         onClick={() => {
+//           resetProductForm();
+//           setShowProductModal(true);
+//         }}
+//         className="bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors flex items-center gap-2 shadow-lg w-full sm:w-auto min-h-[44px]"
+//       >
+//         <Plus className="w-4 h-4" />
+//         Add Product
+//       </button>
+//     </div>
+
+//     <div className="bg-white rounded-xl shadow-lg border border-slate-200">
+//       <div className="p-4 md:p-6 border-b border-slate-200">
+//         <div className="flex items-center gap-4">
+//           <div className="flex-1 relative w-full">
+//             <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
+//             <input
+//               type="text"
+//               placeholder="Search products..."
+//               value={productSearchTerm}
+//               onChange={(e) => setProductSearchTerm(e.target.value)}
+//               className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all text-sm sm:text-base"
+//             />
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="p-4 md:p-6">
+//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+//           {filteredProducts.map((product) => (
+//             <div key={product._id} className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:shadow-md transition-shadow">
+//               <div className="relative h-48 w-full mb-4">
+//                 <img
+//                   src={product.imageUrl}
+//                   alt={product.name}
+//                   className="w-full h-full object-cover rounded-lg border border-slate-200"
+//                 />
+//                 <div className="absolute top-2 right-2 flex items-center gap-1">
+//                   <button
+//                     onClick={() => handleEditProduct(product)}
+//                     disabled={productLoading}
+//                     className="p-2 bg-white text-slate-500 hover:text-emerald-600 rounded-lg shadow-md transition-colors disabled:opacity-50"
+//                     title="Edit Product"
+//                   >
+//                     <Edit className="w-4 h-4" />
+//                   </button>
+//                   <button
+//                     onClick={() => showDeleteProductConfirmation(product)}
+//                     disabled={productLoading}
+//                     className="p-2 bg-white text-slate-500 hover:text-red-500 rounded-lg shadow-md transition-colors disabled:opacity-50"
+//                     title="Delete Product"
+//                   >
+//                     <Trash2 className="w-4 h-4" />
+//                   </button>
+//                 </div>
+//               </div>
+
+//               <div className="space-y-2">
+//                 <h3 className="font-semibold text-slate-800 truncate text-base">
+//                   {product.name}
+//                 </h3>
+//                 <p className="text-sm text-slate-600 line-clamp-2 break-words min-h-[40px]">
+//                   {product.description.substring(0, 80)}...
+//                 </p>
+//                 <p className="text-emerald-600 font-bold">₹{product.price}</p>
+//                 <div className="flex justify-between items-center">
+//                   <p className="text-sm text-slate-600">Qty: {product.quantity}</p>
+//                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+//                     product.status === 'inStock' 
+//                       ? 'bg-emerald-100 text-emerald-800' 
+//                       : 'bg-amber-100 text-amber-800'
+//                   }`}>
+//                     {product.status === 'inStock' ? 'In Stock' : 'Out of Stock'}
+//                   </span>
+//                 </div>
+//                 <p className="text-sm text-slate-600 truncate">Category: {product.category}</p>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// ), [products, filteredProducts, productSearchTerm, resetProductForm, handleEditProduct, showDeleteProductConfirmation, productLoading]);
+
+
+
+
+const ProductList = useMemo(() => (
+  <div className="space-y-6 px-2 sm:px-4">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <h2 className="text-xl sm:text-2xl font-bold text-slate-800">
+        Manage Products ({filteredProducts.length})
+      </h2>
+      <button
+        onClick={() => {
+          resetProductForm();
+          setShowProductModal(true);
+        }}
+        className="bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors flex items-center gap-2 shadow-lg w-full sm:w-auto min-h-[44px]"
+      >
+        <Plus className="w-4 h-4" />
+        Add Product
+      </button>
+    </div>
+
+    <div className="bg-white rounded-xl shadow-lg border border-slate-200">
+      {/* Filter and Search Section */}
+      <div className="p-4 md:p-6 border-b border-slate-200">
+        <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
+          <div className="flex-1 relative w-full">
+            <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={productSearchTerm}
+              onChange={(e) => setProductSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all text-sm sm:text-base"
+            />
+          </div>
+          
+          <div className="flex flex-wrap gap-3 w-full lg:w-auto">
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all min-w-[150px]"
+            >
+              {categories.map(category => (
+                <option key={category} value={category}>
+                  {category === 'all' ? 'All Categories' : category}
+                </option>
+              ))}
+            </select>
+            
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all min-w-[120px]"
+            >
+              <option value="name">Name</option>
+              <option value="price">Price</option>
+              <option value="quantity">Quantity</option>
+            </select>
+            
+            <button
+              onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+              className="px-4 py-3 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-2"
+            >
+              {sortOrder === 'asc' ? '↑ Asc' : '↓ Desc'}
+            </button>
+          </div>
+        </div>
+        
+        {/* Active filters display */}
+        {(selectedCategory !== 'all' || productSearchTerm) && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {selectedCategory !== 'all' && (
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                Category: {selectedCategory}
+                <button
+                  onClick={() => setSelectedCategory('all')}
+                  className="ml-2 text-blue-600 hover:text-blue-800"
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              </span>
+            )}
+            {productSearchTerm && (
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                Search: {productSearchTerm}
+                <button
+                  onClick={() => setProductSearchTerm('')}
+                  className="ml-2 text-emerald-600 hover:text-emerald-800"
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              </span>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Products Grid */}
+      <div className="p-4 md:p-6">
+        {filteredProducts.length === 0 ? (
+          <div className="text-center py-12">
+            <Package className="w-16 h-16 text-slate-300 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-slate-600 mb-2">No products found</h3>
+            <p className="text-slate-500">Try adjusting your search or filter criteria</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredProducts.map((product) => (
+              <div key={product._id} className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:shadow-md transition-shadow">
+                <div className="relative h-48 w-full mb-4">
+                  <img
+                    src={product.imageUrl}
+                    alt={product.name}
+                    className="w-full h-full object-cover rounded-lg border border-slate-200"
+                  />
+                  <div className="absolute top-2 right-2 flex items-center gap-1">
+                    <button
+                      onClick={() => handleEditProduct(product)}
+                      disabled={productLoading}
+                      className="p-2 bg-white text-slate-500 hover:text-emerald-600 rounded-lg shadow-md transition-colors disabled:opacity-50"
+                      title="Edit Product"
+                    >
+                      <Edit className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => showDeleteProductConfirmation(product)}
+                      disabled={productLoading}
+                      className="p-2 bg-white text-slate-500 hover:text-red-500 rounded-lg shadow-md transition-colors disabled:opacity-50"
+                      title="Delete Product"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="font-semibold text-slate-800 truncate text-base">
+                    {product.name}
+                  </h3>
+                  <p className="text-sm text-slate-600 line-clamp-2 break-words min-h-[40px]">
+                    {product.description.substring(0, 80)}...
+                  </p>
+                  <p className="text-emerald-600 font-bold">₹{product.price}</p>
+                  <div className="flex justify-between items-center">
+                    <p className="text-sm text-slate-600">Qty: {product.quantity}</p>
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                      product.status === 'inStock' 
+                        ? 'bg-emerald-100 text-emerald-800' 
+                        : 'bg-amber-100 text-amber-800'
+                    }`}>
+                      {product.status === 'inStock' ? 'In Stock' : 'Out of Stock'}
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate-600 truncate">Category: {product.category}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+), [filteredProducts, productSearchTerm, selectedCategory, sortBy, sortOrder, categories, resetProductForm, handleEditProduct, showDeleteProductConfirmation, productLoading]);
+
+
+const ProductModal = useMemo(() => (
+  showProductModal && (
+    <div className="fixed inset-0 z-50 overflow-hidden">
+      <div className="absolute inset-0 bg-black bg-opacity-50" onClick={() => {
+        if (!productLoading) {
+          setShowProductModal(false);
+          resetProductForm();
+        }
+      }}></div>
+      <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl transform transition-transform duration-300 ease-in-out">
+        <div className="h-full flex flex-col">
+          <div className="flex items-center justify-between p-6 border-b border-slate-200">
+            <h3 className="text-xl font-semibold text-slate-800">
+              {isEditProductMode ? 'Edit Product' : 'Add New Product'}
+            </h3>
+            <button
+              onClick={() => {
+                if (!productLoading) {
+                  setShowProductModal(false);
+                  resetProductForm();
+                }
+              }}
+              disabled={productLoading}
+              className="text-slate-400 hover:text-slate-600 p-2 rounded-lg hover:bg-slate-100 transition-colors disabled:opacity-50"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          <div className="flex-1 overflow-y-auto p-6">
+            <form onSubmit={handleSubmitProduct} className="space-y-6">
+              {/* ... (rest of the form fields remain the same) ... */}
+                <div className="grid grid-cols-1 gap-6">
+                 <div>
+                   <label className="block text-sm font-semibold text-slate-700 mb-2">
+                     Product Name *
+                   </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={productForm.name}
+                    onChange={handleProductChange}
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
+                    placeholder="Enter product name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Price (₹) *
+                  </label>
+                  <input
+                    type="number"
+                    name="price"
+                    required
+                    min="0"
+                    step="0.01"
+                    value={productForm.price}
+                    onChange={handleProductChange}
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
+                    placeholder="0.00"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Quantity *
+                  </label>
+                  <input
+                    type="number"
+                    name="quantity"
+                    required
+                    min="0"
+                    value={productForm.quantity}
+                    onChange={handleProductChange}
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
+                    placeholder="0"
+                  />
+                </div>
+
+                <div>
+                 
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+  Category *
+</label>
+<select
+  name="category"
+  required
+  value={productForm.category}
+  onChange={handleProductChange}
+  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
+>
+  <option value="">Select a category</option>
+  <option value="Ghee">Ghee</option>
+  <option value="Oil">Oil</option>
+  <option value="Masala">Masala</option>
+  <option value="Pooja Items">Pooja Items</option>
+  <option value="Others">Others</option>
+</select>
+
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Status *
+                  </label>
+                  <select
+                    name="status"
+                    required
+                    value={productForm.status}
+                    onChange={handleProductChange}
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
+                  >
+                    <option value="inStock">In Stock</option>
+                    <option value="outOfStock">Out of Stock</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Product Image
+                  </label>
+                  <div className="space-y-4">
+                    <div className="relative">
+                      <input
+                        type="file"
+                        onChange={handleProductImageChange}
+                        className="block w-full cursor-pointer text-sm text-slate-600 file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 file:transition-colors border border-slate-300 rounded-lg bg-slate-50"
+                      />
+                    </div>
+                    {(productImagePreview || (isEditProductMode && productForm.imageUrl)) && (
+                      <div className="relative inline-block">
+                        <img
+                          src={productImagePreview || productForm.imageUrl}
+                          alt="Preview"
+                          className="w-32 h-32 object-cover rounded-xl border-2 border-slate-200 shadow-lg"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Description *
+                  </label>
+                  <textarea
+                    name="description"
+                    required
+                    value={productForm.description}
+                    onChange={handleProductChange}
+                    rows="4"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all resize-none"
+                    placeholder="Describe the product features and details..."
+                  />
+                </div>
+              </div>
+
+            
+              <div className="flex justify-end space-x-3 pt-4 border-t border-slate-200 mt-6">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!productLoading) {
+                      setShowProductModal(false);
+                      resetProductForm();
+                    }
+                  }}
+                  disabled={productLoading}
+                  className="px-6 py-2 text-slate-600 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={productLoading}
+                  className="px-6 py-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors shadow-lg disabled:opacity-50 flex items-center justify-center gap-2 min-w-[120px]"
+                >
+                  {productLoading ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      {isEditProductMode ? 'Updating...' : 'Adding...'}
+                    </>
+                  ) : (
+                    isEditProductMode ? 'Update Product' : 'Add Product'
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+), [showProductModal, isEditProductMode, productForm, productImagePreview, handleProductChange, handleProductImageChange, handleSubmitProduct, resetProductForm, productLoading]);
+
+// Update the DeleteProductModal component to show loading state
+const DeleteProductModal = useMemo(() => (
+  showDeleteProductModal && (
+    <div className="fixed inset-0 z-50 overflow-hidden">
+      <div className="absolute inset-0 bg-black bg-opacity-50" onClick={() => {
+        if (!productLoading) setShowDeleteProductModal(false);
+      }}></div>
+      <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl transform transition-transform duration-300 ease-in-out">
+        <div className="h-full flex flex-col">
+          <div className="flex items-center justify-between p-6 border-b border-slate-200">
+            <h3 className="text-xl font-semibold text-slate-800">Confirm Delete</h3>
+            <button
+              onClick={() => {
+                if (!productLoading) setShowDeleteProductModal(false);
+              }}
+              disabled={productLoading}
+              className="text-slate-400 hover:text-slate-600 p-2 rounded-lg hover:bg-slate-100 transition-colors disabled:opacity-50"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          <div className="flex-1 overflow-y-auto p-6">
+            <div className="space-y-6">
+              <p className="text-slate-600 leading-relaxed">
+                Are you sure you want to delete the product <span className='font-medium text-red-600'>"{productToDelete?.name}"</span>? This action cannot be undone.
+              </p>
+              
+              {productToDelete?.imageUrl && (
+                <div className="flex justify-center">
+                  <img
+                    src={productToDelete.imageUrl}
+                    alt={productToDelete.name}
+                    className="w-48 h-48 object-cover rounded-xl border border-slate-200"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="flex justify-end space-x-3 p-6 border-t border-slate-200">
+            <button
+              onClick={() => {
+                if (!productLoading) setShowDeleteProductModal(false);
+              }}
+              disabled={productLoading}
+              className="px-6 py-2 text-slate-600 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors disabled:opacity-50"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={confirmDeleteProduct}
+              disabled={productLoading}
+              className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors focus:ring-2 focus:ring-red-500 focus:ring-offset-2 shadow-lg disabled:opacity-50 flex items-center justify-center gap-2 min-w-[100px]"
+            >
+              {productLoading ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Deleting...
+                </>
+              ) : (
+                'Delete'
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+), [showDeleteProductModal, productToDelete, confirmDeleteProduct, productLoading]);
+
 const Sidebar = useMemo(() => (
   <div className={`w-64 bg-slate-800 shadow-lg h-screen fixed left-0 top-0 z-50 lg:z-auto transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300 ease-in-out`}>
       <button 
@@ -496,6 +1474,36 @@ const Sidebar = useMemo(() => (
           <User className="w-5 h-5 mr-3" />
           Manage Admins
         </button>
+
+
+
+  <button
+            onClick={() => handleNavigation('ecommerce')}
+            className={`w-full flex items-center px-4 py-3 text-left rounded-lg transition-colors ${
+              currentView === 'ecommerce' ? 'bg-emerald-500 text-white shadow-lg' : 'text-slate-300 hover:bg-slate-700 hover:text-emerald-400'
+            }`}
+          >
+            <Package className="w-5 h-5 mr-3" />
+            E-commerce
+          </button>
+<button
+  onClick={() => handleNavigation('product')}
+  className={`w-full flex items-center px-4 py-3 text-left rounded-lg transition-colors ${
+    currentView === 'product' ? 'bg-emerald-500 text-white shadow-lg' : 'text-slate-300 hover:bg-slate-700 hover:text-emerald-400'
+  }`}
+>
+  <Box className="w-5 h-5 mr-3" />
+  Product List
+</button>
+<button
+  onClick={() => handleNavigation('orders')}
+  className={`w-full flex items-center px-4 py-3 text-left rounded-lg transition-colors ${
+    currentView === 'orders' ? 'bg-emerald-500 text-white shadow-lg' : 'text-slate-300 hover:bg-slate-700 hover:text-emerald-400'
+  }`}
+>
+  <Truck className="w-5 h-5 mr-3" />
+  Orders
+</button>
       </div>
     </nav>
     
@@ -506,7 +1514,8 @@ const Sidebar = useMemo(() => (
       </button>
     </div>
   </div>
-), [currentView,isSidebarOpen]);
+), [currentView,isSidebarOpen,handleNavigation]);
+
 
 const Dashboard = useMemo(() => (
   <div className="space-y-6">
@@ -521,40 +1530,111 @@ const Dashboard = useMemo(() => (
       </button>
     </div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+    {/* Stats Overview */}
+    {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
       <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-4 md:p-6 rounded-xl shadow-lg border border-emerald-200">
-        <h3 className="text-lg font-semibold text-slate-700">Total Blogs</h3>
-        <p className="text-3xl font-bold text-emerald-600 mt-2">{allBlogs.length}</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-700">Total Blogs</h3>
+            <p className="text-3xl font-bold text-emerald-600 mt-2">{allBlogs.length}</p>
+          </div>
+          <div className="p-3 bg-emerald-500 rounded-lg">
+            <Edit className="w-6 h-6 text-white" />
+          </div>
+        </div>
       </div>
       
       <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 md:p-6 rounded-xl shadow-lg border border-blue-200">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-700">Total Admin</h3>
+            <p className="text-3xl font-bold text-blue-600 mt-2">{allUsers.length}</p>
+          </div>
+          <div className="p-3 bg-blue-500 rounded-lg">
+            <User className="w-6 h-6 text-white" />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 md:p-6 rounded-xl shadow-lg border border-purple-200">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-700">Total Products</h3>
+            <p className="text-3xl font-bold text-purple-600 mt-2">{productStats.totalProducts}</p>
+          </div>
+          <div className="p-3 bg-purple-500 rounded-lg">
+            <Package className="w-6 h-6 text-white" />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 md:p-6 rounded-xl shadow-lg border border-amber-200">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-700">Inventory Value</h3>
+            <p className="text-3xl font-bold text-amber-600 mt-2">₹{productStats.totalValue}</p>
+          </div>
+          <div className="p-3 bg-amber-500 rounded-lg">
+            <IndianRupee className="w-6 h-6 text-white" />
+          </div>
+        </div>
+      </div>
+    </div> */}
+
+{/* Stats Overview */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+  <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-4 md:p-6 rounded-xl shadow-lg border border-emerald-200">
+    <div className="flex items-center justify-between">
+      <div>
+        <h3 className="text-lg font-semibold text-slate-700">Total Blogs</h3>
+        <p className="text-3xl font-bold text-emerald-600 mt-2">{allBlogs.length}</p>
+      </div>
+      <div className="p-3 bg-emerald-500 rounded-lg">
+        <Edit className="w-6 h-6 text-white" />
+      </div>
+    </div>
+  </div>
+  
+  <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 md:p-6 rounded-xl shadow-lg border border-blue-200">
+    <div className="flex items-center justify-between">
+      <div>
         <h3 className="text-lg font-semibold text-slate-700">Total Admin</h3>
         <p className="text-3xl font-bold text-blue-600 mt-2">{allUsers.length}</p>
       </div>
-
-      <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 md:p-6 rounded-xl shadow-lg border border-slate-200">
-        <ResponsiveContainer width="100%" height={80}>
-          <PieChart width={200} height={200}>
-            <Pie
-              data={pieData}
-              dataKey="value"
-              cx="50%"
-              cy="50%"
-              innerRadius={25}
-              outerRadius={35}
-            >
-              {pieData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={entry.color} />
-              ))}
-            </Pie>
-            <Tooltip
-              formatter={(value, name) => [`${value}`, `${name}`]}
-            />
-          </PieChart>
-        </ResponsiveContainer>
+      <div className="p-3 bg-blue-500 rounded-lg">
+        <User className="w-6 h-6 text-white" />
       </div>
     </div>
+  </div>
 
+  <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 md:p-6 rounded-xl shadow-lg border border-purple-200">
+    <div className="flex items-center justify-between">
+      <div>
+        <h3 className="text-lg font-semibold text-slate-700">Total Products</h3>
+        <p className="text-3xl font-bold text-purple-600 mt-2">{productStats.totalProducts}</p>
+      </div>
+      <div className="p-3 bg-purple-500 rounded-lg">
+        <Package className="w-6 h-6 text-white" />
+      </div>
+    </div>
+  </div>
+
+  {/* Add this Order Stats Card */}
+  <div className="bg-gradient-to-br from-red-50 to-red-100 p-4 md:p-6 rounded-xl shadow-lg border border-red-200">
+    <div className="flex items-center justify-between">
+      <div>
+        <h3 className="text-lg font-semibold text-slate-700">Total Orders</h3>
+        <p className="text-3xl font-bold text-red-600 mt-2">{orderStats.totalOrders}</p>
+      </div>
+      <div className="p-3 bg-red-500 rounded-lg">
+        <Truck className="w-6 h-6 text-white" />
+      </div>
+    </div>
+  </div>
+</div>
+{/* Recent Orders Section - Add to your dashboard */}
+
+    {/* Charts Section */}
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
       <div className="bg-white rounded-xl shadow-lg border border-slate-200">
         <div className="p-4 md:p-6 border-b border-slate-200">
@@ -581,15 +1661,63 @@ const Dashboard = useMemo(() => (
 
       <div className="bg-white rounded-xl shadow-lg border border-slate-200">
         <div className="p-4 md:p-6 border-b border-slate-200">
+          <h3 className="text-lg font-semibold text-slate-800">Inventory Status</h3>
+        </div>
+        <div className="p-4 md:p-6">
+          <ResponsiveContainer width="100%" height={200}>
+            <PieChart>
+              <Pie
+                data={[
+                  { name: 'In Stock', value: productStats.inStockProducts, color: '#10b981' },
+                  { name: 'Out of Stock', value: productStats.outOfStockProducts, color: '#ef4444' }
+                ]}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                outerRadius={80}
+                fill="#8884d8"
+                dataKey="value"
+                label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+              >
+                {[
+                  { name: 'In Stock', value: productStats.inStockProducts, color: '#10b981' },
+                  { name: 'Out of Stock', value: productStats.outOfStockProducts, color: '#ef4444' }
+                ].map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+    </div>
+
+    {/* Recent Items Section */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+      <div className="bg-white rounded-xl shadow-lg border border-slate-200">
+        <div className="p-4 md:p-6 border-b border-slate-200">
           <h3 className="text-lg font-semibold text-slate-800">Recent Blog Posts</h3>
         </div>
-        <div className="divide-y divide-slate-200 max-h-64 overflow-y-auto bg-gray-100">
+        <div className="divide-y divide-slate-200 max-h-64 overflow-y-auto">
           {allBlogs.slice(0, 5).map((blog) => (
-            <div key={blog.id || blog._id} className="p-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
+            <div key={blog.id || blog._id} className="p-4 flex items-start gap-4 hover:bg-slate-50 transition-colors">
+              {blog.imageUrl && (
+                <div className="flex-shrink-0">
+                  <img
+                    src={blog.imageUrl}
+                    alt={blog.title}
+                    className="w-16 h-16 object-cover rounded-lg border border-slate-200"
+                  />
+                </div>
+              )}
               <div className="flex-1 min-w-0">
                 <h4 className="font-medium text-slate-800 truncate">{blog.title}</h4>
+                <p className="text-sm text-slate-500 mt-1">
+                  {new Date(blog.createdAt).toLocaleDateString()}
+                </p>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-shrink-0">
                 <button
                   onClick={() => navigateToEditBlog(blog)}
                   className="p-2 text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
@@ -607,12 +1735,132 @@ const Dashboard = useMemo(() => (
           ))}
         </div>
       </div>
+
+      <div className="bg-white rounded-xl shadow-lg border border-slate-200">
+        <div className="p-4 md:p-6 border-b border-slate-200">
+          <h3 className="text-lg font-semibold text-slate-800">Recent Products</h3>
+        </div>
+        <div className="divide-y divide-slate-200 max-h-64 overflow-y-auto">
+          {products.slice(0, 5).map((product) => (
+            <div key={product._id} className="p-4 flex items-start gap-4 hover:bg-slate-50 transition-colors">
+              {product.imageUrl && (
+                <div className="flex-shrink-0">
+                  <img
+                    src={product.imageUrl}
+                    alt={product.name}
+                    className="w-16 h-16 object-cover rounded-lg border border-slate-200"
+                  />
+                </div>
+              )}
+              <div className="flex-1 min-w-0">
+                <h4 className="font-medium text-slate-800 truncate">{product.name}</h4>
+                <div className="flex items-center gap-3 mt-1">
+                  <p className="text-sm text-emerald-600 font-medium">₹{product.price}</p>
+                  <span className={`text-xs px-2 py-1 rounded-full ${
+                    product.status === 'inStock' 
+                      ? 'bg-emerald-100 text-emerald-800' 
+                      : 'bg-amber-100 text-amber-800'
+                  }`}>
+                    {product.status === 'inStock' ? 'In Stock' : 'Out of Stock'}
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <button
+                  onClick={() => handleEditProduct(product)}
+                  className="p-2 text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
+                >
+                  <Edit className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => showDeleteProductConfirmation(product)}
+                  className="p-2 text-slate-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                >
+                  <Trash2 className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Quick Actions */}
+    <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-6">
+      <h3 className="text-lg font-semibold text-slate-800 mb-4">Quick Actions</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <button
+          onClick={navigateToEditor}
+          className="flex flex-col items-center justify-center p-4 bg-emerald-50 rounded-lg border border-emerald-200 hover:bg-emerald-100 transition-colors group"
+        >
+          <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center mb-3 group-hover:bg-emerald-600 transition-colors">
+            <Edit className="w-6 h-6 text-white" />
+          </div>
+          <span className="text-sm font-medium text-emerald-800">Write Blog</span>
+        </button>
+        <button
+          onClick={() => {
+            resetProductForm();
+            setShowProductModal(true);
+          }}
+          className="flex flex-col items-center justify-center p-4 bg-blue-50 rounded-lg border border-blue-200 hover:bg-blue-100 transition-colors group"
+        >
+          <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mb-3 group-hover:bg-blue-600 transition-colors">
+            <Plus className="w-6 h-6 text-white" />
+          </div>
+          <span className="text-sm font-medium text-blue-800">Add Product</span>
+        </button>
+        <button
+          onClick={() => setShowModal(true)}
+          className="flex flex-col items-center justify-center p-4 bg-purple-50 rounded-lg border border-purple-200 hover:bg-purple-100 transition-colors group"
+        >
+          <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mb-3 group-hover:bg-purple-600 transition-colors">
+            <User className="w-6 h-6 text-white" />
+          </div>
+          <span className="text-sm font-medium text-purple-800">Add Admin</span>
+        </button>
+      </div>
+    </div>
+    <div className="bg-white rounded-xl shadow-lg border border-slate-200 mt-6">
+  <div className="p-4 md:p-6 border-b border-slate-200">
+    <div className="flex items-center justify-between">
+      <h3 className="text-lg font-semibold text-slate-800">Recent Orders</h3>
+      <button 
+        onClick={() => setCurrentView('orders')}
+        className="text-emerald-600 hover:text-emerald-700 text-sm font-medium"
+      >
+        View All
+      </button>
     </div>
   </div>
-), [allBlogs, allUsers.length, navigateToEditor, navigateToEditBlog, showDeleteConfirmation]);
-
-
-
+  <div className="divide-y divide-slate-200 max-h-64 overflow-y-auto">
+    {orders.slice(0, 5).map((order) => (
+      <div key={order._id} className="p-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
+        <div className="flex-1 min-w-0">
+          <h4 className="font-medium text-slate-800 truncate">Order #{order.orderId}</h4>
+          <p className="text-sm text-slate-500 mt-1">{order.customerName}</p>
+        </div>
+        <div className="flex items-center gap-4 flex-shrink-0">
+          <p className="text-emerald-600 font-medium">
+            <IndianRupee className="w-4 h-4 inline mr-1" />
+            {order.totalAmount.toFixed(2)}
+          </p>
+          <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+            order.orderStatus === 'delivered' ? 'bg-emerald-100 text-emerald-800' :
+            order.orderStatus === 'processing' ? 'bg-blue-100 text-blue-800' :
+            order.orderStatus === 'shipped' ? 'bg-purple-100 text-purple-800' :
+            'bg-red-100 text-red-800',
+            order.orderStatus === 'cancelled' ? 'line-through' : ''
+          }`}>
+            {order.orderStatus}
+          </span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+  </div>
+), [allBlogs, allUsers.length, products, productStats, navigateToEditor, navigateToEditBlog, showDeleteConfirmation, resetProductForm]);
 const BlogList = useMemo(() => (
   <div className="space-y-6 px-2 sm:px-4">
     {/* Header Section */}
@@ -1048,9 +2296,14 @@ return (
       {currentView === 'blogs' && BlogList}
       {currentView === 'editor' && BlogEditor}
       {currentView === 'admins' && AdminManagement}
+      {currentView === 'ecommerce' && EcommerceDashboard}
+        {currentView === 'product' && ProductList}
+        {currentView === 'orders' && <OrderManagement />}
     </div>
     
     {DeleteConfirmationModal}
+     {ProductModal}
+      {DeleteProductModal}
   </div>
 
 );

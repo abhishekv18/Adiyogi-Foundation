@@ -20,6 +20,11 @@ import DonationPage from './Donation';
 import Media from './Media';
 import KPHoroscopeGenerator from './KPHoroscopeGenerator';
 import BlogPage from './BlogPage';
+import Products from './Products';
+import ProductDetail from './ProductDetails';
+import Checkout from './Checkout';
+import OrderSuccess from './OrderSuccess';
+import TermsAndConditions from './TermsAndConditions';
 
 function App() {
   return (
@@ -44,6 +49,11 @@ function App() {
                   <Route path="/donate" element={<DonationPage />} />
                   <Route path="/media" element={<Media />} />
                     <Route path="/blog/:id" element={<BlogPage />} />
+                      <Route path="/products" element={<Products />} />
+                       <Route path="/product/:id" element={<ProductDetail />} />
+                       <Route path="/checkout" element={<Checkout />} />
+                       <Route path="/order-success" element={<OrderSuccess />} />
+                        <Route path="/terms-conditions" element={<TermsAndConditions />} />
         
         </Routes>
       </Layout>

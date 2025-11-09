@@ -1,8 +1,8 @@
 import { imageUploadUtil } from "../helpers/cloudinary.js";
 import { Blog } from "../models/blog.model.js";
 
-import nodemailer from "nodemailer";
-import { Subscribe } from "../models/subscribe.model.js";
+// import nodemailer from "nodemailer";
+// import { Subscribe } from "../models/subscribe.model.js";
 export const handleImageUpload = async (req, res) => {
   try {
     const b64 = Buffer.from(req.file.buffer).toString("base64");
@@ -39,96 +39,96 @@ export const addBlog = async (req, res) => {
  const newBlog = new Blog({ title, imageUrl, content });
     await newBlog.save();
    
-    const subscribers = await Subscribe.find({});
-    const emailList = subscribers.map((sub) => sub.email);
+    // const subscribers = await Subscribe.find({});
+    // const emailList = subscribers.map((sub) => sub.email);
 
     // Configure nodemailer
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "join.adiyogifoundation@gmail.com", // your Gmail
-        pass: "rajhtxxdaqccsacc" // your App Password
-      },
-    });
+    // const transporter = nodemailer.createTransport({
+    //   service: "gmail",
+    //   auth: {
+    //     user: "join.adiyogifoundation@gmail.com", // your Gmail
+    //     pass: "rajhtxxdaqccsacc" // your App Password
+    //   },
+    // });
 
-const blogMail = {
-  from: "join.adiyogifoundation@gmail.com",
-  to: emailList, // or bcc: emailList
-  subject: `📝 New Blog Posted: ${title}`,
-  html: `
-    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; color: #333;">
-      <div style="max-width: 600px; margin: auto; background: #fff; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 20px;">
+// const blogMail = {
+//   from: "join.adiyogifoundation@gmail.com",
+//   to: emailList, // or bcc: emailList
+//   subject: `📝 New Blog Posted: ${title}`,
+//   html: `
+//     <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; color: #333;">
+//       <div style="max-width: 600px; margin: auto; background: #fff; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 20px;">
 
-        <h2 style="color: #C41E3A; text-align: center; font-weight: 600;">New Blog Alert</h2>
-        <h3 style="text-align: center; margin: 10px 0 20px;">"${title}"</h3>
+//         <h2 style="color: #C41E3A; text-align: center; font-weight: 600;">New Blog Alert</h2>
+//         <h3 style="text-align: center; margin: 10px 0 20px;">"${title}"</h3>
 
-        <img src="${imageUrl}" alt="Blog Image" style="width: 100%; max-height: 280px; object-fit: cover; border-radius: 4px;" />
+//         <img src="${imageUrl}" alt="Blog Image" style="width: 100%; max-height: 280px; object-fit: cover; border-radius: 4px;" />
 
-        <p style="font-size: 15px; line-height: 1.6; margin: 20px 0;">
-          ${content.slice(0, 180)}...
-        </p>
+//         <p style="font-size: 15px; line-height: 1.6; margin: 20px 0;">
+//           ${content.slice(0, 180)}...
+//         </p>
 
-        <div style="text-align: center; margin: 30px 0;">
-          <a href="https://adiyogifoundation.org.in/media" 
-             style="background-color: #C41E3A; color: #fff; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500;">
-            Read Full Blog
-          </a>
-        </div>
+//         <div style="text-align: center; margin: 30px 0;">
+//           <a href="https://adiyogifoundation.org.in/media" 
+//              style="background-color: #C41E3A; color: #fff; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500;">
+//             Read Full Blog
+//           </a>
+//         </div>
 
-        <hr style="border: none; border-top: 1px solid #e0e0e0;" />
+//         <hr style="border: none; border-top: 1px solid #e0e0e0;" />
 
-        <p style="font-size: 13px; color: #777; margin-top: 25px;">
-          You are receiving this email because you subscribed to updates from Adiyogi Foundation.
-        </p>
+//         <p style="font-size: 13px; color: #777; margin-top: 25px;">
+//           You are receiving this email because you subscribed to updates from Adiyogi Foundation.
+//         </p>
 
-        <p style="font-size: 13px; color: #555; margin-bottom: 10px;">Connect with us:</p>
+//         <p style="font-size: 13px; color: #555; margin-bottom: 10px;">Connect with us:</p>
 
        
-  <div style=" margin-bottom: 20px;">
-        <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank"  style="margin-right: 12px;">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="28" alt="Instagram" />
-        </a>
-        <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank"  style="margin-right: 12px;">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="28" alt="Facebook" />
-        </a>
-        <a href="https://youtube.com/@adiyogifoundation.b?si=hHJk8UzEA1spKAx3" target="_blank" style="margin-right: 12px;">
-          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="28" alt="YouTube" />
-        </a>
-          <a href="https://www.linkedin.com/company/adiyogi-foundation" target="_blank" >
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28" alt="LinkedIn" />
-  </a>
-      </div>
-        <p style="font-size: 12px; color: #aaa; text-align: center;">
-          Adiyogi Foundation | <a href="mailto:social.adiyogifoundation@gmail.com" style="color: #C41E3A; text-decoration: none;">Contact Us</a>
-        </p>
+//   <div style=" margin-bottom: 20px;">
+//         <a href="https://www.instagram.com/adiyogifoundation?igsh=MXVuODhrbTQyZTdvYg" target="_blank"  style="margin-right: 12px;">
+//           <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="28" alt="Instagram" />
+//         </a>
+//         <a href="https://www.facebook.com/share/19wQKAWb1b/" target="_blank"  style="margin-right: 12px;">
+//           <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="28" alt="Facebook" />
+//         </a>
+//         <a href="https://youtube.com/@adiyogifoundation.b?si=hHJk8UzEA1spKAx3" target="_blank" style="margin-right: 12px;">
+//           <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="28" alt="YouTube" />
+//         </a>
+//           <a href="https://www.linkedin.com/company/adiyogi-foundation" target="_blank" >
+//     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28" alt="LinkedIn" />
+//   </a>
+//       </div>
+//         <p style="font-size: 12px; color: #aaa; text-align: center;">
+//           Adiyogi Foundation | <a href="mailto:social.adiyogifoundation@gmail.com" style="color: #C41E3A; text-decoration: none;">Contact Us</a>
+//         </p>
 
-      </div>
-    </div>
-  `
-};
+//       </div>
+//     </div>
+//   `
+// };
 
- const adminMail = {
-      from: "join.adiyogifoundation@gmail.com",
-      to: "join.adiyogifoundation@gmail.com", // admin email
-      subject: `🔔 New Blog Posted by Admin`,
-      html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-          <h3>New blog has been posted on the website:</h3>
-          <p><strong>Title:</strong> ${title}</p>
-          <p><strong>Image URL:</strong> ${imageUrl}</p>
-          <p><strong>Content Preview:</strong></p>
-          <p>${content.slice(0, 250)}...</p>
-          <p>Visit: <a href="https://adiyogifoundation.org.in/media">View Blog</a></p>
-        </div>
-      `
-    };
+//  const adminMail = {
+//       from: "join.adiyogifoundation@gmail.com",
+//       to: "join.adiyogifoundation@gmail.com", // admin email
+//       subject: `🔔 New Blog Posted by Admin`,
+//       html: `
+//         <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+//           <h3>New blog has been posted on the website:</h3>
+//           <p><strong>Title:</strong> ${title}</p>
+//           <p><strong>Image URL:</strong> ${imageUrl}</p>
+//           <p><strong>Content Preview:</strong></p>
+//           <p>${content.slice(0, 250)}...</p>
+//           <p>Visit: <a href="https://adiyogifoundation.org.in/media">View Blog</a></p>
+//         </div>
+//       `
+//     };
 
     // Send emails
     // to subscribers
-    await transporter.sendMail(adminMail);  //
-if (emailList.length > 0) {
-  await transporter.sendMail(blogMail);
-}
+    // await transporter.sendMail(adminMail);  //
+// if (emailList.length > 0) {
+//   await transporter.sendMail(blogMail);
+// }
 
     // Send email
    

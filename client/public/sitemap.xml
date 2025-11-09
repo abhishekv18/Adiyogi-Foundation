@@ -13,6 +13,10 @@
     <loc>https://www.adiyogifoundation.org.in/media</loc>
   </url>
 
+    <url>
+    <loc>https://www.adiyogifoundation.org.in/products</loc>
+  </url>
+
   <url>
     <loc>https://www.adiyogifoundation.org.in/seva</loc>
   </url>
@@ -35,6 +39,10 @@
 
   <url>
     <loc>https://www.adiyogifoundation.org.in/donate</loc>
+  </url>
+
+ <url>
+    <loc>https://www.adiyogifoundation.org.in/terms-conditions</loc>
   </url>
 
 </urlset>

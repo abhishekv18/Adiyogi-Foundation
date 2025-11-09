@@ -7,13 +7,17 @@ import cors from "cors";
 import connectDB from "./utils/db.js";
 import cron from "node-cron";
 import axios from "axios";
+import Razorpay from "razorpay";
 import userRoutes from "./routes/user.route.js";
 import blogRoutes from  "./routes/blog.route.js";
 import volunteerRoute from "./routes/volunteer.route.js";
 import contactRoute from "./routes/contact.route.js";
 import subscribeRoute from "./routes/subscribed.route.js";
-
+import ecommerceRoute from "./routes/ecommerce.route.js";
+import paymentRoute from "./routes/payment.js";
 const app=express();
+
+
 
 
 const corsOptions = {
@@ -33,15 +37,16 @@ app.use("/api/blog",blogRoutes);
 app.use("/api/volunteer",volunteerRoute);
 app.use("/api/contact",contactRoute);
 app.use("/api/subscribe",subscribeRoute);
-
-
+app.use("/api/products",ecommerceRoute);
+app.use("/api/payments",paymentRoute);
 app.get("/api/ping", (req, res) => {
   res.status(200).send("pong");
 });
 
 
 
-import "./controllers/monthly.controller.js";
+// import "./controllers/monthly.controller.js";
+
 
 const PORT=process.env.PORT || 3000;
 

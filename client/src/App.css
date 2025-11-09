@@ -1,62 +1,4 @@
-/* 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
-
-/* In your global CSS file */
-/* .Toastify__toast--success {
-  background-color: #0f5132;
-  color: white;
-  border-left: 6px solid #198754;
-  font-weight: bold;
-}
-
-.Toastify__toast--error {
-  background-color: #842029;
-  color: white;
-  border-left: 6px solid #dc3545;
-}
-.Toastify__toast {
-  border-radius: 10px;
-  padding: 16px;
-  font-size: 14px;
-  width: 320px;
-} */
- /* Success Toast Styles */
-/* Base toast container */
-/* Base toast container with less padding */
 .Toastify__toast {
   display: flex;
   align-items: center;
@@ -73,7 +15,7 @@
   flex-wrap: wrap;
 }
 
-/* Toast body text */
+
 .Toastify__toast-body {
   flex: 1 1 auto;
   white-space: normal;
@@ -83,12 +25,19 @@
   font-weight: 500;
 }
 
-/* Close button positioning */
+
 .Toastify__close-button {
   align-self: flex-start;
   margin-left: 4px;
 }
 
+
+/* .Toastify__toast--success {
+  background-color: #0f5132;
+  color: white;
+  border-left: 5px solid #198754;
+  font-weight: 600;
+} */
 /* Success toast */
 .Toastify__toast--success {
   background-color: #0f5132;
@@ -97,7 +46,12 @@
   font-weight: 600;
 }
 
-/* Error toast */
+/* .Toastify__toast--error {
+  background-color: #842029;
+  color: white;
+  border-left: 5px solid #dc3545;
+  font-weight: 600;
+} */
 .Toastify__toast--error {
   background-color: #842029;
   color: white;
@@ -105,7 +59,6 @@
   font-weight: 600;
 }
 
-/* Responsive tweak */
 @media (max-width: 640px) {
   .Toastify__toast {
     width: 90%;
@@ -123,11 +76,17 @@
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
+/* .logo:hover {
   filter: drop-shadow(0 0 2em #C41E3Aaa);
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #C41E3Aaa);
+} */
+.logo:hover {
+  filter: drop-shadow(0 0 2em #6a0dadaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #6a0dadaa);
 }
 
 @keyframes logo-spin {
@@ -157,25 +116,24 @@
 
 
 
-/* Scrollbar visible but styled in gray */
 .scrollbar-gray {
-  scrollbar-width: thin;           /* Firefox */
-  scrollbar-color: #9ca3af #f3f4f6; /* Thumb color (gray-400), Track color (gray-100) */
+  scrollbar-width: thin;          
+  scrollbar-color: #9ca3af #f3f4f6; 
 }
 
-/* Chrome, Safari, Edge */
+
 .scrollbar-gray::-webkit-scrollbar {
   height: 8px;
   width: 8px;
 }
 
 .scrollbar-gray::-webkit-scrollbar-track {
-  background: #f3f4f6; /* Tailwind's gray-100 */
+  background: #ffffff; 
   border-radius: 8px;
 }
 
 .scrollbar-gray::-webkit-scrollbar-thumb {
-  background-color: #9ca3af; /* Tailwind's gray-400 */
+  background-color: #9ca3af; 
   border-radius: 8px;
-  border: 2px solid #f3f4f6;
+  border: 2px solid #ffffff;
 }

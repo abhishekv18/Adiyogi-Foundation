@@ -34,7 +34,7 @@ const WhatsAppDrawer = () => {
   title="Chat on WhatsApp"
   className="fixed z-50 p-3 rounded-full shadow-lg bg-green-500 text-white 
 hover:bg-green-600 hover:scale-110 transition-transform duration-300
-bottom-20 right-4 md:bottom-6 md:right-10"
+bottom-20 right-4 md:bottom-6 md:right-14"
 >
   <FaWhatsapp size={24} />
 </a>
