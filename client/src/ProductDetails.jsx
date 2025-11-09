@@ -584,7 +584,7 @@ const ProductDetail = () => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:5000/api/products/get/${id}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/get/${id}`, {
           withCredentials: true,
         });
         
@@ -615,7 +615,7 @@ const ProductDetail = () => {
       try {
         if (product && product.category) {
           const res = await axios.get(
-            `http://localhost:5000/api/products/category/${product.category}?limit=6`, 
+            `${import.meta.env.VITE_API_URL}/api/products/category/${product.category}?limit=6`, 
             { withCredentials: true }
           );
           

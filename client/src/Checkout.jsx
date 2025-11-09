@@ -1090,7 +1090,7 @@ const Checkout = () => {
   const fetchRelatedProducts = async (mainProduct) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/products/category/${mainProduct.category}?limit=6`, 
+        `${import.meta.env.VITE_API_URL}/api/products/category/${mainProduct.category}?limit=6`, 
         { withCredentials: true }
       );
       
@@ -1238,7 +1238,7 @@ const Checkout = () => {
       }
 
       // Create order on your server
-      const orderResponse = await axios.post('http://localhost:5000/api/payments/create-order', {
+      const orderResponse = await axios.post(`${import.meta.env.VITE_API_URL}/api/payments/create-order`, {
         amount: totalAmount * 100, // Convert to paise
         currency: 'INR',
         receipt: `receipt_${Date.now()}`
@@ -1282,7 +1282,7 @@ const Checkout = () => {
           
           // Verify payment on server
           try {
-            const verifyResponse = await axios.post('http://localhost:5000/api/payments/verify-payment', {
+            const verifyResponse = await axios.post(`${import.meta.env.VITE_API_URL}/api/payments/verify-payment`, {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
@@ -1294,7 +1294,7 @@ const Checkout = () => {
 
             if (verifyResponse.data.success) {
               // Save order to database with complete product details
-              const orderRecordResponse = await axios.post('http://localhost:5000/api/payments/create-order-record', {
+              const orderRecordResponse = await axios.post(`${import.meta.env.VITE_API_URL}/api/payments/create-order-record`, {
                 products: [
                   { 
                     product: mainProduct._id, 
