@@ -898,7 +898,7 @@ const OrderManagement = () => {
   const fetchOrders = useCallback(async () => {
     try {
       dispatch(setLoading(true));
-      const res = await axios.get(`http://localhost:5000/api/payments/orders`, {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/payments/orders`, {
         withCredentials: true,
       });
       
@@ -923,7 +923,7 @@ const OrderManagement = () => {
       
       dispatch(setUpdatingStatus(true));
       const res = await axios.put(
-        `http://localhost:5000/api/payments/updateOrderStatus/${orderId}`,
+        `${import.meta.env.VITE_API_URL}/api/payments/updateOrderStatus/${orderId}`,
         { orderStatus: newStatus },
         { 
           withCredentials: true,
