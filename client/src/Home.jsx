@@ -830,7 +830,7 @@ const navigate=useNavigate();
   <meta property="og:url" content="https://www.adiyogifoundation.org.in/" />
   <meta property="og:title" content="Adiyogi Foundation | Rebuilding Purpose. Restoring Dharma." />
   <meta property="og:description" content="Join Adiyogi Foundation in restoring Dharma and guiding humanity through ancient Indian spiritual traditions and inner transformation." />
-  <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta property="og:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
   <meta property="og:image:alt" content="Adiyogi Foundation Logo - Reviving Dharma" />
   <meta property="og:site_name" content="Adiyogi Foundation" />
 
@@ -839,7 +839,7 @@ const navigate=useNavigate();
   <meta name="twitter:url" content="https://www.adiyogifoundation.org.in/" />
   <meta name="twitter:title" content="Adiyogi Foundation | Rebuilding Purpose. Restoring Dharma." />
   <meta name="twitter:description" content="Discover the movement to revive Sanatana Dharma, Yoga, and India's ancient spiritual wisdom through Adiyogi Foundation." />
-  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
   <meta name="twitter:image:alt" content="Adiyogi Foundation Twitter Image" />
 </Helmet>
 

@@ -1671,12 +1671,12 @@ const generateBrochureContent = () => {
   <meta property="og:title" content="Services | Adiyogi Foundation" />
   <meta property="og:description" content="Explore services like meditation, yoga, and Dharma awareness programs offered by Adiyogi Foundation." />
   <meta property="og:url" content="https://www.adiyogifoundation.org.in/services" />
-  <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta property="og:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Services | Adiyogi Foundation" />
   <meta name="twitter:description" content="Join meditation, yoga, and Dharma services at Adiyogi Foundation." />
-  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
 </Helmet>
 <div className="min-h-screen bg-gray-50">
     

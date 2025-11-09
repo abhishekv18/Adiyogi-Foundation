@@ -984,12 +984,12 @@ const Media = () => {
         <meta property="og:title" content="Media | Adiyogi Foundation" />
         <meta property="og:description" content="Stay updated with Adiyogi Foundation's latest news, media coverage, and spiritual events." />
         <meta property="og:url" content="https://www.adiyogifoundation.org.in/media" />
-        <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+        <meta property="og:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Media | Adiyogi Foundation" />
         <meta name="twitter:description" content="Check media coverage and news about Adiyogi Foundation's spiritual mission." />
-        <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+        <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
       </Helmet>
 
       <div className="min-h-screen bg-white">

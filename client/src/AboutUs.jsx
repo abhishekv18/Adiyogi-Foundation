@@ -528,12 +528,12 @@ const navigate=useNavigate();
   <meta property="og:title" content="About Us | Adiyogi Foundation" />
   <meta property="og:description" content="Discover the vision and values of Adiyogi Foundation as we work towards restoring Dharma and reviving spiritual traditions." />
   <meta property="og:url" content="https://www.adiyogifoundation.org.in/about" />
-  <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta property="og:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About Us | Adiyogi Foundation" />
   <meta name="twitter:description" content="Learn about the mission and work of Adiyogi Foundation in reviving Sanatana Dharma." />
-  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
 </Helmet>
 
       <div className="min-h-screen" style={{background: 'linear-gradient(135deg, #FFFFFF 0%, #F8F0FF 100%)'}}>

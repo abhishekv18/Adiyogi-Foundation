@@ -670,12 +670,12 @@ const ContactUs = () => {
         <meta property="og:title" content="Contact Us | Adiyogi Foundation" />
         <meta property="og:description" content="Reach out to Adiyogi Foundation for seva, events, and Dharma initiatives." />
         <meta property="og:url" content="https://www.adiyogifoundation.org.in/contact" />
-        <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+        <meta property="og:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contact Us | Adiyogi Foundation" />
         <meta name="twitter:description" content="Get in touch with Adiyogi Foundation for Dharma and seva opportunities." />
-        <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+        <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
       </Helmet>
       
       <div className="min-h-screen bg-white">

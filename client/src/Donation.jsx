@@ -565,12 +565,12 @@ const navigate=useNavigate();
   <meta property="og:title" content="Donate | Adiyogi Foundation" />
   <meta property="og:description" content="Contribute to Adiyogi Foundation and support Dharma revival programs." />
   <meta property="og:url" content="https://www.adiyogifoundation.org.in/donate" />
-  <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta property="og:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Donate | Adiyogi Foundation" />
   <meta name="twitter:description" content="Make a donation to support the Dharma revival initiatives of Adiyogi Foundation." />
-  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
 </Helmet>
   <div className="min-h-screen" style={{ backgroundColor: '#FFFFFF' }}>
 

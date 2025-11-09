@@ -1411,12 +1411,12 @@ const Products = () => {
         <meta property="og:title" content="Products | Adiyogi Foundation" />
         <meta property="og:description" content="Browse Adiyogi Foundation's spiritual products and support Dharma revival." />
         <meta property="og:url" content="https://www.adiyogifoundation.org.in/products" />
-        <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+        <meta property="og:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Products | Adiyogi Foundation" />
         <meta name="twitter:description" content="Shop authentic spiritual and cultural products from Adiyogi Foundation." />
-        <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+        <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
       </Helmet>
       
       <div className="min-h-screen bg-white">

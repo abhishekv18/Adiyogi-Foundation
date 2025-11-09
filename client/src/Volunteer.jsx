@@ -927,12 +927,12 @@ const Volunteer = () => {
   <meta property="og:title" content="Volunteers | Adiyogi Foundation" />
   <meta property="og:description" content="Become a volunteer with Adiyogi Foundation and serve Dharma initiatives." />
   <meta property="og:url" content="https://www.adiyogifoundation.org.in/volunteers" />
-  <meta property="og:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta property="og:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Volunteers | Adiyogi Foundation" />
   <meta name="twitter:description" content="Join Adiyogi Foundation as a volunteer and contribute to seva and Dharma revival." />
-  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/Adiyogifoundation logo_02.png" />
+  <meta name="twitter:image" content="https://www.adiyogifoundation.org.in/INSTA.jpg" />
 </Helmet>
   <div className="min-h-screen" style={{ backgroundColor: '#FFFFFF' }}>
       {/* Hidden Admin Access - Subtle and positioned discretely */}
