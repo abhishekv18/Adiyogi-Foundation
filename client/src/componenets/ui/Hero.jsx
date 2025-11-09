@@ -415,7 +415,7 @@ const HeroWithCarousel = () => {
     </div>
 
     {/* Buttons */}
-    <div className="flex flex-col sm:flex-row justify-center items-center gap-5 mt-6 px-4">
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-5 mt-10  px-4">
       <Link to="/volunteers">
         <button
           className="w-full sm:w-auto px-7 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-lg sm:text-lg transition-transform duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 transform hover:scale-105"
