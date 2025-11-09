@@ -826,7 +826,7 @@ const Header = () => {
               href="mailto:social.adiyogifoundation@gmail.com" 
               className="font-medium text-[#5C4B4B] text-xs sm:text-sm hover:text-[#6a0dad] transition-colors duration-300"
             >
-             Info@adiyogifoundation.org
+             info@adiyogifoundation.org
             </a>
           </div>
         </div>
