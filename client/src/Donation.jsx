@@ -597,7 +597,7 @@ const navigate=useNavigate();
     </video>
     
     {/* Gradient Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 to-purple-800/30 z-0"></div>
+    <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-purple-800/20 z-0"></div>
   </div>
 
   {/* Main Content */}

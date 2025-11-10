@@ -947,10 +947,10 @@ const ContactUs = () => {
                     <div>
                       <p className="font-medium text-sm sm:text-base text-gray-900">Email Us</p>
                       <a 
-                        href="mailto:social.adiyogifoundation@gmail.com" 
+                        href="mailto:info@adiyogifoundation.org" 
                         className="text-sm sm:text-base text-gray-600 hover:text-[#6a0dad] transition-colors duration-200 break-all"
                       >
-                        social.adiyogifoundation@gmail.com
+                        info@adiyogifoundation.org
                       </a>
                     </div>
                   </div>

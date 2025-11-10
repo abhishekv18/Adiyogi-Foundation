@@ -549,7 +549,7 @@ const [emailError, setEmailError] = useState('');
             </div>
             <div>
               <p className="text-xs uppercase text-[#7D7268] mb-1">Email</p>
-              <a href="mailto:social.adiyogifoundation@gmail.com" className="text-sm text-[#3E3E3E] hover:text-[#6a0dad]">social.adiyogifoundation@gmail.com</a>
+              <a href="mailto:info@adiyogifoundation.org" className="text-sm text-[#3E3E3E] hover:text-[#6a0dad]">info@adiyogifoundation.org</a>
             </div>
           </div>
 
