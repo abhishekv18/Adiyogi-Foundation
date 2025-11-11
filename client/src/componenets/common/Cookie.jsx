@@ -104,19 +104,18 @@ const Cookie = () => {
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.5 }}
           className="fixed bottom-0 sm:bottom-6 md:bottom-8 
-                     left-0 sm:left-1/2 sm:-translate-x-1/2 
-                     w-full sm:w-[95%] md:w-[90%] lg:w-[800px] xl:w-[900px] 2xl:w-[1000px]
-                     max-w-[1200px]
+                     left-0 right-0 sm:left-4 sm:right-4 md:left-8 md:right-8
+                     sm:mx-auto
+                     w-full sm:w-auto sm:max-w-[calc(100%-2rem)] md:max-w-[calc(100%-4rem)] lg:max-w-[800px] xl:max-w-[900px] 2xl:max-w-[1000px]
                      bg-white text-gray-900 
                      p-4 sm:p-5 md:p-6 lg:p-7
                      rounded-t-2xl sm:rounded-2xl 
                      shadow-2xl border border-gray-200 
-                     z-50
-                     mx-auto sm:mx-0"
+                     z-50"
         >
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 lg:gap-6">
             {/* 🍪 Cookie Icon + Text */}
-            <div className="flex items-start gap-3 lg:gap-4 flex-1 w-full">
+            <div className="flex items-start gap-3 lg:gap-4 flex-1 w-full min-w-0">
               <div className="text-2xl sm:text-xl lg:text-2xl flex-shrink-0 mt-0.5">🍪</div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
@@ -137,30 +136,30 @@ const Cookie = () => {
               <button
                 onClick={handleDecline}
                 className="flex-1 sm:flex-none 
-                           px-5 sm:px-6 lg:px-8
-                           py-2.5 lg:py-3
-                           text-sm sm:text-base lg:text-base
+                           px-4 sm:px-5 lg:px-6
+                           py-2 sm:py-2.5 lg:py-2.5
+                           text-sm sm:text-base
                            bg-gray-100 text-gray-700 
                            border border-gray-300 rounded-lg 
                            hover:bg-gray-200 
                            transition-all duration-200 
                            font-medium
-                           min-w-[100px] lg:min-w-[120px]"
+                           whitespace-nowrap"
               >
                 Decline
               </button>
               <button
                 onClick={handleAccept}
                 className="flex-1 sm:flex-none 
-                           px-5 sm:px-6 lg:px-8
-                           py-2.5 lg:py-3
-                           text-sm sm:text-base lg:text-base
+                           px-4 sm:px-5 lg:px-6
+                           py-2 sm:py-2.5 lg:py-2.5
+                           text-sm sm:text-base
                            bg-[#6a0dad] text-white 
                            font-medium rounded-lg 
                            hover:bg-[#5a0c9d] 
                            transition-all duration-200 
                            shadow-md hover:shadow-lg
-                           min-w-[100px] lg:min-w-[120px]"
+                           whitespace-nowrap"
               >
                 Accept
               </button>
@@ -173,3 +172,4 @@ const Cookie = () => {
 };
 
 export default Cookie;
+
