@@ -361,7 +361,7 @@ const HeroWithCarousel = () => {
       loop
       playsInline
       className="w-full h-full object-cover"
-      poster="/WhatsApp Image 2025-07-27 at 14.40.43_2e3b5f4c.jpg" // Fallback image
+      // poster="/WhatsApp Image 2025-07-27 at 14.40.43_2e3b5f4c.jpg" // Fallback image
     >
       <source src="/WhatsApp Video 2025-10-20 at 9.29.01 AM.mp4" type="video/mp4" />
       <source src="/WhatsApp Video 2025-10-20 at 9.29.01 AM.mp4" type="video/mp4" />
