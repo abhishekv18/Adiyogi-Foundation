@@ -1834,6 +1834,7 @@ const Products = () => {
                             <span className="ml-2 text-sm font-medium text-gray-700">4.8</span>
                             <span className="mx-2 text-gray-400">•</span>
                             <span className="text-xs text-gray-500">127 reviews</span>
+                            <span className=" ml-3 text-xs text-gray-500">{product.size}</span>
                           </div>
                         </div>
                         
@@ -1927,6 +1928,7 @@ const Products = () => {
                               <span className="ml-2 text-sm font-medium text-gray-700">4.8</span>
                               <span className="mx-2 text-gray-400">•</span>
                               <span className="text-xs text-gray-500">127 reviews</span>
+                                <span className="ml-3 text-xs text-gray-500">{product.size}</span>
                             </div>
                           </div>
                           

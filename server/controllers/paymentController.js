@@ -117,7 +117,9 @@ export const createOrderRecord = async (req, res) => {
       if (!product) {
         throw new Error(`Product ${item.product} not found`);
       }
-      
+      if (!item.size) {
+        throw new Error(`Size is required for product: ${product.name}`);
+      }
       if (product.quantity < item.quantity) {
         throw new Error(`Insufficient quantity for ${product.name}. Requested: ${item.quantity}, Available: ${product.quantity}`);
       }
@@ -142,7 +144,15 @@ export const createOrderRecord = async (req, res) => {
     // 3. Create new order
     const order = new Order({
       orderId,
-      products,
+      // products,
+       products: products.map(item => ({
+        product: item.product,
+        quantity: item.quantity,
+        price: item.price,
+        size: item.size, // Make sure size is included
+        name: item.name,
+        imageUrl: item.imageUrl
+      })),
       totalAmount,
       customerDetails,
       paymentId,
@@ -165,7 +175,8 @@ export const createOrderRecord = async (req, res) => {
           return {
             name: product.name,
             quantity: item.quantity,
-            price: product.price
+            price: product.price,
+            size: item.size || 'N/A'
           };
         })
       );

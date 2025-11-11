@@ -1927,11 +1927,11 @@ const generateBrochureContent = () => {
                   <div className="flex items-center justify-center gap-2 sm:gap-3 w-full lg:w-auto">
                     <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0" />
                     <a
-                      href="mailto:social.adiyogifoundation@gmail.com"
+                      href="mailto:info@adiyogifoundation.org"
                       className="text-base sm:text-lg font-medium text-white hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded leading-tight break-all sm:break-normal text-center lg:text-left"
-                      aria-label="Email us at social.adiyogifoundation@gmail.com"
+                      aria-label="Email us at  info@adiyogifoundation.org"
                     >
-                      social.adiyogifoundation@gmail.com
+                      info@adiyogifoundation.org
                     </a>
                   </div>
                 </div>

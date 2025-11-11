@@ -28,6 +28,10 @@ const orderSchema = new mongoose.Schema({
     imageUrl: {
       type: String,
       required: true
+    },
+    size:{
+      type: String,
+      required: true
     }
   }],
   totalAmount: {

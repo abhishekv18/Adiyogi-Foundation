@@ -77,7 +77,7 @@
 //   const fetchRelatedProducts = async (mainProduct) => {
 //     try {
 //       const res = await axios.get(
-//         `http://localhost:5000/api/products/category/${mainProduct.category}?limit=6`, 
+//         `${import.meta.env.VITE_API_URL}/api/products/category/${mainProduct.category}?limit=6`, 
 //         { withCredentials: true }
 //       );
       
@@ -185,363 +185,209 @@
   
 //   // Calculate final total
 //   const totalAmount = (mainProductTotal + additionalProductsTotal).toFixed(2);
-// // Remove or simplify the loadRazorpayScript function
 
-
-
-
-// const loadRazorpayScript = () => {
-//   return new Promise((resolve) => {
-//     // Check if Razorpay is already loaded
-//     if (window.Razorpay) {
-//       resolve(true);
-//       return;
-//     }
-    
-//     // Fallback: Load script dynamically if not already loaded
-//     const script = document.createElement('script');
-//     script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-//     script.onload = () => {
-//       resolve(true);
-//     };
-//     script.onerror = () => {
-//       resolve(false);
-//     };
-//     document.body.appendChild(script);
-//   });
-// };
-
-// // const handlePayment = async () => {
-// //   // Form validation
-// //   if (!formData.name || !formData.email || !formData.phone || !formData.address) {
-// //     toast.error('Please fill all required fields');
-// //     return;
-// //   }
-
-// //   setLoading(true);
-
-// //   try {
-// //     // Load Razorpay script
-// //     const res = await loadRazorpayScript();
-// //     if (!res) {
-// //       toast.error('Razorpay SDK failed to load');
-// //       return;
-// //     }
-
-// //     // Create order on your server
-// //     const orderResponse = await axios.post('http://localhost:5000/api/payments/create-order', {
-// //       amount: totalAmount * 100, // Convert to paise
-// //       currency: 'INR',
-// //       receipt: `receipt_${Date.now()}`
-// //     });
-
-// //     console.log("Full order response:", orderResponse.data);
-
-// //     // FIX: Check the actual structure of the response
-// //     // Your backend might be returning { success: true, order: { id, amount, currency } }
-// //     // instead of { id, amount, currency } directly
-    
-// //     let orderId, amount, currency;
-    
-// //     if (orderResponse.data.order) {
-// //       // Response format: { success: true, order: { id, amount, currency } }
-// //       orderId = orderResponse.data.order.id;
-// //       amount = orderResponse.data.order.amount;
-// //       currency = orderResponse.data.order.currency;
-// //     } else {
-// //       // Response format: { id, amount, currency }
-// //       orderId = orderResponse.data.id;
-// //       amount = orderResponse.data.amount;
-// //       currency = orderResponse.data.currency;
-// //     }
-
-// //     console.log("Extracted values:", { orderId, amount, currency });
-
-// //     // Validate that we have the required values
-// //     if (!orderId || !amount || !currency) {
-// //       throw new Error("Invalid order response from server");
-// //     }
-
-// //     // Razorpay options - FIXED THE KEY ACCESS
-// //     const options = {
-// //       key: "rzp_test_RCnjWwaZPmdddK",
-// //       amount: amount.toString(), // This should work now
-// //       currency: currency,
-// //       name: 'Sacred Store',
-// //       description: `Purchase of ${mainProduct.name}${additionalProducts.length > 0 ? ` and ${additionalProducts.length} more items` : ''}`,
-// //       image: window.location.origin + '/logo.png',
-// //       order_id: orderId,
-// //       handler: async function(response) {
-// //         // Verify payment on server
-// //         try {
-// //           const verifyResponse = await axios.post('http://localhost:5000/api/payments/verify-payment', {
-// //             razorpay_order_id: response.razorpay_order_id,
-// //             razorpay_payment_id: response.razorpay_payment_id,
-// //             razorpay_signature: response.razorpay_signature
-// //           });
-
-// //           if (verifyResponse.data.success) {
-// //             // Save order to database with complete product details
-// //             await axios.post('http://localhost:5000/api/payments/create-order-record', {
-// //               products: [
-// //                 { 
-// //                   product: mainProduct._id, 
-// //                   quantity,
-// //                   name: mainProduct.name,
-// //                   price: mainProduct.price,
-// //                   imageUrl: mainProduct.imageUrl
-// //                 },
-// //                 ...additionalProducts.map(p => ({ 
-// //                   product: p._id, 
-// //                   quantity: p.quantity,
-// //                   name: p.name,
-// //                   price: p.price,
-// //                   imageUrl: p.imageUrl
-// //                 }))
-// //               ],
-// //               totalAmount,
-// //               customerDetails: formData,
-// //               paymentId: response.razorpay_payment_id
-// //             });
-
-// //             // Clear localStorage after successful payment
-// //             clearCheckoutStorage();
-            
-// //             toast.success('Payment successful! Order placed.');
-// //             navigate('/order-success', { 
-// //               state: { 
-// //                 orderId: response.razorpay_order_id,
-// //                 products: [
-// //                   { product: mainProduct, quantity },
-// //                   ...additionalProducts
-// //                 ],
-// //                 totalAmount 
-// //               } 
-// //             });
-// //           } else {
-// //             toast.error('Payment verification failed');
-// //           }
-// //         } catch (error) {
-// //           console.error('Payment verification error:', error);
-// //           toast.error('Payment verification failed');
-// //         }
-// //       },
-// //       prefill: {
-// //         name: formData.name,
-// //         email: formData.email,
-// //         contact: formData.phone
-// //       },
-// //       notes: {
-// //         address: formData.address
-// //       },
-// //       theme: {
-// //         color: '#C41E3A'
-// //       },
-// //       modal: {
-// //         ondismiss: function() {
-// //           console.log("Payment modal dismissed");
-// //           setLoading(false);
-// //         }
-// //       }
-// //     };
-
-// //     const razorpay = new window.Razorpay(options);
-    
-// //     // Add error handling for payment failure
-// //     razorpay.on('payment.failed', function(response) {
-// //       console.error('Payment failed:', response.error);
-// //       toast.error(`Payment failed: ${response.error.description}`);
-// //       setLoading(false);
-// //     });
-    
-// //     razorpay.open();
-// //   } catch (error) {
-// //     console.error('Payment error:', error);
-// //     toast.error('Payment failed. Please try again.');
-// //     setLoading(false);
-// //   }
-// // };
-
-// const handlePayment = async () => {
-//   // Form validation
-//   if (!formData.name || !formData.email || !formData.phone || !formData.address) {
-//     toast.error('Please fill all required fields');
-//     return;
-//   }
-
-//   setLoading(true);
-
-//   try {
-//     // Load Razorpay script
-//     const res = await loadRazorpayScript();
-//     if (!res) {
-//       toast.error('Razorpay SDK failed to load');
-//       return;
-//     }
-
-//     // Create order on your server
-//     const orderResponse = await axios.post('http://localhost:5000/api/payments/create-order', {
-//       amount: totalAmount * 100, // Convert to paise
-//       currency: 'INR',
-//       receipt: `receipt_${Date.now()}`
+//   const loadRazorpayScript = () => {
+//     return new Promise((resolve) => {
+//       // Check if Razorpay is already loaded
+//       if (window.Razorpay) {
+//         resolve(true);
+//         return;
+//       }
+      
+//       // Fallback: Load script dynamically if not already loaded
+//       const script = document.createElement('script');
+//       script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+//       script.onload = () => {
+//         resolve(true);
+//       };
+//       script.onerror = () => {
+//         resolve(false);
+//       };
+//       document.body.appendChild(script);
 //     });
+//   };
 
-//     console.log("Full order response:", orderResponse.data);
-
-//     // Extract order data based on your backend response structure
-//     let orderId, amount, currency;
-    
-//     if (orderResponse.data.order) {
-//       // Response format: { success: true, order: { id, amount, currency } }
-//       orderId = orderResponse.data.order.id;
-//       amount = orderResponse.data.order.amount;
-//       currency = orderResponse.data.order.currency;
-//     } else {
-//       // Response format: { id, amount, currency }
-//       orderId = orderResponse.data.id;
-//       amount = orderResponse.data.amount;
-//       currency = orderResponse.data.currency;
+//   const handlePayment = async () => {
+//     // Form validation
+//     if (!formData.name || !formData.email || !formData.phone || !formData.address) {
+//       toast.error('Please fill all required fields');
+//       return;
 //     }
 
-//     console.log("Extracted values:", { orderId, amount, currency });
+//     setLoading(true);
 
-//     // Validate that we have the required values
-//     if (!orderId || !amount || !currency) {
-//       throw new Error("Invalid order response from server");
-//     }
+//     try {
+//       // Load Razorpay script
+//       const res = await loadRazorpayScript();
+//       if (!res) {
+//         toast.error('Razorpay SDK failed to load');
+//         return;
+//       }
 
-//     // Razorpay options
-//     const options = {
-//       key: import.meta.env.VITE_RAZORPAY_KEY_ID, //  // or process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID
-//       amount: amount.toString(),
-//       currency: currency,
-//       name: 'Adiyogi Store',
-//       description: `Purchase of ${mainProduct.name}${additionalProducts.length > 0 ? ` and ${additionalProducts.length} more items` : ''}`,
-//       image: window.location.origin + '/Screenshot 2025-08-08 160012.png',
-//       order_id: orderId,
-//       handler: async function(response) {
-//         console.log("Razorpay response:", response);
-        
-//         // Verify payment on server
-//         try {
-//           const verifyResponse = await axios.post('http://localhost:5000/api/payments/verify-payment', {
-//             razorpay_order_id: response.razorpay_order_id,
-//             razorpay_payment_id: response.razorpay_payment_id,
-//             razorpay_signature: response.razorpay_signature,
-//             order_id: orderId, // Add the original order ID for verification
-//             amount: amount // Add amount for additional verification
-//           });
+//       // Create order on your server
+//       const orderResponse = await axios.post(`${import.meta.env.VITE_API_URL}/api/payments/create-order`, {
+//         amount: totalAmount * 100, // Convert to paise
+//         currency: 'INR',
+//         receipt: `receipt_${Date.now()}`
+//       });
 
-//           console.log("Verification response:", verifyResponse.data);
+//       console.log("Full order response:", orderResponse.data);
 
-//           if (verifyResponse.data.success) {
-//             // Save order to database with complete product details
-//             const orderRecordResponse = await axios.post('http://localhost:5000/api/payments/create-order-record', {
-//               products: [
-//                 { 
-//                   product: mainProduct._id, 
-//                   quantity,
-//                   name: mainProduct.name,
-//                   price: mainProduct.price,
-//                   imageUrl: mainProduct.imageUrl
-//                 },
-//                 ...additionalProducts.map(p => ({ 
-//                   product: p._id, 
-//                   quantity: p.quantity,
-//                   name: p.name,
-//                   price: p.price,
-//                   imageUrl: p.imageUrl
-//                 }))
-//               ],
-//               totalAmount,
-//               customerDetails: formData,
-//               paymentId: response.razorpay_payment_id,
-//               orderId: response.razorpay_order_id
+//       // Extract order data based on your backend response structure
+//       let orderId, amount, currency;
+      
+//       if (orderResponse.data.order) {
+//         // Response format: { success: true, order: { id, amount, currency } }
+//         orderId = orderResponse.data.order.id;
+//         amount = orderResponse.data.order.amount;
+//         currency = orderResponse.data.order.currency;
+//       } else {
+//         // Response format: { id, amount, currency }
+//         orderId = orderResponse.data.id;
+//         amount = orderResponse.data.amount;
+//         currency = orderResponse.data.currency;
+//       }
+
+//       console.log("Extracted values:", { orderId, amount, currency });
+
+//       // Validate that we have the required values
+//       if (!orderId || !amount || !currency) {
+//         throw new Error("Invalid order response from server");
+//       }
+
+//       // Razorpay options
+//       const options = {
+//         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+//         amount: amount.toString(),
+//         currency: currency,
+//         name: 'Adiyogi Store',
+//         description: `Purchase of ${mainProduct.name}${additionalProducts.length > 0 ? ` and ${additionalProducts.length} more items` : ''}`,
+//         image: window.location.origin + '/Screenshot 2025-08-08 160012.png',
+//         order_id: orderId,
+//         handler: async function(response) {
+//           console.log("Razorpay response:", response);
+          
+//           // Verify payment on server
+//           try {
+//             const verifyResponse = await axios.post(`${import.meta.env.VITE_API_URL}/api/payments/verify-payment`, {
+//               razorpay_order_id: response.razorpay_order_id,
+//               razorpay_payment_id: response.razorpay_payment_id,
+//               razorpay_signature: response.razorpay_signature,
+//               order_id: orderId, // Add the original order ID for verification
+//               amount: amount // Add amount for additional verification
 //             });
 
-//             if (orderRecordResponse.data.success) {
-//               // Clear localStorage after successful payment
-//               clearCheckoutStorage();
-              
-//               toast.success('Payment successful! Order placed.');
-//               navigate('/order-success', { 
-//                 state: { 
-//                   orderId: response.razorpay_order_id,
-//                   paymentId: response.razorpay_payment_id,
-//                   products: [
-//                     { product: mainProduct, quantity },
-//                     ...additionalProducts
-//                   ],
-//                   totalAmount 
-//                 } 
-//               });
-//             } else {
-//               console.error("Order record creation failed:", orderRecordResponse.data);
-//               toast.error('Order creation failed. Please contact support with your payment ID: ' + response.razorpay_payment_id);
-//             }
-//           } else {
-//             console.error("Payment verification failed:", verifyResponse.data);
-//             toast.error('Payment verification failed: ' + (verifyResponse.data.message || 'Unknown error'));
-//           }
-//         } catch (error) {
-//           console.error('Payment verification error:', error);
-//           if (error.response) {
-//             console.error('Error response data:', error.response.data);
-//             toast.error('Payment verification failed: ' + (error.response.data.message || error.message));
-//           } else {
-//             toast.error('Payment verification failed: ' + error.message);
-//           }
-//         }
-//       },
-//       prefill: {
-//         name: formData.name,
-//         email: formData.email,
-//         contact: formData.phone
-//       },
-//       notes: {
-//         address: formData.address
-//       },
-//       theme: {
-//         color: '#C41E3A'
-//       },
-//       modal: {
-//         ondismiss: function() {
-//           console.log("Payment modal dismissed");
-//           setLoading(false);
-//         }
-//       }
-//     };
+//             console.log("Verification response:", verifyResponse.data);
 
-//     const razorpay = new window.Razorpay(options);
-    
-//     // Add error handling for payment failure
-//     razorpay.on('payment.failed', function(response) {
-//       console.error('Payment failed:', response.error);
-//       toast.error(`Payment failed: ${response.error.description}`);
+//             if (verifyResponse.data.success) {
+//               // Save order to database with complete product details
+//               const orderRecordResponse = await axios.post(`${import.meta.env.VITE_API_URL}/api/payments/create-order-record`, {
+//                 products: [
+//                   { 
+//                     product: mainProduct._id, 
+//                     quantity,
+//                     name: mainProduct.name,
+//                     price: mainProduct.price,
+//                     imageUrl: mainProduct.imageUrl
+//                   },
+//                   ...additionalProducts.map(p => ({ 
+//                     product: p._id, 
+//                     quantity: p.quantity,
+//                     name: p.name,
+//                     price: p.price,
+//                     imageUrl: p.imageUrl
+//                   }))
+//                 ],
+//                 totalAmount,
+//                 customerDetails: formData,
+//                 paymentId: response.razorpay_payment_id,
+//                 orderId: response.razorpay_order_id
+//               });
+
+//               if (orderRecordResponse.data.success) {
+//                 // Clear localStorage after successful payment
+//                 clearCheckoutStorage();
+                
+//                 toast.success('Payment successful! Order placed.');
+//                 navigate('/order-success', { 
+//                   state: { 
+//                     orderId: response.razorpay_order_id,
+//                     paymentId: response.razorpay_payment_id,
+//                     products: [
+//                       { product: mainProduct, quantity },
+//                       ...additionalProducts
+//                     ],
+//                     totalAmount 
+//                   } 
+//                 });
+//               } else {
+//                 console.error("Order record creation failed:", orderRecordResponse.data);
+//                 toast.error('Order creation failed. Please contact support with your payment ID: ' + response.razorpay_payment_id);
+//               }
+//             } else {
+//               console.error("Payment verification failed:", verifyResponse.data);
+//               toast.error('Payment verification failed: ' + (verifyResponse.data.message || 'Unknown error'));
+//             }
+//           } catch (error) {
+//             console.error('Payment verification error:', error);
+//             if (error.response) {
+//               console.error('Error response data:', error.response.data);
+//               toast.error('Payment verification failed: ' + (error.response.data.message || error.message));
+//             } else {
+//               toast.error('Payment verification failed: ' + error.message);
+//             }
+//           }
+//         },
+//         prefill: {
+//           name: formData.name,
+//           email: formData.email,
+//           contact: formData.phone
+//         },
+//         notes: {
+//           address: formData.address
+//         },
+//         theme: {
+//           color: '#6a0dad'
+//         },
+//         modal: {
+//           ondismiss: function() {
+//             console.log("Payment modal dismissed");
+//             setLoading(false);
+//           }
+//         }
+//       };
+
+//       const razorpay = new window.Razorpay(options);
+      
+//       // Add error handling for payment failure
+//       razorpay.on('payment.failed', function(response) {
+//         console.error('Payment failed:', response.error);
+//         toast.error(`Payment failed: ${response.error.description}`);
+//         setLoading(false);
+//       });
+      
+//       razorpay.open();
+//     } catch (error) {
+//       console.error('Payment error:', error);
+//       if (error.response) {
+//         console.error('Error response:', error.response.data);
+//         toast.error('Payment failed: ' + (error.response.data.message || error.message));
+//       } else {
+//         toast.error('Payment failed: ' + error.message);
+//       }
 //       setLoading(false);
-//     });
-    
-//     razorpay.open();
-//   } catch (error) {
-//     console.error('Payment error:', error);
-//     if (error.response) {
-//       console.error('Error response:', error.response.data);
-//       toast.error('Payment failed: ' + (error.response.data.message || error.message));
-//     } else {
-//       toast.error('Payment failed: ' + error.message);
 //     }
-//     setLoading(false);
-//   }
-// };
+//   };
+
 //   if (!mainProduct) {
 //     return (
-//       <div className="min-h-screen bg-rose-50 flex items-center justify-center">
+//       <div className="min-h-screen bg-white flex items-center justify-center">
 //         <div className="text-center">
 //           <h2 className="text-2xl font-bold text-gray-800 mb-4">No Product Selected</h2>
           
 //           <button 
 //             onClick={() => navigate('/products')}
-//             className="bg-sacred-crimson text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors"
+//             className="bg-[#6a0dad] text-white px-6 py-2 rounded-lg hover:bg-[#5a0c9d] transition-colors"
 //           >
 //             Back to Products
 //           </button>
@@ -551,29 +397,20 @@
 //   }
 
 //   return (
-//     <div className="min-h-screen bg-gradient-to-br from-rose-50 to-red-50">
+//     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
 //       <div className="max-w-6xl mx-auto px-4 py-8">
 //         {/* Header */}
 //         <div className="mb-8">
-//          {/* <button 
-//   onClick={() => navigate(-1)}
-//   className="flex items-center justify-center bg-white rounded-full px-4 py-2 shadow-md border border-rose-100 text-sacred-crimson hover:text-red-700 transition-colors group"
-// >
-//   <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-//   <span className="font-medium">Back to Products</span>
-// </button> */}
-// <button 
-//   onClick={() => navigate(-1)}
-//   className="flex items-center justify-center bg-white rounded-full px-4 py-2 shadow-md border border-rose-100 text-sacred-crimson hover:text-red-700 transition-colors group mb-6 md:mb-0"
-// >
-//   <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-//   <span className="font-medium">Back to Products</span>
-// </button>
-
-         
+//           <button 
+//             onClick={() => navigate(-1)}
+//             className="flex items-center justify-center bg-white rounded-full px-4 py-2 shadow-md border border-purple-100 text-[#6a0dad] hover:text-[#ff00ff] transition-colors group mb-6 md:mb-0"
+//           >
+//             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
+//             <span className="font-medium">Back to Products</span>
+//           </button>
 
 //           <div className="text-center mb-8">
-//             <h1 className="text-4xl font-bold bg-gradient-to-r from-sacred-crimson to-red-600 bg-clip-text text-transparent mb-3">
+//             <h1 className="text-4xl font-bold bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] bg-clip-text text-transparent mb-3">
 //               Complete Your Order
 //             </h1>
 //             <p className="text-gray-600 text-lg">
@@ -585,10 +422,10 @@
 //         <div className="grid lg:grid-cols-5 gap-8">
 //           {/* Order Summary - Left Side */}
 //           <div className="lg:col-span-2">
-//             <div className="bg-white rounded-3xl p-8 shadow-xl border border-rose-100 sticky top-8">
+//             <div className="bg-white rounded-3xl p-8 shadow-xl border border-purple-100 sticky top-8">
 //               <div className="flex items-center justify-between mb-6">
 //                 <div className="flex items-center">
-//                   <ShoppingBag className="w-6 h-6 text-sacred-crimson mr-3" />
+//                   <ShoppingBag className="w-6 h-6 text-[#6a0dad] mr-3" />
 //                   <h2 className="text-2xl font-bold text-gray-800">Order Summary</h2>
 //                 </div>
 //                 <button
@@ -596,7 +433,7 @@
 //                   className={`px-4 py-2 rounded-lg transition-all flex items-center text-sm font-medium ${
 //                     highlightAddMore 
 //                       ? 'animate-pulse bg-gradient-to-r from-yellow-400 to-orange-500 text-white shadow-lg' 
-//                       : 'bg-rose-100 text-sacred-crimson hover:bg-rose-200'
+//                       : 'bg-purple-100 text-[#6a0dad] hover:bg-purple-200'
 //                   }`}
 //                 >
 //                   <ShoppingCart className="w-4 h-4 mr-1" />
@@ -620,7 +457,7 @@
 //                     <p className="text-sm text-gray-600 mb-4">Add more items to your order and save on shipping!</p>
 //                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 //                       {availableProducts.map(prod => (
-//                         <div key={prod._id} className="border border-rose-100 rounded-lg p-3 flex items-center hover:shadow-md transition-shadow">
+//                         <div key={prod._id} className="border border-purple-100 rounded-lg p-3 flex items-center hover:shadow-md transition-shadow">
 //                           <img 
 //                             src={prod.imageUrl} 
 //                             alt={prod.name}
@@ -629,13 +466,13 @@
 //                           <div className="flex-1">
 //                             <h4 className="font-medium text-sm">{prod.name}</h4>
 //                             <div className="flex items-center mt-1">
-//                               <IndianRupee className="w-4 h-4 text-sacred-crimson" />
-//                               <span className="font-bold text-sacred-crimson">{prod.price}</span>
+//                               <IndianRupee className="w-4 h-4 text-[#6a0dad]" />
+//                               <span className="font-bold text-[#6a0dad]">{prod.price}</span>
 //                             </div>
 //                           </div>
 //                           <button
 //                             onClick={() => addAdditionalProduct(prod)}
-//                             className="bg-sacred-crimson text-white px-3 py-1 rounded-lg text-sm hover:bg-red-700 transition-colors"
+//                             className="bg-[#6a0dad] text-white px-3 py-1 rounded-lg text-sm hover:bg-[#5a0c9d] transition-colors"
 //                           >
 //                             Add
 //                           </button>
@@ -647,7 +484,7 @@
 //               )}
               
 //               {/* Main Product */}
-//               <div className="bg-rose-50 rounded-2xl p-6 mb-6">
+//               <div className="bg-purple-50 rounded-2xl p-6 mb-6">
 //                 <div className="flex items-start space-x-4">
 //                   <div className="relative">
 //                     <img 
@@ -655,7 +492,7 @@
 //                       alt={mainProduct.name}
 //                       className="w-24 h-24 object-cover rounded-xl shadow-md"
 //                     />
-//                     <div className="absolute -top-2 -right-2 bg-sacred-crimson text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
+//                     <div className="absolute -top-2 -right-2 bg-[#6a0dad] text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
 //                       {quantity}
 //                     </div>
 //                   </div>
@@ -663,8 +500,8 @@
 //                     <h3 className="font-bold text-gray-800 text-lg mb-1">{mainProduct.name}</h3>
 //                     <p className="text-gray-600 text-sm mb-2 capitalize">{mainProduct.category}</p>
 //                     <div className="flex items-center">
-//                       <IndianRupee className="w-5 h-5 text-sacred-crimson" />
-//                       <span className="font-bold text-sacred-crimson text-xl">{mainProduct.price}</span>
+//                       <IndianRupee className="w-5 h-5 text-[#6a0dad]" />
+//                       <span className="font-bold text-[#6a0dad] text-xl">{mainProduct.price}</span>
 //                       <span className="text-gray-500 text-sm ml-1">each</span>
 //                     </div>
 //                   </div>
@@ -676,7 +513,7 @@
 //                   <div className="flex items-center space-x-4">
 //                     <button
 //                       onClick={() => handleQuantityChange('decrease')}
-//                       className="w-10 h-10 rounded-xl bg-rose-100 hover:bg-rose-200 flex items-center justify-center text-sacred-crimson transition-colors border border-rose-200"
+//                       className="w-10 h-10 rounded-xl bg-purple-100 hover:bg-purple-200 flex items-center justify-center text-[#6a0dad] transition-colors border border-purple-200"
 //                       disabled={quantity <= 1}
 //                     >
 //                       <Minus className="w-5 h-5" />
@@ -684,7 +521,7 @@
 //                     <span className="font-bold text-xl min-w-[3rem] text-center">{quantity}</span>
 //                     <button
 //                       onClick={() => handleQuantityChange('increase')}
-//                       className="w-10 h-10 rounded-xl bg-rose-100 hover:bg-rose-200 flex items-center justify-center text-sacred-crimson transition-colors border border-rose-200"
+//                       className="w-10 h-10 rounded-xl bg-purple-100 hover:bg-purple-200 flex items-center justify-center text-[#6a0dad] transition-colors border border-purple-200"
 //                     >
 //                       <Plus className="w-5 h-5" />
 //                     </button>
@@ -698,7 +535,7 @@
 //                   <h4 className="font-semibold text-gray-700 mb-3">Additional Items</h4>
 //                   <div className="space-y-3">
 //                     {additionalProducts.map(prod => (
-//                       <div key={prod._id} className="flex items-center justify-between p-3 bg-rose-50 rounded-lg border border-rose-100">
+//                       <div key={prod._id} className="flex items-center justify-between p-3 bg-purple-50 rounded-lg border border-purple-100">
 //                         <div className="flex items-center">
 //                           <img 
 //                             src={prod.imageUrl} 
@@ -708,8 +545,8 @@
 //                           <div>
 //                             <p className="font-medium text-sm">{prod.name}</p>
 //                             <div className="flex items-center">
-//                               <IndianRupee className="w-4 h-4 text-sacred-crimson" />
-//                               <span className="text-sacred-crimson font-medium">{prod.price}</span>
+//                               <IndianRupee className="w-4 h-4 text-[#6a0dad]" />
+//                               <span className="text-[#6a0dad] font-medium">{prod.price}</span>
 //                             </div>
 //                           </div>
 //                         </div>
@@ -717,14 +554,14 @@
 //                           <div className="flex items-center space-x-2">
 //                             <button
 //                               onClick={() => updateAdditionalProductQuantity(prod._id, prod.quantity - 1)}
-//                               className="w-6 h-6 rounded bg-rose-200 flex items-center justify-center text-sacred-crimson hover:bg-rose-300 transition-colors"
+//                               className="w-6 h-6 rounded bg-purple-200 flex items-center justify-center text-[#6a0dad] hover:bg-purple-300 transition-colors"
 //                             >
 //                               <Minus className="w-3 h-3" />
 //                             </button>
 //                             <span className="font-medium">{prod.quantity}</span>
 //                             <button
 //                               onClick={() => updateAdditionalProductQuantity(prod._id, prod.quantity + 1)}
-//                               className="w-6 h-6 rounded bg-rose-200 flex items-center justify-center text-sacred-crimson hover:bg-rose-300 transition-colors"
+//                               className="w-6 h-6 rounded bg-purple-200 flex items-center justify-center text-[#6a0dad] hover:bg-purple-300 transition-colors"
 //                             >
 //                               <Plus className="w-3 h-3" />
 //                             </button>
@@ -770,7 +607,7 @@
 //               <div className="border-t border-gray-200 pt-4">
 //                 <div className="flex justify-between items-center">
 //                   <span className="text-xl font-bold text-gray-800">Total Amount</span>
-//                   <div className="flex items-center text-2xl font-bold text-sacred-crimson">
+//                   <div className="flex items-center text-2xl font-bold text-[#6a0dad]">
 //                     <IndianRupee className="w-6 h-6" />
 //                     <span>{totalAmount}</span>
 //                   </div>
@@ -795,15 +632,15 @@
 
 //           {/* Customer Details Form - Right Side */}
 //           <div className="lg:col-span-3">
-//             <div className="bg-white rounded-3xl shadow-xl border border-rose-100 overflow-hidden">
+//             <div className="bg-white rounded-3xl shadow-xl border border-purple-100 overflow-hidden">
               
 //               {/* Form Header */}
-//               <div className="bg-gradient-to-r from-sacred-crimson to-red-600 px-8 py-6">
+//               <div className="bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] px-8 py-6">
 //                 <div className="flex items-center text-white">
 //                   <User className="w-6 h-6 mr-3" />
 //                   <div>
 //                     <h2 className="text-2xl font-bold">Customer Information</h2>
-//                     <p className="text-red-100 mt-1">Please provide your details for delivery</p>
+//                     <p className="text-purple-100 mt-1">Please provide your details for delivery</p>
 //                   </div>
 //                 </div>
 //               </div>
@@ -812,7 +649,7 @@
 //                 {/* Personal Information Section */}
 //                 <div className="mb-8">
 //                   <div className="flex items-center mb-6">
-//                     <div className="w-8 h-8 bg-sacred-crimson rounded-full flex items-center justify-center text-white text-sm font-bold mr-3">
+//                     <div className="w-8 h-8 bg-[#6a0dad] rounded-full flex items-center justify-center text-white text-sm font-bold mr-3">
 //                       1
 //                     </div>
 //                     <h3 className="text-xl font-bold text-gray-800">Personal Information</h3>
@@ -821,7 +658,7 @@
 //                   <div className="grid md:grid-cols-2 gap-6">
 //                     <div>
 //                       <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
-//                         <User className="w-4 h-4 mr-2 text-sacred-crimson" />
+//                         <User className="w-4 h-4 mr-2 text-[#6a0dad]" />
 //                         Full Name *
 //                       </label>
 //                       <input
@@ -830,14 +667,14 @@
 //                         value={formData.name}
 //                         onChange={handleInputChange}
 //                         placeholder="Enter your full name"
-//                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-sacred-crimson focus:border-sacred-crimson transition-all outline-none"
+//                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#6a0dad] focus:border-[#6a0dad] transition-all outline-none"
 //                         required
 //                       />
 //                     </div>
 
 //                     <div>
 //                       <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
-//                         <Phone className="w-4 h-4 mr-2 text-sacred-crimson" />
+//                         <Phone className="w-4 h-4 mr-2 text-[#6a0dad]" />
 //                         Phone Number *
 //                       </label>
 //                       <input
@@ -846,7 +683,7 @@
 //                         value={formData.phone}
 //                         onChange={handleInputChange}
 //                         placeholder="+91 XXXXX XXXXX"
-//                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-sacred-crimson focus:border-sacred-crimson transition-all outline-none"
+//                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#6a0dad] focus:border-[#6a0dad] transition-all outline-none"
 //                         required
 //                       />
 //                     </div>
@@ -854,7 +691,7 @@
 
 //                   <div className="mt-6">
 //                     <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
-//                       <Mail className="w-4 h-4 mr-2 text-sacred-crimson" />
+//                       <Mail className="w-4 h-4 mr-2 text-[#6a0dad]" />
 //                       Email Address *
 //                     </label>
 //                     <input
@@ -863,7 +700,7 @@
 //                       value={formData.email}
 //                       onChange={handleInputChange}
 //                       placeholder="your.email@example.com"
-//                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-sacred-crimson focus:border-sacred-crimson transition-all outline-none"
+//                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#6a0dad] focus:border-[#6a0dad] transition-all outline-none"
 //                       required
 //                     />
 //                   </div>
@@ -872,7 +709,7 @@
 //                 {/* Delivery Information Section */}
 //                 <div className="mb-8">
 //                   <div className="flex items-center mb-6">
-//                     <div className="w-8 h-8 bg-sacred-crimson rounded-full flex items-center justify-center text-white text-sm font-bold mr-3">
+//                     <div className="w-8 h-8 bg-[#6a0dad] rounded-full flex items-center justify-center text-white text-sm font-bold mr-3">
 //                       2
 //                     </div>
 //                     <h3 className="text-xl font-bold text-gray-800">Delivery Information</h3>
@@ -881,7 +718,7 @@
 //                   <div className="space-y-6">
 //                     <div>
 //                       <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
-//                         <MapPin className="w-4 h-4 mr-2 text-sacred-crimson" />
+//                         <MapPin className="w-4 h-4 mr-2 text-[#6a0dad]" />
 //                         Delivery Address *
 //                       </label>
 //                       <textarea
@@ -890,7 +727,7 @@
 //                         onChange={handleInputChange}
 //                         rows="4"
 //                         placeholder="House/Flat No., Building Name, Street, Area, Landmark"
-//                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-sacred-crimson focus:border-sacred-crimson transition-all outline-none resize-none"
+//                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#6a0dad] focus:border-[#6a0dad] transition-all outline-none resize-none"
 //                         required
 //                       />
 //                     </div>
@@ -906,7 +743,7 @@
 //                           value={formData.city}
 //                           onChange={handleInputChange}
 //                           placeholder="City"
-//                           className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-sacred-crimson focus:border-sacred-crimson transition-all outline-none"
+//                           className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#6a0dad] focus:border-[#6a0dad] transition-all outline-none"
 //                         />
 //                       </div>
 
@@ -920,7 +757,7 @@
 //                           value={formData.state}
 //                           onChange={handleInputChange}
 //                           placeholder="State"
-//                           className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-sacred-crimson focus:border-sacred-crimson transition-all outline-none"
+//                           className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#6a0dad] focus:border-[#6a0dad] transition-all outline-none"
 //                         />
 //                       </div>
 
@@ -934,7 +771,7 @@
 //                           value={formData.pincode}
 //                           onChange={handleInputChange}
 //                           placeholder="000000"
-//                           className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-sacred-crimson focus:border-sacred-crimson transition-all outline-none"
+//                           className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#6a0dad] focus:border-[#6a0dad] transition-all outline-none"
 //                         />
 //                       </div>
 //                     </div>
@@ -944,16 +781,16 @@
 //                 {/* Payment Section */}
 //                 <div className="border-t border-gray-200 pt-8">
 //                   <div className="flex items-center mb-6">
-//                     <div className="w-8 h-8 bg-sacred-crimson rounded-full flex items-center justify-center text-white text-sm font-bold mr-3">
+//                     <div className="w-8 h-8 bg-[#6a0dad] rounded-full flex items-center justify-center text-white text-sm font-bold mr-3">
 //                       3
 //                     </div>
 //                     <h3 className="text-xl font-bold text-gray-800">Payment</h3>
 //                   </div>
 
-//                   <div className="bg-gradient-to-r from-rose-50 to-red-50 rounded-2xl p-6 mb-6">
+//                   <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 mb-6">
 //                     <div className="flex items-center justify-between mb-4">
 //                       <div className="flex items-center">
-//                         <CreditCard className="w-5 h-5 text-sacred-crimson mr-2" />
+//                         <CreditCard className="w-5 h-5 text-[#6a0dad] mr-2" />
 //                         <span className="font-semibold text-gray-700">Secure Payment via Razorpay</span>
 //                       </div>
 //                       <div className="flex space-x-2">
@@ -971,7 +808,7 @@
 //                     type="button"
 //                     onClick={handlePayment}
 //                     disabled={loading}
-//                     className="w-full bg-gradient-to-r from-sacred-crimson to-red-600 text-white py-4 rounded-xl font-bold text-lg hover:from-red-700 hover:to-red-700 transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg"
+//                     className="w-full bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white py-4 rounded-xl font-bold text-lg hover:from-[#5a0c9d] hover:to-[#e600e6] transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg"
 //                   >
 //                     {loading ? (
 //                       <div className="flex items-center justify-center">
@@ -997,7 +834,7 @@
 
 //         {/* Security Footer */}
 //         <div className="mt-12 text-center">
-//           <div className="inline-flex items-center px-6 py-3 bg-white rounded-full shadow-lg border border-rose-100">
+//           <div className="inline-flex items-center px-6 py-3 bg-white rounded-full shadow-lg border border-purple-100">
 //             <Shield className="w-5 h-5 text-green-600 mr-2" />
 //             <span className="text-sm font-medium text-gray-700">
 //               SSL Encrypted • Safe & Secure Checkout • 100% Protected
@@ -1010,11 +847,9 @@
 // };
 
 // export default Checkout;
-
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { IndianRupee, Minus, Plus, ArrowLeft, User, Phone, Mail, MapPin, ShoppingBag, CreditCard, Truck, Shield, ShoppingCart } from 'lucide-react';
+import { IndianRupee, Minus, Plus, ArrowLeft, User, Phone, Mail, MapPin, ShoppingBag, CreditCard, Truck, Shield, ShoppingCart, Ruler } from 'lucide-react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
@@ -1301,14 +1136,16 @@ const Checkout = () => {
                     quantity,
                     name: mainProduct.name,
                     price: mainProduct.price,
-                    imageUrl: mainProduct.imageUrl
+                    imageUrl: mainProduct.imageUrl,
+                    size: mainProduct.size // Include size in order record
                   },
                   ...additionalProducts.map(p => ({ 
                     product: p._id, 
                     quantity: p.quantity,
                     name: p.name,
                     price: p.price,
-                    imageUrl: p.imageUrl
+                    imageUrl: p.imageUrl,
+                    size: p.size // Include size in order record
                   }))
                 ],
                 totalAmount,
@@ -1482,6 +1319,13 @@ const Checkout = () => {
                               <IndianRupee className="w-4 h-4 text-[#6a0dad]" />
                               <span className="font-bold text-[#6a0dad]">{prod.price}</span>
                             </div>
+                            {/* Product Size in Modal */}
+                            {prod.size && (
+                              <div className="flex items-center mt-1 text-xs text-gray-600">
+                              
+                                Size: {prod.size}
+                              </div>
+                            )}
                           </div>
                           <button
                             onClick={() => addAdditionalProduct(prod)}
@@ -1512,6 +1356,15 @@ const Checkout = () => {
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-800 text-lg mb-1">{mainProduct.name}</h3>
                     <p className="text-gray-600 text-sm mb-2 capitalize">{mainProduct.category}</p>
+                    
+                    {/* Product Size Display */}
+                    {mainProduct.size && (
+                      <div className="flex items-center mb-2 text-sm text-gray-700">
+                       
+                        <span className="font-medium">Size: {mainProduct.size}</span>
+                      </div>
+                    )}
+                    
                     <div className="flex items-center">
                       <IndianRupee className="w-5 h-5 text-[#6a0dad]" />
                       <span className="font-bold text-[#6a0dad] text-xl">{mainProduct.price}</span>
@@ -1557,6 +1410,13 @@ const Checkout = () => {
                           />
                           <div>
                             <p className="font-medium text-sm">{prod.name}</p>
+                            {/* Additional Product Size */}
+                            {prod.size && (
+                              <div className="flex items-center text-xs text-gray-600">
+                               
+                                Size: {prod.size}
+                              </div>
+                            )}
                             <div className="flex items-center">
                               <IndianRupee className="w-4 h-4 text-[#6a0dad]" />
                               <span className="text-[#6a0dad] font-medium">{prod.price}</span>

@@ -874,6 +874,7 @@ const ProductDetail = () => {
                       ))}
                     </div>
                     <span className="text-gray-600 text-sm font-medium">4.8 (127 reviews)</span>
+                     <span className="ml-3 text-gray-600 text-sm font-medium">{product.size}</span>
                   </div>
                 </div>
               </div>
@@ -1024,6 +1025,11 @@ const ProductDetail = () => {
                     <h3 className="font-bold text-gray-900 mb-3 text-lg leading-tight line-clamp-2 group-hover:text-[#6a0dad] transition-colors">
                       {relatedProduct.name}
                     </h3>
+                    {relatedProduct.size && (
+  <p className="text-sm text-gray-500 mb-3">
+    Size: <span className="font-medium text-gray-700">{relatedProduct.size}</span>
+  </p>
+)}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
                         <IndianRupee className="w-5 h-5 text-[#6a0dad]" />
