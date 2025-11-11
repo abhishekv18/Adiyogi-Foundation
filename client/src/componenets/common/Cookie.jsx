@@ -28,18 +28,19 @@
 //           animate={{ y: 0, opacity: 1 }}
 //           exit={{ y: 100, opacity: 0 }}
 //           transition={{ duration: 0.5 }}
-//           className="fixed bottom-0 sm:bottom-5 left-0 sm:left-1/2 sm:-translate-x-1/2 w-full sm:w-[95%] md:w-[85%] lg:w-[700px] xl:w-[800px] sm:max-w-[95vw] bg-gray-900 text-white p-4 sm:p-5 md:p-6 rounded-t-2xl sm:rounded-2xl shadow-2xl z-50"
+//           className="fixed bottom-0 sm:bottom-5 left-0 sm:left-1/2 sm:-translate-x-1/2 w-full sm:w-[95%] md:w-[85%] lg:w-[700px] xl:w-[800px] sm:max-w-[95vw] 
+//                      bg-white text-gray-900 p-4 sm:p-5 md:p-6 rounded-t-2xl sm:rounded-2xl shadow-2xl border border-gray-200 z-50"
 //         >
 //           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
 //             {/* 🍪 Cookie Icon + Text */}
 //             <div className="flex items-start gap-3 flex-1 w-full">
 //               <div className="text-2xl sm:text-xl flex-shrink-0">🍪</div>
 //               <div className="flex-1 min-w-0">
-//                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+//                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
 //                   We use cookies to enhance your experience and analyze site traffic.{" "}
 //                   <a
 //                     href="/cookie-policy"
-//                     className="underline text-[#ff00ff] hover:text-[#ff66ff] transition-colors whitespace-nowrap"
+//                     className="underline text-[#6a0dad] hover:text-[#5a0c9d] transition-colors whitespace-nowrap font-medium"
 //                   >
 //                     Learn more
 //                   </a>
@@ -52,13 +53,15 @@
 //             <div className="flex gap-2 sm:gap-3 w-full sm:w-auto sm:flex-shrink-0">
 //               <button
 //                 onClick={handleDecline}
-//                 className="flex-1 sm:flex-none px-5 sm:px-6 py-2.5 text-sm sm:text-base bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-200 font-medium"
+//                 className="flex-1 sm:flex-none px-5 sm:px-6 py-2.5 text-sm sm:text-base bg-gray-100 text-gray-700 border border-gray-300 rounded-lg 
+//                            hover:bg-gray-200 transition-all duration-200 font-medium"
 //               >
 //                 Decline
 //               </button>
 //               <button
 //                 onClick={handleAccept}
-//                 className="flex-1 sm:flex-none px-5 sm:px-6 py-2.5 text-sm sm:text-base bg-[#6a0dad] text-white font-medium rounded-lg hover:bg-[#5a0c9d] transition-all duration-200 shadow-lg hover:shadow-xl"
+//                 className="flex-1 sm:flex-none px-5 sm:px-6 py-2.5 text-sm sm:text-base bg-[#6a0dad] text-white font-medium rounded-lg 
+//                            hover:bg-[#5a0c9d] transition-all duration-200 shadow-md hover:shadow-lg"
 //               >
 //                 Accept
 //               </button>
@@ -100,15 +103,23 @@ const Cookie = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed bottom-0 sm:bottom-5 left-0 sm:left-1/2 sm:-translate-x-1/2 w-full sm:w-[95%] md:w-[85%] lg:w-[700px] xl:w-[800px] sm:max-w-[95vw] 
-                     bg-white text-gray-900 p-4 sm:p-5 md:p-6 rounded-t-2xl sm:rounded-2xl shadow-2xl border border-gray-200 z-50"
+          className="fixed bottom-0 sm:bottom-6 md:bottom-8 
+                     left-0 sm:left-1/2 sm:-translate-x-1/2 
+                     w-full sm:w-[95%] md:w-[90%] lg:w-[800px] xl:w-[900px] 2xl:w-[1000px]
+                     max-w-[1200px]
+                     bg-white text-gray-900 
+                     p-4 sm:p-5 md:p-6 lg:p-7
+                     rounded-t-2xl sm:rounded-2xl 
+                     shadow-2xl border border-gray-200 
+                     z-50
+                     mx-auto sm:mx-0"
         >
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 lg:gap-6">
             {/* 🍪 Cookie Icon + Text */}
-            <div className="flex items-start gap-3 flex-1 w-full">
-              <div className="text-2xl sm:text-xl flex-shrink-0">🍪</div>
+            <div className="flex items-start gap-3 lg:gap-4 flex-1 w-full">
+              <div className="text-2xl sm:text-xl lg:text-2xl flex-shrink-0 mt-0.5">🍪</div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
                   We use cookies to enhance your experience and analyze site traffic.{" "}
                   <a
                     href="/cookie-policy"
@@ -125,15 +136,31 @@ const Cookie = () => {
             <div className="flex gap-2 sm:gap-3 w-full sm:w-auto sm:flex-shrink-0">
               <button
                 onClick={handleDecline}
-                className="flex-1 sm:flex-none px-5 sm:px-6 py-2.5 text-sm sm:text-base bg-gray-100 text-gray-700 border border-gray-300 rounded-lg 
-                           hover:bg-gray-200 transition-all duration-200 font-medium"
+                className="flex-1 sm:flex-none 
+                           px-5 sm:px-6 lg:px-8
+                           py-2.5 lg:py-3
+                           text-sm sm:text-base lg:text-base
+                           bg-gray-100 text-gray-700 
+                           border border-gray-300 rounded-lg 
+                           hover:bg-gray-200 
+                           transition-all duration-200 
+                           font-medium
+                           min-w-[100px] lg:min-w-[120px]"
               >
                 Decline
               </button>
               <button
                 onClick={handleAccept}
-                className="flex-1 sm:flex-none px-5 sm:px-6 py-2.5 text-sm sm:text-base bg-[#6a0dad] text-white font-medium rounded-lg 
-                           hover:bg-[#5a0c9d] transition-all duration-200 shadow-md hover:shadow-lg"
+                className="flex-1 sm:flex-none 
+                           px-5 sm:px-6 lg:px-8
+                           py-2.5 lg:py-3
+                           text-sm sm:text-base lg:text-base
+                           bg-[#6a0dad] text-white 
+                           font-medium rounded-lg 
+                           hover:bg-[#5a0c9d] 
+                           transition-all duration-200 
+                           shadow-md hover:shadow-lg
+                           min-w-[100px] lg:min-w-[120px]"
               >
                 Accept
               </button>
