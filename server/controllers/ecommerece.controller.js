@@ -31,9 +31,10 @@ export const handleProductImageUpload = async (req, res) => {
 
 export const addProduct = async (req, res) => {
   try {
-    const { name, description, price, quantity, category, status, imageUrl } = req.body;
+    console.log("Request Body:", req.body); // Debugging line
+    const { name, description, price, quantity,size, category, status, imageUrl } = req.body;
 
-    if (!name || !description || !price || !quantity || !category || !imageUrl || !status) {
+    if (!name || !description || !price || !quantity|| !size || !category || !imageUrl || !status ) {
       return res.status(400).json({
         message: "All fields are required",
         success: false,
@@ -45,6 +46,7 @@ export const addProduct = async (req, res) => {
       description, 
       price, 
       quantity, 
+      size,
       category: category || 'Others', 
       status: status || 'inStock', 
       imageUrl 
@@ -153,16 +155,18 @@ export const addProduct = async (req, res) => {
 export const editProduct = async (req, res) => {
   try {
     const productId = req.params.id;
-    const { name, description, price, quantity, category, status, imageUrl } = req.body;
+    const { name, description, price, quantity,size, category, status, imageUrl } = req.body;
 
     const updatedData = {
       name, 
       description, 
       price, 
       quantity, 
+      size,
       category, 
       status,
-      imageUrl  
+      imageUrl,
+      
     };
 
     const updatedProduct = await Ecommerce.findByIdAndUpdate(
@@ -181,7 +185,7 @@ export const editProduct = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Product updated successfully",
-      updatedProduct
+      product:updatedProduct
     });
 
   } catch (error) {

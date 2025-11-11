@@ -410,6 +410,7 @@ const showDeleteAdminConfirmation = (userId) => {
     description: '',
     price: '',
     quantity: '',
+    size: '',
     category: 'Others',
     status: 'inStock'
   });
@@ -492,8 +493,9 @@ const fetchProducts = async () => {
   const handleProductChange = useCallback((e) => {
     const { name, value } = e.target;
     setProductForm(prev => ({ ...prev, [name]: value }));
+    console.log(name, value);
   }, []);
-
+console.log(productForm);
 const handleSubmitProduct = useCallback(async (e) => {
   e.preventDefault();
   setProductLoading(true); // Start loading
@@ -547,8 +549,10 @@ const handleSubmitProduct = useCallback(async (e) => {
       description: '',
       price: '',
       quantity: '',
+      size: '',
       category: '',
-      status: 'inStock'
+      status: 'inStock',
+      
     });
     setProductImage(null);
     setProductImagePreview(null);
@@ -566,6 +570,7 @@ const handleSubmitProduct = useCallback(async (e) => {
       description: product.description,
       price: product.price.toString(),
       quantity: product.quantity.toString(),
+      size: product.size || '',
       category: product.category,
       status: product.status,
       imageUrl: product.imageUrl
@@ -887,6 +892,10 @@ const EcommerceDashboard = useMemo(() => (
                     {product.status === 'inStock' ? 'In Stock' : 'Out of Stock'}
                   </span>
                 </div>
+                  <div className="flex justify-between items-center">
+    <p className="text-sm text-slate-600">Size: {product.size}</p>
+    <p className="text-sm text-slate-600 truncate">Category: {product.category}</p>
+  </div>
               </div>
             </div>
           ))}
@@ -895,99 +904,6 @@ const EcommerceDashboard = useMemo(() => (
     </div>
   </div>
 ), [products, productStats, resetProductForm]);
-
-// const ProductList = useMemo(() => (
-//   <div className="space-y-6 px-2 sm:px-4">
-//     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-//       <h2 className="text-xl sm:text-2xl font-bold text-slate-800">
-//         Manage Products ({products.length})
-//       </h2>
-//       <button
-//         onClick={() => {
-//           resetProductForm();
-//           setShowProductModal(true);
-//         }}
-//         className="bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors flex items-center gap-2 shadow-lg w-full sm:w-auto min-h-[44px]"
-//       >
-//         <Plus className="w-4 h-4" />
-//         Add Product
-//       </button>
-//     </div>
-
-//     <div className="bg-white rounded-xl shadow-lg border border-slate-200">
-//       <div className="p-4 md:p-6 border-b border-slate-200">
-//         <div className="flex items-center gap-4">
-//           <div className="flex-1 relative w-full">
-//             <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
-//             <input
-//               type="text"
-//               placeholder="Search products..."
-//               value={productSearchTerm}
-//               onChange={(e) => setProductSearchTerm(e.target.value)}
-//               className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all text-sm sm:text-base"
-//             />
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="p-4 md:p-6">
-//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-//           {filteredProducts.map((product) => (
-//             <div key={product._id} className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:shadow-md transition-shadow">
-//               <div className="relative h-48 w-full mb-4">
-//                 <img
-//                   src={product.imageUrl}
-//                   alt={product.name}
-//                   className="w-full h-full object-cover rounded-lg border border-slate-200"
-//                 />
-//                 <div className="absolute top-2 right-2 flex items-center gap-1">
-//                   <button
-//                     onClick={() => handleEditProduct(product)}
-//                     disabled={productLoading}
-//                     className="p-2 bg-white text-slate-500 hover:text-emerald-600 rounded-lg shadow-md transition-colors disabled:opacity-50"
-//                     title="Edit Product"
-//                   >
-//                     <Edit className="w-4 h-4" />
-//                   </button>
-//                   <button
-//                     onClick={() => showDeleteProductConfirmation(product)}
-//                     disabled={productLoading}
-//                     className="p-2 bg-white text-slate-500 hover:text-red-500 rounded-lg shadow-md transition-colors disabled:opacity-50"
-//                     title="Delete Product"
-//                   >
-//                     <Trash2 className="w-4 h-4" />
-//                   </button>
-//                 </div>
-//               </div>
-
-//               <div className="space-y-2">
-//                 <h3 className="font-semibold text-slate-800 truncate text-base">
-//                   {product.name}
-//                 </h3>
-//                 <p className="text-sm text-slate-600 line-clamp-2 break-words min-h-[40px]">
-//                   {product.description.substring(0, 80)}...
-//                 </p>
-//                 <p className="text-emerald-600 font-bold">₹{product.price}</p>
-//                 <div className="flex justify-between items-center">
-//                   <p className="text-sm text-slate-600">Qty: {product.quantity}</p>
-//                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-//                     product.status === 'inStock' 
-//                       ? 'bg-emerald-100 text-emerald-800' 
-//                       : 'bg-amber-100 text-amber-800'
-//                   }`}>
-//                     {product.status === 'inStock' ? 'In Stock' : 'Out of Stock'}
-//                   </span>
-//                 </div>
-//                 <p className="text-sm text-slate-600 truncate">Category: {product.category}</p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// ), [products, filteredProducts, productSearchTerm, resetProductForm, handleEditProduct, showDeleteProductConfirmation, productLoading]);
-
 
 
 
@@ -1141,7 +1057,10 @@ const ProductList = useMemo(() => (
                       {product.status === 'inStock' ? 'In Stock' : 'Out of Stock'}
                     </span>
                   </div>
-                  <p className="text-sm text-slate-600 truncate">Category: {product.category}</p>
+                 <div className="flex justify-between items-center">
+    <p className="text-sm text-slate-600">Size: {product.size}</p>
+    <p className="text-sm text-slate-600 truncate">Category: {product.category}</p>
+  </div>
                 </div>
               </div>
             ))}
@@ -1232,6 +1151,43 @@ const ProductModal = useMemo(() => (
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
                     placeholder="0"
                   />
+                </div>
+<div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Size *
+                  </label>
+                  <select
+                    name="size"
+                    required
+                    value={productForm.size}
+                    onChange={handleProductChange}
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
+                  >
+                    <option value="">Select size</option>
+                    <option value="200gm">200gm</option>
+                    <option value="250gm">250gm</option>
+                    <option value="300gm">300gm</option>
+                    <option value="400gm">400gm</option>
+                    <option value="500gm">500gm</option>
+                    <option value="750gm">750gm</option>
+                    <option value="900gm">900gm</option>
+                    <option value="1kg">1kg</option>
+                    <option value="2kg">2kg</option>
+                    <option value="5kg">5kg</option>
+                    <option value="10kg">10kg</option>
+                    <option value="15kg">15kg</option>
+                    <option value="20kg">20kg</option>
+                    <option value="50kg">50kg</option>
+                    <option value="100kg">100kg</option>
+                    <option value="1L">1L</option>
+                    <option value="2L">2L</option>
+                    <option value="5L">5L</option>
+                    <option value="10L">10L</option>
+                    <option value="15L">15L</option>
+                    <option value="20L">20L</option>
+                    <option value="50L">50L</option>
+                    <option value="100L">100L</option>
+                  </select>
                 </div>
 
                 <div>
