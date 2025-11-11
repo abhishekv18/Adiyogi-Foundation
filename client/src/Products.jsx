@@ -1426,7 +1426,7 @@ const Products = () => {
           <div
             className="absolute inset-0 bg-center bg-cover opacity-10 bg-scroll"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGluZGlhbiUyMHNwaWNlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1200&q=60')`,
+              backgroundImage: `url('/Product Page BG.jpg')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}

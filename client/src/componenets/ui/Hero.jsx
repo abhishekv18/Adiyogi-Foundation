@@ -376,7 +376,7 @@ const HeroWithCarousel = () => {
       className="absolute inset-0"
       style={{
         background:
-          'linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(248, 240, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 100%)',
+          'linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(248, 240, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%)',
       }}
     ></div>
   </div>
@@ -385,19 +385,19 @@ const HeroWithCarousel = () => {
     
     {/* Logo */}
     <div className="flex justify-center mb-4 sm:mb-6 lg:mb-3 mt-0">
-<div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 rounded-full overflow-hidden transition-all duration-300 ease-in-out">
+{/* <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 rounded-full overflow-hidden transition-all duration-300 ease-in-out">
   <img
     src="/INSTA.jpg"
     alt="Adiyogi Foundation Logo"
     className="w-full h-full object-cover rounded-full scale-90 hover:scale-95 transition-transform duration-300"
   />
-</div>
+</div> */}
 </div>
 
     {/* Heading */}
-    <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg text-[#2C2C2C] mb-3 sm:mb-4">
+    {/* <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg text-[#2C2C2C]">
       <span className="text-[#6a0dad]">Adiyogi Foundation</span>
-    </h1>
+    </h1> */}
 
     {/* Subheading */}
     {/* <p className="text-lg md:text-xl lg:text-2xl font-semibold tracking-wide text-[#5a0ba5] drop-shadow-md mb-4 sm:mb-6">
@@ -405,17 +405,17 @@ const HeroWithCarousel = () => {
     </p> */}
 
     {/* Quote */}
-    <div className="px-3 sm:px-4 mb-4 sm:mb-6">
+    {/* <div className="px-3 sm:px-4 mb-4 sm:mb-6">
       <p className="text-lg sm:text-lg md:text-xl lg:text-2xl font-medium text-[#6B4B4B] leading-relaxed">
         "Rooted in sacred knowledge, guided by selfless service we rise together as a community, restoring dharma with every step."
       </p>
       <p className="mt-3 text-sm sm:text-sm lg:text-base italic text-[#6a0dad]">
         A reflection of clarity, compassion, and collective awakening.
       </p>
-    </div>
+    </div> */}
 
     {/* Buttons */}
-    <div className="flex flex-col sm:flex-row justify-center items-center gap-5 mt-10  px-4">
+    {/* <div className="flex flex-col sm:flex-row justify-center items-center gap-5 mt-96  px-4">
       <Link to="/volunteers">
         <button
           className="w-full sm:w-auto px-7 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-lg sm:text-lg transition-transform duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 transform hover:scale-105"
@@ -443,7 +443,7 @@ const HeroWithCarousel = () => {
           <span>Support Our Mission</span>
         </button>
       </Link>
-    </div>
+    </div> */}
   </div>
 </section>
 
