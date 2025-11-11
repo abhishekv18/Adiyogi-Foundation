@@ -319,7 +319,8 @@ import {
   Send,
   Facebook,
   Icon,
-  FileText // Added FileText icon for Terms
+  FileText, // Added FileText icon for Terms
+  Cookie
 } from 'lucide-react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -536,7 +537,7 @@ const [emailError, setEmailError] = useState('');
               to="/cookie-policy"
               className="text-[#5E5348] hover:text-[#6a0dad] transition duration-200 text-sm flex items-center"
             >
-              <FileText size={12} className="mr-2 text-[#6a0dad]" />
+              <Cookie size={12} className="mr-2 text-[#6a0dad]" />
               Cookie Policy
             </Link>
           </li>
