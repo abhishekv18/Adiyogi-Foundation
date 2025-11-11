@@ -25,6 +25,7 @@ import ProductDetail from './ProductDetails';
 import Checkout from './Checkout';
 import OrderSuccess from './OrderSuccess';
 import TermsAndConditions from './TermsAndConditions';
+import CookiePolicy from './componenets/CookiePolicy';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
                        <Route path="/checkout" element={<Checkout />} />
                        <Route path="/order-success" element={<OrderSuccess />} />
                         <Route path="/terms-conditions" element={<TermsAndConditions />} />
+                        <Route path="/cookie-policy" element={<CookiePolicy/>}/>
         
         </Routes>
       </Layout>

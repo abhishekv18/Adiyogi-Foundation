@@ -531,6 +531,15 @@ const [emailError, setEmailError] = useState('');
               Terms & Conditions
             </Link>
           </li>
+          <li>
+            <Link 
+              to="/cookie-policy"
+              className="text-[#5E5348] hover:text-[#6a0dad] transition duration-200 text-sm flex items-center"
+            >
+              <FileText size={12} className="mr-2 text-[#6a0dad]" />
+              Cookie Policy
+            </Link>
+          </li>
         </ul>
       </div>
 

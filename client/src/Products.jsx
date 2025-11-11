@@ -1421,7 +1421,7 @@ const Products = () => {
       
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <div className="relative bg-gradient-to-br from-purple-50 via-purple-100 to-pink-50 pt-16 pb-16 overflow-hidden">
+        {/* <div className="relative bg-gradient-to-br from-purple-50 via-purple-100 to-pink-50 pt-16 pb-16 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#6a0dad]/30 to-[#ff00ff]/20"></div>
           <div
             className="absolute inset-0 bg-center bg-cover opacity-10 bg-scroll"
@@ -1474,7 +1474,65 @@ const Products = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+<div className="relative bg-gradient-to-br from-purple-900/20 to-purple-800/30 pt-16 pb-16 overflow-hidden">
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#6a0dad]/20 to-[#5a0ba5]/30 z-0"></div>
+
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-center bg-cover opacity-20 bg-scroll z-0"
+    style={{
+      backgroundImage: `url('/Product Page BG.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  ></div>
+
+  {/* Main Content */}
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 text-gray-100">
+    <div className="flex justify-center mb-6">
+      <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
+        <Flame className="w-8 h-8 text-white animate-pulse" />
+        <Package className="w-8 h-8 text-white" />
+        <Flower className="w-8 h-8 text-white animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
+    </div>
+
+    {/* <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+      Sacred <span className="text-[#b784f6] relative">Products</span>
+    </h1> */}
+
+    {/* <p className="text-xl text-purple-100 max-w-4xl mx-auto mb-10 leading-relaxed">
+      Discover sacred products, spiritual tools, and divine offerings that enhance your spiritual journey
+      and bring consciousness into your daily life.
+    </p> */}
+
+    <div className="flex justify-center items-center space-x-4 mb-8">
+      <div className="w-16 h-1 bg-[#6a0dad] rounded-full"></div>
+      <Sparkles className="w-6 h-6 text-[#6a0dad]" />
+      <div className="w-16 h-1 bg-[#6a0dad] rounded-full"></div>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <div className="bg-white/10 backdrop-blur-md rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300">
+        <Package className="w-8 h-8 text-[#6a0dad] mx-auto mb-3" />
+        <div className="text-2xl font-bold text-white">{isFetching ? '--' : productStats.totalProducts}</div>
+        <div className="text-sm text-purple-200">Total Products</div>
+      </div>
+      <div className="bg-white/10 backdrop-blur-md rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300">
+        <Flame className="w-8 h-8 text-[#6a0dad] mx-auto mb-3" />
+        <div className="text-2xl font-bold text-white">{productStats.inStockProducts}</div>
+        <div className="text-sm text-purple-200">In Stock</div>
+      </div>
+      <div className="bg-white/10 backdrop-blur-md rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300">
+        <Star className="w-8 h-8 text-[#6a0dad] mx-auto mb-3" />
+        <div className="text-2xl font-bold text-white">{productStats.outOfStockProducts}</div>
+        <div className="text-sm text-purple-200">Out of Stock</div>
+      </div>
+    </div>
+  </div>
+</div>
 
         {/* Search and Filter Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
@@ -2070,53 +2128,60 @@ const Products = () => {
         </div>
         
         {/* Compact CTA Section */}
-        <div className="relative overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 mb-14 rounded-2xl" 
-          style={{ background: 'linear-gradient(135deg, rgba(106, 13, 173, 0.7) 0%, rgba(255, 0, 255, 1) 100%)' }}>
-          
-          {/* Background Image */}
-          <img
-            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-            alt="Background"
-            className="absolute top-0 left-0 w-full h-full object-cover opacity-10 z-0 rounded-2xl"
-          />
+      <div
+  className="relative overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 mb-14 rounded-2xl text-white shadow-xl"
+  style={{
+    backgroundImage: `
+      linear-gradient(135deg, rgba(106, 13, 173, 0.2) 0%, rgba(90, 11, 165, 0.2) 100%),
+      url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')
+    `,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    boxShadow: '0 8px 32px rgba(106, 13, 173, 0.17)',
+  }}
+>
+  {/* Overlay Gradient */}
+  <div className="absolute inset-0 bg-gradient-to-tr from-[#6a0dad]/60 to-[#5a0ba5]/60 rounded-2xl z-0" />
 
-          {/* Content */}
-          <div className="relative z-10 p-8 md:p-10 text-center">
-            <div className="flex justify-center mb-4">
-              <div className="bg-white/20 p-3 rounded-full animate-pulse">
-                <Sparkles className="w-8 h-8 text-white" />
-              </div>
-            </div>
+  {/* Content */}
+  <div className="relative z-10 p-8 md:p-10 text-center">
+    <div className="flex justify-center mb-4">
+      <div className="bg-white/20 p-3 rounded-full animate-pulse">
+        <Sparkles className="w-8 h-8 text-white" />
+      </div>
+    </div>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-              Enhance Your Spiritual Journey
-            </h2>
+    <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+      Enhance Your Spiritual Journey
+    </h2>
 
-            <p className="text-white/90 max-w-2xl mx-auto mb-6 text-base md:text-lg leading-relaxed">
-              Explore our complete collection of sacred products and spiritual tools carefully curated to support your spiritual growth.
-            </p>
+    <p className="text-purple-100 max-w-2xl mx-auto mb-6 text-base md:text-lg leading-relaxed">
+      Explore our complete collection of sacred products and spiritual tools carefully curated to support your spiritual growth.
+    </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center flex-wrap">
-              <button
-                onClick={() => {
-                  setSearchTerm('');
-                  setSelectedCategory('all');
-                  document.querySelector('.grid')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="bg-white text-[#6a0dad] px-6 py-3 rounded-xl font-semibold hover:bg-purple-50 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-              >
-                <PackageIcon className="w-5 h-5" /> Explore All Products
-              </button>
+    <div className="flex flex-col sm:flex-row gap-3 justify-center flex-wrap">
+      <button
+        onClick={() => {
+          setSearchTerm('');
+          setSelectedCategory('all');
+          document.querySelector('.grid')?.scrollIntoView({ behavior: 'smooth' });
+        }}
+        className="bg-white text-[#6a0dad] px-6 py-3 rounded-xl font-semibold hover:bg-purple-50 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 hover:scale-105"
+      >
+        <PackageIcon className="w-5 h-5" /> Explore All Products
+      </button>
 
-              <button
-                onClick={() => navigate('/contact')}
-                className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all flex items-center justify-center gap-2"
-              >
-                <Heart className="w-5 h-5" /> Contact Us
-              </button>
-            </div>
-          </div>
-        </div>
+      <button
+        onClick={() => navigate('/contact')}
+        className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-[#6a0dad] transition-all flex items-center justify-center gap-2 hover:scale-105"
+      >
+        <Heart className="w-5 h-5" /> Contact Us
+      </button>
+    </div>
+  </div>
+</div>
+
       </div>
     </>
   );

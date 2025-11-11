@@ -541,7 +541,7 @@ const navigate=useNavigate();
       
  
 <section className="py-10 sm:py-14 md:py-20 px-4 relative overflow-hidden">
-  <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-purple-800/20 z-0"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 to-purple-800/20 z-0"></div>
 
   <div
     className="absolute inset-0 bg-center bg-cover opacity-20 z-0 bg-scroll"

@@ -1370,7 +1370,7 @@ const OrderManagement = () => {
                     Order Items ({order.products.length})
                   </h4>
                   <div className="space-y-3 md:space-y-4">
-                    {order.products.product.map((item, index) => (
+                    {order.products.map((item, index) => (
                       <div key={index} className="flex items-center gap-3 md:gap-4 p-3 md:p-4 bg-slate-50 rounded-lg border border-slate-200">
                         <div className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0">
                           <img
@@ -1383,8 +1383,8 @@ const OrderManagement = () => {
                           <h5 className="font-semibold text-slate-800 text-sm truncate">{item.name}</h5>
                           <p className="text-xs md:text-sm text-slate-600 mt-1">Quantity: {item.quantity}</p>
                           {/* Add size display here */}
-                          {item.size && (
-                            <p className="text-xs text-slate-600 mt-1">Size: {item.size}</p>
+                          {item.product.size && (
+                            <p className="text-xs text-slate-600 mt-1">Size: {item.product.size}</p>
                           )}
                           <p className="text-xs text-slate-500 font-mono mt-1 truncate">
                             Product ID: {item.product?.toString().substring(0, 8)}...
@@ -1586,9 +1586,9 @@ console.log(orders);
                   <div key={index} className="flex items-center justify-between text-xs">
                     <span className="truncate max-w-[70%]">
                       {item.name}
-                      {item.size && (
-                        <span className="text-gray-500 ml-1">({item.size})</span>
-                      )}
+                      {/* {item.product.size && ( */}
+                        <span className="text-gray-500 ml-1">({item.product.size})</span>
+                      {/* )} */}
                       {" "}x{item.quantity}
                     </span>
                     <span className="font-semibold whitespace-nowrap">
@@ -1908,8 +1908,8 @@ console.log(orders);
                                     <div key={index} className="flex items-center justify-between text-xs md:text-sm">
                                       <span className="truncate max-w-[60%]">
                                         {item.name}
-                                        {item.size && (
-                                          <span className="text-gray-500 ml-1">({item.size})</span>
+                                        {item.product.size && (
+                                          <span className="text-gray-500 ml-1">({item.product.size})</span>
                                         )}
                                         {" "}x{item.quantity}
                                       </span>

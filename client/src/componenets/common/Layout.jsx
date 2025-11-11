@@ -83,7 +83,8 @@ const Layout = ({ children }) => {
 const isCheckPage = location.pathname.startsWith('/checkout');
 const isTermsPage = location.pathname.startsWith('/terms-conditions');
 const isOrderSuccessPage = location.pathname.startsWith('/order-success');
-  const shouldHideLayout = hideLayoutRoutes.includes(location.pathname) || isBlogPage || isProductPage || isCheckPage || isOrderSuccessPage || isTermsPage;
+const isCookiePage = location.pathname.startsWith('/cookie-policy');
+  const shouldHideLayout = hideLayoutRoutes.includes(location.pathname) || isBlogPage || isProductPage || isCheckPage || isOrderSuccessPage || isTermsPage || isCookiePage;
 useEffect(() => {
     const consent = localStorage.getItem("cookieConsent");
     if (consent === "accepted") {

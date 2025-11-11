@@ -102,7 +102,7 @@ const Cookie = () => {
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
                   We use cookies to enhance your experience and analyze site traffic.{" "}
                   <a
-                    href="/terms-conditions"
+                    href="/cookie-policy"
                     className="underline text-[#ff00ff] hover:text-[#ff66ff] transition-colors whitespace-nowrap"
                   >
                     Learn more
