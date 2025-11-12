@@ -26,7 +26,7 @@ const ecommerceSchema = new mongoose.Schema({
     size:{
       type: String,
       enum: [
-        '200gm', '250gm', '300gm', '400gm', '500gm', '750gm', '900gm', '1kg',
+        '25gm','50gm','75gm','100gm','200gm', '250gm', '300gm', '400gm', '500gm', '750gm', '900gm', '1kg',
         '2kg', '5kg', '10kg', '15kg', '20kg', '50kg', '100kg',
         '1L', '2L', '5L', '10L', '15L', '20L', '50L', '100L'
       ],

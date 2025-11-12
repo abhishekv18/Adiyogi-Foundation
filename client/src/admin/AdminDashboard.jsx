@@ -1164,7 +1164,10 @@ const ProductModal = useMemo(() => (
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-slate-50 transition-all"
                   >
                     <option value="">Select size</option>
-                    <option value="200gm">200gm</option>
+                     <option value="25gm">25gm</option>
+                    <option value="50gm">50gm</option>
+                    <option value="75gm">75gm</option>
+                    <option value="100gm">100gm</option>
                     <option value="250gm">250gm</option>
                     <option value="300gm">300gm</option>
                     <option value="400gm">400gm</option>

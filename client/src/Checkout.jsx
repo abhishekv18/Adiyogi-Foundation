@@ -847,6 +847,417 @@
 // };
 
 // export default Checkout;
+// import React, { useState, useEffect } from 'react';
+// import { useLocation, useNavigate } from 'react-router-dom';
+// import { IndianRupee, Minus, Plus, ArrowLeft, User, Phone, Mail, MapPin, ShoppingBag, CreditCard, Truck, Shield, ShoppingCart, Ruler } from 'lucide-react';
+// import { toast } from 'react-toastify';
+// import axios from 'axios';
+
+// const Checkout = () => {
+//   const location = useLocation();
+//   const navigate = useNavigate();
+//   const { product } = location.state || {};
+  
+//   // Load main product from state or localStorage
+//   const [mainProduct, setMainProduct] = useState(
+//     product || JSON.parse(localStorage.getItem('checkout_mainProduct') || 'null')
+//   );
+
+//   // Load quantity from localStorage or use product quantity
+//   const [quantity, setQuantity] = useState(() => {
+//     if (mainProduct) {
+//       const savedQuantity = localStorage.getItem(`product_${mainProduct._id}_quantity`);
+//       return savedQuantity ? parseInt(savedQuantity, 10) : (mainProduct.quantity || 1);
+//     }
+//     return 1;
+//   });
+
+//   const [loading, setLoading] = useState(false);
+//   const [formData, setFormData] = useState(
+//     JSON.parse(localStorage.getItem('checkout_formData') || '{"name":"","email":"","phone":"","address":"","city":"","state":"","pincode":""}')
+//   );
+//   const [showProductSelector, setShowProductSelector] = useState(false);
+//   const [additionalProducts, setAdditionalProducts] = useState(
+//     JSON.parse(localStorage.getItem('checkout_additionalProducts') || '[]')
+//   );
+//   const [availableProducts, setAvailableProducts] = useState([]);
+//   const [highlightAddMore, setHighlightAddMore] = useState(false);
+
+//   // Save data to localStorage whenever it changes
+//   useEffect(() => {
+//     if (mainProduct && mainProduct._id) {
+//       localStorage.setItem(`product_${mainProduct._id}_quantity`, quantity.toString());
+//     }
+//   }, [quantity, mainProduct]);
+
+//   useEffect(() => {
+//     localStorage.setItem('checkout_formData', JSON.stringify(formData));
+//   }, [formData]);
+
+//   useEffect(() => {
+//     localStorage.setItem('checkout_additionalProducts', JSON.stringify(additionalProducts));
+//   }, [additionalProducts]);
+
+//   useEffect(() => {
+//     if (mainProduct) {
+//       localStorage.setItem('checkout_mainProduct', JSON.stringify(mainProduct));
+//     }
+//   }, [mainProduct]);
+
+//   useEffect(() => {
+//     if (!mainProduct) {
+//       toast.error('No product selected');
+//       navigate('/products');
+//     } else {
+//       // Fetch related products to show as additional options
+//       fetchRelatedProducts(mainProduct);
+      
+//       // Highlight the "Add More" button for new users
+//       const hasSeenHighlight = localStorage.getItem('hasSeenAddMoreHighlight');
+//       if (!hasSeenHighlight) {
+//         setHighlightAddMore(true);
+//         setTimeout(() => setHighlightAddMore(false), 3000);
+//         localStorage.setItem('hasSeenAddMoreHighlight', 'true');
+//       }
+//     }
+//   }, [mainProduct, navigate]);
+
+//   const fetchRelatedProducts = async (mainProduct) => {
+//     try {
+//       const res = await axios.get(
+//         `${import.meta.env.VITE_API_URL}/api/products/category/${mainProduct.category}?limit=6`, 
+//         { withCredentials: true }
+//       );
+      
+//       if (res.data.success) {
+//         // Filter out the current product and set available products
+//         const filtered = res.data.products.filter(p => p._id !== mainProduct._id);
+//         setAvailableProducts(filtered);
+//       }
+//     } catch (error) {
+//       console.error("Error fetching related products:", error);
+//     }
+//   };
+
+// const handleQuantityChange = (action) => {
+//   if (action === 'increase') {
+//     // Check if increasing quantity exceeds available stock
+//     if (quantity >= mainProduct.quantity) {
+//       toast.error(`Only ${mainProduct.quantity} items available in stock`);
+//       return;
+//     }
+    
+//     setQuantity(prev => {
+//       const newQuantity = prev + 1;
+//       // Update localStorage immediately
+//       if (mainProduct && mainProduct._id) {
+//         localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
+//       }
+//       return newQuantity;
+//     });
+//   } else if (action === 'decrease' && quantity > 1) {
+//     setQuantity(prev => {
+//       const newQuantity = prev - 1;
+//       // Update localStorage immediately
+//       if (mainProduct && mainProduct._id) {
+//         localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
+//       }
+//       return newQuantity;
+//     });
+//   }
+// };
+//   const addAdditionalProduct = (newProduct) => {
+//     // Check if product is already in additional products
+//     const existingIndex = additionalProducts.findIndex(p => p._id === newProduct._id);
+    
+//     if (existingIndex >= 0) {
+//       // Increase quantity if already exists
+//       const updatedProducts = [...additionalProducts];
+//       updatedProducts[existingIndex] = {
+//         ...updatedProducts[existingIndex],
+//         quantity: updatedProducts[existingIndex].quantity + 1
+//       };
+//       setAdditionalProducts(updatedProducts);
+//     } else {
+//       // Add new product with quantity 1
+//       setAdditionalProducts([...additionalProducts, {...newProduct, quantity: 1}]);
+//     }
+    
+//     toast.success(`${newProduct.name} added to order!`);
+//     setShowProductSelector(false);
+//   };
+
+//   const removeAdditionalProduct = (productId) => {
+//     setAdditionalProducts(additionalProducts.filter(p => p._id !== productId));
+//   };
+
+  
+// const updateAdditionalProductQuantity = (productId, newQuantity) => {
+//   const product = additionalProducts.find(p => p._id === productId);
+  
+//   // Check if new quantity exceeds available stock
+//   if (newQuantity > product.quantity) {
+//     toast.error(`Only ${product.quantity} items available in stock for ${product.name}`);
+//     return;
+//   }
+  
+//   if (newQuantity < 1) {
+//     removeAdditionalProduct(productId);
+//     return;
+//   }
+  
+//   setAdditionalProducts(additionalProducts.map(p => 
+//     p._id === productId ? {...p, quantity: newQuantity} : p
+//   ));
+// };
+//   const handleInputChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData(prev => ({
+//       ...prev,
+//       [name]: value
+//     }));
+//   };
+
+//   // Clear localStorage after successful payment
+//   const clearCheckoutStorage = () => {
+//     try {
+//       // Clear all product quantities
+//       const keys = Object.keys(localStorage);
+//       keys.forEach(key => {
+//         if (key.startsWith('product_') && key.endsWith('_quantity')) {
+//           localStorage.removeItem(key);
+//         }
+//       });
+//       localStorage.removeItem('checkout_mainProduct');
+//       localStorage.removeItem('checkout_additionalProducts');
+//       localStorage.removeItem('checkout_formData');
+//     } catch (error) {
+//       console.error('Error clearing localStorage:', error);
+//     }
+//   };
+
+//   // Calculate total for main product
+//   const mainProductTotal = mainProduct ? (mainProduct.price * quantity) : 0;
+  
+//   // Calculate total for additional products
+//   const additionalProductsTotal = additionalProducts.reduce((total, p) => {
+//     return total + (p.price * p.quantity);
+//   }, 0);
+  
+//   // Calculate final total
+//   const totalAmount = (mainProductTotal + additionalProductsTotal).toFixed(2);
+
+//   const loadRazorpayScript = () => {
+//     return new Promise((resolve) => {
+//       // Check if Razorpay is already loaded
+//       if (window.Razorpay) {
+//         resolve(true);
+//         return;
+//       }
+      
+//       // Fallback: Load script dynamically if not already loaded
+//       const script = document.createElement('script');
+//       script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+//       script.onload = () => {
+//         resolve(true);
+//       };
+//       script.onerror = () => {
+//         resolve(false);
+//       };
+//       document.body.appendChild(script);
+//     });
+//   };
+
+//   const handlePayment = async () => {
+//     // Form validation
+//     if (!formData.name || !formData.email || !formData.phone || !formData.address) {
+//       toast.error('Please fill all required fields');
+//       return;
+//     }
+
+//     setLoading(true);
+
+//     try {
+//       // Load Razorpay script
+//       const res = await loadRazorpayScript();
+//       if (!res) {
+//         toast.error('Razorpay SDK failed to load');
+//         return;
+//       }
+
+//       // Create order on your server
+//       const orderResponse = await axios.post(`${import.meta.env.VITE_API_URL}/api/payments/create-order`, {
+//         amount: totalAmount * 100, // Convert to paise
+//         currency: 'INR',
+//         receipt: `receipt_${Date.now()}`
+//       });
+
+//       console.log("Full order response:", orderResponse.data);
+
+//       // Extract order data based on your backend response structure
+//       let orderId, amount, currency;
+      
+//       if (orderResponse.data.order) {
+//         // Response format: { success: true, order: { id, amount, currency } }
+//         orderId = orderResponse.data.order.id;
+//         amount = orderResponse.data.order.amount;
+//         currency = orderResponse.data.order.currency;
+//       } else {
+//         // Response format: { id, amount, currency }
+//         orderId = orderResponse.data.id;
+//         amount = orderResponse.data.amount;
+//         currency = orderResponse.data.currency;
+//       }
+
+//       console.log("Extracted values:", { orderId, amount, currency });
+
+//       // Validate that we have the required values
+//       if (!orderId || !amount || !currency) {
+//         throw new Error("Invalid order response from server");
+//       }
+
+//       // Razorpay options
+//       const options = {
+//         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+//         amount: amount.toString(),
+//         currency: currency,
+//         name: 'Adiyogi Store',
+//         description: `Purchase of ${mainProduct.name}${additionalProducts.length > 0 ? ` and ${additionalProducts.length} more items` : ''}`,
+//         image: window.location.origin + '/Screenshot 2025-08-08 160012.png',
+//         order_id: orderId,
+//         handler: async function(response) {
+//           console.log("Razorpay response:", response);
+          
+//           // Verify payment on server
+//           try {
+//             const verifyResponse = await axios.post(`${import.meta.env.VITE_API_URL}/api/payments/verify-payment`, {
+//               razorpay_order_id: response.razorpay_order_id,
+//               razorpay_payment_id: response.razorpay_payment_id,
+//               razorpay_signature: response.razorpay_signature,
+//               order_id: orderId, // Add the original order ID for verification
+//               amount: amount // Add amount for additional verification
+//             });
+
+//             console.log("Verification response:", verifyResponse.data);
+
+//             if (verifyResponse.data.success) {
+//               // Save order to database with complete product details
+//               const orderRecordResponse = await axios.post(`${import.meta.env.VITE_API_URL}/api/payments/create-order-record`, {
+//                 products: [
+//                   { 
+//                     product: mainProduct._id, 
+//                     quantity,
+//                     name: mainProduct.name,
+//                     price: mainProduct.price,
+//                     imageUrl: mainProduct.imageUrl,
+//                     size: mainProduct.size // Include size in order record
+//                   },
+//                   ...additionalProducts.map(p => ({ 
+//                     product: p._id, 
+//                     quantity: p.quantity,
+//                     name: p.name,
+//                     price: p.price,
+//                     imageUrl: p.imageUrl,
+//                     size: p.size // Include size in order record
+//                   }))
+//                 ],
+//                 totalAmount,
+//                 customerDetails: formData,
+//                 paymentId: response.razorpay_payment_id,
+//                 orderId: response.razorpay_order_id
+//               });
+
+//               if (orderRecordResponse.data.success) {
+//                 // Clear localStorage after successful payment
+//                 clearCheckoutStorage();
+                
+//                 toast.success('Payment successful! Order placed.');
+//                 navigate('/order-success', { 
+//                   state: { 
+//                     orderId: response.razorpay_order_id,
+//                     paymentId: response.razorpay_payment_id,
+//                     products: [
+//                       { product: mainProduct, quantity },
+//                       ...additionalProducts
+//                     ],
+//                     totalAmount 
+//                   } 
+//                 });
+//               } else {
+//                 console.error("Order record creation failed:", orderRecordResponse.data);
+//                 toast.error('Order creation failed. Please contact support with your payment ID: ' + response.razorpay_payment_id);
+//               }
+//             } else {
+//               console.error("Payment verification failed:", verifyResponse.data);
+//               toast.error('Payment verification failed: ' + (verifyResponse.data.message || 'Unknown error'));
+//             }
+//           } catch (error) {
+//             console.error('Payment verification error:', error);
+//             if (error.response) {
+//               console.error('Error response data:', error.response.data);
+//               toast.error('Payment verification failed: ' + (error.response.data.message || error.message));
+//             } else {
+//               toast.error('Payment verification failed: ' + error.message);
+//             }
+//           }
+//         },
+//         prefill: {
+//           name: formData.name,
+//           email: formData.email,
+//           contact: formData.phone
+//         },
+//         notes: {
+//           address: formData.address
+//         },
+//         theme: {
+//           color: '#6a0dad'
+//         },
+//         modal: {
+//           ondismiss: function() {
+//             console.log("Payment modal dismissed");
+//             setLoading(false);
+//           }
+//         }
+//       };
+
+//       const razorpay = new window.Razorpay(options);
+      
+//       // Add error handling for payment failure
+//       razorpay.on('payment.failed', function(response) {
+//         console.error('Payment failed:', response.error);
+//         toast.error(`Payment failed: ${response.error.description}`);
+//         setLoading(false);
+//       });
+      
+//       razorpay.open();
+//     } catch (error) {
+//       console.error('Payment error:', error);
+//       if (error.response) {
+//         console.error('Error response:', error.response.data);
+//         toast.error('Payment failed: ' + (error.response.data.message || error.message));
+//       } else {
+//         toast.error('Payment failed: ' + error.message);
+//       }
+//       setLoading(false);
+//     }
+//   };
+
+//   if (!mainProduct) {
+//     return (
+//       <div className="min-h-screen bg-white flex items-center justify-center">
+//         <div className="text-center">
+//           <h2 className="text-2xl font-bold text-gray-800 mb-4">No Product Selected</h2>
+          
+//           <button 
+//             onClick={() => navigate('/products')}
+//             className="bg-[#6a0dad] text-white px-6 py-2 rounded-lg hover:bg-[#5a0c9d] transition-colors"
+//           >
+//             Back to Products
+//           </button>
+//         </div>
+//       </div>
+//     );
+//   }
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { IndianRupee, Minus, Plus, ArrowLeft, User, Phone, Mail, MapPin, ShoppingBag, CreditCard, Truck, Shield, ShoppingCart, Ruler } from 'lucide-react';
@@ -858,21 +1269,19 @@ const Checkout = () => {
   const navigate = useNavigate();
   const { product } = location.state || {};
   
-  // Load main product from state or localStorage
-  const [mainProduct, setMainProduct] = useState(
-    product || JSON.parse(localStorage.getItem('checkout_mainProduct') || 'null')
-  );
-
-  // Load quantity from localStorage or use product quantity
+  // State for products with latest data from database
+  const [mainProduct, setMainProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  
+  // Load initial quantity from localStorage or use 1 as default
   const [quantity, setQuantity] = useState(() => {
-    if (mainProduct) {
-      const savedQuantity = localStorage.getItem(`product_${mainProduct._id}_quantity`);
-      return savedQuantity ? parseInt(savedQuantity, 10) : (mainProduct.quantity || 1);
+    if (product && product._id) {
+      const savedQuantity = localStorage.getItem(`product_${product._id}_quantity`);
+      return savedQuantity ? parseInt(savedQuantity, 10) : 1;
     }
     return 1;
   });
 
-  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState(
     JSON.parse(localStorage.getItem('checkout_formData') || '{"name":"","email":"","phone":"","address":"","city":"","state":"","pincode":""}')
   );
@@ -883,7 +1292,56 @@ const Checkout = () => {
   const [availableProducts, setAvailableProducts] = useState([]);
   const [highlightAddMore, setHighlightAddMore] = useState(false);
 
-  // Save data to localStorage whenever it changes
+  // Fetch latest product data from database
+  useEffect(() => {
+    const fetchLatestProductData = async () => {
+      if (!product || !product._id) {
+        toast.error('No product selected');
+        navigate('/products');
+        return;
+      }
+
+      try {
+        setLoading(true);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/get/${product._id}`, {
+          withCredentials: true,
+        });
+        
+        if (res.data.success) {
+          const latestProduct = res.data.product;
+          setMainProduct(latestProduct);
+          
+          // Validate current quantity against actual stock
+          const savedQuantity = localStorage.getItem(`product_${latestProduct._id}_quantity`);
+          const currentQuantity = savedQuantity ? parseInt(savedQuantity, 10) : 1;
+          
+          if (currentQuantity > latestProduct.quantity) {
+            // If saved quantity exceeds available stock, reset to max available
+            const newQuantity = Math.max(1, latestProduct.quantity);
+            setQuantity(newQuantity);
+            localStorage.setItem(`product_${latestProduct._id}_quantity`, newQuantity.toString());
+            toast.info(`Quantity adjusted to available stock: ${newQuantity}`);
+          }
+          
+          // Fetch related products
+          fetchRelatedProducts(latestProduct);
+        } else {
+          toast.error("Failed to load product details");
+          navigate('/products');
+        }
+      } catch (error) {
+        console.error("Error fetching product:", error);
+        toast.error("Failed to load product details");
+        navigate('/products');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLatestProductData();
+  }, [product, navigate]);
+
+  // Save quantity to localStorage whenever it changes
   useEffect(() => {
     if (mainProduct && mainProduct._id) {
       localStorage.setItem(`product_${mainProduct._id}_quantity`, quantity.toString());
@@ -904,15 +1362,9 @@ const Checkout = () => {
     }
   }, [mainProduct]);
 
+  // Highlight the "Add More" button for new users
   useEffect(() => {
-    if (!mainProduct) {
-      toast.error('No product selected');
-      navigate('/products');
-    } else {
-      // Fetch related products to show as additional options
-      fetchRelatedProducts(mainProduct);
-      
-      // Highlight the "Add More" button for new users
+    if (mainProduct) {
       const hasSeenHighlight = localStorage.getItem('hasSeenAddMoreHighlight');
       if (!hasSeenHighlight) {
         setHighlightAddMore(true);
@@ -920,18 +1372,18 @@ const Checkout = () => {
         localStorage.setItem('hasSeenAddMoreHighlight', 'true');
       }
     }
-  }, [mainProduct, navigate]);
+  }, [mainProduct]);
 
-  const fetchRelatedProducts = async (mainProduct) => {
+  const fetchRelatedProducts = async (productData) => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/products/category/${mainProduct.category}?limit=6`, 
+        `${import.meta.env.VITE_API_URL}/api/products/category/${productData.category}?limit=6`, 
         { withCredentials: true }
       );
       
       if (res.data.success) {
         // Filter out the current product and set available products
-        const filtered = res.data.products.filter(p => p._id !== mainProduct._id);
+        const filtered = res.data.products.filter(p => p._id !== productData._id);
         setAvailableProducts(filtered);
       }
     } catch (error) {
@@ -939,107 +1391,104 @@ const Checkout = () => {
     }
   };
 
-  // const handleQuantityChange = (action) => {
-  //   if (action === 'increase') {
-  //     setQuantity(prev => {
-  //       const newQuantity = prev + 1;
-  //       // Update localStorage immediately
-  //       if (mainProduct && mainProduct._id) {
-  //         localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
-  //       }
-  //       return newQuantity;
-  //     });
-  //   } else if (action === 'decrease' && quantity > 1) {
-  //     setQuantity(prev => {
-  //       const newQuantity = prev - 1;
-  //       // Update localStorage immediately
-  //       if (mainProduct && mainProduct._id) {
-  //         localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
-  //       }
-  //       return newQuantity;
-  //     });
-  //   }
-  // };
-const handleQuantityChange = (action) => {
-  if (action === 'increase') {
-    // Check if increasing quantity exceeds available stock
-    if (quantity >= mainProduct.quantity) {
-      toast.error(`Only ${mainProduct.quantity} items available in stock`);
-      return;
-    }
-    
-    setQuantity(prev => {
-      const newQuantity = prev + 1;
-      // Update localStorage immediately
-      if (mainProduct && mainProduct._id) {
-        localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
+  // Handle quantity change with proper stock validation
+  const handleQuantityChange = (action) => {
+    if (!mainProduct) return;
+
+    if (action === 'increase') {
+      // Check if increasing quantity exceeds available stock
+      if (quantity >= mainProduct.quantity) {
+        toast.error(`Only ${mainProduct.quantity} items available in stock`);
+        return;
       }
-      return newQuantity;
-    });
-  } else if (action === 'decrease' && quantity > 1) {
-    setQuantity(prev => {
-      const newQuantity = prev - 1;
-      // Update localStorage immediately
-      if (mainProduct && mainProduct._id) {
-        localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
-      }
-      return newQuantity;
-    });
-  }
-};
-  const addAdditionalProduct = (newProduct) => {
-    // Check if product is already in additional products
-    const existingIndex = additionalProducts.findIndex(p => p._id === newProduct._id);
-    
-    if (existingIndex >= 0) {
-      // Increase quantity if already exists
-      const updatedProducts = [...additionalProducts];
-      updatedProducts[existingIndex] = {
-        ...updatedProducts[existingIndex],
-        quantity: updatedProducts[existingIndex].quantity + 1
-      };
-      setAdditionalProducts(updatedProducts);
-    } else {
-      // Add new product with quantity 1
-      setAdditionalProducts([...additionalProducts, {...newProduct, quantity: 1}]);
+      
+      setQuantity(prev => {
+        const newQuantity = prev + 1;
+        return newQuantity;
+      });
+    } else if (action === 'decrease' && quantity > 1) {
+      setQuantity(prev => {
+        const newQuantity = prev - 1;
+        return newQuantity;
+      });
     }
-    
-    toast.success(`${newProduct.name} added to order!`);
-    setShowProductSelector(false);
+  };
+
+  // Add additional product with stock validation
+  const addAdditionalProduct = async (newProduct) => {
+    try {
+      // Fetch latest product data for the additional product
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/get/${newProduct._id}`, {
+        withCredentials: true,
+      });
+      
+      if (res.data.success) {
+        const latestProduct = res.data.product;
+        
+        // Check if product is already in additional products
+        const existingIndex = additionalProducts.findIndex(p => p._id === latestProduct._id);
+        
+        if (existingIndex >= 0) {
+          // Check if we can increase quantity
+          const currentItem = additionalProducts[existingIndex];
+          if (currentItem.quantity >= latestProduct.quantity) {
+            toast.error(`Only ${latestProduct.quantity} items available in stock for ${latestProduct.name}`);
+            return;
+          }
+          
+          // Increase quantity if already exists
+          const updatedProducts = [...additionalProducts];
+          updatedProducts[existingIndex] = {
+            ...latestProduct, // Update with latest data
+            quantity: currentItem.quantity + 1
+          };
+          setAdditionalProducts(updatedProducts);
+        } else {
+          // Add new product with quantity 1
+          if (latestProduct.quantity < 1) {
+            toast.error(`${latestProduct.name} is out of stock`);
+            return;
+          }
+          
+          setAdditionalProducts([...additionalProducts, {...latestProduct, quantity: 1}]);
+        }
+        
+        toast.success(`${latestProduct.name} added to order!`);
+        setShowProductSelector(false);
+      }
+    } catch (error) {
+      console.error("Error fetching additional product:", error);
+      toast.error("Failed to add product");
+    }
   };
 
   const removeAdditionalProduct = (productId) => {
     setAdditionalProducts(additionalProducts.filter(p => p._id !== productId));
   };
 
-  // const updateAdditionalProductQuantity = (productId, newQuantity) => {
-  //   if (newQuantity < 1) {
-  //     removeAdditionalProduct(productId);
-  //     return;
-  //   }
+  // Update additional product quantity with stock validation
+  const updateAdditionalProductQuantity = (productId, newQuantity) => {
+    const productIndex = additionalProducts.findIndex(p => p._id === productId);
+    if (productIndex === -1) return;
     
-  //   setAdditionalProducts(additionalProducts.map(p => 
-  //     p._id === productId ? {...p, quantity: newQuantity} : p
-  //   ));
-  // };
-const updateAdditionalProductQuantity = (productId, newQuantity) => {
-  const product = additionalProducts.find(p => p._id === productId);
-  
-  // Check if new quantity exceeds available stock
-  if (newQuantity > product.quantity) {
-    toast.error(`Only ${product.quantity} items available in stock for ${product.name}`);
-    return;
-  }
-  
-  if (newQuantity < 1) {
-    removeAdditionalProduct(productId);
-    return;
-  }
-  
-  setAdditionalProducts(additionalProducts.map(p => 
-    p._id === productId ? {...p, quantity: newQuantity} : p
-  ));
-};
+    const product = additionalProducts[productIndex];
+    
+    // Check if new quantity exceeds available stock
+    if (newQuantity > product.quantity) {
+      toast.error(`Only ${product.quantity} items available in stock for ${product.name}`);
+      return;
+    }
+    
+    if (newQuantity < 1) {
+      removeAdditionalProduct(productId);
+      return;
+    }
+    
+    setAdditionalProducts(additionalProducts.map(p => 
+      p._id === productId ? {...p, quantity: newQuantity} : p
+    ));
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -1066,26 +1515,49 @@ const updateAdditionalProductQuantity = (productId, newQuantity) => {
     }
   };
 
-  // Calculate total for main product
+  // Loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-[#6a0dad] mx-auto"></div>
+          <p className="mt-4 text-gray-600 font-medium">Loading your order...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!mainProduct) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">No Product Selected</h2>
+          <button 
+            onClick={() => navigate('/products')}
+            className="bg-[#6a0dad] text-white px-6 py-2 rounded-lg hover:bg-[#5a0c9d] transition-colors"
+          >
+            Back to Products
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Calculate totals
   const mainProductTotal = mainProduct ? (mainProduct.price * quantity) : 0;
-  
-  // Calculate total for additional products
   const additionalProductsTotal = additionalProducts.reduce((total, p) => {
     return total + (p.price * p.quantity);
   }, 0);
-  
-  // Calculate final total
   const totalAmount = (mainProductTotal + additionalProductsTotal).toFixed(2);
 
+  // Rest of your component remains the same...
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
-      // Check if Razorpay is already loaded
       if (window.Razorpay) {
         resolve(true);
         return;
       }
       
-      // Fallback: Load script dynamically if not already loaded
       const script = document.createElement('script');
       script.src = 'https://checkout.razorpay.com/v1/checkout.js';
       script.onload = () => {
@@ -1128,12 +1600,10 @@ const updateAdditionalProductQuantity = (productId, newQuantity) => {
       let orderId, amount, currency;
       
       if (orderResponse.data.order) {
-        // Response format: { success: true, order: { id, amount, currency } }
         orderId = orderResponse.data.order.id;
         amount = orderResponse.data.order.amount;
         currency = orderResponse.data.order.currency;
       } else {
-        // Response format: { id, amount, currency }
         orderId = orderResponse.data.id;
         amount = orderResponse.data.amount;
         currency = orderResponse.data.currency;
@@ -1164,8 +1634,8 @@ const updateAdditionalProductQuantity = (productId, newQuantity) => {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
-              order_id: orderId, // Add the original order ID for verification
-              amount: amount // Add amount for additional verification
+              order_id: orderId,
+              amount: amount
             });
 
             console.log("Verification response:", verifyResponse.data);
@@ -1180,7 +1650,7 @@ const updateAdditionalProductQuantity = (productId, newQuantity) => {
                     name: mainProduct.name,
                     price: mainProduct.price,
                     imageUrl: mainProduct.imageUrl,
-                    size: mainProduct.size // Include size in order record
+                    size: mainProduct.size
                   },
                   ...additionalProducts.map(p => ({ 
                     product: p._id, 
@@ -1188,7 +1658,7 @@ const updateAdditionalProductQuantity = (productId, newQuantity) => {
                     name: p.name,
                     price: p.price,
                     imageUrl: p.imageUrl,
-                    size: p.size // Include size in order record
+                    size: p.size
                   }))
                 ],
                 totalAmount,
@@ -1252,7 +1722,6 @@ const updateAdditionalProductQuantity = (productId, newQuantity) => {
 
       const razorpay = new window.Razorpay(options);
       
-      // Add error handling for payment failure
       razorpay.on('payment.failed', function(response) {
         console.error('Payment failed:', response.error);
         toast.error(`Payment failed: ${response.error.description}`);
@@ -1271,24 +1740,6 @@ const updateAdditionalProductQuantity = (productId, newQuantity) => {
       setLoading(false);
     }
   };
-
-  if (!mainProduct) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">No Product Selected</h2>
-          
-          <button 
-            onClick={() => navigate('/products')}
-            className="bg-[#6a0dad] text-white px-6 py-2 rounded-lg hover:bg-[#5a0c9d] transition-colors"
-          >
-            Back to Products
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
       <div className="max-w-6xl mx-auto px-4 py-8">
@@ -1416,26 +1867,7 @@ const updateAdditionalProductQuantity = (productId, newQuantity) => {
                   </div>
                 </div>
                 
-                {/* Quantity Selector for Main Product */}
-                {/* <div className="flex justify-between items-center mt-4">
-                  <span className="font-semibold text-gray-700">Quantity</span>
-                  <div className="flex items-center space-x-4">
-                    <button
-                      onClick={() => handleQuantityChange('decrease')}
-                      className="w-10 h-10 rounded-xl bg-purple-100 hover:bg-purple-200 flex items-center justify-center text-[#6a0dad] transition-colors border border-purple-200"
-                      disabled={quantity <= 1}
-                    >
-                      <Minus className="w-5 h-5" />
-                    </button>
-                    <span className="font-bold text-xl min-w-[3rem] text-center">{quantity}</span>
-                    <button
-                      onClick={() => handleQuantityChange('increase')}
-                      className="w-10 h-10 rounded-xl bg-purple-100 hover:bg-purple-200 flex items-center justify-center text-[#6a0dad] transition-colors border border-purple-200"
-                    >
-                      <Plus className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div> */}
+              
                 {/* Quantity Selector for Main Product */}
 <div className="flex justify-between items-center mt-4">
   <div>
