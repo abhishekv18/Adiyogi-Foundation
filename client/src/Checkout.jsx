@@ -939,28 +939,54 @@ const Checkout = () => {
     }
   };
 
-  const handleQuantityChange = (action) => {
-    if (action === 'increase') {
-      setQuantity(prev => {
-        const newQuantity = prev + 1;
-        // Update localStorage immediately
-        if (mainProduct && mainProduct._id) {
-          localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
-        }
-        return newQuantity;
-      });
-    } else if (action === 'decrease' && quantity > 1) {
-      setQuantity(prev => {
-        const newQuantity = prev - 1;
-        // Update localStorage immediately
-        if (mainProduct && mainProduct._id) {
-          localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
-        }
-        return newQuantity;
-      });
+  // const handleQuantityChange = (action) => {
+  //   if (action === 'increase') {
+  //     setQuantity(prev => {
+  //       const newQuantity = prev + 1;
+  //       // Update localStorage immediately
+  //       if (mainProduct && mainProduct._id) {
+  //         localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
+  //       }
+  //       return newQuantity;
+  //     });
+  //   } else if (action === 'decrease' && quantity > 1) {
+  //     setQuantity(prev => {
+  //       const newQuantity = prev - 1;
+  //       // Update localStorage immediately
+  //       if (mainProduct && mainProduct._id) {
+  //         localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
+  //       }
+  //       return newQuantity;
+  //     });
+  //   }
+  // };
+const handleQuantityChange = (action) => {
+  if (action === 'increase') {
+    // Check if increasing quantity exceeds available stock
+    if (quantity >= mainProduct.quantity) {
+      toast.error(`Only ${mainProduct.quantity} items available in stock`);
+      return;
     }
-  };
-
+    
+    setQuantity(prev => {
+      const newQuantity = prev + 1;
+      // Update localStorage immediately
+      if (mainProduct && mainProduct._id) {
+        localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
+      }
+      return newQuantity;
+    });
+  } else if (action === 'decrease' && quantity > 1) {
+    setQuantity(prev => {
+      const newQuantity = prev - 1;
+      // Update localStorage immediately
+      if (mainProduct && mainProduct._id) {
+        localStorage.setItem(`product_${mainProduct._id}_quantity`, newQuantity.toString());
+      }
+      return newQuantity;
+    });
+  }
+};
   const addAdditionalProduct = (newProduct) => {
     // Check if product is already in additional products
     const existingIndex = additionalProducts.findIndex(p => p._id === newProduct._id);
@@ -986,17 +1012,34 @@ const Checkout = () => {
     setAdditionalProducts(additionalProducts.filter(p => p._id !== productId));
   };
 
-  const updateAdditionalProductQuantity = (productId, newQuantity) => {
-    if (newQuantity < 1) {
-      removeAdditionalProduct(productId);
-      return;
-    }
+  // const updateAdditionalProductQuantity = (productId, newQuantity) => {
+  //   if (newQuantity < 1) {
+  //     removeAdditionalProduct(productId);
+  //     return;
+  //   }
     
-    setAdditionalProducts(additionalProducts.map(p => 
-      p._id === productId ? {...p, quantity: newQuantity} : p
-    ));
-  };
-
+  //   setAdditionalProducts(additionalProducts.map(p => 
+  //     p._id === productId ? {...p, quantity: newQuantity} : p
+  //   ));
+  // };
+const updateAdditionalProductQuantity = (productId, newQuantity) => {
+  const product = additionalProducts.find(p => p._id === productId);
+  
+  // Check if new quantity exceeds available stock
+  if (newQuantity > product.quantity) {
+    toast.error(`Only ${product.quantity} items available in stock for ${product.name}`);
+    return;
+  }
+  
+  if (newQuantity < 1) {
+    removeAdditionalProduct(productId);
+    return;
+  }
+  
+  setAdditionalProducts(additionalProducts.map(p => 
+    p._id === productId ? {...p, quantity: newQuantity} : p
+  ));
+};
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -1374,7 +1417,7 @@ const Checkout = () => {
                 </div>
                 
                 {/* Quantity Selector for Main Product */}
-                <div className="flex justify-between items-center mt-4">
+                {/* <div className="flex justify-between items-center mt-4">
                   <span className="font-semibold text-gray-700">Quantity</span>
                   <div className="flex items-center space-x-4">
                     <button
@@ -1392,7 +1435,35 @@ const Checkout = () => {
                       <Plus className="w-5 h-5" />
                     </button>
                   </div>
-                </div>
+                </div> */}
+                {/* Quantity Selector for Main Product */}
+<div className="flex justify-between items-center mt-4">
+  <div>
+    <span className="font-semibold text-gray-700">Quantity</span>
+    {mainProduct.quantity > 0 && (
+      <span className="text-sm text-gray-500 ml-2">
+        ({mainProduct.quantity} available)
+      </span>
+    )}
+  </div>
+  <div className="flex items-center space-x-4">
+    <button
+      onClick={() => handleQuantityChange('decrease')}
+      className="w-10 h-10 rounded-xl bg-purple-100 hover:bg-purple-200 flex items-center justify-center text-[#6a0dad] transition-colors border border-purple-200 disabled:opacity-50 disabled:cursor-not-allowed"
+      disabled={quantity <= 1}
+    >
+      <Minus className="w-5 h-5" />
+    </button>
+    <span className="font-bold text-xl min-w-[3rem] text-center">{quantity}</span>
+    <button
+      onClick={() => handleQuantityChange('increase')}
+      className="w-10 h-10 rounded-xl bg-purple-100 hover:bg-purple-200 flex items-center justify-center text-[#6a0dad] transition-colors border border-purple-200 disabled:opacity-50 disabled:cursor-not-allowed"
+      disabled={quantity >= mainProduct.quantity}
+    >
+      <Plus className="w-5 h-5" />
+    </button>
+  </div>
+</div>
               </div>
 
               {/* Additional Products */}
@@ -1423,7 +1494,7 @@ const Checkout = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        {/* <div className="flex items-center space-x-2">
                           <div className="flex items-center space-x-2">
                             <button
                               onClick={() => updateAdditionalProductQuantity(prod._id, prod.quantity - 1)}
@@ -1445,7 +1516,32 @@ const Checkout = () => {
                           >
                             ✕
                           </button>
-                        </div>
+                        </div> */}
+                        <div className="flex items-center space-x-2">
+  <div className="flex items-center space-x-2">
+    <button
+      onClick={() => updateAdditionalProductQuantity(prod._id, prod.quantity - 1)}
+      className="w-6 h-6 rounded bg-purple-200 flex items-center justify-center text-[#6a0dad] hover:bg-purple-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      disabled={prod.quantity <= 1}
+    >
+      <Minus className="w-3 h-3" />
+    </button>
+    <span className="font-medium">{prod.quantity}</span>
+    <button
+      onClick={() => updateAdditionalProductQuantity(prod._id, prod.quantity + 1)}
+      className="w-6 h-6 rounded bg-purple-200 flex items-center justify-center text-[#6a0dad] hover:bg-purple-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      disabled={prod.quantity >= prod.stockQuantity}
+    >
+      <Plus className="w-3 h-3" />
+    </button>
+  </div>
+  <button
+    onClick={() => removeAdditionalProduct(prod._id)}
+    className="text-red-500 hover:text-red-700 ml-2 transition-colors"
+  >
+    ✕
+  </button>
+</div>
                       </div>
                     ))}
                   </div>
